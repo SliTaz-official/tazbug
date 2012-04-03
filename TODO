@@ -1,3 +1,5 @@
 
 	* Log bug activity in $bugdir/$id/bug.log
 	* Help Box with button on tazbug-box new-bug
+	* Hg integration by checking in commits if a bug was solved
+	  and then close it: hg commit -m "My msg [CLOSE=4]"
