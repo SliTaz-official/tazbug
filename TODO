@@ -1,0 +1,3 @@
+
+	* Log bug activity in $bugdir/$id/bug.log
+	* Help Box with button on tazbug-box new-bug
