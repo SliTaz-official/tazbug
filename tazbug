@@ -1,0 +1,174 @@
+#!/bin/sh
+#
+# TazBug Command line tool. Help crypt password, key and post on the
+# the server side.
+#
+# Copyright (C) 2012 SliTaz GNU/Linux - BSD License
+#
+. /usr/lib/slitaz/httphelper
+[ -f "/etc/slitaz/tazbug.conf" ] && . /etc/slitaz/tazbug.conf
+[ -f "tazbug.conf" ] && . tazbug.conf
+
+# Use same key for SliTaz sites.
+conf=$HOME/.config/slitaz/account.conf
+
+# Internationalization: $(gettext "")
+. /usr/bin/gettext.sh
+TEXTDOMAIN='tazbug'
+export TEXTDOMAIN
+
+# Parse cmdline options.
+for opt in "$@"
+do
+	case "$opt" in
+		--bug=*)
+			bug=${opt#--bug=} ;;
+		--desc=*)
+			desc=${opt#--desc=} ;;
+		--msg=*)
+			msg=${opt#--msg=} ;;
+		--priority=*)
+			priority=${opt#--priority=} ;;
+		--pkgs=*)
+			pkgs=${opt#--pkgs=} ;;
+		--name=*)
+			name=${opt#--name=} ;;
+		--user=*)
+			user=${opt#--user=} ;;
+		--mail=*)
+			mail=${opt#--mail=} ;;
+		--pass=*)
+			pass=${opt#--pass=} ;;
+	esac
+done
+
+#
+# Functions
+#
+
+# --> in /usr/lib/slitaz/httphelper
+# httpd -e dont work with GET URL requests
+http_urlencode() {
+	#space: + or %20
+	sed -e s'/ /+/'g -e s'/!/%21/'g -e s'/"/%22/'g -e s'/#/%23/'g \
+		-e s'/%/%25/'g -e s'/&/%26/'g
+}
+
+# Usage.
+usage() {
+	cat << EOT
+
+Usage: $(basename $0) [command] [args]
+
+Commands:
+  gen-key     $(gettext "Recreate the SliTaz secure key.")
+  gen-config  $(gettext "Create a new SliTaz account configuration.")
+  signup      $(gettext "Create a new account on SliTaz Bugs.")
+  new-msg     $(gettext "Send a new message to an open bug.")
+  new-bug     $(gettext "Send a new bug report.")
+
+Examples:
+  $(basename $0) signup --name="Real Name" --user=login \\
+	--mail=mail@domain --pass=password
+  $(basename $0) new-msg --bug=0 --msg="Message for bug with ID 0"
+
+EOT
+}
+
+# Check cmdline user info args
+check_info_args() {
+	[ ! "$name" ] && gettext "Missing real name" && echo && exit 0
+	[ ! "$user" ] && gettext "Missing login name" && echo && exit 0
+	[ ! "$mail" ] && gettext "Missing email" && echo && exit 0
+	[ ! "$pass" ] && gettext "Missing password" && echo && exit 0
+}
+
+# Crypt pass when login
+crypt_pass() {
+	echo -n "$1" | md5sum | awk '{print $1}'
+}
+
+# Gen a config file
+gen_config() {
+	gettext "Creating SliTaz account configuration..."; echo
+	mkdir -p $HOME/.config/slitaz
+	cat > $conf << EOT
+# SliTaz account configuration
+
+NAME="$name"
+USER="$user"
+MAIL="$mail"
+KEY=""
+EOT
+	chmod 0600 $conf
+}
+
+# Gen the secure key: gen_key login mail passwd
+gen_key() {
+	gettext "Creating SliTaz secure key..."; echo
+	pass=$(crypt_pass $pass)
+	key=$(echo -n "$user:$mail:$pass" | md5sum | awk '{print $1}')
+	sed -i s"/KEY=.*/KEY=\"$key\"/" $conf
+	chmod 0600 $conf
+}
+
+#
+# Commands
+#
+
+case "$1" in
+	gen-key)
+		# MD5 key
+		[ ! "$pass" ] && gettext "Missing password" && echo && exit 0
+		. $conf || exit 1
+		gen_key $USER $MAIL $pass ;;
+	gen-config)
+		# Recreate a config file if value have change sites must be updated
+		check_info_args
+		gen_config
+		gen_key ;;
+	signup)
+		# Create an account on the server
+		check_info_args
+		echo ""
+		echo "Sending account request for: $2 ($3)"
+		# 'gen_key login mail passwd' localy but dont send it. It will be
+		# generated on server from the user login, mail and cryted password
+		# so it is not transmited in GET urls.
+		gen_config
+		gen_key
+		. $conf
+		name="$(echo $name | http_urlencode)"
+		pass=$(crypt_pass $pass)
+		echo "Secure key: $KEY" 
+		busybox wget "${WEB_URL}?signup=$user&name=$name&mail=$mail&pass=$pass" \
+			-O /tmp/bug.msg
+		cat /tmp/bug.msg && rm -f /tmp/bug.msg && echo "" ;;
+	new-msg)
+		# Post a new message: ID message
+		. $conf || exit 1
+		[ ! "$bug" ] && gettext "Missing bug ID" && echo && exit 0
+		[ ! "$msg" ] && gettext "Missing message" && echo && exit 0
+		msg="$(echo $msg | http_urlencode)"
+		# Wget GET url
+		busybox wget \
+			"${WEB_URL}?key=$KEY&bug=$bug&msg=$msg" -O /tmp/bug.msg
+		cat /tmp/bug.msg && rm -f /tmp/bug.msg && echo "" ;;
+	new-bug)
+		# Post a new bug: bug desc priority pkgs
+		. $conf || exit 1
+		[ ! "$bug" ] && gettext "Missing bug title" && echo && exit 0
+		[ ! "$desc" ] && gettext "Missing description" && echo && exit 0
+		[ ! "$priority" ] && gettext "Missing bug priority" && echo && exit 0
+		bug="$(echo $bug | http_urlencode)"
+		desc="$(echo $desc | http_urlencode)"
+		# Wget GET url
+		busybox wget \
+			"${WEB_URL}?key=$KEY&bug=$bug&desc=$desc&priority=$priority&pkgs=$pkgs" \
+			-O /tmp/bug.msg
+		cat /tmp/bug.msg && rm -f /tmp/bug.msg && echo "" ;;
+	*)
+		usage ;;
+esac
+
+exit 0
