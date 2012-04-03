@@ -26,7 +26,12 @@ export TEXTDOMAIN
 # Output cmd in GTK box.
 output() {
 	yad $opts --text-info --text="<b>SliTaz Bug</b>" --title="SliTaz Bug" \
-		--margins=8 --tail $btns --button="gtk-close":1
+		--margins=8 --tail --button="$(gettext "My account"):0" \
+		--button="gtk-close":1
+	case $? in
+		0) $0 account ;;
+		1) exit 0 ;;
+	esac
 }
 
 # New message box
@@ -36,6 +41,7 @@ new_msg_main() {
 		--text="<b>SliTaz Bugs Message</b>" \
 		--field="$(gettext "Bug ID")":NUM \
 		--field="$(gettext "Message")":TXT \
+		--button="$(gettext "New bug"):2" \
 		--button="$(gettext "Send message"):0" \
 		--button="gtk-close:1"
 }
@@ -48,6 +54,7 @@ new_msg() {
 	# Deal with --button values
 	case $ret in
 		1) exit 0 ;;
+		2) $0 new-bug && exit 0 ;;
 		*) continue ;;
 	esac
 	id="$(echo $main | cut -d "|" -f 1 | cut -d "," -f 1)"
@@ -98,10 +105,16 @@ new_bug() {
 # Account information.
 account_info() {
 	. $HOME/.config/slitaz/account.conf
-	echo -e "Name\n$NAME
-Login\n$LOGIN
-Mail\n$MAIL
-Secure key\n$KEY"
+	cat << EOT
+$(gettext "Real name")
+$NAME
+$(gettext "User name")
+$USER
+Email
+$MAIL
+$(gettext "Secure key")
+$KEY
+EOT
 }
 
 # Main GUI box function with pure Yad spec
@@ -162,7 +175,7 @@ signup() {
 	user="$(echo $main | cut -d "|" -f 2)"
 	mail="$(echo $main | cut -d "|" -f 3)"
 	pass="$(echo $main | cut -d "|" -f 4)"
-	./tazbug signup --name="$name" --user=$user --mail=$mail \
+	tazbug signup --name="$name" --user=$user --mail=$mail \
 		--pass="$pass" | output
 }
 
