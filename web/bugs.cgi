@@ -109,7 +109,7 @@ login_page() {
 <h2>$(gettext "Login")</h2>
 
 <div id="account-info">
-$(gettext "No account yet? Please signup using the SliTaz Bugs registration
+$(gettext "No account yet? Please signup using the SliTaz Bugs reporter
 on your SliTaz system. <p>Tip: to attach big files or images, you can use
 SliTaz Paste services:") <a href="http://paste.slitaz.org/">paste.slitaz.org</a>
 </p>

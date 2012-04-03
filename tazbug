@@ -131,7 +131,7 @@ case "$1" in
 		check_info_args
 		echo ""
 		echo "Sending account request for: $name ($user)"
-		# 'gen_key user:mail:passwd' localy but don't send it. It will be
+		# 'gen_key user:mail:passwd' locally but don't send it. It will be
 		# generated on server from the user login, mail and encryted password
 		# so it is not transmited in GET urls.
 		gen_config
