@@ -1,0 +1,190 @@
+#!/bin/sh
+#
+# SliTaz Bug GUI tool. All the account part may move to slitaz-account
+# if we use it for other sites and services so we use one centralized
+# SliTaz account.
+#
+# Copyright (C) 2012 SliTaz GNU/Linux - BSD License
+#
+# Authors : Christophe Lincoln <pankso@slitaz.org>
+#
+[ -f "/etc/slitaz/tazbug.conf" ] && . /etc/slitaz/tazbug.conf
+[ -f "tazbug.conf" ] && . tazbug.conf
+
+opts="--window-icon=/usr/share/pixmaps/slitaz-icon.png --center \
+--image=slitaz-icon --image-on-top --width=480 --height=340"
+
+# Internationalization: $(gettext "")
+. /usr/bin/gettext.sh
+TEXTDOMAIN='tazbug'
+export TEXTDOMAIN
+
+#
+# Functions
+#
+
+# Output cmd in GTK box.
+output() {
+	yad $opts --text-info --text="<b>SliTaz Bug</b>" --title="SliTaz Bug" \
+		--margins=8 --tail $btns --button="gtk-close":1
+}
+
+# New message box
+new_msg_main() {
+	yad --form $opts \
+		--title="Bug message" \
+		--text="<b>SliTaz Bugs Message</b>" \
+		--field="$(gettext "Bug ID")":NUM \
+		--field="$(gettext "Message")":TXT \
+		--button="$(gettext "Send message"):0" \
+		--button="gtk-close:1"
+}
+
+# New message main function
+new_msg() {
+	# Store box results
+	main=$(new_msg_main)
+	ret=$?
+	# Deal with --button values
+	case $ret in
+		1) exit 0 ;;
+		*) continue ;;
+	esac
+	id="$(echo $main | cut -d "|" -f 1 | cut -d "," -f 1)"
+	msg="$(echo $main | cut -d "|" -f 2)"
+	if [ "$msg" ]; then
+		tazbug new-msg --bug=$id --msg="$msg" | output
+	fi
+}
+
+# New bug box
+new_bug_main() {
+	yad --form $opts \
+		--title="Bug report" \
+		--text="<b>SliTaz Bug Report</b>" \
+		--field="$(gettext "Bug title")" \
+		--field="$(gettext "Priority")":CB \
+		--field="$(gettext "Packages")" \
+		--field="$(gettext "Description")":TXT \
+		--button="$(gettext "My account"):3" \
+		--button="$(gettext "New message"):2" \
+		--button="$(gettext "Send bug"):0" \
+		--button="gtk-close:1" \
+		"" "standard!critical" "" ""
+}
+
+# New bug main function
+new_bug() {
+	# Store box results
+	main=$(new_bug_main)
+	ret=$?
+	# Deal with --button values
+	case $ret in
+		1) exit 0 ;;
+		2) $0 new-msg && exit 0 ;;
+		3) $0 account && exit 0 ;;
+		*) continue ;;
+	esac
+	bug="$(echo $main | cut -d "|" -f 1)"
+	desc="$(echo $main | cut -d "|" -f 4)"
+	priority="$(echo $main | cut -d "|" -f 2)"
+	pkgs="$(echo $main | cut -d "|" -f 3)"
+	if [ "$bug" ] && [ "$desc" ]; then
+		tazbug new-bug --bug="$bug" --desc="$desc" --priority=$priority \
+			--pkgs="$pkgs"
+	fi
+}
+
+# Account information.
+account_info() {
+	. $HOME/.config/slitaz/account.conf
+	echo -e "Name\n$NAME
+Login\n$LOGIN
+Mail\n$MAIL
+Secure key\n$KEY"
+}
+
+# Main GUI box function with pure Yad spec
+account_main() {
+	account_info | yad --list $opts \
+		--title="Bugs account" \
+		--text="<b>SliTaz Bugs Account</b>" \
+		--column "$(gettext "Account")" \
+		--column "$(gettext "Value")" \
+		--dclick-action="" \
+		--button="$(gettext "Online bugs"):2" \
+		--button="$(gettext "New bug"):3" \
+		--button="$(gettext "New message"):4" \
+		--button="gtk-close:1"
+}
+
+# This is a function, usually the same name as the command if scripts
+# have multiple commands and options.
+account() {
+	# Store box results
+	main=$(account_main)
+	ret=$?
+	# Deal with --button values
+	case $ret in
+		1) exit 0 ;;
+		2) browser $WEB_URL && exit 0 ;;
+		3) $0 new-bug && exit 0 ;;
+		4) $0 new-msg && exit 0 ;;
+		*) continue ;;
+	esac
+}
+
+# Signup GUI box function with pure Yad spec
+signup_main() {
+	yad --form $opts --borders=4 \
+		--title="Bugs Signup" \
+		--text="<b>SliTaz Bugs Signup</b>" \
+		--field="$(gettext "Real name")" \
+		--field="$(gettext "Login name")" \
+		--field="$(gettext "Email")" \
+		--field="$(gettext "Password")":H \
+		--button="gtk-ok:0" \
+		--button="gtk-close:1"
+}
+
+# Signup main function
+signup() {
+	# Store box results
+	main=$(signup_main)
+	ret=$?
+	# Deal with --button values
+	case $ret in
+		1) exit 0 ;;
+		2) browser http://bugs.slitaz.org/ && exit 0 ;;
+		*) continue ;;
+	esac
+	name="$(echo $main | cut -d "|" -f 1)"
+	user="$(echo $main | cut -d "|" -f 2)"
+	mail="$(echo $main | cut -d "|" -f 3)"
+	pass="$(echo $main | cut -d "|" -f 4)"
+	tazbug signup --name="$name" --user=$user --mail=$mail \
+		--pass="$pass" | output
+}
+
+#
+# Script commands
+#
+
+case "$1" in
+	usage|help)
+		echo "Usage: $(basename $0) [new-msg|new-bug|account|signup]" ;;
+	new-msg)
+		new_msg ;;
+	account)
+		account ;;
+	signup) 
+		signup ;;
+	*)
+		if [ ! $HOME/.config/slitaz/account.conf ]; then
+			signup
+		fi
+		new_bug ;;
+esac
+
+exit 0
+
