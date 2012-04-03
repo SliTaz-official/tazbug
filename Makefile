@@ -52,4 +52,4 @@ install-server:
 	cp -a web $(DESTDIR)$(WEB)/bugs
 	cp README $(DESTDIR)$(PREFIX)/share/doc/tazbug
 	chown -R www.www $(DESTDIR)$(VAR)/*
-	chown -R www.www $(DESTDIR)$(WEB)/bug
+	chown -R www.www $(DESTDIR)$(WEB)/bugs/bug
