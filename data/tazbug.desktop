@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=SliTaz bug report
+Name[fr]=Rapport de bug SliTaz
+Exec=tazbug-box
+Icon=slitaz-icon
+Type=Application
+Categories=Application;Network;
