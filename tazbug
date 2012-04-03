@@ -131,7 +131,7 @@ case "$1" in
 		# Create an account on the server
 		check_info_args
 		echo ""
-		echo "Sending account request for: $2 ($3)"
+		echo "Sending account request for: $name ($user)"
 		# 'gen_key login mail passwd' localy but dont send it. It will be
 		# generated on server from the user login, mail and cryted password
 		# so it is not transmited in GET urls.
