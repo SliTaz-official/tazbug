@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# TazBug Command line tool. Help crypt password, key and post on the
+# TazBug Command line tool. Help to encrypt password, key and post on the
 # the server side.
 #
 # Copyright (C) 2012 SliTaz GNU/Linux - BSD License
@@ -122,7 +122,7 @@ case "$1" in
 		. $conf || exit 1
 		gen_key $USER $MAIL $pass ;;
 	gen-config)
-		# Recreate a config file if value have change sites must be updated
+		# Recreate a config file if values have changed sites must be updated
 		check_info_args
 		gen_config
 		gen_key ;;
@@ -131,8 +131,8 @@ case "$1" in
 		check_info_args
 		echo ""
 		echo "Sending account request for: $name ($user)"
-		# 'gen_key user:mail:passwd' localy but dont send it. It will be
-		# generated on server from the user login, mail and cryted password
+		# 'gen_key user:mail:passwd' localy but don't send it. It will be
+		# generated on server from the user login, mail and encryted password
 		# so it is not transmited in GET urls.
 		gen_config
 		pass=$(crypt_pass $pass)

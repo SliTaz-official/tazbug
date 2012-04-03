@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# SliTaz Bug GUI tool. All the account part may move to slitaz-account
+# SliTaz Bug GUI tool. All the account's parts may move to slitaz-account
 # if we use it for other sites and services so we use one centralized
 # SliTaz account.
 #

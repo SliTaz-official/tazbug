@@ -109,9 +109,9 @@ login_page() {
 <h2>$(gettext "Login")</h2>
 
 <div id="account-info">
-$(gettext "Not yet and account ? Please signup using SliTaz Bugs formular
-from your SliTaz system. <p>Tip: to attach big files or images, you can use
-SliTaz Paste service:") <a href="http://paste.slitaz.org/">paste.slitaz.org</a>
+$(gettext "No account yet? Please signup using the SliTaz Bugs registration
+on your SliTaz system. <p>Tip: to attach big files or images, you can use
+SliTaz Paste services:") <a href="http://paste.slitaz.org/">paste.slitaz.org</a>
 </p>
 </div>
 
@@ -183,8 +183,8 @@ EOT
 	done
 }
 
-# Stripped down Wiki parser for bug desc and messages wich are simply
-# displyed in <pre>
+# Stripped down Wiki parser for bug desc and messages which are simply
+# displayed in <pre>
 wiki_parser() {
 	sed \
 		-e s"#http://\([^']*\).png#<img src='\0' alt='[ Image ]' />#"g \
@@ -496,7 +496,7 @@ case " $(GET) " in
 		if check_auth; then
 			new_bug_page
 		else
-			echo "<p>$(gettext "You must be logged to post a new bug")</p>"
+			echo "<p>$(gettext "You must be logged in to post a new bug")</p>"
 		fi
 		html_footer ;;
 	*\ addbug\ *)
@@ -538,7 +538,7 @@ case " $(GET) " in
 		user="$(GET signup)"
 		echo "Requested user login : $user"
 		if fgrep -q "$user:" $AUTH_FILE; then
-			echo "ERROR: User already exist" && exit 1
+			echo "ERROR: User already exists" && exit 1
 		else
 			echo "Creating account for : $(GET name)"
 			new_user_config 
