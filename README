@@ -11,7 +11,7 @@ Users data are securely stored outside of the web server document root. Password
 are crypted with MD5 and also stored outside of the document root. Your ID key
 is the MD5 sum of your login, mail and password
 
-TazBug is simple to use, 2 type of status exist: OPEN and CLOSED and 4 priority
+TazBug is simple to use, 2 type of status exist: OPEN and CLOSED and 2 priority
 level are handled. Affected packages name can be added to the bug and the all
 bug configuration file can be edited.
 
@@ -26,12 +26,21 @@ TazBug Goals
 	* Use shared accounts with other sites to have only one login
 
 
+Accounts
+--------
+To create an account on SliTaz Bugs you must use the graphical box from
+your SliTaz system and found in the menu "Network" --> "SliTaz bug report"
+You can also use the command line tool tazbug with the signup command:
+
+$ tazbug signup --name="Real Name" --user=login --mail=mail@domain --pass=pass
+
+
 Installation
 ------------
 TazBug should work on any SliTaz system and can be used as a Bug Tracker for
 your project. You can grab last source from SliTaz Mercurial repositories or
 a release tarball from SliTaz mirrors. You need a web server with CGI support
-and SliTaz httphelp in /usr/lib/slitaz as well as Busybox HTTPd applet.
+and SliTaz httphelper in /usr/lib/slitaz as well as Busybox HTTPd applet.
 
 People config files: /var/lib/slitaz/people
 Auth file with pass: /var/lib/slitaz/auth/people
