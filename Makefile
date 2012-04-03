@@ -46,10 +46,10 @@ install:
 install-server:
 	install -m 0700 -d $(DESTDIR)$(VAR)/people
 	install -m 0700 -d $(DESTDIR)$(VAR)/auth
-	install -m 0777 -d $(DESTDIR)$(WEB)
 	install -m 0777 -d $(DESTDIR)$(PREFIX)/share/doc/tazbug
 	touch $(DESTDIR)$(VAR)/auth/people
 	chmod 0600 $(DESTDIR)$(VAR)/auth/people
 	cp -a web $(DESTDIR)$(WEB)/bugs
 	cp README $(DESTDIR)$(PREFIX)/share/doc/tazbug
 	chown -R www.www $(DESTDIR)$(VAR)/*
+	chown -R www.www $(DESTDIR)$(WEB)/bug

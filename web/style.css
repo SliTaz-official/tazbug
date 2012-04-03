@@ -1,0 +1,192 @@
+/* CSS style for SliTaz Bugs */
+
+html { min-height: 102%; }
+body { font: 13px sans-serif, vernada, arial; margin: 0; }
+h1 { margin: 0; padding: 8px; color: #fff; font-size: 20px; }
+h1 a { color: #fff; text-decoration: none; }
+h2 { color: #444; } h3 { color: #666; font-size: 140%; }
+a { text-decoration: underline; color: #215090; }
+a:hover { text-decoration: none; }
+img { border: 0pt none; vertical-align: middle; }
+pre {
+	overflow: auto;
+	font-size: 96%;
+}
+textarea { width: 100%; }
+
+/* Header */
+
+#header {
+	background: #351a0a;
+	height: 40px;
+	border-bottom: 8px solid #d66018;
+}
+
+#header h1 {
+	margin: 0;
+	padding: 8px 0 0 42px;
+	width: 250px;
+}
+
+#header h1 a { 
+	color: white; 
+	text-decoration: none;
+	font-size: 20px;
+	font-style: italic;
+}
+
+#header h1 a:hover, #network a:hover { 
+	color: #d66018;
+}
+
+/* Header links */
+
+#network { 
+	float: right; 
+	padding: 10px 5px 0; 
+	font-size: 12px;
+}
+
+#network a {
+	padding: 0 6px;
+	color: #fff; 
+	font-weight: bold;
+	text-decoration: none;
+}
+
+/* Logo */
+
+#logo {
+	background: url(images/logo.png) no-repeat left;
+	position: absolute;
+	float: left;
+	left: 0px;
+	top: 0px;
+	width: 40px;
+	height: 40px;
+}
+
+/* Content */
+
+#content {
+	margin: 40px auto;
+	text-align: justify;
+	width: 720px;
+}
+
+#login {
+	width: 280px;
+	float: left;
+	height: 120px;
+}
+
+#login input[type="text"], #login input[type="password"],
+#tools input[type="text"] { 
+	width: 180px; padding: 3px; }
+#tools input[type="submit"] { padding: 3px; }
+#login input[type="submit"] { float: none; }
+
+#user {
+	min-width: 180px;
+	height: 20px;
+	float: right;
+	position: absolute;
+	right: 20px;
+	top: 68px;
+}
+#user a { padding: 0 4px; }
+
+#account-info { width: 380px; height: 120px; float: right; }
+
+#newbug textarea { width: 460px; }
+
+#edit textarea { width: 100%; height: 240px; }
+
+.box, pre, #user, #login, #account-info {
+	background-color: #f8f8f8;
+	border: 1px solid #ddd;
+	padding: 10px;
+}
+
+.error { color: red; }
+.ok { color: green; }
+
+/* Progress bar */
+
+.pct { background: #9dff4a; padding: 2px 4px; }
+
+.pctbar {
+	margin: 0;
+	color: #666;
+	background: #f1f1f1;
+	border: 1px solid #ddd;
+	overflow: hidden;
+	clear: both;
+}
+
+/* Form */
+
+form { display: inline; }
+textarea { border: 2px solid #ccc; padding: 4px; width: 100%; }
+select { min-width: 180px; }
+input[type="submit"], input[type="text"], input[type="password"], 
+select, #tools a {
+	color: #444444;
+	border: 1px solid #cccccc;
+	padding: 4px;
+	margin: 4px 0px;
+	font-size: 14px;
+	line-height: 1.2em;
+	background-image: -webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+	background-image: -moz-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+	-webkit-appearance: none;
+	-webkit-padding-end: 12px;
+	-webkit-padding-start: 6px;
+}
+
+input[type="text"], input[type="password"] { 
+	background: #fefefe; border: 2px solid #ccc; 
+	width: 460px; }
+/*input[type="file"] { border: 2px solid #ddd; }*/
+/*input[type="checkbox"] { background: #fefefe; }*/
+
+/* Be compatible with old FF and Webkit version. */
+input[type="submit"] {
+	-webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+input[type="submit"]:hover, #tools a:hover { 
+	cursor: pointer;
+	color: black;
+}
+
+select { 
+	background-image: url(images/down.png), 
+		-webkit-linear-gradient(#FAFAFA, #F4F4F4 40%, #E5E5E5);
+	background-position: center right;
+	background-repeat: no-repeat;
+}
+
+#tools a { text-decoration: none; margin: 4px 6px 4px 0px; }
+
+/* Round corner */
+
+pre, .button, .pctbar, #login, #account-info, #user, img, input,
+textarea, select, #tools a {
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+}
+
+/* Footer */
+
+#footer {
+	text-align: center;
+	padding: 20px;
+	border-top: 1px solid #ddd;
+	font-size: 90%;
+}
+
+#footer a { padding: 0 2px; }
