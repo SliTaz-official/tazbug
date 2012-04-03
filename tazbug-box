@@ -162,7 +162,7 @@ signup() {
 	user="$(echo $main | cut -d "|" -f 2)"
 	mail="$(echo $main | cut -d "|" -f 3)"
 	pass="$(echo $main | cut -d "|" -f 4)"
-	tazbug signup --name="$name" --user=$user --mail=$mail \
+	./tazbug signup --name="$name" --user=$user --mail=$mail \
 		--pass="$pass" | output
 }
 
@@ -180,7 +180,7 @@ case "$1" in
 	signup) 
 		signup ;;
 	*)
-		if [ ! $HOME/.config/slitaz/account.conf ]; then
+		if [ ! -f $HOME/.config/slitaz/account.conf ]; then
 			signup
 		fi
 		new_bug ;;

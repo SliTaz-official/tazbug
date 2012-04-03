@@ -196,7 +196,7 @@ bug_page() {
 	if [ -f "$PEOPLE/$CREATOR/slitaz.conf" ]; then
 		. $PEOPLE/$CREATOR/slitaz.conf
 	else
-		MAIL="defaul"
+		MAIL="default"
 	fi
 	cat << EOT
 <h2>Bug $id</h2>

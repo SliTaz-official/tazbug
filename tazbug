@@ -22,17 +22,17 @@ for opt in "$@"
 do
 	case "$opt" in
 		--bug=*)
-			bug=${opt#--bug=} ;;
+			bug="${opt#--bug=}" ;;
 		--desc=*)
-			desc=${opt#--desc=} ;;
+			desc="${opt#--desc=}" ;;
 		--msg=*)
-			msg=${opt#--msg=} ;;
+			msg="${opt#--msg=}" ;;
 		--priority=*)
 			priority=${opt#--priority=} ;;
 		--pkgs=*)
-			pkgs=${opt#--pkgs=} ;;
+			pkgs="${opt#--pkgs=}" ;;
 		--name=*)
-			name=${opt#--name=} ;;
+			name="${opt#--name=}" ;;
 		--user=*)
 			user=${opt#--user=} ;;
 		--mail=*)
@@ -106,7 +106,6 @@ EOT
 # Gen the secure key: gen_key login mail passwd
 gen_key() {
 	gettext "Creating SliTaz secure key..."; echo
-	pass=$(crypt_pass $pass)
 	key=$(echo -n "$user:$mail:$pass" | md5sum | awk '{print $1}')
 	sed -i s"/KEY=.*/KEY=\"$key\"/" $conf
 	chmod 0600 $conf
@@ -132,15 +131,16 @@ case "$1" in
 		check_info_args
 		echo ""
 		echo "Sending account request for: $name ($user)"
-		# 'gen_key login mail passwd' localy but dont send it. It will be
+		# 'gen_key user:mail:passwd' localy but dont send it. It will be
 		# generated on server from the user login, mail and cryted password
 		# so it is not transmited in GET urls.
 		gen_config
+		pass=$(crypt_pass $pass)
+		name="$(echo $name | http_urlencode)"
 		gen_key
 		. $conf
-		name="$(echo $name | http_urlencode)"
-		pass=$(crypt_pass $pass)
-		echo "Secure key: $KEY" 
+		echo "Secure key: $KEY"
+		# Wget GET url
 		busybox wget "${WEB_URL}?signup=$user&name=$name&mail=$mail&pass=$pass" \
 			-O /tmp/bug.msg
 		cat /tmp/bug.msg && rm -f /tmp/bug.msg && echo "" ;;
