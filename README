@@ -1,0 +1,49 @@
+TazBug - The SliTaz Bug Tracker
+================================================================================
+
+
+The SliTaz Project have setup and tried several bug trackers but ther wher never
+adopted by the main developers. This is an attemp to change that by providong
+a radicaly simple tool well integrated wirh SliTaz packages Cooker, Cookiso,
+Roadmap and other sites such as the wiki and forum.
+
+Users data are securely stored outside of the web server document root. Password
+are crypted with MD5 and also stored outside of the document root. Your ID key
+is the MD5 sum of your login, mail and password
+
+TazBug is simple to use, 2 type of status exist: OPEN and CLOSED and 4 priority
+level are handled. Affected packages name can be added to the bug and the all
+bug configuration file can be edited.
+
+
+TazBug Goals
+------------
+
+	* Simple to use with a clean and modern interface
+	* Client side cmdline tool to post bugs and messages
+	* Full desktop integration with GTK boxes or local CGI script
+	* Use http://paste.slitaz.org/ for attached files
+	* Use shared accounts with other sites to have only one login
+
+
+Installation
+------------
+TazBug should work on any SliTaz system and can be used as a Bug Tracker for
+your project. You can grab last source from SliTaz Mercurial repositories or
+a release tarball from SliTaz mirrors. You need a web server with CGI support
+and SliTaz httphelp in /usr/lib/slitaz as well as Busybox HTTPd applet.
+
+People config files: /var/lib/slitaz/people
+Auth file with pass: /var/lib/slitaz/auth/people
+
+
+Developement
+------------
+Shell scripts as usual, HTML 5, CSS 3 and a bit of Javascript. To work on bugs
+locally you have to clone the repo, create a vhost for the web interface and
+modify tazbug.conf to match your installation. You must also edit /etc/hosts
+to add your vhost.
+
+
+================================================================================
+
