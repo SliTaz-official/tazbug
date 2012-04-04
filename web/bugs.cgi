@@ -80,8 +80,7 @@ user_box() {
 		. $PEOPLE/$user/slitaz.conf
 		cat << EOT
 <div id="user">
-$(get_gravatar $MAIL 20)
-<a href="?user=$user">$user</a>
+<a href="?user=$user">$(get_gravatar $MAIL 20)</a>
 <a href="?logout">Logout</a>
 </div>
 EOT
@@ -94,6 +93,13 @@ EOT
 EOT
 	fi
 	cat << EOT
+
+<div id="search">
+	<form method="get" action="./">
+		<input type="text" name="search" placeholder="$(gettext "Search")" />
+		<!-- <input type="submit" value="$(gettext "Search")" /> -->
+	</form>
+</div>
 
 <!-- Content -->
 <div id="content">
@@ -617,8 +623,11 @@ EOT
 </div>
 
 <p>
-	Beta code! Please read the <a href="?README">README</a> for more 
-	information. 
+	Please read the <a href="?README">README</a> for help and more 
+	information. You may also be interested by the SliTaz
+	<a href="http://roadmap.slitaz.org/">Roadmap</a> and the packages 
+	<a href="http://cook.slitaz.org/">Cooker</a>. To perform a search
+	enter your term and press ENTER.
 </p>
 
 <div id="tools">
@@ -628,10 +637,6 @@ EOT
 			echo "<a href='?newbug'>$(gettext "Create a new bug")</a>"
 		fi
 		cat << EOT
-<form method="get" action="./">
-	<input type="text" name="search" placeholder="$(gettext "Search")" />
-	<!-- <input type="submit" value="$(gettext "Search")" /> -->
-</form>
 </div>
 EOT
 		list_bugs OPEN

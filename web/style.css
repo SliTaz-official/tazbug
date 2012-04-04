@@ -35,7 +35,7 @@ textarea { width: 100%; }
 	font-style: italic;
 }
 
-#header h1 a:hover, #network a:hover { 
+#header h1 a:hover { 
 	color: #d66018;
 }
 
@@ -43,16 +43,19 @@ textarea { width: 100%; }
 
 #network { 
 	float: right; 
-	padding: 10px 5px 0; 
+	padding: 12px 5px 0; 
 	font-size: 12px;
+	margin-right: 100px;
 }
 
 #network a {
-	padding: 0 6px;
+	padding: 0 4px;
 	color: #fff; 
 	font-weight: bold;
 	text-decoration: none;
 }
+
+#network a:hover, #user a:hover { color: #cfcfcf; }
 
 /* Logo */
 
@@ -66,13 +69,7 @@ textarea { width: 100%; }
 	height: 40px;
 }
 
-/* Content */
-
-#content {
-	margin: 40px auto;
-	text-align: justify;
-	max-width: 720px;
-}
+/* Login and user box */
 
 #login {
 	width: 240px;
@@ -80,29 +77,51 @@ textarea { width: 100%; }
 	height: 120px;
 }
 
-#login input[type="text"], #login input[type="password"],
-#tools input[type="text"] { 
-	width: 220px; padding: 3px; }
-#tools input[type="submit"] { padding: 3px; }
+#login input[type="text"], #login input[type="password"] { 
+	width: 200px; }
+
 #login input[type="submit"] { float: none; }
 
 #user {
-	min-width: 180px;
-	height: 20px;
+	background-color: #3A2B22;
+	padding: 4px;
+	width: 84px;
 	float: right;
+	font-size: 12px;
+	position: absolute;
+	right: 10px;
+	top: 6px;
+}
+#user a { padding: 0 2px; color: #fff; 
+	font-weight: bold; text-decoration: none; }
+
+#account-info { width: 340px; height: 120px; float: right; }
+
+/* Search */
+
+#search {
 	position: absolute;
 	right: 20px;
-	top: 68px;
+	top: 60px;
+	
 }
-#user a { padding: 0 4px; }
 
-#account-info { width: 420px; height: 120px; float: right; }
+#search input[type="text"] { width: 200px; }
+
+/* Content */
+
+#content {
+	margin: 40px auto;
+	padding: 0 20px;
+	text-align: justify;
+	max-width: 680px;
+}
 
 #newbug textarea { width: 460px; }
 
 #edit textarea { width: 100%; height: 240px; }
 
-.box, pre, #user, #login, #account-info {
+.box, pre, #login, #account-info {
 	background-color: #f8f8f8;
 	border: 1px solid #ddd;
 	padding: 10px;
@@ -169,6 +188,13 @@ select {
 	background-repeat: no-repeat;
 }
 
+#tools { 
+	padding-top: 10px; 
+	/*margin-top: 20px; 
+	border-top: 1px dotted #ccc;
+	position: fixed;
+	bottom: 10px;*/
+}
 #tools a { text-decoration: none; margin: 4px 6px 4px 0px; }
 
 /* Round corner */
