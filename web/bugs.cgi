@@ -340,7 +340,7 @@ new_bug_page() {
 </form>
 
 <p>
-$(gettext "* filed is obligatory. You can also specify affected packages.")
+$(gettext "* field is obligatory. You can also specify affected packages.")
 </p>
 
 </div>

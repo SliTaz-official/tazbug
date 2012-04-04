@@ -1,6 +1,6 @@
-# SOME DESCRIPTIVE TITLE.
+# LANGUAGE translation for SliTaz Bugs.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the SliTaz Bugs package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
@@ -8,13 +8,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SliTaz Bugs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-03 11:35+0200\n"
+"POT-Creation-Date: 2012-04-04 13:13+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: tazbug:64
@@ -49,7 +49,7 @@ msgstr ""
 msgid "Missing email"
 msgstr ""
 
-#: tazbug:83 tazbug:122
+#: tazbug:83 tazbug:121
 msgid "Missing password"
 msgstr ""
 
@@ -81,75 +81,83 @@ msgstr ""
 msgid "Missing bug priority"
 msgstr ""
 
-#: tazbug-box:37
-msgid "Bug ID"
-msgstr ""
-
-#: tazbug-box:38
-msgid "Message"
-msgstr ""
-
-#: tazbug-box:39 web/bugs.cgi:259
-msgid "Send message"
-msgstr ""
-
-#: tazbug-box:65 web/bugs.cgi:317
-msgid "Bug title"
-msgstr ""
-
-#: tazbug-box:66 web/bugs.cgi:329
-msgid "Priority"
-msgstr ""
-
-#: tazbug-box:67 web/bugs.cgi:325
-msgid "Packages"
-msgstr ""
-
-#: tazbug-box:68 web/bugs.cgi:321
-msgid "Description"
-msgstr ""
-
-#: tazbug-box:69
+#: tazbug-box:29 tazbug-box:76
 msgid "My account"
 msgstr ""
 
-#: tazbug-box:70 tazbug-box:117 web/bugs.cgi:255
-msgid "New message"
+#: tazbug-box:42
+msgid "Bug ID"
 msgstr ""
 
-#: tazbug-box:71
-msgid "Send bug"
+#: tazbug-box:43
+msgid "Message"
 msgstr ""
 
-#: tazbug-box:112
-msgid "Account"
-msgstr ""
-
-#: tazbug-box:113
-msgid "Value"
-msgstr ""
-
-#: tazbug-box:115
-msgid "Online bugs"
-msgstr ""
-
-#: tazbug-box:116
+#: tazbug-box:44 tazbug-box:129
 msgid "New bug"
 msgstr ""
 
-#: tazbug-box:142
+#: tazbug-box:45 web/bugs.cgi:259
+msgid "Send message"
+msgstr ""
+
+#: tazbug-box:72 web/bugs.cgi:317
+msgid "Bug title"
+msgstr ""
+
+#: tazbug-box:73 web/bugs.cgi:329
+msgid "Priority"
+msgstr ""
+
+#: tazbug-box:74 web/bugs.cgi:325
+msgid "Packages"
+msgstr ""
+
+#: tazbug-box:75 web/bugs.cgi:321
+msgid "Description"
+msgstr ""
+
+#: tazbug-box:77 tazbug-box:130 web/bugs.cgi:255
+msgid "New message"
+msgstr ""
+
+#: tazbug-box:78
+msgid "Send bug"
+msgstr ""
+
+#: tazbug-box:109 tazbug-box:155
 msgid "Real name"
 msgstr ""
 
-#: tazbug-box:143
+#: tazbug-box:111 web/bugs.cgi:123
+msgid "User name"
+msgstr ""
+
+#: tazbug-box:115
+msgid "Secure key"
+msgstr ""
+
+#: tazbug-box:125
+msgid "Account"
+msgstr ""
+
+#: tazbug-box:126
+msgid "Value"
+msgstr ""
+
+#: tazbug-box:128
+msgid "Online bugs"
+msgstr ""
+
+#: tazbug-box:156
 msgid "Login name"
 msgstr ""
 
-#: tazbug-box:144
+#: tazbug-box:157
 msgid "Email"
 msgstr ""
 
-#: tazbug-box:145 web/bugs.cgi:127
+#: tazbug-box:158 web/bugs.cgi:127
 msgid "Password"
 msgstr ""
 
@@ -159,13 +167,9 @@ msgstr ""
 
 #: web/bugs.cgi:112
 msgid ""
-"Not yet and account ? Please signup using SliTaz Bugs formular\n"
-"from your SliTaz system. <p>Tip: to attach big files or images, you can use\n"
-"SliTaz Paste service:"
-msgstr ""
-
-#: web/bugs.cgi:123
-msgid "User name"
+"No account yet? Please signup using the SliTaz Bugs reporter\n"
+"on your SliTaz system. <p>Tip: to attach big files or images, you can use\n"
+"SliTaz Paste services:"
 msgstr ""
 
 #: web/bugs.cgi:219
@@ -205,7 +209,7 @@ msgid "Create Bug"
 msgstr ""
 
 #: web/bugs.cgi:343
-msgid "* filed is obligatory. You can also specify affected packages."
+msgid "* field is obligatory. You can also specify affected packages."
 msgstr ""
 
 #: web/bugs.cgi:359
@@ -217,7 +221,7 @@ msgid "Bad login or pass"
 msgstr ""
 
 #: web/bugs.cgi:499
-msgid "You must be logged to post a new bug"
+msgid "You must be logged in to post a new bug"
 msgstr ""
 
 #: web/bugs.cgi:579 web/bugs.cgi:582 web/bugs.cgi:633
