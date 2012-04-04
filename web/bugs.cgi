@@ -21,6 +21,7 @@ do
 	case "$lang" in
 		en) lang="C" ;;
 		fr) lang="fr_FR" ;;
+		ru) lang="ru_RU" ;;
 	esac
 done
 unset IFS
