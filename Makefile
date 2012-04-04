@@ -6,7 +6,7 @@ PREFIX?=/usr
 DESTDIR?=
 WEB?=/var/www
 VAR?=/var/lib/slitaz
-LINGUAS?=fr
+LINGUAS?=ru
 
 all:
 
