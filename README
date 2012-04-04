@@ -8,11 +8,11 @@ a radically simple tool well integrated with the SliTaz packages Cooker, Cookiso
 Roadmap and other sites such as the wiki and forum.
 
 Users data are securely stored outside of the web server document root. Passwords
-are crypted with MD5 and also stored outside of the document root. Your ID key
+are encrypted with MD5 and also stored outside of the document root. Your ID key
 is the MD5 sum of your login, mail and password.
 
 TazBug is simple to use, 2 types of status exist: OPEN and CLOSED and 2 priority
-levels are handled. Affected packages names can be added to the bug and the all
+levels are handled. Affected packages names can be added to the bug and all
 bug configuration files can be edited.
 
 
@@ -29,7 +29,7 @@ TazBug Goals
 Accounts
 --------
 To create an account on SliTaz Bugs you must use the graphical box from
-your SliTaz system and found in the menu "Network" --> "SliTaz bug report"
+your SliTaz system found in the menu "Network" --> "SliTaz bug report"
 You can also use the command line tool tazbug with the signup command:
 
 $ tazbug signup --name="Real Name" --user=login --mail=mail@domain --pass=pass

@@ -132,7 +132,7 @@ case "$1" in
 		echo ""
 		echo "Sending account request for: $name ($user)"
 		# 'gen_key user:mail:passwd' locally but don't send it. It will be
-		# generated on server from the user login, mail and encryted password
+		# generated on server from the user login, mail and encrypted password
 		# so it is not transmited in GET urls.
 		gen_config
 		pass=$(crypt_pass $pass)
