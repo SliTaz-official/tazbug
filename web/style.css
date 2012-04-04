@@ -71,18 +71,18 @@ textarea { width: 100%; }
 #content {
 	margin: 40px auto;
 	text-align: justify;
-	width: 720px;
+	max-width: 720px;
 }
 
 #login {
-	width: 280px;
+	width: 240px;
 	float: left;
 	height: 120px;
 }
 
 #login input[type="text"], #login input[type="password"],
 #tools input[type="text"] { 
-	width: 180px; padding: 3px; }
+	width: 220px; padding: 3px; }
 #tools input[type="submit"] { padding: 3px; }
 #login input[type="submit"] { float: none; }
 
@@ -96,7 +96,7 @@ textarea { width: 100%; }
 }
 #user a { padding: 0 4px; }
 
-#account-info { width: 380px; height: 120px; float: right; }
+#account-info { width: 420px; height: 120px; float: right; }
 
 #newbug textarea { width: 460px; }
 

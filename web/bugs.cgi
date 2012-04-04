@@ -117,22 +117,12 @@ SliTaz Paste services:") <a href="http://paste.slitaz.org/">paste.slitaz.org</a>
 
 <div id="login">
 	<form method="post" action="$SCRIPT_NAME">
-		<table>
-			<tbody>
-				<tr>
-					<td>$(gettext "User name")</td>
-					<td><input type="text" name="auth" /></td>
-				</tr>
-				<tr>
-					<td>$(gettext "Password")</td>
-					<td><input type="password" name="pass" /></td>
-				</tr>
-				<tr>
-					<td><input type="submit" value="$(gettext "Login")" /></td>
-					<td>$error </td>
-				</tr>
-			</tbody>
-		</table>
+		<input type="text" name="auth" placeholder="$(gettext "User name")" />
+		<input type="password" name="pass" placeholder="$(gettext "Password")" />
+		<div>
+			<input type="submit" value="Login" />
+			$error
+		</div>
 	</form>
 </div>
 
@@ -172,10 +162,9 @@ list_bugs() {
 			if [ "$PRIORITY" == "$pr" ]; then
 				cat << EOT
 <pre>
-Bug title  : <strong>$BUG</strong>
+Bug title  : <strong>$BUG</strong> <a href="?id=$id">Show</a>
 ID - Date  : $id - $DATE
-Creator    : <a href="?user=$CREATOR">$CREATOR</a> - \
-<a href="?id=$id">Show Bug</a>
+Creator    : <a href="?user=$CREATOR">$CREATOR</a>
 </pre>
 EOT
 			fi
@@ -392,7 +381,7 @@ get_gravatar() {
 	echo "<img src='$url/$md5?d=identicon&s=$size' alt='' />"
 }
 
-# Create a new user
+# Create a new user in AUTH_FILE and PEOPLE
 new_user_config() {
 	mail="$(GET mail)"
 	pass="$(GET pass)"
@@ -466,6 +455,7 @@ case " $(GET) " in
 			error="<span class="error">$(gettext "Bad login or pass")</span>"
 		header 
 		html_header
+		user_box
 		login_page 
 		html_footer ;;
 	*\ logout\ *)
@@ -581,17 +571,26 @@ case " $(GET) " in
 	<input type="text" name="search" />
 	<input type="submit" value="$(gettext "Search")" />
 </form>
-<pre>
+<div>
 EOT
-		IFS="/"
-		grep -i -H $(GET search) $bugdir/*/* | while read bug id file
+	
+		#found=0 JS to notify or write results nb under the search box.
+		for bug in $bugdir/*
 		do
-			echo -n "<a href='?id=$id'>Bug</a> $id : " 
-			echo $file | cut -d : -f 2 | \
-				sed s"/$(GET search)/<span class='ok'>$(GET search)<\/span>/"g
+			result=$(fgrep -i "$(GET search)" $bug/*)
+			if [ "$result" ]; then
+				#found=$(($found + 1))
+				id=${bug#bug/}
+				echo "<p><strong>Bug $id</strong> <a href='?id=$id'>$(gettext "Show")</a></p>"
+				echo '<pre>'
+				fgrep -i "$(GET search)" $bugdir/$id/* | \
+					sed s"/$(GET search)/<span class='ok'>$(GET search)<\/span>/"g
+				echo '</pre>'
+			else
+				gettext "<p>No result found for:"; echo " $(GET search)</p>"
+			fi
 		done
-		unset IFS
-		echo '</pre>' 
+		echo '</div>'
 		html_footer ;;
 	*)
 		# Default page.
@@ -629,8 +628,8 @@ EOT
 		fi
 		cat << EOT
 <form method="get" action="./">
-	<input type="text" name="search" />
-	<input type="submit" value="$(gettext "Search")" />
+	<input type="text" name="search" placeholder="$(gettext "Search")" />
+	<!-- <input type="submit" value="$(gettext "Search")" /> -->
 </form>
 </div>
 EOT
