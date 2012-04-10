@@ -77,7 +77,7 @@ check_auth() {
 # Authentified or not
 user_box() {
 	if check_auth; then
-		. $PEOPLE/$user/slitaz.conf
+		. $PEOPLE/$user/account.conf
 		cat << EOT
 <div id="user">
 <a href="?user=$user">$(get_gravatar $MAIL 20)</a>
@@ -87,7 +87,7 @@ EOT
 	else
 	cat << EOT
 <div id="user">
-	<img src="images/avatar.png" alt="[ User ]" />
+	<a href="?login"><img src="images/avatar.png" alt="[ User ]" /></a>
 	<a href="?login">Login</a>
 </div>
 EOT
@@ -189,8 +189,8 @@ wiki_parser() {
 
 # Bug page
 bug_page() {
-	if [ -f "$PEOPLE/$CREATOR/slitaz.conf" ]; then
-		. $PEOPLE/$CREATOR/slitaz.conf
+	if [ -f "$PEOPLE/$CREATOR/account.conf" ]; then
+		. $PEOPLE/$CREATOR/account.conf
 	else
 		MAIL="default"
 	fi
@@ -395,7 +395,7 @@ new_user_config() {
 	key=$(echo -n "$user:$mail:$pass" | md5sum | awk '{print $1}')
 	echo "$user:$pass" >> $AUTH_FILE
 	mkdir -p $PEOPLE/$user/
-	cat > $PEOPLE/$user/slitaz.conf << EOT
+	cat > $PEOPLE/$user/account.conf << EOT
 # SliTaz user configuration
 #
 
@@ -409,7 +409,7 @@ LOCATION="$(GET location)"
 RELEASES="$(GET releases)"
 PACKAGES="$(GET packages)"
 EOT
-	chmod 0600 $PEOPLE/$user/slitaz.conf
+	chmod 0600 $PEOPLE/$user/account.conf
 }
 
 #
@@ -477,7 +477,7 @@ case " $(GET) " in
 		header
 		html_header
 		user_box
-		. $PEOPLE/"$(GET user)"/slitaz.conf
+		. $PEOPLE/"$(GET user)"/account.conf
 		echo "<h2>$(get_gravatar $MAIL) $(GET user)</h2>"
 		if check_auth && [ "$(GET user)" == "$user" ]; then
 			auth_people
@@ -549,8 +549,8 @@ case " $(GET) " in
 		id="$(GET bug)"
 		header "Content-type: text/plain;"
 		echo "Checking secure key..." 
-		if fgrep -qH $key $PEOPLE/*/slitaz.conf; then
-			conf=$(fgrep -H $key $PEOPLE/*/slitaz.conf | cut -d ":" -f 1)
+		if fgrep -qH $key $PEOPLE/*/account.conf; then
+			conf=$(fgrep -H $key $PEOPLE/*/account.conf | cut -d ":" -f 1)
 			. $conf
 			echo "Authentified: $NAME ($USER)"
 			case " $(GET) " in

@@ -98,7 +98,7 @@ new_bug() {
 	pkgs="$(echo $main | cut -d "|" -f 3)"
 	if [ "$bug" ] && [ "$desc" ]; then
 		tazbug new-bug --bug="$bug" --desc="$desc" --priority=$priority \
-			--pkgs="$pkgs"
+			--pkgs="$pkgs" | output
 	fi
 }
 
