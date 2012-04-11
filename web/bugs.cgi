@@ -10,6 +10,7 @@
 
 # Internal variable
 bugdir="bug"
+plugins="plugins"
 sessions="/tmp/tazbug/sessions"
 
 # Content negotiation for Gettext
@@ -54,11 +55,6 @@ html_footer() {
 </body>
 </html>
 EOT
-}
-
-# Crypt pass when login
-crypt_pass() {
-	echo -n "$1" | md5sum | awk '{print $1}'
 }
 
 # Check if user is auth
@@ -384,7 +380,7 @@ get_gravatar() {
 	size=$2
 	[ "$size" ] || size=48
 	url="http://www.gravatar.com/avatar"
-	md5=$(echo -n $email | md5sum | cut -d " " -f 1)
+	md5=$(md5crypt $email)
 	echo "<img src='$url/$md5?d=identicon&s=$size' alt='' />"
 }
 
@@ -422,7 +418,7 @@ case " $(POST) " in
 		# by check_auth. We have the user login name and a peer session
 		# md5 string in the COOKIE.
 		user="$(POST auth)"
-		pass="$(crypt_pass "$(POST pass)")"
+		pass="$(md5crypt "$(POST pass)")"
 		valid=$(fgrep "${user}:" $AUTH_FILE | cut -d ":" -f 2)
 		if [ "$pass" == "$valid" ] && [ "$pass" != "" ]; then
 			md5session=$(echo -n "$$:$user:$pass:$$" | md5sum | awk '{print $1}')
@@ -434,6 +430,15 @@ case " $(POST) " in
 			header "Location: $WEB_URL?login&error"
 		fi ;;
 esac
+
+#
+# Plugins
+#
+for p in $(ls -1 $plugins)
+do
+	[ -f "$plugins/$p/$p.conf" ] && . $plugins/$p/$p.conf
+	[ -x "$plugins/$p/$p.cgi" ] && . $plugins/$p/$p.cgi
+done
 
 #
 # GET actions
