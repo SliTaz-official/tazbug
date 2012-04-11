@@ -3,3 +3,7 @@
 	* Help Box with button on tazbug-box new-bug
 	* Hg integration by checking in commits if a bug was solved
 	  and then close it: hg commit -m "My msg [CLOSE=4]"
+	  Or full Hg integration ? Meaning the tracker itself under Hg and
+	  each new bug or msg create a commit like in TinyCM ?
+	* If TinyCM is adopted and the SliTaz authentification system is
+	  approved: split auth code into /usr/lib/slitaz/libcgiauth.sh
