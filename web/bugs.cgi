@@ -12,21 +12,29 @@
 bugdir="bug"
 plugins="plugins"
 sessions="/tmp/tazbug/sessions"
+po=""
 
 # Content negotiation for Gettext
 IFS=","
 for lang in $HTTP_ACCEPT_LANGUAGE
 do
 	lang=${lang%;*} lang=${lang# } lang=${lang%-*}
-	[ -d "$lang" ] &&  break
 	case "$lang" in
-		en) lang="C" ;;
-		fr) lang="fr_FR" ;;
-		ru) lang="ru_RU" ;;
+		en) LANG="C" ;;
+		de) LANG="de_DE" ;;
+		es) LANG="es_ES" ;;
+		fr) LANG="fr_FR" ;;
+		it) LANG="it_IT" ;;
+		pt) LANG="pt_BR" ;;
+		ru) LANG="ru_RU" ;;
+		zh) LANG="zh_TW" ;;
 	esac
+	if echo "$po" | fgrep -q "$lang"; then
+		break
+	fi
 done
 unset IFS
-export LANG=$lang LC_ALL=$lang
+export LANG LC_ALL=$LANG
 
 # Internationalization: $(gettext "")
 . /usr/bin/gettext.sh
@@ -106,9 +114,6 @@ EOT
 # Login page
 login_page() {
 	cat << EOT
-<!-- Content -->
-<div id="content">
-
 <h2>$(gettext "Login")</h2>
 
 <div id="account-info">
@@ -207,7 +212,7 @@ $(echo "$DESC" | wiki_parser)
 EOT
 	if check_auth; then
 		if [ "$STATUS" == "OPEN" ]; then
-			cat << EOT 
+			cat << EOT
 <a href="?id=$id&amp;close">$(gettext "Close bug")</a>
 <a href="?edit=$id">$(gettext "Edit bug")</a>
 EOT
@@ -245,7 +250,7 @@ EOT
 		cat << EOT
 <div>
 	<h3>$(gettext "New message")</h3>
-	
+
 		<input type="hidden" name="id" value="$id" />
 		<textarea name="msg" rows="8"></textarea>
 		<p><input type="submit" value="$(gettext "Send message")" /></p>
@@ -358,7 +363,7 @@ EOT
 save_bug() {
 	bug="$(GET bug)"
 	content="$(GET bugconf)"
-	sed "s/$(echo -en '\r') /\n/g" > $bugdir/$bug/bug.conf << EOT
+	sed s'/"/\'/' | sed "s/$(echo -en '\r') /\n/g" > $bugdir/$bug/bug.conf << EOT
 $content
 EOT
 }
@@ -452,7 +457,7 @@ case " $(GET) " in
 		echo '<h2>README</h2>'
 		echo '<pre>'
 		cat /usr/share/doc/tazbug/README
-		echo '</pre>' 
+		echo '</pre>'
 		html_footer ;;
 	*\ closed\ *)
 		# Show all closed bugs.
@@ -465,10 +470,10 @@ case " $(GET) " in
 		# The login page
 		[ "$(GET error)" ] && \
 			error="<span class="error">$(gettext "Bad login or pass")</span>"
-		header 
+		header
 		html_header
 		user_box
-		login_page 
+		login_page
 		html_footer ;;
 	*\ logout\ *)
 		# Set a Cookie in the past to logout.
@@ -528,9 +533,9 @@ case " $(GET) " in
 		[ "$(GET delmsg)" ] && rm -f $bugdir/$id/msg.$(GET delmsg) && \
 			touch $bugdir/$id/msg.$(GET delmsg)
 		msgs=$(fgrep MSG= $bugdir/$id/msg.* | wc -l)
-		header 
+		header
 		html_header
-		user_box 
+		user_box
 		. $bugdir/$id/bug.conf
 		bug_page
 		html_footer ;;
@@ -543,7 +548,7 @@ case " $(GET) " in
 			echo "ERROR: User already exists" && exit 1
 		else
 			echo "Creating account for : $(GET name)"
-			new_user_config 
+			new_user_config
 		fi ;;
 	*\ key\ *)
 		# Let user post new bug or message with crypted key (no gettext)
@@ -553,7 +558,7 @@ case " $(GET) " in
 		key="$(GET key)"
 		id="$(GET bug)"
 		header "Content-type: text/plain;"
-		echo "Checking secure key..." 
+		echo "Checking secure key..."
 		if fgrep -qH $key $PEOPLE/*/account.conf; then
 			conf=$(fgrep -H $key $PEOPLE/*/account.conf | cut -d ":" -f 1)
 			. $conf
@@ -565,10 +570,10 @@ case " $(GET) " in
 					echo "Message: $(GET msg)"
 					new_msg ;;
 				*\ bug\ *)
-					echo "Adding new bug: $(GET bug)" 
-					echo "Description: $(GET desc)" 
+					echo "Adding new bug: $(GET bug)"
+					echo "Description: $(GET desc)"
 					new_bug ;;
-			esac 
+			esac
 		else
 			echo "Not a valid SliTaz user key"
 			exit 0
@@ -585,7 +590,7 @@ case " $(GET) " in
 </form>
 <div>
 EOT
-	
+
 		#found=0 JS to notify or write results nb under the search box.
 		for bug in $bugdir/*
 		do
@@ -628,9 +633,9 @@ EOT
 </div>
 
 <p>
-	Please read the <a href="?README">README</a> for help and more 
+	Please read the <a href="?README">README</a> for help and more
 	information. You may also be interested by the SliTaz
-	<a href="http://roadmap.slitaz.org/">Roadmap</a> and the packages 
+	<a href="http://roadmap.slitaz.org/">Roadmap</a> and the packages
 	<a href="http://cook.slitaz.org/">Cooker</a>. To perform a search
 	enter your term and press ENTER.
 </p>
