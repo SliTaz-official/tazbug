@@ -50,24 +50,23 @@ done
 # httpd -e dont work with GET URL requests
 http_urlencode() {
 	#space: + or %20
-	sed -e s'/ /+/'g -e s'/!/%21/'g -e s'/"/%22/'g -e s'/#/%23/'g \
-		-e s'/%/%25/'g -e s'/&/%26/'g
+	sed -e 's/ /+/g; s/!/%21/g; s/"/%22/g; s/#/%23/g; s/%/%25/g; s/&/%26/g'
 }
 
 # Usage.
 usage() {
 	cat << EOT
 
-Usage: $(basename $0) [command] [args]
+$(gettext 'Usage:') $(basename $0) $(gettext '[command] [args]')
 
-Commands:
+$(gettext 'Commands:')
   gen-key     $(gettext "Recreate the SliTaz secure key.")
   gen-config  $(gettext "Create a new SliTaz account configuration.")
   signup      $(gettext "Create a new account on SliTaz Bugs.")
   new-msg     $(gettext "Send a new message to an open bug.")
   new-bug     $(gettext "Send a new bug report.")
 
-Examples:
+$(gettext 'Examples:')
   $(basename $0) signup --name="Real Name" --user=login \\
 	--mail=mail@domain --pass=password
   $(basename $0) new-msg --bug=0 --msg="Message for bug with ID 0"

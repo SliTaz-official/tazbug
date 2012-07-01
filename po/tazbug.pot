@@ -1,6 +1,6 @@
-# LANGUAGE translation for SliTaz Bugs.
+# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the SliTaz Bugs package.
+# This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
@@ -8,76 +8,93 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SliTaz Bugs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-04 13:13+0300\n"
+"POT-Creation-Date: 2012-07-01 22:03+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: tazbug:64
+#: tazbug:60
+msgid "Usage:"
+msgstr ""
+
+#: tazbug:60
+msgid "[command] [args]"
+msgstr ""
+
+#: tazbug:62
+msgid "Commands:"
+msgstr ""
+
+#: tazbug:63
 msgid "Recreate the SliTaz secure key."
 msgstr ""
 
-#: tazbug:65
+#: tazbug:64
 msgid "Create a new SliTaz account configuration."
 msgstr ""
 
-#: tazbug:66
+#: tazbug:65
 msgid "Create a new account on SliTaz Bugs."
 msgstr ""
 
-#: tazbug:67
+#: tazbug:66
 msgid "Send a new message to an open bug."
 msgstr ""
 
-#: tazbug:68
+#: tazbug:67
 msgid "Send a new bug report."
 msgstr ""
 
-#: tazbug:80
+#: tazbug:69
+msgid "Examples:"
+msgstr ""
+
+#: tazbug:79
 msgid "Missing real name"
 msgstr ""
 
-#: tazbug:81
+#: tazbug:80
 msgid "Missing login name"
 msgstr ""
 
-#: tazbug:82
+#: tazbug:81
 msgid "Missing email"
 msgstr ""
 
-#: tazbug:83 tazbug:121
+#: tazbug:82 tazbug:120
 msgid "Missing password"
 msgstr ""
 
-#: tazbug:93
+#: tazbug:92
 msgid "Creating SliTaz account configuration..."
 msgstr ""
 
-#: tazbug:108
+#: tazbug:107
 msgid "Creating SliTaz secure key..."
 msgstr ""
 
-#: tazbug:150
+#: tazbug:149
 msgid "Missing bug ID"
 msgstr ""
 
-#: tazbug:151
+#: tazbug:150
 msgid "Missing message"
 msgstr ""
 
-#: tazbug:160
+#: tazbug:159
 msgid "Missing bug title"
 msgstr ""
 
-#: tazbug:161
+#: tazbug:160
 msgid "Missing description"
 msgstr ""
 
-#: tazbug:162
+#: tazbug:161
 msgid "Missing bug priority"
 msgstr ""
 
@@ -97,27 +114,27 @@ msgstr ""
 msgid "New bug"
 msgstr ""
 
-#: tazbug-box:45 web/bugs.cgi:259
+#: tazbug-box:45 web/bugs.cgi:260
 msgid "Send message"
 msgstr ""
 
-#: tazbug-box:72 web/bugs.cgi:317
+#: tazbug-box:72 web/bugs.cgi:318
 msgid "Bug title"
 msgstr ""
 
-#: tazbug-box:73 web/bugs.cgi:329
+#: tazbug-box:73 web/bugs.cgi:330
 msgid "Priority"
 msgstr ""
 
-#: tazbug-box:74 web/bugs.cgi:325
+#: tazbug-box:74 web/bugs.cgi:326
 msgid "Packages"
 msgstr ""
 
-#: tazbug-box:75 web/bugs.cgi:321
+#: tazbug-box:75 web/bugs.cgi:322
 msgid "Description"
 msgstr ""
 
-#: tazbug-box:77 tazbug-box:130 web/bugs.cgi:255
+#: tazbug-box:77 tazbug-box:130 web/bugs.cgi:256
 msgid "New message"
 msgstr ""
 
@@ -129,7 +146,7 @@ msgstr ""
 msgid "Real name"
 msgstr ""
 
-#: tazbug-box:111 web/bugs.cgi:123
+#: tazbug-box:111 web/bugs.cgi:128
 msgid "User name"
 msgstr ""
 
@@ -157,81 +174,189 @@ msgstr ""
 msgid "Email"
 msgstr ""
 
-#: tazbug-box:158 web/bugs.cgi:127
+#: tazbug-box:158 web/bugs.cgi:129
 msgid "Password"
 msgstr ""
 
-#: web/bugs.cgi:109 web/bugs.cgi:131
-msgid "Login"
+#: web/bugs.cgi:88
+msgid "Log out"
 msgstr ""
 
-#: web/bugs.cgi:112
-msgid ""
-"No account yet? Please signup using the SliTaz Bugs reporter\n"
-"on your SliTaz system. <p>Tip: to attach big files or images, you can use\n"
-"SliTaz Paste services:"
+#: web/bugs.cgi:95 web/bugs.cgi:131
+msgid "Log in"
 msgstr ""
 
-#: web/bugs.cgi:219
-msgid "Close bug"
-msgstr ""
-
-#: web/bugs.cgi:220
-msgid "Edit bug"
-msgstr ""
-
-#: web/bugs.cgi:224
-msgid "Re open bug"
-msgstr ""
-
-#: web/bugs.cgi:231
-msgid "Messages"
-msgstr ""
-
-#: web/bugs.cgi:233
-msgid "No messages"
-msgstr ""
-
-#: web/bugs.cgi:309
-msgid "New Bug"
-msgstr ""
-
-#: web/bugs.cgi:332
-msgid "Standard"
-msgstr ""
-
-#: web/bugs.cgi:333
-msgid "Critical"
-msgstr ""
-
-#: web/bugs.cgi:335
-msgid "Create Bug"
-msgstr ""
-
-#: web/bugs.cgi:343
-msgid "* field is obligatory. You can also specify affected packages."
-msgstr ""
-
-#: web/bugs.cgi:359
-msgid "Save configuration"
-msgstr ""
-
-#: web/bugs.cgi:466
-msgid "Bad login or pass"
-msgstr ""
-
-#: web/bugs.cgi:499
-msgid "You must be logged in to post a new bug"
-msgstr ""
-
-#: web/bugs.cgi:579 web/bugs.cgi:582 web/bugs.cgi:633
+#: web/bugs.cgi:103 web/bugs.cgi:104 web/bugs.cgi:590 web/bugs.cgi:593
 msgid "Search"
 msgstr ""
 
-#: web/bugs.cgi:609
+#: web/bugs.cgi:117
+msgid "Login"
+msgstr ""
+
+#: web/bugs.cgi:120
+msgid ""
+"No account yet? Please signup using the SliTaz Bugs reporter on your SliTaz "
+"system."
+msgstr ""
+
+#: web/bugs.cgi:122
+msgid "Tip: to attach big files or images, you can use SliTaz Paste services:"
+msgstr ""
+
+#: web/bugs.cgi:145 web/bugs.cgi:154
+#, sh-format
+msgid "Real name  : $NAME"
+msgstr ""
+
+#: web/bugs.cgi:155
+#, sh-format
+msgid "Email      : $MAIL"
+msgstr ""
+
+#: web/bugs.cgi:156
+#, sh-format
+msgid "Secure key : $KEY"
+msgstr ""
+
+#: web/bugs.cgi:164
+#, sh-format
+msgid "$bug Bug"
+msgstr ""
+
+#: web/bugs.cgi:174
+msgid "Bug title  :"
+msgstr ""
+
+#: web/bugs.cgi:174 web/bugs.cgi:605
+msgid "Show"
+msgstr ""
+
+#: web/bugs.cgi:175
+msgid "ID - Date  :"
+msgstr ""
+
+#: web/bugs.cgi:176
+msgid "Creator    :"
+msgstr ""
+
+#: web/bugs.cgi:200
+#, sh-format
+msgid "Bug $id"
+msgstr ""
+
+#: web/bugs.cgi:207
+#, sh-format
+msgid "Priority $PRIORITY"
+msgstr ""
+
+#: web/bugs.cgi:208 web/bugs.cgi:636
+#, sh-format
+msgid "$msgs message"
+msgid_plural "$msgs messages"
+msgstr[0] ""
+msgstr[1] ""
+
+#: web/bugs.cgi:220
+msgid "Close bug"
+msgstr ""
+
+#: web/bugs.cgi:221
+msgid "Edit bug"
+msgstr ""
+
+#: web/bugs.cgi:225
+msgid "Re open bug"
+msgstr ""
+
+#: web/bugs.cgi:232
+msgid "Messages"
+msgstr ""
+
+#: web/bugs.cgi:234
+msgid "No messages"
+msgstr ""
+
+#: web/bugs.cgi:310
+msgid "New Bug"
+msgstr ""
+
+#: web/bugs.cgi:333
+msgid "Standard"
+msgstr ""
+
+#: web/bugs.cgi:334
+msgid "Critical"
+msgstr ""
+
+#: web/bugs.cgi:336
+msgid "Create Bug"
+msgstr ""
+
+#: web/bugs.cgi:344
+msgid "* field is obligatory. You can also specify affected packages."
+msgstr ""
+
+#: web/bugs.cgi:354
+#, sh-format
+msgid "Edit Bug $bug"
+msgstr ""
+
+#: web/bugs.cgi:360
+msgid "Save configuration"
+msgstr ""
+
+#: web/bugs.cgi:476
+msgid "Bad login or pass"
+msgstr ""
+
+#: web/bugs.cgi:510
+msgid "You must be logged in to post a new bug"
+msgstr ""
+
+#: web/bugs.cgi:612
+#, sh-format
+msgid "No result found for: $get_search"
+msgstr ""
+
+#: web/bugs.cgi:630
 msgid "Summary"
 msgstr ""
 
-#: web/bugs.cgi:628
+#: web/bugs.cgi:633
+#, sh-format
+msgid "Bug: $bugs in total -"
+msgid_plural "Bugs: $bugs in total -"
+msgstr[0] ""
+msgstr[1] ""
+
+#: web/bugs.cgi:634
+#, sh-format
+msgid "$close fixed -"
+msgid_plural "$close fixed -"
+msgstr[0] ""
+msgstr[1] ""
+
+#: web/bugs.cgi:635
+#, sh-format
+msgid "$fixme to fix -"
+msgid_plural "$fixme to fix -"
+msgstr[0] ""
+msgstr[1] ""
+
+#: web/bugs.cgi:643
+msgid ""
+"Please read the <a href=\"?README\">README</a> for help and more "
+"information. You may also be interested by the SliTaz <a href=\"http://"
+"roadmap.slitaz.org/\">Roadmap</a> and the packages <a href=\"http://cook."
+"slitaz.org/\">Cooker</a>. To perform a search enter your term and press "
+"ENTER."
+msgstr ""
+
+#: web/bugs.cgi:651
+msgid "View closed bugs"
+msgstr ""
+
+#: web/bugs.cgi:654
 msgid "Create a new bug"
 msgstr ""

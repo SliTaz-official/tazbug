@@ -85,14 +85,14 @@ user_box() {
 		cat << EOT
 <div id="user">
 <a href="?user=$user">$(get_gravatar $MAIL 20)</a>
-<a href="?logout">Logout</a>
+<a href="?logout">$(gettext 'Log out')</a>
 </div>
 EOT
 	else
 	cat << EOT
 <div id="user">
 	<a href="?login"><img src="images/avatar.png" alt="[ User ]" /></a>
-	<a href="?login">Login</a>
+	<a href="?login">$(gettext 'Log in')</a>
 </div>
 EOT
 	fi
@@ -100,8 +100,8 @@ EOT
 
 <div id="search">
 	<form method="get" action="./">
-		<input type="text" name="search" placeholder="$(gettext "Search")" />
-		<!-- <input type="submit" value="$(gettext "Search")" /> -->
+		<input type="text" name="search" placeholder="$(gettext 'Search')" />
+		<!-- <input type="submit" value="$(gettext 'Search')" /> -->
 	</form>
 </div>
 
@@ -114,21 +114,21 @@ EOT
 # Login page
 login_page() {
 	cat << EOT
-<h2>$(gettext "Login")</h2>
+<h2>$(gettext 'Login')</h2>
 
 <div id="account-info">
-$(gettext "No account yet? Please signup using the SliTaz Bugs reporter
-on your SliTaz system. <p>Tip: to attach big files or images, you can use
-SliTaz Paste services:") <a href="http://paste.slitaz.org/">paste.slitaz.org</a>
-</p>
+<p>$(gettext "No account yet? Please signup using the SliTaz Bugs reporter \
+on your SliTaz system.")</p>
+<p>$(gettext "Tip: to attach big files or images, you can use SliTaz Paste \
+services:") <a href="http://paste.slitaz.org/">paste.slitaz.org</a></p>
 </div>
 
 <div id="login">
 	<form method="post" action="$SCRIPT_NAME">
-		<input type="text" name="auth" placeholder="$(gettext "User name")" />
-		<input type="password" name="pass" placeholder="$(gettext "Password")" />
+		<input type="text" name="auth" placeholder="$(gettext 'User name')" />
+		<input type="password" name="pass" placeholder="$(gettext 'Password')" />
 		<div>
-			<input type="submit" value="Login" />
+			<input type="submit" value="$(gettext 'Log in')" />
 			$error
 		</div>
 	</form>
@@ -142,7 +142,7 @@ EOT
 public_people() {
 	cat << EOT
 <pre>
-Real name : $NAME
+$(eval_gettext 'Real name  : $NAME')
 </pre>
 EOT
 }
@@ -151,16 +151,17 @@ EOT
 auth_people() {
 	cat << EOT
 <pre>
-Real name  : $NAME
-Email      : $MAIL
-Secure key : $KEY
+$(eval_gettext 'Real name  : $NAME')
+$(eval_gettext 'Email      : $MAIL')
+$(eval_gettext 'Secure key : $KEY')
 </pre>
 EOT
 }
 
 # Usage: list_bugs STATUS
 list_bugs() {
-	echo "<h3>$1 Bugs</h3>"
+	bug="$1"
+	echo "<h3>$(eval_gettext '$bug Bug')</h3>"
 	for pr in critical standard
 	do
 		for bug in $(fgrep -H "$1" $bugdir/*/bug.conf | cut -d ":" -f 1)
@@ -170,9 +171,9 @@ list_bugs() {
 			if [ "$PRIORITY" == "$pr" ]; then
 				cat << EOT
 <pre>
-Bug title  : <strong>$BUG</strong> <a href="?id=$id">Show</a>
-ID - Date  : $id - $DATE
-Creator    : <a href="?user=$CREATOR">$CREATOR</a>
+$(gettext 'Bug title  :') <strong>$BUG</strong> <a href="?id=$id">$(gettext 'Show')</a>
+$(gettext 'ID - Date  :') $id - $DATE
+$(gettext 'Creator    :') <a href="?user=$CREATOR">$CREATOR</a>
 </pre>
 EOT
 			fi
@@ -196,12 +197,15 @@ bug_page() {
 		MAIL="default"
 	fi
 	cat << EOT
-<h2>Bug $id</h2>
+<h2>$(eval_gettext 'Bug $id')</h2>
 <form method="get" action="./">
 
 <p>
-	$(get_gravatar $MAIL 32) <strong>$STATUS</strong> $BUG - $DATE - Priority $PRIORITY
-	- $msgs messages
+	$(get_gravatar $MAIL 32)
+	<strong>$STATUS</strong>
+	$BUG - $DATE -
+	$(eval_gettext 'Priority $PRIORITY') -
+	$(eval_ngettext '$msgs message' '$msgs messages' $msgs)
 </p>
 
 <pre>
@@ -253,7 +257,7 @@ EOT
 
 		<input type="hidden" name="id" value="$id" />
 		<textarea name="msg" rows="8"></textarea>
-		<p><input type="submit" value="$(gettext "Send message")" /></p>
+		<p><input type="submit" value="$(gettext 'Send message')" /></p>
 	</form>
 </div>
 EOT
@@ -347,13 +351,13 @@ EOT
 # Edit/Save a bug configuration file
 edit_bug() {
 	cat << EOT
-<h2>$(gettext "Edit Bug $bug")</h2>
+<h2>$(eval_gettext 'Edit Bug $bug')</h2>
 <div id="edit">
 
 <form method="get" action="./">
 	<textarea name="bugconf">$(cat $bugdir/$bug/bug.conf)</textarea>
 	<input type="hidden" name="bug" value="$bug" />
-	<input type="submit" value="$(gettext "Save configuration")" />
+	<input type="submit" value="$(gettext 'Save configuration')" />
 </form>
 
 </div>
@@ -363,7 +367,7 @@ EOT
 save_bug() {
 	bug="$(GET bug)"
 	content="$(GET bugconf)"
-	sed s'/"/\'/' | sed "s/$(echo -en '\r') /\n/g" > $bugdir/$bug/bug.conf << EOT
+	sed "s|\"|'|" | sed "s/$(echo -en '\r') /\n/g" > $bugdir/$bug/bug.conf << EOT
 $content
 EOT
 }
@@ -386,7 +390,7 @@ get_gravatar() {
 	[ "$size" ] || size=48
 	url="http://www.gravatar.com/avatar"
 	md5=$(md5crypt $email)
-	echo "<img src='$url/$md5?d=identicon&s=$size' alt='' />"
+	echo "<img src=\"$url/$md5?d=identicon&amp;s=$size\" alt=\"\" />"
 }
 
 # Create a new user in AUTH_FILE and PEOPLE
@@ -469,7 +473,7 @@ case " $(GET) " in
 	*\ login\ *)
 		# The login page
 		[ "$(GET error)" ] && \
-			error="<span class="error">$(gettext "Bad login or pass")</span>"
+			error="<span class='error'>$(gettext 'Bad login or pass')</span>"
 		header
 		html_header
 		user_box
@@ -503,7 +507,7 @@ case " $(GET) " in
 		if check_auth; then
 			new_bug_page
 		else
-			echo "<p>$(gettext "You must be logged in to post a new bug")</p>"
+			echo "<p>$(gettext 'You must be logged in to post a new bug')</p>"
 		fi
 		html_footer ;;
 	*\ addbug\ *)
@@ -586,7 +590,7 @@ case " $(GET) " in
 <h2>$(gettext "Search")</h2>
 <form method="get" action="./">
 	<input type="text" name="search" />
-	<input type="submit" value="$(gettext "Search")" />
+	<input type="submit" value="$(gettext 'Search')" />
 </form>
 <div>
 EOT
@@ -598,13 +602,14 @@ EOT
 			if [ "$result" ]; then
 				#found=$(($found + 1))
 				id=${bug#bug/}
-				echo "<p><strong>Bug $id</strong> <a href='?id=$id'>$(gettext "Show")</a></p>"
+				echo "<p><strong>Bug $id</strong> <a href=\"?id=$id\">"$(gettext 'Show')"</a></p>"
 				echo '<pre>'
 				fgrep -i "$(GET search)" $bugdir/$id/* | \
 					sed s"/$(GET search)/<span class='ok'>$(GET search)<\/span>/"g
 				echo '</pre>'
 			else
-				gettext "<p>No result found for:"; echo " $(GET search)</p>"
+				get_search=$(GET search)
+				echo "<p>$(eval_gettext 'No result found for: $get_search')</p>"
 			fi
 		done
 		echo '</div>'
@@ -625,26 +630,28 @@ EOT
 <h2>$(gettext "Summary")</h2>
 
 <p>
-	Bugs: $bugs in total - $close fixed - $fixme to fix - $msgs messages
+	$(eval_ngettext 'Bug: $bugs in total -' 'Bugs: $bugs in total -' $bugs)
+	$(eval_ngettext '$close fixed -' '$close fixed -' $close)
+	$(eval_ngettext '$fixme to fix -' '$fixme to fix -' $fixme)
+	$(eval_ngettext '$msgs message' '$msgs messages' $msgs)
 </p>
 
 <div class="pctbar">
 	<div class="pct" style="width: ${pct}%;">${pct}%</div>
 </div>
 
-<p>
-	Please read the <a href="?README">README</a> for help and more
-	information. You may also be interested by the SliTaz
-	<a href="http://roadmap.slitaz.org/">Roadmap</a> and the packages
-	<a href="http://cook.slitaz.org/">Cooker</a>. To perform a search
-	enter your term and press ENTER.
+<p>$(gettext "Please read the <a href=\"?README\">README</a> for help and more \
+information. You may also be interested by the SliTaz \
+<a href=\"http://roadmap.slitaz.org/\">Roadmap</a> and the packages \
+<a href=\"http://cook.slitaz.org/\">Cooker</a>. To perform a search \
+enter your term and press ENTER.")
 </p>
 
 <div id="tools">
-	<a href="?closed">View closed bugs</a>
+	<a href="?closed">$(gettext 'View closed bugs')</a>
 EOT
 		if check_auth; then
-			echo "<a href='?newbug'>$(gettext "Create a new bug")</a>"
+			echo "<a href='?newbug'>$(gettext 'Create a new bug')</a>"
 		fi
 		cat << EOT
 </div>

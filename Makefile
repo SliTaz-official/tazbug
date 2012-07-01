@@ -26,7 +26,7 @@ msgfmt:
 	@for l in $(LINGUAS); do \
 		echo "Compiling $$l mo file..."; \
 		mkdir -p po/mo/$$l/LC_MESSAGES; \
-		msgfmt -o po/mo/$$l/LC_MESSAGES/pizza.mo po/$$l.po; \
+		msgfmt -o po/mo/$$l/LC_MESSAGES/$(PACKAGE).mo po/$$l.po; \
 	done;
 
 # Client install only. Server part is not packaged
@@ -63,3 +63,9 @@ uninstall:
 	rm -f $(DESTDIR)$(PREFIX)/bin/tazbug*
 	rm -f $(DESTDIR)$(PREFIX)/share/applications/tazbug*
 	rm -f $(DESTDIR)$(PREFIX)/etc/slitaz/tazbug.conf
+
+# Clean source
+
+clean:
+	rm -rf po/mo
+	rm -f po/*~
