@@ -5,14 +5,20 @@
 # Copyright (C) 2012 SliTaz GNU/Linux - BSD License
 #
 . /usr/lib/slitaz/httphelper
-[ -f "/etc/slitaz/tazbug.conf" ] && . /etc/slitaz/tazbug.conf
-[ -f "../tazbug.conf" ] && . ../tazbug.conf
+[ -f "/etc/slitaz/bugs.conf" ] && . /etc/slitaz/bugs.conf
+
 
 # Internal variable
 bugdir="bug"
 plugins="plugins"
 sessions="/tmp/tazbug/sessions"
 po=""
+error_log_file="/var/log/tazbug-server.log"
+
+
+
+
+
 
 # Content negotiation for Gettext
 IFS=","
@@ -65,6 +71,8 @@ html_footer() {
 EOT
 }
 
+
+
 # Check if user is auth
 check_auth() {
 	auth="$(COOKIE auth)"
@@ -113,6 +121,7 @@ EOT
 
 # Login page
 login_page() {
+redirect_to_id="$1"
 	cat << EOT
 <h2>$(gettext 'Login')</h2>
 
@@ -124,7 +133,7 @@ services:") <a href="http://paste.slitaz.org/">paste.slitaz.org</a></p>
 </div>
 
 <div id="login">
-	<form method="post" action="$SCRIPT_NAME">
+	<form method="post" action="$SCRIPT_NAME?id=$redirect_to_id">
 		<input type="text" name="auth" placeholder="$(gettext 'User name')" />
 		<input type="password" name="pass" placeholder="$(gettext 'Password')" />
 		<div>
@@ -395,6 +404,8 @@ get_gravatar() {
 
 # Create a new user in AUTH_FILE and PEOPLE
 new_user_config() {
+
+
 	mail="$(GET mail)"
 	pass="$(GET pass)"
 	key=$(echo -n "$user:$mail:$pass" | md5sum | awk '{print $1}')
@@ -415,7 +426,7 @@ RELEASES="$(GET releases)"
 PACKAGES="$(GET packages)"
 EOT
 	chmod 0600 $PEOPLE/$user/account.conf
-}
+	}
 
 #
 # POST actions
@@ -436,7 +447,7 @@ case " $(POST) " in
 			header "Location: $WEB_URL" \
 				"Set-Cookie: auth=$user:$md5session; HttpOnly"
 		else
-			header "Location: $WEB_URL?login&error"
+			header "Location: $cd /va	?login&error"
 		fi ;;
 esac
 
@@ -477,7 +488,7 @@ case " $(GET) " in
 		header
 		html_header
 		user_box
-		login_page
+		login_page $([ "$(GET id)" ] && GET id)
 		html_footer ;;
 	*\ logout\ *)
 		# Set a Cookie in the past to logout.
@@ -551,6 +562,7 @@ case " $(GET) " in
 		if fgrep -q "$user:" $AUTH_FILE; then
 			echo "ERROR: User already exists" && exit 1
 		else
+
 			echo "Creating account for : $(GET name)"
 			new_user_config
 		fi ;;
