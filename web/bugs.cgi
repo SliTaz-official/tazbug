@@ -7,18 +7,12 @@
 . /usr/lib/slitaz/httphelper
 [ -f "/etc/slitaz/bugs.conf" ] && . /etc/slitaz/bugs.conf
 
-
 # Internal variable
 bugdir="bug"
 plugins="plugins"
 sessions="/tmp/tazbug/sessions"
 po=""
 error_log_file="/var/log/tazbug-server.log"
-
-
-
-
-
 
 # Content negotiation for Gettext
 IFS=","
@@ -46,6 +40,11 @@ export LANG LC_ALL=$LANG
 . /usr/bin/gettext.sh
 TEXTDOMAIN='tazbug'
 export TEXTDOMAIN
+
+
+
+
+
 
 #
 # Functions
@@ -88,6 +87,13 @@ check_auth() {
 
 # Authentified or not
 user_box() {
+
+#bug id to remember
+IDLOC=""
+if [[ "$(GET id)" ]] ;then
+IDLOC="&id=$(GET id)"
+fi
+
 	if check_auth; then
 		. $PEOPLE/$user/account.conf
 		cat << EOT
@@ -98,10 +104,10 @@ user_box() {
 EOT
 	else
 	cat << EOT
-<div id="user">
-	<a href="?login"><img src="images/avatar.png" alt="[ User ]" /></a>
-	<a href="?login">$(gettext 'Log in')</a>
-</div>
+	<div id="user">
+	<a href="?login$IDLOC"><img src="images/avatar.png" alt="[ User ]" /></a>
+	<a href="?login$IDLOC">$(gettext 'Log in')</a>
+	</div>
 EOT
 	fi
 	cat << EOT
@@ -121,7 +127,12 @@ EOT
 
 # Login page
 login_page() {
-redirect_to_id="$1"
+IDLOC=""
+if [[ "$(GET id)" ]] ;then
+IDLOC="?id=$(GET id)"
+fi
+
+
 	cat << EOT
 <h2>$(gettext 'Login')</h2>
 
@@ -133,7 +144,7 @@ services:") <a href="http://paste.slitaz.org/">paste.slitaz.org</a></p>
 </div>
 
 <div id="login">
-	<form method="post" action="$SCRIPT_NAME?id=$redirect_to_id">
+	<form method="post" action="$SCRIPT_NAME$IDLOC">
 		<input type="text" name="auth" placeholder="$(gettext 'User name')" />
 		<input type="password" name="pass" placeholder="$(gettext 'Password')" />
 		<div>
@@ -488,7 +499,7 @@ case " $(GET) " in
 		header
 		html_header
 		user_box
-		login_page $([ "$(GET id)" ] && GET id)
+		login_page
 		html_footer ;;
 	*\ logout\ *)
 		# Set a Cookie in the past to logout.
