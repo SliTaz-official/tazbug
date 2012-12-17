@@ -8,11 +8,10 @@
 [ -f "/etc/slitaz/bugs.conf" ] && . /etc/slitaz/bugs.conf
 
 # Internal variable
-bugdir="bug"
+bugdir="$TAZBUG/bug"
 plugins="plugins"
-sessions="/tmp/tazbug/sessions"
+sessions="/tmp/bugs/sessions"
 po=""
-error_log_file="/var/log/tazbug-server.log"
 
 # Content negotiation for Gettext
 IFS=","
@@ -61,8 +60,8 @@ html_footer() {
 </div>
 
 <div id="footer">
-	<a href="./">SliTaz Bugs</a> -
-	<a href="./?README">README</a>
+	<a href="$WEB_URL">SliTaz Bugs</a> -
+	<a href="$WEB_URL?README">README</a>
 </div>
 
 </body>
@@ -70,6 +69,42 @@ html_footer() {
 EOT
 }
 
+
+
+js_redirection_to()
+{
+	js_log "Redirecting to $1"
+	echo "<script type=\"text/javascript\"> document.location = \"$1\"; </script>"
+}
+
+
+js_log()
+{
+	echo "<script type=\"text/javascript\">console.log('$1')</script>";
+}
+
+
+js_set_cookie()
+{
+	name=$1
+	value=$2
+
+	js_log 'Setting cookie.'
+	echo "<script type=\"text/javascript\">"
+		echo "document.cookie = \"$name=$value; expires=0; path=/\"";
+	echo "</script>"
+}
+
+
+js_unset_cookie()
+{
+	name=$1
+
+	js_log 'Unsetting cookie.'
+	echo "<script type=\"text/javascript\">"
+		echo "document.cookie = \"$1=\"\"; expires=-1; path=/";
+	echo "</script>"
+}
 
 
 # Check if user is auth
@@ -85,13 +120,13 @@ check_auth() {
 	fi
 }
 
+
 # Authentified or not
 user_box() {
 
-#bug id to remember
 IDLOC=""
 if [[ "$(GET id)" ]] ;then
-IDLOC="&id=$(GET id)"
+	IDLOC="&id=$(GET id)"
 fi
 
 	if check_auth; then
@@ -113,7 +148,7 @@ EOT
 	cat << EOT
 
 <div id="search">
-	<form method="get" action="./">
+	<form method="get" action="$WEB_URL">
 		<input type="text" name="search" placeholder="$(gettext 'Search')" />
 		<!-- <input type="submit" value="$(gettext 'Search')" /> -->
 	</form>
@@ -125,13 +160,13 @@ EOT
 EOT
 }
 
+
 # Login page
 login_page() {
 IDLOC=""
 if [[ "$(GET id)" ]] ;then
-IDLOC="?id=$(GET id)"
+	IDLOC="?id=$(GET id)"
 fi
-
 
 	cat << EOT
 <h2>$(gettext 'Login')</h2>
@@ -144,7 +179,7 @@ services:") <a href="http://paste.slitaz.org/">paste.slitaz.org</a></p>
 </div>
 
 <div id="login">
-	<form method="post" action="$SCRIPT_NAME$IDLOC">
+	<form method="post" action="$SCRIPT_NAME">
 		<input type="text" name="auth" placeholder="$(gettext 'User name')" />
 		<input type="password" name="pass" placeholder="$(gettext 'Password')" />
 		<div>
@@ -158,6 +193,7 @@ services:") <a href="http://paste.slitaz.org/">paste.slitaz.org</a></p>
 EOT
 }
 
+
 # Display user public profile.
 public_people() {
 	cat << EOT
@@ -166,6 +202,7 @@ $(eval_gettext 'Real name  : $NAME')
 </pre>
 EOT
 }
+
 
 # Display authentified user profile. TODO: change password
 auth_people() {
@@ -178,6 +215,7 @@ $(eval_gettext 'Secure key : $KEY')
 EOT
 }
 
+
 # Usage: list_bugs STATUS
 list_bugs() {
 	bug="$1"
@@ -187,7 +225,7 @@ list_bugs() {
 		for bug in $(fgrep -H "$1" $bugdir/*/bug.conf | cut -d ":" -f 1)
 		do
 			. $bug
-			id=$(dirname $bug | cut -d "/" -f 2)
+			id=$(basename $(dirname $bug))
 			if [ "$PRIORITY" == "$pr" ]; then
 				cat << EOT
 <pre>
@@ -201,6 +239,7 @@ EOT
 	done
 }
 
+
 # Stripped down Wiki parser for bug desc and messages which are simply
 # displayed in <pre>
 wiki_parser() {
@@ -208,6 +247,7 @@ wiki_parser() {
 		-e s"#http://\([^']*\).png#<img src='\0' alt='[ Image ]' />#"g \
 		-e s"#http://\([^']*\).*# <a href='\0'>\1</a>#"g
 }
+
 
 # Bug page
 bug_page() {
@@ -218,7 +258,7 @@ bug_page() {
 	fi
 	cat << EOT
 <h2>$(eval_gettext 'Bug $id')</h2>
-<form method="get" action="./">
+<form method="get" action="$WEB_URL">
 
 <p>
 	$(get_gravatar $MAIL 32)
@@ -284,6 +324,7 @@ EOT
 	fi
 }
 
+
 # Write a new message
 new_msg() {
 	date=$(date "+%Y-%m-%d %H:%M")
@@ -292,12 +333,14 @@ new_msg() {
 	if check_auth; then
 		USER="$user"
 	fi
+	js_log "Will write message in $bugdir/$id/msg.$count "
 	sed "s/$(echo -en '\r') /\n/g" > $bugdir/$id/msg.$count << EOT
 USER="$USER"
 DATE="$date"
 MSG="$(GET msg)"
 EOT
 }
+
 
 # Create a new Bug
 new_bug() {
@@ -324,13 +367,14 @@ DESC="$(GET desc)"
 EOT
 }
 
+
 # New bug page for the web interface
 new_bug_page() {
 	cat << EOT
 <h2>$(gettext "New Bug")</h2>
 <div id="newbug">
 
-<form method="get" action="./" onsubmit="return checkNewBug();">
+<form method="get" action="$WEB_URL" onsubmit="return checkNewBug();">
 	<input type="hidden" name="addbug" />
 	<table>
 		<tbody>
@@ -368,13 +412,14 @@ $(gettext "* field is obligatory. You can also specify affected packages.")
 EOT
 }
 
+
 # Edit/Save a bug configuration file
 edit_bug() {
 	cat << EOT
 <h2>$(eval_gettext 'Edit Bug $bug')</h2>
 <div id="edit">
 
-<form method="get" action="./">
+<form method="get" action="$WEB_URL">
 	<textarea name="bugconf">$(cat $bugdir/$bug/bug.conf)</textarea>
 	<input type="hidden" name="bug" value="$bug" />
 	<input type="submit" value="$(gettext 'Save configuration')" />
@@ -384,6 +429,7 @@ edit_bug() {
 EOT
 }
 
+
 save_bug() {
 	bug="$(GET bug)"
 	content="$(GET bugconf)"
@@ -392,15 +438,18 @@ $content
 EOT
 }
 
+
 # Close a fixed bug
 close_bug() {
 	sed -i s'/OPEN/CLOSED/' $bugdir/$id/bug.conf
 }
 
+
 # Re open an old bug
 open_bug() {
 	sed -i s'/CLOSED/OPEN/' $bugdir/$id/bug.conf
 }
+
 
 # Get and display Gravatar image: get_gravatar email size
 # Link to profile: <a href="http://www.gravatar.com/$md5">...</a>
@@ -413,15 +462,15 @@ get_gravatar() {
 	echo "<img src=\"$url/$md5?d=identicon&amp;s=$size\" alt=\"\" />"
 }
 
+
 # Create a new user in AUTH_FILE and PEOPLE
 new_user_config() {
-
-
 	mail="$(GET mail)"
 	pass="$(GET pass)"
 	key=$(echo -n "$user:$mail:$pass" | md5sum | awk '{print $1}')
+	echo "Server Key generated"
 	echo "$user:$pass" >> $AUTH_FILE
-	mkdir -p $PEOPLE/$user/
+	mkdir -pm0700 $PEOPLE/$user/
 	cat > $PEOPLE/$user/account.conf << EOT
 # SliTaz user configuration
 #
@@ -437,29 +486,56 @@ RELEASES="$(GET releases)"
 PACKAGES="$(GET packages)"
 EOT
 	chmod 0600 $PEOPLE/$user/account.conf
+	if [ ! -f $PEOPLE/$user/account.conf ]; then
+		echo "ERROR: User creation failed!"
+		fi;
 	}
 
-#
+
+
+
+###################################################
 # POST actions
-#
+###################################################
 
 case " $(POST) " in
 	*\ auth\ *)
+		header
+		html_header
 		# Authenticate user. Create a session file in $sessions to be used
 		# by check_auth. We have the user login name and a peer session
 		# md5 string in the COOKIE.
 		user="$(POST auth)"
-		pass="$(md5crypt "$(POST pass)")"
+		pass="$(echo -n "$(POST pass)" | md5sum | awk '{print $1}')"
+
+		IDLOC=""
+			if [[ "$(GET id)" ]] ;then
+				IDLOC="&id=$(GET id)"
+			fi
+
+		if [  ! -f $AUTH_FILE ] ; then
+			js_log "$AUTH_FILE (defined in \$AUTH_FILE) have not been found."
+			js_redirection_to "$WEB_URL?login$IDLOC"
+		fi;
+
 		valid=$(fgrep "${user}:" $AUTH_FILE | cut -d ":" -f 2)
 		if [ "$pass" == "$valid" ] && [ "$pass" != "" ]; then
+			if [[ "$(GET id)" ]] ;then
+				IDLOC="?id=$(GET id)"
+			fi
 			md5session=$(echo -n "$$:$user:$pass:$$" | md5sum | awk '{print $1}')
 			mkdir -p $sessions
 			echo "$md5session" > $sessions/$user
-			header "Location: $WEB_URL" \
-				"Set-Cookie: auth=$user:$md5session; HttpOnly"
+			js_set_cookie 'auth' "$user:$md5session"
+			js_log "Login authentification have been executed & accepted :)"
+			js_redirection_to "$WEB_URL$IDLOC"
 		else
-			header "Location: $cd /va	?login&error"
-		fi ;;
+			js_log "Login authentification have been executed & refused"
+			js_redirection_to "$WEB_URL?login&error$IDLOC"
+		fi
+
+		html_footer
+		;;
 esac
 
 #
@@ -471,9 +547,12 @@ do
 	[ -x "$plugins/$p/$p.cgi" ] && . $plugins/$p/$p.cgi
 done
 
-#
+
+
+
+###################################################
 # GET actions
-#
+###################################################
 
 case " $(GET) " in
 	*\ README\ *)
@@ -502,11 +581,13 @@ case " $(GET) " in
 		login_page
 		html_footer ;;
 	*\ logout\ *)
-		# Set a Cookie in the past to logout.
-		expires="Expires=Wed, 01-Jan-1980 00:00:00 GMT"
+		header
+		html_header
 		if check_auth; then
 			rm -f "$sessions/$user"
-			header "Location: $WEB_URL" "Set-Cookie: auth=none; $expires; HttpOnly"
+			js_unset_cookie 'auth'
+			js_redirection_to "$WEB_URL"
+
 		fi ;;
 	*\ user\ *)
 		# User profile
@@ -534,9 +615,11 @@ case " $(GET) " in
 		html_footer ;;
 	*\ addbug\ *)
 		# Add a bug from web interface.
+		header
+		html_header
 		if check_auth; then
 			new_bug
-			header "Location: $WEB_URL?id=$count"
+			js_redirection_to "$WEB_URL?id=$count"
 		fi ;;
 	*\ edit\ *)
 		bug="$(GET edit)"
@@ -546,12 +629,16 @@ case " $(GET) " in
 		edit_bug
 		html_footer ;;
 	*\ bugconf\ *)
+		header
+		html_header
 		if check_auth; then
 			save_bug
-			header "Location: $WEB_URL?id=$bug"
+			js_redirection_to "$WEB_URL?id=$bug"
 		fi ;;
 	*\ id\ *)
 		# Empty deleted messages to keep msg count working.
+		header
+		html_header
 		id="$(GET id)"
 		[ "$(GET close)" ] && close_bug
 		[ "$(GET open)" ] && open_bug
@@ -559,8 +646,6 @@ case " $(GET) " in
 		[ "$(GET delmsg)" ] && rm -f $bugdir/$id/msg.$(GET delmsg) && \
 			touch $bugdir/$id/msg.$(GET delmsg)
 		msgs=$(fgrep MSG= $bugdir/$id/msg.* | wc -l)
-		header
-		html_header
 		user_box
 		. $bugdir/$id/bug.conf
 		bug_page
@@ -611,7 +696,7 @@ case " $(GET) " in
 		user_box
 		cat << EOT
 <h2>$(gettext "Search")</h2>
-<form method="get" action="./">
+<form method="get" action="$WEB_URL">
 	<input type="text" name="search" />
 	<input type="submit" value="$(gettext 'Search')" />
 </form>
