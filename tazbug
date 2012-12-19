@@ -161,9 +161,10 @@ case "$1" in
 		[ ! "$priority" ] && gettext "Missing bug priority" && echo && exit 0
 		bug="$(echo $bug | http_urlencode)"
 		desc="$(echo $desc | http_urlencode)"
+		releases="$(basename $(cat /var/lib/tazpkg/mirror))"
 		# Wget GET url
 		busybox wget \
-			"${WEB_URL}?key=$KEY&bug=$bug&desc=$desc&priority=$priority&pkgs=$pkgs" \
+			"${WEB_URL}?key=$KEY&bug=$bug&desc=$desc&priority=$priority&pkgs=$pkgs&releases=$releases" \
 			-O /tmp/bug.msg
 		cat /tmp/bug.msg && rm -f /tmp/bug.msg && echo "" ;;
 	*)
