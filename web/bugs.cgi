@@ -335,9 +335,9 @@ new_msg() {
 	fi
 	js_log "Will write message in $bugdir/$id/msg.$count "
 	sed "s/$(echo -en '\r') /\n/g" > $bugdir/$id/msg.$count << EOT
-USER="$USER"
+USER='$(echo $(GET $USER) | sed -e "s/'/\&#39;/g; s/\\\n/<br\/>/g; s/\\\t/\&#09;/g; s/\%22/\"/g"  )'
 DATE="$date"
-MSG="$(GET msg)"
+MSG='$(echo $(GET msg) | sed -e "s/'/\&#39;/g; s/\\\n/<br\/>/g; s/\\\t/\&#09;/g; s/\%22/\"/g"  )'
 EOT
 }
 
@@ -356,14 +356,14 @@ new_bug() {
 	sed "s/$(echo -en '\r') /\n/g" > $bugdir/$count/bug.conf << EOT
 # SliTaz Bug configuration
 
-BUG="$(GET bug)"
+BUG='$(echo $(GET bug) | sed -e "s/'/\&#39;/g; s/\\\n/<br\/>/g; s/\\\t/\&#09;/g; s/\%22/\"/g"  )'
 STATUS="OPEN"
 PRIORITY="$(GET priority)"
 CREATOR="$USER"
 DATE="$date"
-PKGS="$(GET pkgs)"
+PKGS='$(echo $(GET pkgs) | sed -e "s/'/\&#39;/g; s/\\\n/<br\/>/g; s/\\\t/\&#09;/g; s/\%22/\"/g"  )''
 
-DESC="$(GET desc)"
+DESC='$(echo $(GET desc) | sed -e "s/'/\&#39;/g; s/\\\n/<br\/>/g; s/\\\t/\&#09;/g; s/\%22/\"/g"  )''
 EOT
 }
 
