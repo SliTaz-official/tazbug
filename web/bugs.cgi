@@ -69,7 +69,10 @@ html_footer() {
 EOT
 }
 
-
+GETfiltered()
+{
+GET $1 | sed -e "s/'/\&#39;/g; s|\n|<br/>|g; s/\t/\&#09;/g;s/\%22/\"/g"
+}
 
 js_redirection_to()
 {
@@ -335,9 +338,9 @@ new_msg() {
 	fi
 	js_log "Will write message in $bugdir/$id/msg.$count "
 	sed "s/$(echo -en '\r') /\n/g" > $bugdir/$id/msg.$count << EOT
-USER='$(echo $(GET $USER) | sed -e "s/'/\&#39;/g; s/\\\n/<br\/>/g; s/\\\t/\&#09;/g; s/\%22/\"/g"  )'
+USER="$USER"
 DATE="$date"
-MSG='$(echo $(GET msg) | sed -e "s/'/\&#39;/g; s/\\\n/<br\/>/g; s/\\\t/\&#09;/g; s/\%22/\"/g"  )'
+MSG="$(GETfiltered msg)"
 EOT
 }
 
@@ -356,14 +359,14 @@ new_bug() {
 	sed "s/$(echo -en '\r') /\n/g" > $bugdir/$count/bug.conf << EOT
 # SliTaz Bug configuration
 
-BUG='$(echo $(GET bug) | sed -e "s/'/\&#39;/g; s/\\\n/<br\/>/g; s/\\\t/\&#09;/g; s/\%22/\"/g"  )'
+BUG="$(GETfiltered bug)"
 STATUS="OPEN"
 PRIORITY="$(GET priority)"
 CREATOR="$USER"
 DATE="$date"
-PKGS='$(echo $(GET pkgs) | sed -e "s/'/\&#39;/g; s/\\\n/<br\/>/g; s/\\\t/\&#09;/g; s/\%22/\"/g"  )''
+PKGS="$(GETfiltered pkgs)"
 
-DESC='$(echo $(GET desc) | sed -e "s/'/\&#39;/g; s/\\\n/<br\/>/g; s/\\\t/\&#09;/g; s/\%22/\"/g"  )''
+DESC="$(GETfiltered desc)"
 EOT
 }
 
