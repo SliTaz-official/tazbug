@@ -1,0 +1,375 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Constantine Mousafiris <kvisitor@gnugr.org>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: SliTaz Bugs\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-07-01 22:03+0000\n"
+"PO-Revision-Date: 2012-12-21 23:49+0200\n"
+"Last-Translator: \n"
+"Language-Team: Kostis Mousafiris\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.5.2\n"
+
+#: tazbug:60
+msgid "Usage:"
+msgstr "Χρήση:"
+
+#: tazbug:60
+msgid "[command] [args]"
+msgstr "[command] [args]"
+
+#: tazbug:62
+msgid "Commands:"
+msgstr "Εντολές:"
+
+#: tazbug:63
+msgid "Recreate the SliTaz secure key."
+msgstr "Αναδημιουργία του ασφαλούς κλειδιού SliTaz."
+
+#: tazbug:64
+msgid "Create a new SliTaz account configuration."
+msgstr "Δημιουργία ενός νέου λογαριασμού με τις ρυθμίσεις του SliTaz."
+
+#: tazbug:65
+msgid "Create a new account on SliTaz Bugs."
+msgstr "Δημιουργία ενός νέου λογαριασμού στο SliTaz Bugs."
+
+#: tazbug:66
+msgid "Send a new message to an open bug."
+msgstr "Αποστολή νέου μηνύματος σε ένα ανοικτό σφάλμα (bug)."
+
+#: tazbug:67
+msgid "Send a new bug report."
+msgstr "Αποστολή νέας αναφοράς σφάλματος (bug)."
+
+#: tazbug:69
+msgid "Examples:"
+msgstr "Παραδείγματα:"
+
+#: tazbug:79
+msgid "Missing real name"
+msgstr "Λείπει το πραγματικό όνομα"
+
+#: tazbug:80
+msgid "Missing login name"
+msgstr "Λείπει το όνομα σύνδεσης"
+
+#: tazbug:81
+msgid "Missing email"
+msgstr "Λείπει το e-mail"
+
+#: tazbug:82
+#: tazbug:120
+msgid "Missing password"
+msgstr "Λείπει ο κωδικός πρόσβασης"
+
+#: tazbug:92
+msgid "Creating SliTaz account configuration..."
+msgstr "Δημιουργία ρυθμίσεων ενός λογαριασμού SliTaz..."
+
+#: tazbug:107
+msgid "Creating SliTaz secure key..."
+msgstr "Δημιουργία ασφαλούς κλειδιού SliTaz..."
+
+#: tazbug:149
+msgid "Missing bug ID"
+msgstr "Λείπει ο αριθμός ταυτοποίησης ID σφάλματος "
+
+#: tazbug:150
+msgid "Missing message"
+msgstr "Λείπει ένα μήνυμα"
+
+#: tazbug:159
+msgid "Missing bug title"
+msgstr "Λείπει ο τίτλος του σφάλματος"
+
+#: tazbug:160
+msgid "Missing description"
+msgstr "Λείπει η περιγραφή"
+
+#: tazbug:161
+msgid "Missing bug priority"
+msgstr "Λείπει η προτεραιότητα σφάλματος"
+
+#: tazbug-box:29
+#: tazbug-box:76
+msgid "My account"
+msgstr "Ο λογαριασμός μου"
+
+#: tazbug-box:42
+msgid "Bug ID"
+msgstr "Αριθμός ταυτοποίησης ID του σφάλματος"
+
+#: tazbug-box:43
+msgid "Message"
+msgstr "Μήνυμα"
+
+#: tazbug-box:44
+#: tazbug-box:129
+msgid "New bug"
+msgstr "Νέο σφάλμα"
+
+#: tazbug-box:45
+#: web/bugs.cgi:260
+msgid "Send message"
+msgstr "Αποστολή μηνύματος"
+
+#: tazbug-box:72
+#: web/bugs.cgi:318
+msgid "Bug title"
+msgstr "Τίτλος σφάλματος"
+
+#: tazbug-box:73
+#: web/bugs.cgi:330
+msgid "Priority"
+msgstr "Προτεραιότητα"
+
+#: tazbug-box:74
+#: web/bugs.cgi:326
+msgid "Packages"
+msgstr "Πακέτα"
+
+#: tazbug-box:75
+#: web/bugs.cgi:322
+msgid "Description"
+msgstr "Περιγραφή"
+
+#: tazbug-box:77
+#: tazbug-box:130
+#: web/bugs.cgi:256
+msgid "New message"
+msgstr "Νέο μήνυμα"
+
+#: tazbug-box:78
+msgid "Send bug"
+msgstr "Αποστολή σφάλματος"
+
+#: tazbug-box:109
+#: tazbug-box:155
+msgid "Real name"
+msgstr "Πραγματικό όνομα"
+
+#: tazbug-box:111
+#: web/bugs.cgi:128
+msgid "User name"
+msgstr "Όνομα χρήστη"
+
+#: tazbug-box:115
+msgid "Secure key"
+msgstr "Ασφαλές κλειδί"
+
+#: tazbug-box:125
+msgid "Account"
+msgstr "Λογαριασμός"
+
+#: tazbug-box:126
+msgid "Value"
+msgstr "Τιμή"
+
+#: tazbug-box:128
+msgid "Online bugs"
+msgstr "Online σφάλματα"
+
+#: tazbug-box:156
+msgid "Login name"
+msgstr "Όνομα σύνδεσης (login name)"
+
+#: tazbug-box:157
+msgid "Email"
+msgstr "Διεύθυνση Ηλεκτρον. αλληλογραφίας e-mail"
+
+#: tazbug-box:158
+#: web/bugs.cgi:129
+msgid "Password"
+msgstr "Κωδικός Πρόσβασης"
+
+#: web/bugs.cgi:88
+msgid "Log out"
+msgstr "Αποσύνδεση"
+
+#: web/bugs.cgi:95
+#: web/bugs.cgi:131
+msgid "Log in"
+msgstr "Σύνδεση"
+
+#: web/bugs.cgi:103
+#: web/bugs.cgi:104
+#: web/bugs.cgi:590
+#: web/bugs.cgi:593
+msgid "Search"
+msgstr "Αναζήτηση"
+
+#: web/bugs.cgi:117
+msgid "Login"
+msgstr "Σύνδεση"
+
+#: web/bugs.cgi:120
+msgid "No account yet? Please signup using the SliTaz Bugs reporter on your SliTaz system."
+msgstr "Δεν έχετε ακόμη λογαριασμό; Παρακαλώ, εγγραφείτε, χρησιμοποιώντας το σύστημα αναφοράς σφαλμάτων SliTaz Bugs, στο δικό σας σύστημα SLiTaz."
+
+#: web/bugs.cgi:122
+msgid "Tip: to attach big files or images, you can use SliTaz Paste services:"
+msgstr "Συμβουλή: για την επισύναψη μεγάλων αρχείων ή εικόνων, μπορείτε να χρησιμοποιήσετε υπηρεσίες του SLiTaz Paste."
+
+#: web/bugs.cgi:145
+#: web/bugs.cgi:154
+#, sh-format
+msgid "Real name  : $NAME"
+msgstr "Πραγματικό όνομα  : $NAME"
+
+#: web/bugs.cgi:155
+#, sh-format
+msgid "Email      : $MAIL"
+msgstr "Διεύθυνση Ηλεκτρον. αλληλογραφίας e-mail      : $MAIL"
+
+#: web/bugs.cgi:156
+#, sh-format
+msgid "Secure key : $KEY"
+msgstr "Ασφαλές κλειδί : $KEY"
+
+#: web/bugs.cgi:164
+#, sh-format
+msgid "$bug Bug"
+msgstr "Σφάλμα $bug"
+
+#: web/bugs.cgi:174
+msgid "Bug title  :"
+msgstr "Τίτλος σφάλματος  :"
+
+#: web/bugs.cgi:174
+#: web/bugs.cgi:605
+msgid "Show"
+msgstr "Εμφάνιση"
+
+#: web/bugs.cgi:175
+msgid "ID - Date  :"
+msgstr "ID - Ημερομηνία  :"
+
+#: web/bugs.cgi:176
+msgid "Creator    :"
+msgstr "Δημιουργός    :"
+
+#: web/bugs.cgi:200
+#, sh-format
+msgid "Bug $id"
+msgstr "Αριθμός ταυτοποίησης σφάλματος $id"
+
+#: web/bugs.cgi:207
+#, sh-format
+msgid "Priority $PRIORITY"
+msgstr "Προτεραιότητα $PRIORITY"
+
+#: web/bugs.cgi:208
+#: web/bugs.cgi:636
+#, sh-format
+msgid "$msgs message"
+msgid_plural "$msgs messages"
+msgstr[0] "μηνύματα $msgs"
+msgstr[1] "μηνύματα $msgs"
+
+#: web/bugs.cgi:220
+msgid "Close bug"
+msgstr "Κλείσιμο σφάλματος"
+
+#: web/bugs.cgi:221
+msgid "Edit bug"
+msgstr "Επεξεργασία σφάλματος"
+
+#: web/bugs.cgi:225
+msgid "Re open bug"
+msgstr "Εκ νέου άνοιγμα σφάλματος"
+
+#: web/bugs.cgi:232
+msgid "Messages"
+msgstr "Μηνύματα"
+
+#: web/bugs.cgi:234
+msgid "No messages"
+msgstr "Δεν υπάρχουν μηνύματα"
+
+#: web/bugs.cgi:310
+msgid "New Bug"
+msgstr "Νέο μήνυμα"
+
+#: web/bugs.cgi:333
+msgid "Standard"
+msgstr ""
+
+#: web/bugs.cgi:334
+msgid "Critical"
+msgstr "Κρίσιμης σημασίας"
+
+#: web/bugs.cgi:336
+msgid "Create Bug"
+msgstr "Δημιουργία σφάλματος"
+
+#: web/bugs.cgi:344
+msgid "* field is obligatory. You can also specify affected packages."
+msgstr "Το πεδίο * είναι υποχρεωτικό. Μπορείτε, επίσης, να ορίσετε τα εμπλεκόμενα πακέτα."
+
+#: web/bugs.cgi:354
+#, sh-format
+msgid "Edit Bug $bug"
+msgstr "Επεξεργασία του σφάλματος $bug"
+
+#: web/bugs.cgi:360
+msgid "Save configuration"
+msgstr "Αποθήκευση ρυθμίσεων"
+
+#: web/bugs.cgi:476
+msgid "Bad login or pass"
+msgstr "Λάθος σύνδεση, ή κωδικός πρόσβασης"
+
+#: web/bugs.cgi:510
+msgid "You must be logged in to post a new bug"
+msgstr "Πρέπει να συνδεθείτε για κάνετε υποβολή νέου σφάλματος."
+
+#: web/bugs.cgi:612
+#, sh-format
+msgid "No result found for: $get_search"
+msgstr "Δεν βρέθηκε κανένα αποτέλεσμα για το: $get_search"
+
+#: web/bugs.cgi:630
+msgid "Summary"
+msgstr "Περίληψη"
+
+#: web/bugs.cgi:633
+#, sh-format
+msgid "Bug: $bugs in total -"
+msgid_plural "Bugs: $bugs in total -"
+msgstr[0] "Σφάλμα: Συνολικά $bugs -"
+msgstr[1] "Σφάλματα: Συνολικά $bugs -"
+
+#: web/bugs.cgi:634
+#, sh-format
+msgid "$close fixed -"
+msgid_plural "$close fixed -"
+msgstr[0] "$close διορθώθηκε -"
+msgstr[1] "$close διορθώθηκαν -"
+
+#: web/bugs.cgi:635
+#, sh-format
+msgid "$fixme to fix -"
+msgid_plural "$fixme to fix -"
+msgstr[0] "$fixme για τη διόρθωση -"
+msgstr[1] "$fixme για τις διορθώσεις -"
+
+#: web/bugs.cgi:643
+msgid "Please read the <a href=\"?README\">README</a> for help and more information. You may also be interested by the SliTaz <a href=\"http://roadmap.slitaz.org/\">Roadmap</a> and the packages <a href=\"http://cook.slitaz.org/\">Cooker</a>. To perform a search enter your term and press ENTER."
+msgstr "Παρακαλώ, διαβάστε το <a href=\"?README\">README</a> για περισσότερη βοήθεια και πληροφορίες. Μπορεί, επίσης, να σας ενδιαφέρει ο <a href=\"http://roadmap.slitaz.org/\">Οδικός χάρτης (Roadmap)</a> του SliTaz και τα πακέτα του <a href=\"http://cook.slitaz.org/\">Cooker</a>. Για να κάνετε μια αναζήτηση, βάλτε τον δικό σας όρο αναζήτησης και πατήστε ENTER."
+
+#: web/bugs.cgi:651
+msgid "View closed bugs"
+msgstr "Εμφάνιση των σφαλμάτων που έκλεισαν."
+
+#: web/bugs.cgi:654
+msgid "Create a new bug"
+msgstr "Δημιουργία ενός νέου σφάλματος."
+
