@@ -541,17 +541,6 @@ case " $(POST) " in
 		;;
 esac
 
-#
-# Plugins
-#
-for p in $(ls -1 $plugins)
-do
-	[ -f "$plugins/$p/$p.conf" ] && . $plugins/$p/$p.conf
-	[ -x "$plugins/$p/$p.cgi" ] && . $plugins/$p/$p.cgi
-done
-
-
-
 
 ###################################################
 # GET actions
@@ -770,5 +759,17 @@ EOT
 		list_bugs OPEN
 		html_footer ;;
 esac
+
+
+###################################################
+# Plugins
+###################################################
+
+for p in $(ls -1 $plugins)
+do
+	[ -f "$plugins/$p/$p.conf" ] && . $plugins/$p/$p.conf
+	[ -x "$plugins/$p/$p.cgi" ] && . $plugins/$p/$p.cgi
+done
+
 
 exit 0
