@@ -1,0 +1,367 @@
+# Brazilian Portuguese translations for TazBug package.
+# Copyright (C) 2013 SliTaz Association 
+# This file is distributed under the same license as the TazBug package.
+# Claudinei Pereira <claudinei@slitaz.org>, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: SliTaz Bugs\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-07-01 22:03+0000\n"
+"PO-Revision-Date: 2013-01-27 01:17-0300\n"
+"Last-Translator: Claudinei Pereira <claudinei@slitaz.org>\n"
+"Language-Team: Brazilian Portuguese <i18n@slitaz.org>\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: tazbug:60
+msgid "Usage:"
+msgstr "Utilização:"
+
+#: tazbug:60
+msgid "[command] [args]"
+msgstr "[comando] [argumentos]"
+
+#: tazbug:62
+msgid "Commands:"
+msgstr "Comandos:"
+
+#: tazbug:63
+msgid "Recreate the SliTaz secure key."
+msgstr "Recria uma chave segura do SliTaz."
+
+#: tazbug:64
+msgid "Create a new SliTaz account configuration."
+msgstr "Cria uma nova configuração de conta do SliTaz."
+
+#: tazbug:65
+msgid "Create a new account on SliTaz Bugs."
+msgstr "Cria uma nova conta no SliTaz Bugs."
+
+#: tazbug:66
+msgid "Send a new message to an open bug."
+msgstr "Envia uma nova mensagem para um bug aberto."
+
+#: tazbug:67
+msgid "Send a new bug report."
+msgstr "Envia um novo aviso de bug."
+
+#: tazbug:69
+msgid "Examples:"
+msgstr "Exemplos:"
+
+#: tazbug:79
+msgid "Missing real name"
+msgstr "Nome real não informado"
+
+#: tazbug:80
+msgid "Missing login name"
+msgstr "Login não informado"
+
+#: tazbug:81
+msgid "Missing email"
+msgstr "Email não informado"
+
+#: tazbug:82 tazbug:120
+msgid "Missing password"
+msgstr "Senha não informada"
+
+#: tazbug:92
+msgid "Creating SliTaz account configuration..."
+msgstr "Criando uma configuração de conta do SliTaz..."
+
+#: tazbug:107
+msgid "Creating SliTaz secure key..."
+msgstr "Criando uma chave segura do SliTaz..."
+
+#: tazbug:149
+msgid "Missing bug ID"
+msgstr "ID de bug não informado"
+
+#: tazbug:150
+msgid "Missing message"
+msgstr "Messagem não informada"
+
+#: tazbug:159
+msgid "Missing bug title"
+msgstr "Título do bug não informado"
+
+#: tazbug:160
+msgid "Missing description"
+msgstr "Descrição não informada"
+
+#: tazbug:161
+msgid "Missing bug priority"
+msgstr "Prioridade do bug não informada"
+
+#: tazbug-box:29 tazbug-box:76
+msgid "My account"
+msgstr "Minha conta"
+
+#: tazbug-box:42
+msgid "Bug ID"
+msgstr "ID do bug"
+
+#: tazbug-box:43
+msgid "Message"
+msgstr "Mensagem"
+
+#: tazbug-box:44 tazbug-box:129
+msgid "New bug"
+msgstr "Novo bug"
+
+#: tazbug-box:45 web/bugs.cgi:260
+msgid "Send message"
+msgstr "Enviar mensagem"
+
+#: tazbug-box:72 web/bugs.cgi:318
+msgid "Bug title"
+msgstr "Título do bug"
+
+#: tazbug-box:73 web/bugs.cgi:330
+msgid "Priority"
+msgstr "Prioridade"
+
+#: tazbug-box:74 web/bugs.cgi:326
+msgid "Packages"
+msgstr "Pacotes"
+
+#: tazbug-box:75 web/bugs.cgi:322
+msgid "Description"
+msgstr "Descrição"
+
+#: tazbug-box:77 tazbug-box:130 web/bugs.cgi:256
+msgid "New message"
+msgstr "Nova mensagem"
+
+#: tazbug-box:78
+msgid "Send bug"
+msgstr "Enviar bug"
+
+#: tazbug-box:109 tazbug-box:155
+msgid "Real name"
+msgstr "Nome real"
+
+#: tazbug-box:111 web/bugs.cgi:128
+msgid "User name"
+msgstr "Nome de usuário"
+
+#: tazbug-box:115
+msgid "Secure key"
+msgstr "Chave segura"
+
+#: tazbug-box:125
+msgid "Account"
+msgstr "Conta"
+
+#: tazbug-box:126
+msgid "Value"
+msgstr "Valor"
+
+#: tazbug-box:128
+msgid "Online bugs"
+msgstr "Bugs online"
+
+#: tazbug-box:156
+msgid "Login name"
+msgstr "Login"
+
+#: tazbug-box:157
+msgid "Email"
+msgstr "Email"
+
+#: tazbug-box:158 web/bugs.cgi:129
+msgid "Password"
+msgstr "Senha"
+
+#: web/bugs.cgi:88
+msgid "Log out"
+msgstr "Sair"
+
+#: web/bugs.cgi:95 web/bugs.cgi:131
+msgid "Log in"
+msgstr "Entrar"
+
+#: web/bugs.cgi:103 web/bugs.cgi:104 web/bugs.cgi:590 web/bugs.cgi:593
+msgid "Search"
+msgstr "Buscar"
+
+#: web/bugs.cgi:117
+msgid "Login"
+msgstr "Login"
+
+#: web/bugs.cgi:120
+msgid ""
+"No account yet? Please signup using the SliTaz Bugs reporter on your SliTaz "
+"system."
+msgstr ""
+"Ainda não possui uma conta? Por favor fazer o cadastro no sistema de Aviso "
+"de Bugs em seu sistema SliTaz."
+
+#: web/bugs.cgi:122
+msgid "Tip: to attach big files or images, you can use SliTaz Paste services:"
+msgstr "Dica: para anexar arquivos ou imagens, utilizar o seguinte serviço:"
+
+#: web/bugs.cgi:145 web/bugs.cgi:154
+#, sh-format
+msgid "Real name  : $NAME"
+msgstr "Nome real : $NAME"
+
+#: web/bugs.cgi:155
+#, sh-format
+msgid "Email      : $MAIL"
+msgstr "Email     : $MAIL"
+
+#: web/bugs.cgi:156
+#, sh-format
+msgid "Secure key : $KEY"
+msgstr "Chave Segura: $KEY"
+
+#: web/bugs.cgi:164
+#, sh-format
+msgid "$bug Bug"
+msgstr "bug $bug"
+
+#: web/bugs.cgi:174
+msgid "Bug title  :"
+msgstr "Título do Bug:"
+
+#: web/bugs.cgi:174 web/bugs.cgi:605
+msgid "Show"
+msgstr "Mostrar"
+
+#: web/bugs.cgi:175
+msgid "ID - Date  :"
+msgstr "ID - Data :"
+
+#: web/bugs.cgi:176
+msgid "Creator    :"
+msgstr "Criador   :"
+
+#: web/bugs.cgi:200
+#, sh-format
+msgid "Bug $id"
+msgstr "Bug $id"
+
+#: web/bugs.cgi:207
+#, sh-format
+msgid "Priority $PRIORITY"
+msgstr "Prioridade $PRIORITY"
+
+#: web/bugs.cgi:208 web/bugs.cgi:636
+#, sh-format
+msgid "$msgs message"
+msgid_plural "$msgs messages"
+msgstr[0] "$msgs mensagem"
+msgstr[1] "$msgs mensagens"
+
+#: web/bugs.cgi:220
+msgid "Close bug"
+msgstr "Fechar bug"
+
+#: web/bugs.cgi:221
+msgid "Edit bug"
+msgstr "Editar bug"
+
+#: web/bugs.cgi:225
+msgid "Re open bug"
+msgstr "Reabrir bug"
+
+#: web/bugs.cgi:232
+msgid "Messages"
+msgstr "Mensagens"
+
+#: web/bugs.cgi:234
+msgid "No messages"
+msgstr "Nenhuma mensagem"
+
+#: web/bugs.cgi:310
+msgid "New Bug"
+msgstr "Novo bug"
+
+#: web/bugs.cgi:333
+msgid "Standard"
+msgstr "Padrão"
+
+#: web/bugs.cgi:334
+msgid "Critical"
+msgstr "Crítico"
+
+#: web/bugs.cgi:336
+msgid "Create Bug"
+msgstr "Criar bug"
+
+#: web/bugs.cgi:344
+msgid "* field is obligatory. You can also specify affected packages."
+msgstr "Campos marcados como * são obrigatórios. Pode-se indicar o pacote afetado."
+
+#: web/bugs.cgi:354
+#, sh-format
+msgid "Edit Bug $bug"
+msgstr "Editar bug $bug"
+
+#: web/bugs.cgi:360
+msgid "Save configuration"
+msgstr "Salvar configuração"
+
+#: web/bugs.cgi:476
+msgid "Bad login or pass"
+msgstr "Login ou senha não conferem"
+
+#: web/bugs.cgi:510
+msgid "You must be logged in to post a new bug"
+msgstr "Deve-se estar logado para reportar um novo bug"
+
+#: web/bugs.cgi:612
+#, sh-format
+msgid "No result found for: $get_search"
+msgstr "Nenhum resultado para: $get_search"
+
+#: web/bugs.cgi:630
+msgid "Summary"
+msgstr "Sumário"
+
+#: web/bugs.cgi:633
+#, sh-format
+msgid "Bug: $bugs in total -"
+msgid_plural "Bugs: $bugs in total -"
+msgstr[0] "$bugs no total -"
+msgstr[1] "Bugs: $bugs no total -"
+
+#: web/bugs.cgi:634
+#, sh-format
+msgid "$close fixed -"
+msgid_plural "$close fixed -"
+msgstr[0] "$close fechado -"
+msgstr[1] "$close fechados -"
+
+#: web/bugs.cgi:635
+#, sh-format
+msgid "$fixme to fix -"
+msgid_plural "$fixme to fix -"
+msgstr[0] "$fixme para solucionar -"
+msgstr[1] "$fixme para solucionar -"
+
+#: web/bugs.cgi:643
+msgid ""
+"Please read the <a href=\"?README\">README</a> for help and more "
+"information. You may also be interested by the SliTaz <a href=\"http://"
+"roadmap.slitaz.org/\">Roadmap</a> and the packages <a href=\"http://cook."
+"slitaz.org/\">Cooker</a>. To perform a search enter your term and press "
+"ENTER."
+msgstr ""
+"Por favor leia o <a href=\"?README\">README</a> para ajuda e maiores "
+"informações. Confira também o <a href=\"http://roadmap.slitaz.org/\">"
+"SliTaz Roadmap</a> e o <a href=\"http://cook.slitaz.org/\">SliTaz Cooker</a>. "
+"Para fazer uma busca, indique o termo e pressione ENTER."
+
+#: web/bugs.cgi:651
+msgid "View closed bugs"
+msgstr "Ver bugs fechados"
+
+#: web/bugs.cgi:654
+msgid "Create a new bug"
+msgstr "Criar um novo bug"
