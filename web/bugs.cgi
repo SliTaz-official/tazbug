@@ -249,7 +249,7 @@ wiki_parser() {
 	sed \
 		-e s"#http://\([^']*\).png#<img src='\0' alt='[ Image ]' />#"g \
 		-e s"#http://\([^']*\).*# <a href='\0'>\1</a>#"g \
-		-e 's#\\\\n#\n#g;s#%22#"#g'
+		-e 's#\\\\n#\n#g;s#%22#"#g;s#%21#!#g'
 }
 
 
