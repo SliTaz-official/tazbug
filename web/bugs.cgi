@@ -116,14 +116,18 @@ check_auth() {
 	fi
 }
 
+# Check if user is admin
+admin_user() {
+	fgrep -q 'ADMIN_USER="yes"' ${PEOPLE}/${user}/account.conf
+}
 
 # Authentified or not
 user_box() {
-
-IDLOC=""
-if [[ "$(GET id)" ]] ;then
-	IDLOC="&id=$(GET id)"
-fi
+	
+	IDLOC=""
+	if [[ "$(GET id)" ]] ;then
+		IDLOC="&id=$(GET id)"
+	fi
 
 	if check_auth; then
 		. $PEOPLE/$user/account.conf
@@ -188,11 +192,11 @@ online_signup() {
 
 # Login page
 login_page() {
-IDLOC=""
-if [[ "$(GET id)" ]] ;then
-	IDLOC="?id=$(GET id)"
-fi
-
+	
+	IDLOC=""
+	if [[ "$(GET id)" ]] ;then
+		IDLOC="?id=$(GET id)"
+	fi
 	cat << EOT
 <h2>$(gettext 'Login')</h2>
 
@@ -205,7 +209,7 @@ services:") <a href="http://paste.slitaz.org/">paste.slitaz.org</a></p>
 </div>
 
 <div id="login">
-	<form method="post" action="$SCRIPT_NAME">
+	<form method="post" action="$script">
 		<input type="text" name="auth" placeholder="$(gettext 'User name')" />
 		<input type="password" name="pass" placeholder="$(gettext 'Password')" />
 		<div>
@@ -262,7 +266,6 @@ EOT
 	done
 }
 
-
 # Stripped down Wiki parser for bug desc and messages which are simply
 # displayed in <pre>
 wiki_parser() {
@@ -271,7 +274,6 @@ wiki_parser() {
 		-e s"#http://\([^']*\).*# <a href='\0'>\1</a>#"g \
 		-e 's#\\\\n#\n#g;s#%22#"#g;s#%21#!#g'
 }
-
 
 # Bug page
 bug_page() {
@@ -348,7 +350,6 @@ EOT
 	fi
 }
 
-
 # Write a new message
 new_msg() {
 	date=$(date "+%Y-%m-%d %H:%M")
@@ -364,7 +365,6 @@ DATE="$date"
 MSG="$(GETfiltered msg)"
 EOT
 }
-
 
 # Create a new Bug
 new_bug() {
@@ -390,7 +390,6 @@ PKGS="$(GETfiltered pkgs)"
 DESC="$(GETfiltered desc)"
 EOT
 }
-
 
 # New bug page for the web interface
 new_bug_page() {
@@ -486,7 +485,6 @@ get_gravatar() {
 	echo "<img src=\"$url/$md5?d=identicon&amp;s=$size\" alt=\"\" />"
 }
 
-
 # Create a new user in AUTH_FILE and PEOPLE
 new_user_config() {
 	if [ ! "$online" ]; then
@@ -572,11 +570,19 @@ case " $(POST) " in
 			header
 			html_header
 			user_box
-			echo "<h2>gettext "User already exists: $user"</h2>"
+			echo "<h2>$(gettext "User already exists:") $user</h2>"
 			html_footer && exit 0
 		fi ;;
 esac
 
+#
+# Plugins Now!
+#
+for p in $(ls -1 $plugins)
+do
+	[ -f "$plugins/$p/$p.conf" ] && . $plugins/$p/$p.conf
+	[ -x "$plugins/$p/$p.cgi" ] && . $plugins/$p/$p.cgi
+done
 
 ########################################################################
 # GET actions                                                          #
@@ -788,8 +794,8 @@ EOT
 	<div class="pct" style="width: ${pct}%;">${pct}%</div>
 </div>
 
-<p>$(gettext "Please read the <a href=\"?README\">README</a> for help and more \
-information. You may also be interested by the SliTaz \
+<p>$(gettext "Please read the <a href=\"?README\">README</a> for help and \
+more information. You may also be interested by the SliTaz \
 <a href=\"http://roadmap.slitaz.org/\">Roadmap</a> and the packages \
 <a href=\"http://cook.slitaz.org/\">Cooker</a>. To perform a search \
 enter your term and press ENTER.")
@@ -800,6 +806,7 @@ enter your term and press ENTER.")
 EOT
 		if check_auth; then
 			echo "<a href='?newbug'>$(gettext 'Create a new bug')</a>"
+			echo "$PLUGINS_TOOLS"
 		fi
 		cat << EOT
 </div>
@@ -807,17 +814,5 @@ EOT
 		list_bugs OPEN
 		html_footer ;;
 esac
-
-
-########################################################################
-# Plugins                                                              #
-########################################################################
-
-for p in $(ls -1 $plugins)
-do
-	[ -f "$plugins/$p/$p.conf" ] && . $plugins/$p/$p.conf
-	[ -x "$plugins/$p/$p.cgi" ] && . $plugins/$p/$p.cgi
-done
-
 
 exit 0
