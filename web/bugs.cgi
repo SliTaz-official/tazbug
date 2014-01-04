@@ -2,15 +2,17 @@
 #
 # TazBug Web interface
 #
-# Copyright (C) 2012 SliTaz GNU/Linux - BSD License
+# Copyright (C) 2012-2014 SliTaz GNU/Linux - BSD License
 #
 . /usr/lib/slitaz/httphelper
 [ -f "/etc/slitaz/bugs.conf" ] && . /etc/slitaz/bugs.conf
+#. bugs.conf
 
 # Internal variable
 bugdir="$TAZBUG/bug"
 plugins="plugins"
 sessions="/tmp/bugs/sessions"
+script="$SCRIPT_NAME"
 po=""
 
 # Content negotiation for Gettext
@@ -39,11 +41,6 @@ export LANG LC_ALL=$LANG
 . /usr/bin/gettext.sh
 TEXTDOMAIN='tazbug'
 export TEXTDOMAIN
-
-
-
-
-
 
 #
 # Functions
@@ -80,12 +77,10 @@ js_redirection_to()
 	echo "<script type=\"text/javascript\"> document.location = \"$1\"; </script>"
 }
 
-
 js_log()
 {
 	echo "<script type=\"text/javascript\">console.log('$1')</script>";
 }
-
 
 js_set_cookie()
 {
@@ -98,7 +93,6 @@ js_set_cookie()
 	echo "</script>"
 }
 
-
 js_unset_cookie()
 {
 	name=$1
@@ -108,7 +102,6 @@ js_unset_cookie()
 		echo "document.cookie = \"$1=\"\"; expires=-1; path=/";
 	echo "</script>"
 }
-
 
 # Check if user is auth
 check_auth() {
@@ -137,7 +130,7 @@ fi
 		cat << EOT
 <div id="user">
 <a href="?user=$user">$(get_gravatar $MAIL 20)</a>
-<a href="?logout">$(gettext 'Log out')</a>
+<a href="?logout">$(gettext 'Logout')</a>
 </div>
 EOT
 	else
@@ -163,6 +156,35 @@ EOT
 EOT
 }
 
+# Signup page
+signup_page() {
+	cat << EOT
+
+<div id="signup">
+	<form method="post" name="signup" action="$SCRIPT_NAME" onsubmit="return checkSignup();">
+		<input type="hidden" name="signup" value="new" />
+		<input type="text" name="name" placeholder="$(gettext "Real name")" />
+		<input type="text" name="user" placeholder="$(gettext "User name")" />
+		<input type="text" name="mail" placeholder="$(gettext "Email")" />
+		<input type="password" name="pass" placeholder="$(gettext "Password")" />
+		<div>
+			<input type="submit" value="$(gettext "Create new account")" />
+		</div>
+	</form>
+</div>
+
+EOT
+}
+
+# Link for online signup if enabled.
+online_signup() {
+	if [ "$ONLINE_SIGNUP" == "yes" ]; then
+		echo -n "<p>" && gettext "Or:"; echo -n " "
+		echo -n "<a href='$script?signup&amp;online'>"
+		gettext "Sign Up Online"
+		echo '</a></p>'
+	fi
+}
 
 # Login page
 login_page() {
@@ -175,8 +197,9 @@ fi
 <h2>$(gettext 'Login')</h2>
 
 <div id="account-info">
-<p>$(gettext "No account yet? Please signup using the SliTaz Bugs reporter \
+<p>$(gettext "No account yet? You can signup using the SliTaz Bugs reporter \
 on your SliTaz system.")</p>
+$(online_signup)
 <p>$(gettext "Tip: to attach big files or images, you can use SliTaz Paste \
 services:") <a href="http://paste.slitaz.org/">paste.slitaz.org</a></p>
 </div>
@@ -196,7 +219,6 @@ services:") <a href="http://paste.slitaz.org/">paste.slitaz.org</a></p>
 EOT
 }
 
-
 # Display user public profile.
 public_people() {
 	cat << EOT
@@ -205,7 +227,6 @@ $(eval_gettext 'Real name  : $NAME')
 </pre>
 EOT
 }
-
 
 # Display authentified user profile. TODO: change password
 auth_people() {
@@ -217,7 +238,6 @@ $(eval_gettext 'Secure key : $KEY')
 </pre>
 EOT
 }
-
 
 # Usage: list_bugs STATUS
 list_bugs() {
@@ -469,17 +489,20 @@ get_gravatar() {
 
 # Create a new user in AUTH_FILE and PEOPLE
 new_user_config() {
-	mail="$(GET mail)"
-	pass="$(GET pass)"
+	if [ ! "$online" ]; then
+		name="$(GET name)"
+		mail="$(GET mail)"
+		pass="$(GET pass)"
+		echo "Creating Server Key..."
+	fi
 	key=$(echo -n "$user:$mail:$pass" | md5sum | awk '{print $1}')
-	echo "Server Key generated"
 	echo "$user:$pass" >> $AUTH_FILE
 	mkdir -pm0700 $PEOPLE/$user/
 	cat > $PEOPLE/$user/account.conf << EOT
 # SliTaz user configuration
 #
 
-NAME="$(GET name)"
+NAME="$name"
 USER="$user"
 MAIL="$mail"
 KEY="$key"
@@ -492,15 +515,12 @@ EOT
 	chmod 0600 $PEOPLE/$user/account.conf
 	if [ ! -f $PEOPLE/$user/account.conf ]; then
 		echo "ERROR: User creation failed!"
-		fi;
-	}
+	fi
+}
 
-
-
-
-###################################################
-# POST actions
-###################################################
+########################################################################
+# POST actions                                                         #
+########################################################################
 
 case " $(POST) " in
 	*\ auth\ *)
@@ -513,9 +533,9 @@ case " $(POST) " in
 		pass="$(echo -n "$(POST pass)" | md5sum | awk '{print $1}')"
 
 		IDLOC=""
-			if [[ "$(GET id)" ]] ;then
-				IDLOC="&id=$(GET id)"
-			fi
+		if [[ "$(GET id)" ]] ;then
+			IDLOC="&id=$(GET id)"
+		fi
 
 		if [  ! -f $AUTH_FILE ] ; then
 			js_log "$AUTH_FILE (defined in \$AUTH_FILE) have not been found."
@@ -537,15 +557,30 @@ case " $(POST) " in
 			js_log "Login authentification have been executed & refused"
 			js_redirection_to "$WEB_URL?login&error$IDLOC"
 		fi
-
-		html_footer
-		;;
+		html_footer ;;
+	*\ signup\ *)
+		# POST action for online signup
+		name="$(POST name)"
+		user="$(POST user)"
+		mail="$(POST mail)"
+		pass="$(md5crypt "$(POST pass)")"
+		if ! grep "^${user}:" $AUTH_FILE; then
+			online="yes"
+			new_user_config
+			header "Location: $SCRIPT_NAME?login"
+		else
+			header
+			html_header
+			user_box
+			echo "<h2>gettext "User already exists: $user"</h2>"
+			html_footer && exit 0
+		fi ;;
 esac
 
 
-###################################################
-# GET actions
-###################################################
+########################################################################
+# GET actions                                                          #
+########################################################################
 
 case " $(GET) " in
 	*\ README\ *)
@@ -645,15 +680,27 @@ case " $(GET) " in
 		html_footer ;;
 	*\ signup\ *)
 		# Signup
-		header "Content-type: text/plain;"
-		user="$(GET signup)"
-		echo "Requested user login : $user"
-		if fgrep -q "$user:" $AUTH_FILE; then
-			echo "ERROR: User already exists" && exit 1
+		if [ "$(GET online)" ];then
+			header
+			html_header
+			user_box
+			echo "<h2>$(gettext "Sign Up")</h2>"
+			if [ "$ONLINE_SIGNUP" == "yes" ]; then
+				signup_page
+			else
+				gettext "Online registration is disabled"
+			fi
+			html_footer && exit 0
 		else
-
-			echo "Creating account for : $(GET name)"
-			new_user_config
+			header "Content-type: text/plain;"
+			user="$(GET signup)"
+			echo "Requested user login : $user"
+			if fgrep -q "$user:" $AUTH_FILE; then
+				echo "ERROR: User already exists" && exit 1
+			else
+				echo "Creating account for : $(GET name)"
+				new_user_config
+			fi
 		fi ;;
 	*\ key\ *)
 		# Let user post new bug or message with crypted key (no gettext)
@@ -762,9 +809,9 @@ EOT
 esac
 
 
-###################################################
-# Plugins
-###################################################
+########################################################################
+# Plugins                                                              #
+########################################################################
 
 for p in $(ls -1 $plugins)
 do
