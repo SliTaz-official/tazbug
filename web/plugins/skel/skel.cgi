@@ -14,7 +14,7 @@ if [ "$(GET skel)" ]; then
 	
 	# Say we use files in $DATA/skel, sort them by date and simply cat
 	# the files, this will create a simple blog :-) We may add post via
-	# uploads or an HTML form.
+	# uploads or a HTML form.
 	
 	html_footer
 	exit 0

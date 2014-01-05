@@ -11,7 +11,7 @@ case " $(GET) " in
 		html_header
 		user_box
 		if ! admin_user; then
-			gettext "You must be admin in to manage users."
+			gettext "You must be admin to manage users."
 			exit 0
 		fi
 		users=$(ls -1 $PEOPLE | wc -l)

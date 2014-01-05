@@ -536,7 +536,7 @@ case " $(POST) " in
 		fi
 
 		if [  ! -f $AUTH_FILE ] ; then
-			js_log "$AUTH_FILE (defined in \$AUTH_FILE) have not been found."
+			js_log "$AUTH_FILE (defined in \$AUTH_FILE) has not been found."
 			js_redirection_to "$WEB_URL?login$IDLOC"
 		fi;
 
@@ -549,10 +549,10 @@ case " $(POST) " in
 			mkdir -p $sessions
 			echo "$md5session" > $sessions/$user
 			js_set_cookie 'auth' "$user:$md5session"
-			js_log "Login authentification have been executed & accepted :)"
+			js_log "Login authentification has been executed & accepted :)"
 			js_redirection_to "$WEB_URL$IDLOC"
 		else
-			js_log "Login authentification have been executed & refused"
+			js_log "Login authentification has been executed & refused"
 			js_redirection_to "$WEB_URL?login&error$IDLOC"
 		fi
 		html_footer ;;

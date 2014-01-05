@@ -2,7 +2,7 @@ TazBug - The SliTaz Bug Tracker
 ================================================================================
 
 
-The SliTaz Project have setup and tried several bug trackers but they were never
+The SliTaz Project has setup and tried several bug trackers but they were never
 adopted by the main developers. This is an attempt to change that by providing
 a radically simple tool well integrated with the SliTaz packages Cooker, Cookiso,
 Roadmap and other sites such as the wiki and forum.
