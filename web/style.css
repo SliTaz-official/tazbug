@@ -127,8 +127,11 @@ textarea { width: 100%; }
 	padding: 10px;
 }
 
+pre img { margin: 4px 4px 4px 0px; }
+
 .error { color: red; }
 .ok { color: green; }
+.date { color: #666; font-size: 96%; }
 
 /* Progress bar */
 

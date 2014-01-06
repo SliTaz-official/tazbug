@@ -247,6 +247,7 @@ EOT
 list_bugs() {
 	bug="$1"
 	echo "<h3>$(eval_gettext '$bug Bug')</h3>"
+	echo "<pre>"
 	for pr in critical standard
 	do
 		for bug in $(fgrep -H "$1" $bugdir/*/bug.conf | cut -d ":" -f 1)
@@ -254,14 +255,15 @@ list_bugs() {
 			. $bug
 			id=$(basename $(dirname $bug))
 			if [ "$PRIORITY" == "$pr" ]; then
+				[ -f "${PEOPLE}/${CREATOR}/account.conf" ] && \
+					. ${PEOPLE}/${CREATOR}/account.conf
 				cat << EOT
-<pre>
-$(gettext 'Bug title  :') <strong>$BUG</strong> <a href="?id=$id">$(gettext 'Show')</a>
-$(gettext 'ID - Date  :') $id - $DATE
-$(gettext 'Creator    :') <a href="?user=$CREATOR">$CREATOR</a>
-</pre>
+<a href="?user=$USER">$(get_gravatar "$MAIL" 24)</a> \
+ID: $id  <strong><a href="?id=$id">$BUG</a></strong> \
+<span class="date">$DATE</span>
 EOT
 			fi
+			unset CREATOR USER MAIL
 		done
 	done
 }
@@ -283,13 +285,14 @@ bug_page() {
 		MAIL="default"
 	fi
 	cat << EOT
-<h2>$(eval_gettext 'Bug $id')</h2>
+<h2>$(eval_gettext 'Bug $id: $STATUS')</h2>
 <form method="get" action="$WEB_URL">
 
 <p>
-	$(get_gravatar $MAIL 32)
-	<strong>$STATUS</strong>
-	$BUG - $DATE -
+	$(get_gravatar $MAIL 32) <strong>$BUG</strong>
+</p>
+<p>
+	$(gettext "Date:") $DATE -
 	$(eval_gettext 'Priority $PRIORITY') -
 	$(eval_ngettext '$msgs message' '$msgs messages' $msgs)
 </p>
@@ -604,6 +607,7 @@ case " $(GET) " in
 		html_header
 		user_box
 		list_bugs CLOSED
+		echo "</pre>"
 		html_footer ;;
 	*\ login\ *)
 		# The login page
@@ -621,7 +625,6 @@ case " $(GET) " in
 			rm -f "$sessions/$user"
 			js_unset_cookie 'auth'
 			js_redirection_to "$WEB_URL"
-
 		fi ;;
 	*\ user\ *)
 		# User profile
@@ -812,6 +815,7 @@ EOT
 </div>
 EOT
 		list_bugs OPEN
+		echo "</pre>"
 		html_footer ;;
 esac
 
