@@ -6,7 +6,7 @@
 
 case " $(GET) " in
 	*\ users\ *)
-		d="Dashboard"
+		d="Users"
 		header
 		html_header
 		user_box
@@ -26,7 +26,7 @@ EOT
 		do
 			. "${PEOPLE}/${u}/account.conf"
 			cat << EOT
-$(get_gravatar $MAIL 24) <a href="?user=$USER">$USER</a> | $NAME
+$(get_gravatar $MAIL 24) <a href="?user=$USER">$USER</a> | $NAME | $MAIL
 EOT
 # deluser link
 #: <a href="?users&amp;deluser=$USER">$(gettext "delete")</a>

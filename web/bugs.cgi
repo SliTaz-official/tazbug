@@ -474,18 +474,15 @@ $content
 EOT
 }
 
-
 # Close a fixed bug
 close_bug() {
 	sed -i s'/OPEN/CLOSED/' $bugdir/$id/bug.conf
 }
 
-
 # Re open an old bug
 open_bug() {
 	sed -i s'/CLOSED/OPEN/' $bugdir/$id/bug.conf
 }
-
 
 # Get and display Gravatar image: get_gravatar email size
 # Link to profile: <a href="http://www.gravatar.com/$md5">...</a>
@@ -518,7 +515,6 @@ USER="$user"
 MAIL="$mail"
 KEY="$key"
 
-COMMUNITY="$(GET scn)"
 LOCATION="$(GET location)"
 RELEASES="$(GET releases)"
 PACKAGES="$(GET packages)"
