@@ -17,14 +17,16 @@ case " $(GET) " in
 		users=$(ls -1 $PEOPLE | wc -l)
 		cat << EOT
 <h2>Users: $users</h2>
+<div id="tools">
+	<a href="$script?dashboard">Dashboard</a>
+</div>
 <pre>
 EOT
 		for u in $(ls $PEOPLE)
 		do
-			#. ${PEOPLE}/${u}/account.conf
 			. "${PEOPLE}/${u}/account.conf"
 			cat << EOT
-<img src="images/avatar.png" /> <a href="?user=$USER">$USER</a> | $NAME
+$(get_gravatar $MAIL 24) <a href="?user=$USER">$USER</a> | $NAME
 EOT
 # deluser link
 #: <a href="?users&amp;deluser=$USER">$(gettext "delete")</a>
@@ -34,6 +36,9 @@ EOT
 		
 	*\ dashboard\ *)
 		d="Dashboard"
+		users=$(ls -1 $PEOPLE | wc -l)
+		bugs=$(ls -1 $bugdir | wc -l)
+		bugsize=$(du -sh $bugdir | awk '{print $1}')
 		header
 		html_header
 		user_box
@@ -44,16 +49,15 @@ EOT
 		if admin_user; then
 			admintools="<a href='?users'>Users</a>"
 		fi
-		users=$(ls -1 $PEOPLE | wc -l)
-		bugsize=$(du -sh $bugdir | awk '{print $1}')
 		cat << EOT
 <h2>Dashboard</h2>
 <pre>
 Users     : $users
+Bugs      : $bugs
 Bugsize   : $bugsize
 </pre>
 <div id="tools">
-$admintools
+	$admintools
 </div>
 <h3>Admin users</h3>
 EOT
