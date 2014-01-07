@@ -832,7 +832,7 @@ EOT
 EOT
 		# List last 3 bugs
 		echo "<pre>"
-		for lb in $(ls ${bugdir} | sort -n | tail -n 3)
+		for lb in $(ls ${bugdir} | sort -r -n | head -n 3)
 		do
 			list_bug ${lb}
 		done
