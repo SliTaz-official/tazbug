@@ -10,7 +10,7 @@ case " $(GET) " in
 		header
 		html_header
 		user_box
-		if ! admin_user; then
+		if check_auth && ! admin_user; then
 			gettext "You must be admin to manage users."
 			exit 0
 		fi
@@ -33,6 +33,26 @@ EOT
 			unset NAME USER 
 		done
 		echo "</pre>" && exit 0 ;;
+	
+	*\ online\ *)
+		# Show online users based on sessions files.
+		d="Online users"
+		header
+		html_header
+		user_box
+		cat << EOT
+<h2>Online users</h2>
+<pre>
+EOT
+		for u in $(ls $sessions)
+		do
+			. "${PEOPLE}/${u}/account.conf"
+			cat << EOT
+$(get_gravatar $MAIL 24) <a href="?user=$USER">$USER</a> | $NAME
+EOT
+		done
+		echo "</pre>"
+		html_footer && exit 0 ;;
 		
 	*\ dashboard\ *)
 		d="Dashboard"
@@ -46,8 +66,9 @@ EOT
 			gettext "You must be logged in to view the dashboard."
 			exit 0
 		fi
-		if admin_user; then
-			admintools="<a href='?users'>Users</a>"
+		if check_auth && admin_user; then
+			# Online users should not be public ?
+			admintools="<a href='?users'>List users</a>"
 		fi
 		cat << EOT
 <h2>Dashboard</h2>
@@ -57,6 +78,7 @@ Bugs      : $bugs
 Bugsize   : $bugsize
 </pre>
 <div id="tools">
+	<a href='?online'>Online users</a>
 	$admintools
 </div>
 <h3>Admin users</h3>

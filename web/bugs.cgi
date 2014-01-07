@@ -221,8 +221,6 @@ EOT
 # Display user public profile.
 public_people() {
 	cat << EOT
-<pre>
-$(eval_gettext 'Real name  : $NAME')
 </pre>
 EOT
 }
@@ -230,10 +228,8 @@ EOT
 # Display authentified user profile. TODO: change password
 auth_people() {
 	cat << EOT
-<pre>
-$(eval_gettext 'Real name  : $NAME')
-$(eval_gettext 'Email      : $MAIL')
-$(eval_gettext 'Secure key : $KEY')
+Email      : $MAIL
+Secure key : $KEY
 </pre>
 EOT
 }
@@ -556,6 +552,8 @@ case " $(POST) " in
 			fi
 			md5session=$(echo -n "$$:$user:$pass:$$" | md5sum | awk '{print $1}')
 			mkdir -p $sessions
+			# Log last login
+			date '+%Y-%m-%d' > ${PEOPLE}/${user}/last
 			echo "$md5session" > $sessions/$user
 			js_set_cookie 'auth' "$user:$md5session"
 			js_log "Login authentification has been executed & accepted :)"
@@ -638,14 +636,23 @@ case " $(GET) " in
 		fi ;;
 	*\ user\ *)
 		# User profile
+		last="$(cat $PEOPLE/"$(GET user)"/last)"
 		header
 		html_header
 		user_box
 		. $PEOPLE/"$(GET user)"/account.conf
-		echo "<h2>$(get_gravatar $MAIL) $(GET user)</h2>"
+		cat << EOT
+<h2>$(get_gravatar $MAIL) $NAME</h2>
+
+<pre>
+$(gettext "User name  :") $USER
+$(gettext "Last login :") $last
+EOT
 		if check_auth && [ "$(GET user)" == "$user" ]; then
 			auth_people
 		else
+			# check_auth will set VARS to current logged user: re-source
+			. $PEOPLE/"$(GET user)"/account.conf
 			public_people
 		fi
 		html_footer ;;
