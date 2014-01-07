@@ -765,8 +765,7 @@ EOT
 		cd $bugdir
 		for bug in *
 		do
-			cd ${bugdir}/${bug}
-			result=$(fgrep -i "$(GET search)" *)
+			result=$(fgrep -i -h "$(GET search)" $bug/*)
 			if [ "$result" ]; then
 				found=$(($found + 1))
 				id=${bug}
