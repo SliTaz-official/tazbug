@@ -40,8 +40,15 @@ EOT
 		header
 		html_header
 		user_box
+		if ! check_auth; then
+			gettext "You must be logged in to view online user"
+			exit 0
+		fi
 		cat << EOT
 <h2>Online users</h2>
+<div id="tools">
+	<a href="$script?dashboard">Dashboard</a>
+</div>
 <pre>
 EOT
 		for u in $(ls $sessions)
@@ -63,11 +70,10 @@ EOT
 		html_header
 		user_box
 		if ! check_auth; then
-			gettext "You must be logged in to view the dashboard."
+			gettext "You must be logged in to view the dashboard"
 			exit 0
 		fi
 		if check_auth && admin_user; then
-			# Online users should not be public ?
 			admintools="<a href='?users'>List users</a>"
 		fi
 		cat << EOT

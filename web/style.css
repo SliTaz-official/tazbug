@@ -114,7 +114,7 @@ textarea { width: 100%; }
 	margin: 40px auto;
 	padding: 0 20px;
 	text-align: justify;
-	max-width: 680px;
+	max-width: 720px;
 }
 
 #newbug textarea { width: 460px; }
