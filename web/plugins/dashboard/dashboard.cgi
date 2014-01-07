@@ -78,15 +78,18 @@ EOT
 		fi
 		cat << EOT
 <h2>Dashboard</h2>
+
+<div id="tools">
+	<a href='?online'>Online users</a>
+	$admintools
+</div>
+
 <pre>
 Users     : $users
 Bugs      : $bugs
 Bugsize   : $bugsize
 </pre>
-<div id="tools">
-	<a href='?online'>Online users</a>
-	$admintools
-</div>
+
 <h3>Admin users</h3>
 EOT
 		# Get the list of administrators
