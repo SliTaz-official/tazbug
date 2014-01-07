@@ -17,7 +17,9 @@ case " $(GET) " in
 			gettext "You must be logged in to view the dashboard"
 			exit 0
 		fi
-		# Source all plugins configs to get DASHBOARD_TOOLS and ADMIN_TOOLS
+		# Source all plugins.conf to get DASHBOARD_TOOLS and ADMIN_TOOLS
+		ADMIN_TOOLS=""
+		DASHBOARD_TOOLS=""
 		for p in $(ls $plugins)
 		do
 			. $plugins/$p/$p.conf
