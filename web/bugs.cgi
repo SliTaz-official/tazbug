@@ -238,10 +238,25 @@ $(eval_gettext 'Secure key : $KEY')
 EOT
 }
 
+# Usage: list_bug ID
+list_bug() {
+	id="$1"
+	. ${bugdir}/${id}/bug.conf
+	[ -f "${PEOPLE}/${CREATOR}/account.conf" ] && \
+		. ${PEOPLE}/${CREATOR}/account.conf
+	cat << EOT
+<a href="?user=$USER">$(get_gravatar "$MAIL" 24)</a> \
+ID: $id  <strong><a href="?id=$id">$BUG</a></strong> \
+<span class="date">$DATE</span>
+EOT
+	unset CREATOR USER MAIL
+		
+}
+
 # Usage: list_bugs STATUS
 list_bugs() {
-	bug="$1"
-	echo "<h3>$(eval_gettext '$bug Bug')</h3>"
+	status="$1"
+	echo "<h3>$(eval_gettext '$status Bugs')</h3>"
 	echo "<pre>"
 	for pr in critical standard
 	do
@@ -593,7 +608,11 @@ case " $(GET) " in
 		user_box
 		echo '<h2>README</h2>'
 		echo '<pre>'
-		cat /usr/share/doc/tazbug/README
+		if [ -f "README" ]; then
+			cat README
+		else
+			cat /usr/share/doc/tazbug/README
+		fi
 		echo '</pre>'
 		html_footer ;;
 	*\ closed\ *)
@@ -808,7 +827,16 @@ EOT
 		fi
 		cat << EOT
 </div>
+
+<h3>$(gettext "Latest Bugs")</h3>
 EOT
+		# List last 3 bugs
+		echo "<pre>"
+		for lb in $(ls -r ${bugdir} | head -n 3)
+		do
+			list_bug ${lb}
+		done
+		echo "</pre>"
 		list_bugs OPEN
 		echo "</pre>"
 		html_footer ;;
