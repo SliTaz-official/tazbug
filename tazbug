@@ -3,7 +3,7 @@
 # TazBug Command line tool. Help to encrypt password, key and post on the
 # the server side.
 #
-# Copyright (C) 2012 SliTaz GNU/Linux - BSD License
+# Copyright (C) 2012-2014 SliTaz GNU/Linux - BSD License
 #
 . /usr/lib/slitaz/httphelper
 [ -f "/etc/slitaz/tazbug.conf" ] && . /etc/slitaz/tazbug.conf

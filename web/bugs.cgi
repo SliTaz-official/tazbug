@@ -5,15 +5,17 @@
 # Copyright (C) 2012-2014 SliTaz GNU/Linux - BSD License
 #
 . /usr/lib/slitaz/httphelper
+
+# Source config file
+[ -f "/etc/slitaz/tazbug.conf" ] && . /etc/slitaz/tazbug.conf
+# Web interface can have different setting than cmdline tools
 [ -f "/etc/slitaz/bugs.conf" ] && . /etc/slitaz/bugs.conf
-#. bugs.conf
 
 # Internal variable
-bugdir="$TAZBUG/bug"
+bugdir="$PWD/bug"
 plugins="plugins"
 sessions="/tmp/bugs/sessions"
 script="$SCRIPT_NAME"
-po=""
 
 # Content negotiation for Gettext
 IFS=","
@@ -66,37 +68,30 @@ html_footer() {
 EOT
 }
 
-GETfiltered()
-{
-GET $1 | sed -e "s/'/\&#39;/g; s|\n|<br/>|g; s/\t/\&#09;/g;s/\%22/\"/g"
+GETfiltered() {
+	GET $1 | sed -e "s/'/\&#39;/g; s|\n|<br/>|g; s/\t/\&#09;/g;s/\%22/\"/g"
 }
 
-js_redirection_to()
-{
+js_redirection_to() {
 	js_log "Redirecting to $1"
 	echo "<script type=\"text/javascript\"> document.location = \"$1\"; </script>"
 }
 
-js_log()
-{
+js_log() {
 	echo "<script type=\"text/javascript\">console.log('$1')</script>";
 }
 
-js_set_cookie()
-{
+js_set_cookie() {
 	name=$1
 	value=$2
-
 	js_log 'Setting cookie.'
 	echo "<script type=\"text/javascript\">"
 		echo "document.cookie = \"$name=$value; expires=0; path=/\"";
 	echo "</script>"
 }
 
-js_unset_cookie()
-{
+js_unset_cookie() {
 	name=$1
-
 	js_log 'Unsetting cookie.'
 	echo "<script type=\"text/javascript\">"
 		echo "document.cookie = \"$1=\"\"; expires=-1; path=/";
