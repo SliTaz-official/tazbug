@@ -771,7 +771,7 @@ EOT
 				id=${bug}
 				echo "<p><strong>Bug $id</strong> <a href=\"?id=$id\">"$(gettext 'Show')"</a></p>"
 				echo '<pre>'
-				fgrep -i "$(GET search)" $bugdir/$id/* | \
+				fgrep -i -h "$(GET search)" $bugdir/$id/* | \
 					sed s"/$(GET search)/<span class='ok'>$(GET search)<\/span>/"g
 				echo '</pre>'
 			fi
