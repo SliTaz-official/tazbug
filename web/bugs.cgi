@@ -750,6 +750,7 @@ case " $(GET) " in
 			exit 0
 		fi ;;
 	*\ search\ *)
+		found=0
 		header
 		html_header
 		user_box
@@ -761,24 +762,25 @@ case " $(GET) " in
 </form>
 <div>
 EOT
-
-		#found=0 JS to notify or write results nb under the search box.
-		for bug in $bugdir/*
+		cd $bugdir
+		for bug in *
 		do
 			result=$(fgrep -i "$(GET search)" $bug/*)
 			if [ "$result" ]; then
-				#found=$(($found + 1))
-				id=${bug#bug/}
+				found=$(($found + 1))
+				id=${bug}
 				echo "<p><strong>Bug $id</strong> <a href=\"?id=$id\">"$(gettext 'Show')"</a></p>"
 				echo '<pre>'
 				fgrep -i "$(GET search)" $bugdir/$id/* | \
 					sed s"/$(GET search)/<span class='ok'>$(GET search)<\/span>/"g
 				echo '</pre>'
-			else
-				get_search=$(GET search)
-				echo "<p>$(eval_gettext 'No result found for: $get_search')</p>"
 			fi
 		done
+		if [ "$found" == "0" ]; then
+			echo "<p>$(gettext 'No result found for') : $(GET search)</p>"
+		else
+			echo "<p> $found $(gettext 'results found')</p>"
+		fi
 		echo '</div>'
 		html_footer ;;
 	*)
