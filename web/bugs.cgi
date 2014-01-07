@@ -59,8 +59,8 @@ html_footer() {
 </div>
 
 <div id="footer">
-	<a href="$WEB_URL">SliTaz Bugs</a> -
-	<a href="$WEB_URL?README">README</a>
+	<a href="$script">SliTaz Bugs</a> -
+	<a href="$script?README">README</a>
 </div>
 
 </body>
@@ -143,7 +143,7 @@ EOT
 	cat << EOT
 
 <div id="search">
-	<form method="get" action="$WEB_URL">
+	<form method="get" action="$script">
 		<input type="text" name="search" placeholder="$(gettext 'Search')" />
 		<!-- <input type="submit" value="$(gettext 'Search')" /> -->
 	</form>
@@ -281,7 +281,7 @@ bug_page() {
 	fi
 	cat << EOT
 <h2>$(eval_gettext 'Bug $id: $STATUS')</h2>
-<form method="get" action="$WEB_URL">
+<form method="get" action="$script">
 
 <p>
 	$(get_gravatar $MAIL 32) <strong>$BUG</strong>
@@ -395,7 +395,7 @@ new_bug_page() {
 <h2>$(gettext "New Bug")</h2>
 <div id="newbug">
 
-<form method="get" action="$WEB_URL" onsubmit="return checkNewBug();">
+<form method="get" action="$script" onsubmit="return checkNewBug();">
 	<input type="hidden" name="addbug" />
 	<table>
 		<tbody>
@@ -440,7 +440,7 @@ edit_bug() {
 <h2>$(eval_gettext 'Edit Bug $bug')</h2>
 <div id="edit">
 
-<form method="get" action="$WEB_URL">
+<form method="get" action="$script">
 	<textarea name="bugconf">$(cat $bugdir/$bug/bug.conf)</textarea>
 	<input type="hidden" name="bug" value="$bug" />
 	<input type="submit" value="$(gettext 'Save configuration')" />
@@ -535,7 +535,7 @@ case " $(POST) " in
 
 		if [  ! -f $AUTH_FILE ] ; then
 			js_log "$AUTH_FILE (defined in \$AUTH_FILE) has not been found."
-			js_redirection_to "$WEB_URL?login$IDLOC"
+			js_redirection_to "$script?login$IDLOC"
 		fi;
 
 		valid=$(fgrep "${user}:" $AUTH_FILE | cut -d ":" -f 2)
@@ -548,10 +548,10 @@ case " $(POST) " in
 			echo "$md5session" > $sessions/$user
 			js_set_cookie 'auth' "$user:$md5session"
 			js_log "Login authentification has been executed & accepted :)"
-			js_redirection_to "$WEB_URL$IDLOC"
+			js_redirection_to "$script$IDLOC"
 		else
 			js_log "Login authentification has been executed & refused"
-			js_redirection_to "$WEB_URL?login&error$IDLOC"
+			js_redirection_to "$script?login&error$IDLOC"
 		fi
 		html_footer ;;
 	*\ signup\ *)
@@ -619,7 +619,7 @@ case " $(GET) " in
 		if check_auth; then
 			rm -f "$sessions/$user"
 			js_unset_cookie 'auth'
-			js_redirection_to "$WEB_URL"
+			js_redirection_to "$script"
 		fi ;;
 	*\ user\ *)
 		# User profile
@@ -651,7 +651,7 @@ case " $(GET) " in
 		html_header
 		if check_auth; then
 			new_bug
-			js_redirection_to "$WEB_URL?id=$count"
+			js_redirection_to "$script?id=$count"
 		fi ;;
 	*\ edit\ *)
 		bug="$(GET edit)"
@@ -665,7 +665,7 @@ case " $(GET) " in
 		html_header
 		if check_auth; then
 			save_bug
-			js_redirection_to "$WEB_URL?id=$bug"
+			js_redirection_to "$script?id=$bug"
 		fi ;;
 	*\ id\ *)
 		# Empty deleted messages to keep msg count working.
@@ -740,7 +740,7 @@ case " $(GET) " in
 		user_box
 		cat << EOT
 <h2>$(gettext "Search")</h2>
-<form method="get" action="$WEB_URL">
+<form method="get" action="$script">
 	<input type="text" name="search" />
 	<input type="submit" value="$(gettext 'Search')" />
 </form>
