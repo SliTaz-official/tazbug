@@ -136,7 +136,7 @@ EOT
 	cat << EOT
 	<div id="user">
 	<a href="?login$IDLOC"><img src="images/avatar.png" alt="[ User ]" /></a>
-	<a href="?login$IDLOC">$(gettext 'Log in')</a>
+	<a href="?login$IDLOC">$(gettext 'Login')</a>
 	</div>
 EOT
 	fi

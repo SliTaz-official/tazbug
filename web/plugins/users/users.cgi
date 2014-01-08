@@ -35,9 +35,9 @@ EOT
 		done
 		echo "</pre>" && exit 0 ;;
 	
-	*\ online\ *)
+	*\ logged\ *)
 		# Show online users based on sessions files.
-		d="Online users"
+		d="Logged users"
 		header
 		html_header
 		user_box
@@ -46,7 +46,7 @@ EOT
 			exit 0
 		fi
 		cat << EOT
-<h2>Online users</h2>
+<h2>Logged users</h2>
 <div id="tools">
 	<a href="$script?dashboard">Dashboard</a>
 </div>
