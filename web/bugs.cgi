@@ -242,8 +242,7 @@ list_bug() {
 		. ${PEOPLE}/${CREATOR}/account.conf
 	cat << EOT
 <a href="?user=$USER">$(get_gravatar "$MAIL" 24)</a> \
-ID: $id  <strong><a href="?id=$id">$BUG</a></strong> \
-<span class="date">$DATE</span>
+ID: $id <a href="?id=$id">$BUG</a> <span class="date">$DATE</span>
 EOT
 	unset CREATOR USER MAIL
 		
@@ -265,8 +264,7 @@ list_bugs() {
 					. ${PEOPLE}/${CREATOR}/account.conf
 				cat << EOT
 <a href="?user=$USER">$(get_gravatar "$MAIL" 24)</a> \
-ID: $id  <strong><a href="?id=$id">$BUG</a></strong> \
-<span class="date">$DATE</span>
+ID: $id <a href="?id=$id">$BUG</a> <span class="date">$DATE</span>
 EOT
 			fi
 			unset CREATOR USER MAIL
