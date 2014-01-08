@@ -554,10 +554,10 @@ case " $(POST) " in
 			date '+%Y-%m-%d' > ${PEOPLE}/${user}/last
 			echo "$md5session" > $sessions/$user
 			js_set_cookie 'auth' "$user:$md5session"
-			js_log "Login authentification has been executed & accepted :)"
+			js_log "Login authentication has been executed & accepted :)"
 			js_redirection_to "$script$IDLOC"
 		else
-			js_log "Login authentification has been executed & refused"
+			js_log "Login authentication has been executed & refused"
 			js_redirection_to "$script?login&error$IDLOC"
 		fi
 		html_footer ;;

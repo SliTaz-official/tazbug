@@ -42,7 +42,7 @@ EOT
 		html_header
 		user_box
 		if ! check_auth; then
-			gettext "You must be logged in to view online user"
+			gettext "You must be logged in to view online users"
 			exit 0
 		fi
 		cat << EOT
