@@ -17,9 +17,9 @@ textarea { width: 100%; }
 /* Header */
 
 #header {
-	background: #351a0a;
+	background: #222;
 	height: 40px;
-	border-bottom: 8px solid #d66018;
+	border-bottom: 4px solid #afafaf;
 }
 
 #header h1 {
@@ -43,7 +43,7 @@ textarea { width: 100%; }
 
 #network { 
 	float: right; 
-	padding: 12px 5px 0; 
+	padding: 14px 5px 0; 
 	font-size: 12px;
 	margin-right: 100px;
 }
@@ -83,7 +83,7 @@ textarea { width: 100%; }
 #login input[type="submit"] { float: none; }
 
 #user {
-	background-color: #3A2B22;
+	background-color: #333;
 	padding: 4px;
 	width: 84px;
 	float: right;
@@ -103,7 +103,6 @@ textarea { width: 100%; }
 	position: absolute;
 	right: 20px;
 	top: 60px;
-	
 }
 
 #search input[type="text"] { width: 200px; }
@@ -154,7 +153,7 @@ select { min-width: 180px; }
 input[type="submit"], input[type="text"], input[type="password"], 
 select, #tools a {
 	color: #444444;
-	border: 1px solid #cccccc;
+	border: 1px solid #afafaf;
 	padding: 4px;
 	margin: 4px 0px;
 	font-size: 14px;

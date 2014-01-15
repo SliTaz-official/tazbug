@@ -19,7 +19,7 @@ case " $(GET) " in
 <h2>Users: $users</h2>
 <div id="tools">
 	<a href="$script?dashboard">Dashboard</a>
-	<a href='?online'>Online users</a>
+	<a href='?logged'>Logged users</a>
 </div>
 <pre>
 EOT
