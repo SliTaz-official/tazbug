@@ -191,10 +191,6 @@ online_signup() {
 
 # Login page
 login_page() {
-	IDLOC=""
-	if [[ "$(GET id)" ]] ;then
-		IDLOC="?id=$(GET id)"
-	fi
 	cat << EOT
 <h2>$(gettext 'Login')</h2>
 
