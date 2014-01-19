@@ -85,17 +85,21 @@ js_set_cookie() {
 	name=$1
 	value=$2
 	js_log 'Setting cookie.'
-	echo "<script type=\"text/javascript\">"
-		echo "document.cookie = \"$name=$value; expires=0; path=/\"";
-	echo "</script>"
+	cat << EOT
+<script type="text/javascript">
+	document.cookie = '$name=$value; expires=0; path=/';
+	</script>
+EOT
 }
 
 js_unset_cookie() {
 	name=$1
 	js_log 'Unsetting cookie.'
-	echo "<script type=\"text/javascript\">"
-		echo "document.cookie = \"$1=\"\"; expires=-1; path=/";
-	echo "</script>"
+	cat << EOT
+<script type="text/javascript">
+	document.cookie = '$1=""; expires=-1; path=/;'
+</script>
+EOT
 }
 
 # Check if user is auth
@@ -187,7 +191,6 @@ online_signup() {
 
 # Login page
 login_page() {
-	
 	IDLOC=""
 	if [[ "$(GET id)" ]] ;then
 		IDLOC="?id=$(GET id)"
@@ -208,6 +211,7 @@ services:") <a href="http://paste.slitaz.org/">paste.slitaz.org</a></p>
 		<input type="text" name="auth" placeholder="$(gettext 'User name')" />
 		<input type="password" name="pass" placeholder="$(gettext 'Password')" />
 		<div>
+			<input type="hidden" name="id" value="$(GET id)" />
 			<input type="submit" value="$(gettext 'Log in')" />
 			$error
 		</div>
@@ -459,7 +463,6 @@ edit_bug() {
 EOT
 }
 
-
 save_bug() {
 	bug="$(GET bug)"
 	content="$(GET bugconf)"
@@ -534,8 +537,8 @@ case " $(POST) " in
 		pass="$(echo -n "$(POST pass)" | md5sum | awk '{print $1}')"
 
 		IDLOC=""
-		if [[ "$(GET id)" ]] ;then
-			IDLOC="&id=$(GET id)"
+		if [[ "$(POST id)" ]] ;then
+			IDLOC="&id=$(POST id)"
 		fi
 
 		if [  ! -f $AUTH_FILE ] ; then
@@ -545,8 +548,8 @@ case " $(POST) " in
 
 		valid=$(fgrep "${user}:" $AUTH_FILE | cut -d ":" -f 2)
 		if [ "$pass" == "$valid" ] && [ "$pass" != "" ]; then
-			if [[ "$(GET id)" ]] ;then
-				IDLOC="?id=$(GET id)"
+			if [[ "$(POST id)" ]] ;then
+				IDLOC="?id=$(POST id)"
 			fi
 			md5session=$(echo -n "$$:$user:$pass:$$" | md5sum | awk '{print $1}')
 			mkdir -p $sessions
@@ -583,6 +586,7 @@ esac
 #
 # Plugins Now!
 #
+
 for p in $(ls -1 $plugins)
 do
 	[ -f "$plugins/$p/$p.conf" ] && . $plugins/$p/$p.conf
@@ -799,6 +803,7 @@ EOT
 		header
 		html_header
 		user_box
+		
 		cat << EOT
 
 <h2>$(gettext "Summary")</h2>
