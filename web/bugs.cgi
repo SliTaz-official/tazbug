@@ -278,7 +278,7 @@ wiki_parser() {
 	sed \
 		-e s"#http://\([^']*\).png#<img src='\0' alt='[ Image ]' />#"g \
 		-e s"#http://\([^']*\).*# <a href='\0'>\1</a>#"g \
-		-e 's#\\\\n#\n#g;s#%22#"#g;s#%21#!#g'
+		-e 's#\\\\n##g;s#%22#"#g;s#%21#!#g'
 }
 
 # Bug page
@@ -290,7 +290,6 @@ bug_page() {
 	fi
 	cat << EOT
 <h2>$(eval_gettext 'Bug $id: $STATUS')</h2>
-<form method="get" action="$script">
 
 <p>
 	$(get_gravatar $MAIL 32) <strong>$BUG</strong>
@@ -347,7 +346,7 @@ EOT
 		cat << EOT
 <div>
 	<h3>$(gettext "New message")</h3>
-
+	<form method="get" action="$script">
 		<input type="hidden" name="id" value="$id" />
 		<textarea name="msg" rows="8"></textarea>
 		<p><input type="submit" value="$(gettext 'Send message')" /></p>
@@ -366,11 +365,13 @@ new_msg() {
 		USER="$user"
 	fi
 	js_log "Will write message in $bugdir/$id/msg.$count "
-	sed "s/$(echo -en '\r') /\n/g" > $bugdir/$id/msg.$count << EOT
+	sed "s/$(echo -en '\r') /\n/g" > $bugdir/$id/msg.$count.tmp << EOT
 USER="$USER"
 DATE="$date"
 MSG="$(GETfiltered msg)"
 EOT
+	fold -s -w 80 $bugdir/$id/msg.$count.tmp > $bugdir/$id/msg.$count
+	rm -f $bugdir/$id/msg.$count.tmp
 }
 
 # Create a new Bug
@@ -384,7 +385,7 @@ new_bug() {
 		USER="$user"
 	fi
 	mkdir -p $bugdir/$count
-	sed "s/$(echo -en '\r') /\n/g" > $bugdir/$count/bug.conf << EOT
+	sed "s/$(echo -en '\r') /\n/g" > $bugdir/$count/bug.tmp << EOT
 # SliTaz Bug configuration
 
 BUG="$(GETfiltered bug)"
@@ -396,6 +397,8 @@ PKGS="$(GETfiltered pkgs)"
 
 DESC="$(GETfiltered desc)"
 EOT
+	fold -s -w 80 $bugdir/$bug/bug.tmp > $bugdir/$bug/bug.conf
+	rm -f $bugdir/$bug/bug.tmp
 }
 
 # New bug page for the web interface
@@ -462,9 +465,11 @@ EOT
 save_bug() {
 	bug="$(GET bug)"
 	content="$(GET bugconf)"
-	sed "s|\"|'|" | sed "s/$(echo -en '\r') /\n/g" > $bugdir/$bug/bug.conf << EOT
+	sed "s|\"|'|" | fold -s | sed "s/$(echo -en '\r') /\n/g" > $bugdir/$bug/bug.tmp << EOT
 $content
 EOT
+	fold -s -w 80 $bugdir/$bug/bug.tmp > $bugdir/$bug/bug.conf
+	rm -f $bugdir/$bug/bug.tmp
 }
 
 # Close a fixed bug
