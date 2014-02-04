@@ -116,7 +116,7 @@ textarea { width: 100%; }
 	max-width: 720px;
 }
 
-#newbug textarea { width: 460px; }
+#newbug textarea { width: 480px; }
 
 #edit textarea { width: 100%; height: 240px; }
 
@@ -148,7 +148,7 @@ pre img { margin: 4px 4px 4px 0px; }
 /* Form */
 
 form { display: inline; }
-textarea { border: 2px solid #ccc; padding: 4px; width: 100%; }
+textarea { border: 2px solid #ccc; padding: 4px; min-height: 60px; }
 select { min-width: 180px; }
 input[type="submit"], input[type="text"], input[type="password"], 
 select, #tools a {
@@ -167,7 +167,7 @@ select, #tools a {
 
 input[type="text"], input[type="password"] { 
 	background: #fefefe; border: 2px solid #ccc; 
-	width: 460px; }
+	width: 480px; }
 /*input[type="file"] { border: 2px solid #ddd; }*/
 /*input[type="checkbox"] { background: #fefefe; }*/
 

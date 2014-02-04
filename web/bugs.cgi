@@ -23,18 +23,15 @@ for lang in $HTTP_ACCEPT_LANGUAGE
 do
 	lang=${lang%;*} lang=${lang# } lang=${lang%-*}
 	case "$lang" in
-		en) LANG="C" ;;
-		de) LANG="de_DE" ;;
-		es) LANG="es_ES" ;;
-		fr) LANG="fr_FR" ;;
-		it) LANG="it_IT" ;;
-		pt) LANG="pt_BR" ;;
-		ru) LANG="ru_RU" ;;
-		zh) LANG="zh_TW" ;;
+		en) LANG="C" && break ;;
+		de) LANG="de_DE" && break ;;
+		es) LANG="es_ES" && break ;;
+		fr) LANG="fr_FR" && break ;;
+		it) LANG="it_IT" && break ;;
+		pt) LANG="pt_BR" && break ;;
+		ru) LANG="ru_RU" && break ;;
+		zh) LANG="zh_TW" && break ;;
 	esac
-	if echo "$po" | fgrep -q "$lang"; then
-		break
-	fi
 done
 unset IFS
 export LANG LC_ALL=$LANG
@@ -330,9 +327,10 @@ EOT
 		if [ "$MSG" ]; then
 			msgid=$(echo $msg | cut -d "." -f 2)
 			del=""
-			# User can delete his post.
-			[ "$user" == "$USER" ] && \
+			# User can delete his post has well as admin.
+			if [ "$user" == "$USER" ] || admin_user; then
 				del="<a href=\"?id=$id&amp;delmsg=$msgid\">delete</a>"
+			fi
 			cat << EOT
 <p><strong>$USER</strong> $DATE $del</p>
 <pre>
