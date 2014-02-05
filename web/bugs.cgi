@@ -828,6 +828,7 @@ enter your term and press ENTER.")
 </p>
 
 <div id="tools">
+	$BUGS_TOOLS
 	<a href="?closed">$(gettext 'View closed bugs')</a>
 EOT
 		if check_auth; then
