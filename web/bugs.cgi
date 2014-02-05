@@ -201,7 +201,9 @@ services:") <a href="http://paste.slitaz.org/">paste.slitaz.org</a></p>
 
 <div id="login">
 	<form method="post" action="$script">
+	<div>
 		<input type="text" name="auth" placeholder="$(gettext 'User name')" />
+	</div>
 		<input type="password" name="pass" placeholder="$(gettext 'Password')" />
 		<div>
 			<input type="hidden" name="id" value="$(GET id)" />

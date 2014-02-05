@@ -72,13 +72,13 @@ textarea { width: 100%; }
 /* Login and user box */
 
 #login {
-	min-width: 240px;
+	min-width: 300px;
 	float: left;
-	height: 120px;
+	height: 140px;
 }
 
 #login input[type="text"], #login input[type="password"] { 
-	width: 200px; }
+	width: 280px; }
 
 #login input[type="submit"] { float: none; }
 
@@ -95,7 +95,7 @@ textarea { width: 100%; }
 #user a { padding: 0 2px; color: #fff; 
 	font-weight: bold; text-decoration: none; }
 
-#account-info { width: 340px; height: 120px; float: right; }
+#account-info { width: 360px; height: 140px; float: right; }
 
 /* Search */
 

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SliTaz Bugs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-01 22:03+0000\n"
+"POT-Creation-Date: 2014-02-05 21:11+0100\n"
 "PO-Revision-Date: 2012-12-21 23:49+0200\n"
 "Last-Translator: \n"
 "Language-Team: Kostis Mousafiris\n"
@@ -65,8 +65,7 @@ msgstr "Λείπει το όνομα σύνδεσης"
 msgid "Missing email"
 msgstr "Λείπει το e-mail"
 
-#: tazbug:82
-#: tazbug:120
+#: tazbug:82 tazbug:120
 msgid "Missing password"
 msgstr "Λείπει ο κωδικός πρόσβασης"
 
@@ -98,8 +97,7 @@ msgstr "Λείπει η περιγραφή"
 msgid "Missing bug priority"
 msgstr "Λείπει η προτεραιότητα σφάλματος"
 
-#: tazbug-box:29
-#: tazbug-box:76
+#: tazbug-box:29 tazbug-box:76
 msgid "My account"
 msgstr "Ο λογαριασμός μου"
 
@@ -111,39 +109,31 @@ msgstr "Αριθμός ταυτοποίησης ID του σφάλματος"
 msgid "Message"
 msgstr "Μήνυμα"
 
-#: tazbug-box:44
-#: tazbug-box:129
+#: tazbug-box:44 tazbug-box:129
 msgid "New bug"
 msgstr "Νέο σφάλμα"
 
-#: tazbug-box:45
-#: web/bugs.cgi:260
+#: tazbug-box:45 web/bugs.cgi:352
 msgid "Send message"
 msgstr "Αποστολή μηνύματος"
 
-#: tazbug-box:72
-#: web/bugs.cgi:318
+#: tazbug-box:72 web/bugs.cgi:415
 msgid "Bug title"
 msgstr "Τίτλος σφάλματος"
 
-#: tazbug-box:73
-#: web/bugs.cgi:330
+#: tazbug-box:73 web/bugs.cgi:427
 msgid "Priority"
 msgstr "Προτεραιότητα"
 
-#: tazbug-box:74
-#: web/bugs.cgi:326
+#: tazbug-box:74 web/bugs.cgi:423
 msgid "Packages"
 msgstr "Πακέτα"
 
-#: tazbug-box:75
-#: web/bugs.cgi:322
+#: tazbug-box:75 web/bugs.cgi:419
 msgid "Description"
 msgstr "Περιγραφή"
 
-#: tazbug-box:77
-#: tazbug-box:130
-#: web/bugs.cgi:256
+#: tazbug-box:77 tazbug-box:130 web/bugs.cgi:348
 msgid "New message"
 msgstr "Νέο μήνυμα"
 
@@ -151,13 +141,11 @@ msgstr "Νέο μήνυμα"
 msgid "Send bug"
 msgstr "Αποστολή σφάλματος"
 
-#: tazbug-box:109
-#: tazbug-box:155
+#: tazbug-box:109 tazbug-box:155 web/bugs.cgi:166
 msgid "Real name"
 msgstr "Πραγματικό όνομα"
 
-#: tazbug-box:111
-#: web/bugs.cgi:128
+#: tazbug-box:111 web/bugs.cgi:167 web/bugs.cgi:205
 msgid "User name"
 msgstr "Όνομα χρήστη"
 
@@ -181,195 +169,246 @@ msgstr "Online σφάλματα"
 msgid "Login name"
 msgstr "Όνομα σύνδεσης (login name)"
 
-#: tazbug-box:157
+#: tazbug-box:157 web/bugs.cgi:168
 msgid "Email"
 msgstr "Διεύθυνση Ηλεκτρον. αλληλογραφίας e-mail"
 
-#: tazbug-box:158
-#: web/bugs.cgi:129
+#: tazbug-box:158 web/bugs.cgi:169 web/bugs.cgi:207
 msgid "Password"
 msgstr "Κωδικός Πρόσβασης"
 
-#: web/bugs.cgi:88
-msgid "Log out"
-msgstr "Αποσύνδεση"
+#: web/bugs.cgi:133
+msgid "Logout"
+msgstr ""
 
-#: web/bugs.cgi:95
-#: web/bugs.cgi:131
-msgid "Log in"
-msgstr "Σύνδεση"
-
-#: web/bugs.cgi:103
-#: web/bugs.cgi:104
-#: web/bugs.cgi:590
-#: web/bugs.cgi:593
-msgid "Search"
-msgstr "Αναζήτηση"
-
-#: web/bugs.cgi:117
+#: web/bugs.cgi:140 web/bugs.cgi:192
 msgid "Login"
 msgstr "Σύνδεση"
 
-#: web/bugs.cgi:120
-msgid "No account yet? Please signup using the SliTaz Bugs reporter on your SliTaz system."
-msgstr "Δεν έχετε ακόμη λογαριασμό; Παρακαλώ, εγγραφείτε, χρησιμοποιώντας το σύστημα αναφοράς σφαλμάτων SliTaz Bugs, στο δικό σας σύστημα SLiTaz."
+#: web/bugs.cgi:148 web/bugs.cgi:149 web/bugs.cgi:768 web/bugs.cgi:771
+msgid "Search"
+msgstr "Αναζήτηση"
 
-#: web/bugs.cgi:122
+#: web/bugs.cgi:171
+#, fuzzy
+msgid "Create new account"
+msgstr "Δημιουργία ενός νέου σφάλματος."
+
+#: web/bugs.cgi:182
+msgid "Or:"
+msgstr ""
+
+#: web/bugs.cgi:184
+msgid "Sign Up Online"
+msgstr ""
+
+#: web/bugs.cgi:195
+#, fuzzy
+msgid ""
+"No account yet? You can signup using the SliTaz Bugs reporter on your SliTaz "
+"system."
+msgstr ""
+"Δεν έχετε ακόμη λογαριασμό; Παρακαλώ, εγγραφείτε, χρησιμοποιώντας το σύστημα "
+"αναφοράς σφαλμάτων SliTaz Bugs, στο δικό σας σύστημα SLiTaz."
+
+#: web/bugs.cgi:198
 msgid "Tip: to attach big files or images, you can use SliTaz Paste services:"
-msgstr "Συμβουλή: για την επισύναψη μεγάλων αρχείων ή εικόνων, μπορείτε να χρησιμοποιήσετε υπηρεσίες του SLiTaz Paste."
+msgstr ""
+"Συμβουλή: για την επισύναψη μεγάλων αρχείων ή εικόνων, μπορείτε να "
+"χρησιμοποιήσετε υπηρεσίες του SLiTaz Paste."
 
-#: web/bugs.cgi:145
-#: web/bugs.cgi:154
-#, sh-format
-msgid "Real name  : $NAME"
-msgstr "Πραγματικό όνομα  : $NAME"
+#: web/bugs.cgi:210
+msgid "Log in"
+msgstr "Σύνδεση"
 
-#: web/bugs.cgi:155
-#, sh-format
-msgid "Email      : $MAIL"
-msgstr "Διεύθυνση Ηλεκτρον. αλληλογραφίας e-mail      : $MAIL"
-
-#: web/bugs.cgi:156
-#, sh-format
-msgid "Secure key : $KEY"
-msgstr "Ασφαλές κλειδί : $KEY"
-
-#: web/bugs.cgi:164
-#, sh-format
-msgid "$bug Bug"
+#: web/bugs.cgi:253
+#, fuzzy, sh-format
+msgid "$status Bugs"
 msgstr "Σφάλμα $bug"
 
-#: web/bugs.cgi:174
-msgid "Bug title  :"
-msgstr "Τίτλος σφάλματος  :"
-
-#: web/bugs.cgi:174
-#: web/bugs.cgi:605
-msgid "Show"
-msgstr "Εμφάνιση"
-
-#: web/bugs.cgi:175
-msgid "ID - Date  :"
-msgstr "ID - Ημερομηνία  :"
-
-#: web/bugs.cgi:176
-msgid "Creator    :"
-msgstr "Δημιουργός    :"
-
-#: web/bugs.cgi:200
-#, sh-format
-msgid "Bug $id"
+#: web/bugs.cgi:291
+#, fuzzy, sh-format
+msgid "Bug $id: $STATUS"
 msgstr "Αριθμός ταυτοποίησης σφάλματος $id"
 
-#: web/bugs.cgi:207
+#: web/bugs.cgi:297
+msgid "Date:"
+msgstr ""
+
+#: web/bugs.cgi:298
 #, sh-format
 msgid "Priority $PRIORITY"
 msgstr "Προτεραιότητα $PRIORITY"
 
-#: web/bugs.cgi:208
-#: web/bugs.cgi:636
+#: web/bugs.cgi:299 web/bugs.cgi:816
 #, sh-format
 msgid "$msgs message"
 msgid_plural "$msgs messages"
 msgstr[0] "μηνύματα $msgs"
 msgstr[1] "μηνύματα $msgs"
 
-#: web/bugs.cgi:220
+#: web/bugs.cgi:311
 msgid "Close bug"
 msgstr "Κλείσιμο σφάλματος"
 
-#: web/bugs.cgi:221
+#: web/bugs.cgi:312
 msgid "Edit bug"
 msgstr "Επεξεργασία σφάλματος"
 
-#: web/bugs.cgi:225
+#: web/bugs.cgi:316
 msgid "Re open bug"
 msgstr "Εκ νέου άνοιγμα σφάλματος"
 
-#: web/bugs.cgi:232
+#: web/bugs.cgi:323
 msgid "Messages"
 msgstr "Μηνύματα"
 
-#: web/bugs.cgi:234
+#: web/bugs.cgi:325
 msgid "No messages"
 msgstr "Δεν υπάρχουν μηνύματα"
 
-#: web/bugs.cgi:310
+#: web/bugs.cgi:407
 msgid "New Bug"
 msgstr "Νέο μήνυμα"
 
-#: web/bugs.cgi:333
+#: web/bugs.cgi:430
 msgid "Standard"
 msgstr ""
 
-#: web/bugs.cgi:334
+#: web/bugs.cgi:431
 msgid "Critical"
 msgstr "Κρίσιμης σημασίας"
 
-#: web/bugs.cgi:336
+#: web/bugs.cgi:433
 msgid "Create Bug"
 msgstr "Δημιουργία σφάλματος"
 
-#: web/bugs.cgi:344
+#: web/bugs.cgi:441
 msgid "* field is obligatory. You can also specify affected packages."
-msgstr "Το πεδίο * είναι υποχρεωτικό. Μπορείτε, επίσης, να ορίσετε τα εμπλεκόμενα πακέτα."
+msgstr ""
+"Το πεδίο * είναι υποχρεωτικό. Μπορείτε, επίσης, να ορίσετε τα εμπλεκόμενα "
+"πακέτα."
 
-#: web/bugs.cgi:354
+#: web/bugs.cgi:452
 #, sh-format
 msgid "Edit Bug $bug"
 msgstr "Επεξεργασία του σφάλματος $bug"
 
-#: web/bugs.cgi:360
+#: web/bugs.cgi:458
 msgid "Save configuration"
 msgstr "Αποθήκευση ρυθμίσεων"
 
-#: web/bugs.cgi:476
+#: web/bugs.cgi:582
+msgid "User already exists:"
+msgstr ""
+
+#: web/bugs.cgi:626
 msgid "Bad login or pass"
 msgstr "Λάθος σύνδεση, ή κωδικός πρόσβασης"
 
-#: web/bugs.cgi:510
+#: web/bugs.cgi:651
+#, fuzzy
+msgid "User name  :"
+msgstr "Όνομα χρήστη"
+
+#: web/bugs.cgi:652
+msgid "Last login :"
+msgstr ""
+
+#: web/bugs.cgi:670
 msgid "You must be logged in to post a new bug"
 msgstr "Πρέπει να συνδεθείτε για κάνετε υποβολή νέου σφάλματος."
 
-#: web/bugs.cgi:612
-#, sh-format
-msgid "No result found for: $get_search"
+#: web/bugs.cgi:716
+msgid "Sign Up"
+msgstr ""
+
+#: web/bugs.cgi:720
+msgid "Online registration is disabled"
+msgstr ""
+
+#: web/bugs.cgi:782
+msgid "Show"
+msgstr "Εμφάνιση"
+
+#: web/bugs.cgi:790
+#, fuzzy
+msgid "No result found for"
 msgstr "Δεν βρέθηκε κανένα αποτέλεσμα για το: $get_search"
 
-#: web/bugs.cgi:630
+#: web/bugs.cgi:792
+msgid "results found"
+msgstr ""
+
+#: web/bugs.cgi:810
 msgid "Summary"
 msgstr "Περίληψη"
 
-#: web/bugs.cgi:633
+#: web/bugs.cgi:813
 #, sh-format
 msgid "Bug: $bugs in total -"
 msgid_plural "Bugs: $bugs in total -"
 msgstr[0] "Σφάλμα: Συνολικά $bugs -"
 msgstr[1] "Σφάλματα: Συνολικά $bugs -"
 
-#: web/bugs.cgi:634
+#: web/bugs.cgi:814
 #, sh-format
 msgid "$close fixed -"
 msgid_plural "$close fixed -"
 msgstr[0] "$close διορθώθηκε -"
 msgstr[1] "$close διορθώθηκαν -"
 
-#: web/bugs.cgi:635
+#: web/bugs.cgi:815
 #, sh-format
 msgid "$fixme to fix -"
 msgid_plural "$fixme to fix -"
 msgstr[0] "$fixme για τη διόρθωση -"
 msgstr[1] "$fixme για τις διορθώσεις -"
 
-#: web/bugs.cgi:643
-msgid "Please read the <a href=\"?README\">README</a> for help and more information. You may also be interested by the SliTaz <a href=\"http://roadmap.slitaz.org/\">Roadmap</a> and the packages <a href=\"http://cook.slitaz.org/\">Cooker</a>. To perform a search enter your term and press ENTER."
-msgstr "Παρακαλώ, διαβάστε το <a href=\"?README\">README</a> για περισσότερη βοήθεια και πληροφορίες. Μπορεί, επίσης, να σας ενδιαφέρει ο <a href=\"http://roadmap.slitaz.org/\">Οδικός χάρτης (Roadmap)</a> του SliTaz και τα πακέτα του <a href=\"http://cook.slitaz.org/\">Cooker</a>. Για να κάνετε μια αναζήτηση, βάλτε τον δικό σας όρο αναζήτησης και πατήστε ENTER."
+#: web/bugs.cgi:823
+msgid ""
+"Please read the <a href=\"?README\">README</a> for help and more "
+"information. You may also be interested by the SliTaz <a href=\"http://"
+"roadmap.slitaz.org/\">Roadmap</a> and the packages <a href=\"http://cook."
+"slitaz.org/\">Cooker</a>. To perform a search enter your term and press "
+"ENTER."
+msgstr ""
+"Παρακαλώ, διαβάστε το <a href=\"?README\">README</a> για περισσότερη βοήθεια "
+"και πληροφορίες. Μπορεί, επίσης, να σας ενδιαφέρει ο <a href=\"http://"
+"roadmap.slitaz.org/\">Οδικός χάρτης (Roadmap)</a> του SliTaz και τα πακέτα "
+"του <a href=\"http://cook.slitaz.org/\">Cooker</a>. Για να κάνετε μια "
+"αναζήτηση, βάλτε τον δικό σας όρο αναζήτησης και πατήστε ENTER."
 
-#: web/bugs.cgi:651
+#: web/bugs.cgi:831
 msgid "View closed bugs"
 msgstr "Εμφάνιση των σφαλμάτων που έκλεισαν."
 
-#: web/bugs.cgi:654
+#: web/bugs.cgi:834
 msgid "Create a new bug"
 msgstr "Δημιουργία ενός νέου σφάλματος."
 
+#: web/bugs.cgi:840
+#, fuzzy
+msgid "Latest Bugs"
+msgstr "Δημιουργία σφάλματος"
+
+#~ msgid "Log out"
+#~ msgstr "Αποσύνδεση"
+
+#~ msgid "Real name  : $NAME"
+#~ msgstr "Πραγματικό όνομα  : $NAME"
+
+#~ msgid "Email      : $MAIL"
+#~ msgstr "Διεύθυνση Ηλεκτρον. αλληλογραφίας e-mail      : $MAIL"
+
+#~ msgid "Secure key : $KEY"
+#~ msgstr "Ασφαλές κλειδί : $KEY"
+
+#~ msgid "Bug title  :"
+#~ msgstr "Τίτλος σφάλματος  :"
+
+#~ msgid "ID - Date  :"
+#~ msgstr "ID - Ημερομηνία  :"
+
+#~ msgid "Creator    :"
+#~ msgstr "Δημιουργός    :"
