@@ -117,7 +117,7 @@ admin_user() {
 	fgrep -q 'ADMIN_USER="yes"' ${PEOPLE}/${user}/account.conf
 }
 
-# Authentified or not
+# Authenticated or not
 user_box() {
 	
 	IDLOC=""
@@ -222,7 +222,7 @@ public_people() {
 EOT
 }
 
-# Display authentified user profile. TODO: change password
+# Display authenticated user profile. TODO: change password
 auth_people() {
 	cat << EOT
 Email      : $MAIL
@@ -327,7 +327,7 @@ EOT
 		if [ "$MSG" ]; then
 			msgid=$(echo $msg | cut -d "." -f 2)
 			del=""
-			# User can delete his post has well as admin.
+			# User can delete his post as well as admin.
 			if [ "$user" == "$USER" ] || admin_user; then
 				del="<a href=\"?id=$id&amp;delmsg=$msgid\">delete</a>"
 			fi
@@ -741,7 +741,7 @@ EOT
 		if fgrep -qH $key $PEOPLE/*/account.conf; then
 			conf=$(fgrep -H $key $PEOPLE/*/account.conf | cut -d ":" -f 1)
 			. $conf
-			echo "Authentified: $NAME ($USER)"
+			echo "Authenticated: $NAME ($USER)"
 			case " $(GET) " in
 				*\ msg\ *)
 					[ ! "$id" ] && echo "Missing bug ID" && exit 0

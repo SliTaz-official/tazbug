@@ -46,7 +46,7 @@ People config files: /var/lib/slitaz/people
 Auth file with pass: /var/lib/slitaz/auth/people
 
 
-Developement
+Development
 ------------
 Shell scripts as usual, HTML 5, CSS 3 and a bit of Javascript. To work on bugs
 locally you have to clone the repo, create a vhost for the web interface and
