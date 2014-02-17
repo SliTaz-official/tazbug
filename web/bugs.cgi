@@ -238,13 +238,12 @@ list_bug() {
 	id="$1"
 	. ${bugdir}/${id}/bug.conf
 	[ -f "${PEOPLE}/${CREATOR}/account.conf" ] && \
-		. ${PEOPLE}/${CREATOR}/account.conf
+	. ${PEOPLE}/${CREATOR}/account.conf
 	cat << EOT
 <a href="?user=$USER">$(get_gravatar "$MAIL" 24)</a> \
 ID: $id <a href="?id=$id">$BUG</a> <span class="date">$DATE</span>
 EOT
 	unset CREATOR USER MAIL
-		
 }
 
 # Usage: list_bugs STATUS
@@ -374,9 +373,9 @@ EOT
 	rm -f $bugdir/$id/msg.$count.tmp
 }
 
-# Create a new Bug
+# Create a new Bug. ID is set by counting dirs in bug/ including bug/0
 new_bug() {
-	count=$(ls -1 $bugdir | wc -l)
+	count=$(ls $bugdir | wc -l)
 	date=$(date "+%Y-%m-%d %H:%M")
 	# Sanity check, JS may be disabled.
 	[ ! "$(GET bug)" ] && echo "Missing bug title" && exit 1
@@ -397,8 +396,8 @@ PKGS="$(GETfiltered pkgs)"
 
 DESC="$(GETfiltered desc)"
 EOT
-	fold -s -w 80 $bugdir/$bug/bug.tmp > $bugdir/$bug/bug.conf
-	rm -f $bugdir/$bug/bug.tmp
+	fold -s -w 80 $bugdir/$count/bug.tmp > $bugdir/$count/bug.conf
+	rm -f $bugdir/$count/bug.tmp
 }
 
 # New bug page for the web interface
@@ -465,7 +464,7 @@ EOT
 save_bug() {
 	bug="$(GET bug)"
 	content="$(GET bugconf)"
-	sed "s|\"|'|" | fold -s | sed "s/$(echo -en '\r') /\n/g" > $bugdir/$bug/bug.tmp << EOT
+	sed "s|\"|'|" | sed "s/$(echo -en '\r') /\n/g" > $bugdir/$bug/bug.tmp << EOT
 $content
 EOT
 	fold -s -w 80 $bugdir/$bug/bug.tmp > $bugdir/$bug/bug.conf

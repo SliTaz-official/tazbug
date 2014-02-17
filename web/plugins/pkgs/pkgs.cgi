@@ -2,9 +2,8 @@
 #
 # TinyCM/TazBug Plugin - Skeleton
 #
-. /usr/lib/slitaz/httphelper
 
-if [ "$(GET pkgs)" ] || [ "$(GET pkg)" ]; then
+if [ "$(GET packages)" ] || [ "$(GET pkg)" ]; then
 	d="Skel"
 	header
 	html_header
