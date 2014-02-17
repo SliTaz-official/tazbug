@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# TinyCM/TazBug Plugin - Skeleton
+# TazBug Plugin - Skeleton
 #
 
 if [ "$(GET packages)" ] || [ "$(GET pkg)" ]; then

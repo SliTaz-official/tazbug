@@ -2,7 +2,6 @@
 #
 # TinyCM/TazBug Plugin - Users Admin
 #
-. /usr/lib/slitaz/httphelper
 
 case " $(GET) " in
 	*\ users\ *)

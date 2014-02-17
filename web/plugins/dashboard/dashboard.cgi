@@ -2,10 +2,8 @@
 #
 # TazBug Plugin - Dashboard
 #
-. /usr/lib/slitaz/httphelper
 
-case " $(GET) " in
-	*\ dashboard\ *)
+if [ "$(GET dashboard)" ]; then
 		d="Dashboard"
 		users=$(ls -1 $PEOPLE | wc -l)
 		bugs=$(ls -1 $bugdir | wc -l)
@@ -61,5 +59,5 @@ EOT
 			echo "<a href='?$p'>$PLUGIN</a> - $SHORT_DESC"
 		done
 		echo '</pre>'
-		html_footer && exit 0 ;;
-esac
+		html_footer && exit 0
+fi

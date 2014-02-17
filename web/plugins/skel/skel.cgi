@@ -2,7 +2,6 @@
 #
 # TinyCM/TazBug Plugin - Skeleton
 #
-. /usr/lib/slitaz/httphelper
 
 if [ "$(GET skel)" ]; then
 	d="Skel"
