@@ -179,7 +179,7 @@ msgstr "Senha"
 
 #: web/bugs.cgi:133
 msgid "Logout"
-msgstr ""
+msgstr "Sair"
 
 #: web/bugs.cgi:140 web/bugs.cgi:192
 msgid "Login"
@@ -190,20 +190,18 @@ msgid "Search"
 msgstr "Buscar"
 
 #: web/bugs.cgi:171
-#, fuzzy
 msgid "Create new account"
-msgstr "Criar um novo bug"
+msgstr "Criar nova conta"
 
 #: web/bugs.cgi:182
 msgid "Or:"
-msgstr ""
+msgstr "Ou:"
 
 #: web/bugs.cgi:184
 msgid "Sign Up Online"
-msgstr ""
+msgstr "Cadastrar online"
 
 #: web/bugs.cgi:195
-#, fuzzy
 msgid ""
 "No account yet? You can signup using the SliTaz Bugs reporter on your SliTaz "
 "system."
@@ -220,18 +218,16 @@ msgid "Log in"
 msgstr "Entrar"
 
 #: web/bugs.cgi:253
-#, fuzzy, sh-format
 msgid "$status Bugs"
-msgstr "bug $bug"
+msgstr "$status Bugs"
 
 #: web/bugs.cgi:291
-#, fuzzy, sh-format
 msgid "Bug $id: $STATUS"
-msgstr "Bug $id"
+msgstr "Bug $id: $STATUS"
 
 #: web/bugs.cgi:297
 msgid "Date:"
-msgstr ""
+msgstr "Data:"
 
 #: web/bugs.cgi:298
 #, sh-format
@@ -297,20 +293,19 @@ msgstr "Salvar configuração"
 
 #: web/bugs.cgi:582
 msgid "User already exists:"
-msgstr ""
+msgstr "Usuário já existe:"
 
 #: web/bugs.cgi:626
 msgid "Bad login or pass"
 msgstr "Login ou senha não conferem"
 
 #: web/bugs.cgi:651
-#, fuzzy
 msgid "User name  :"
-msgstr "Nome de usuário"
+msgstr "Nome de usuário:"
 
 #: web/bugs.cgi:652
 msgid "Last login :"
-msgstr ""
+msgstr "Último login:"
 
 #: web/bugs.cgi:670
 msgid "You must be logged in to post a new bug"
@@ -318,24 +313,23 @@ msgstr "Deve-se estar logado para reportar um novo bug"
 
 #: web/bugs.cgi:716
 msgid "Sign Up"
-msgstr ""
+msgstr "Cadastrar"
 
 #: web/bugs.cgi:720
 msgid "Online registration is disabled"
-msgstr ""
+msgstr "Registro online está desabilitado"
 
 #: web/bugs.cgi:782
 msgid "Show"
 msgstr "Mostrar"
 
 #: web/bugs.cgi:790
-#, fuzzy
 msgid "No result found for"
-msgstr "Nenhum resultado para: $get_search"
+msgstr "Nenhum resultado para"
 
 #: web/bugs.cgi:792
 msgid "results found"
-msgstr ""
+msgstr "resultados encontrados"
 
 #: web/bugs.cgi:810
 msgid "Summary"
@@ -384,27 +378,5 @@ msgid "Create a new bug"
 msgstr "Criar um novo bug"
 
 #: web/bugs.cgi:840
-#, fuzzy
 msgid "Latest Bugs"
-msgstr "Criar bug"
-
-#~ msgid "Log out"
-#~ msgstr "Sair"
-
-#~ msgid "Real name  : $NAME"
-#~ msgstr "Nome real : $NAME"
-
-#~ msgid "Email      : $MAIL"
-#~ msgstr "Email     : $MAIL"
-
-#~ msgid "Secure key : $KEY"
-#~ msgstr "Chave Segura: $KEY"
-
-#~ msgid "Bug title  :"
-#~ msgstr "Título do Bug:"
-
-#~ msgid "ID - Date  :"
-#~ msgstr "ID - Data :"
-
-#~ msgid "Creator    :"
-#~ msgstr "Criador   :"
+msgstr "Bugs mais recentes"
