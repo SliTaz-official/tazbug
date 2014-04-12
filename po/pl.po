@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SliTaz Bugs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-05 21:11+0100\n"
+"POT-Creation-Date: 2014-04-12 15:04+0300\n"
 "PO-Revision-Date: 2013-07-23 12:36+0100\n"
 "Last-Translator: Paweł Pyrczak <tkr.tkr.pl@gmail.com>\n"
 "Language-Team: Paweł Pyrczak <support@pyrczak.pl>\n"
@@ -117,27 +117,27 @@ msgstr "Wiadomość"
 msgid "New bug"
 msgstr "Nowe zgłoszenie błędu"
 
-#: tazbug-box:45 web/bugs.cgi:352
+#: tazbug-box:45 web/bugs.cgi:351
 msgid "Send message"
 msgstr "Wyśli wiadomość"
 
-#: tazbug-box:72 web/bugs.cgi:415
+#: tazbug-box:72 web/bugs.cgi:414
 msgid "Bug title"
 msgstr "Tytuł zgłoszenia błędu"
 
-#: tazbug-box:73 web/bugs.cgi:427
+#: tazbug-box:73 web/bugs.cgi:426
 msgid "Priority"
 msgstr "Priorytet"
 
-#: tazbug-box:74 web/bugs.cgi:423
+#: tazbug-box:74 web/bugs.cgi:422
 msgid "Packages"
 msgstr "Pakiety"
 
-#: tazbug-box:75 web/bugs.cgi:419
+#: tazbug-box:75 web/bugs.cgi:418
 msgid "Description"
 msgstr "Opis"
 
-#: tazbug-box:77 tazbug-box:130 web/bugs.cgi:348
+#: tazbug-box:77 tazbug-box:130 web/bugs.cgi:347
 msgid "New message"
 msgstr "Nowa wiadomość"
 
@@ -189,7 +189,7 @@ msgstr ""
 msgid "Login"
 msgstr "Login"
 
-#: web/bugs.cgi:148 web/bugs.cgi:149 web/bugs.cgi:768 web/bugs.cgi:771
+#: web/bugs.cgi:148 web/bugs.cgi:149 web/bugs.cgi:767 web/bugs.cgi:770
 msgid "Search"
 msgstr "Szukaj"
 
@@ -225,26 +225,26 @@ msgstr ""
 msgid "Log in"
 msgstr "Zaloguj"
 
-#: web/bugs.cgi:253
+#: web/bugs.cgi:252
 #, fuzzy, sh-format
 msgid "$status Bugs"
 msgstr "Błąd $bug"
 
-#: web/bugs.cgi:291
+#: web/bugs.cgi:290
 #, fuzzy, sh-format
 msgid "Bug $id: $STATUS"
 msgstr "Zgłoszenie błędu $id"
 
-#: web/bugs.cgi:297
+#: web/bugs.cgi:296
 msgid "Date:"
 msgstr ""
 
-#: web/bugs.cgi:298
+#: web/bugs.cgi:297
 #, sh-format
 msgid "Priority $PRIORITY"
 msgstr "Priorytet $PRIORITY"
 
-#: web/bugs.cgi:299 web/bugs.cgi:816
+#: web/bugs.cgi:298 web/bugs.cgi:815
 #, sh-format
 msgid "$msgs message"
 msgid_plural "$msgs messages"
@@ -252,103 +252,103 @@ msgstr[0] "$msgs wiadomość"
 msgstr[1] "$msgs wiadomości"
 msgstr[2] "$msgs wiadomości"
 
-#: web/bugs.cgi:311
+#: web/bugs.cgi:310
 msgid "Close bug"
 msgstr "Zamknij zgłoszenie błędu"
 
-#: web/bugs.cgi:312
+#: web/bugs.cgi:311
 msgid "Edit bug"
 msgstr "Edytuj zgłoszenie błędu"
 
-#: web/bugs.cgi:316
+#: web/bugs.cgi:315
 msgid "Re open bug"
 msgstr "Otwórz zamknięte zgłoszenie błędu"
 
-#: web/bugs.cgi:323
+#: web/bugs.cgi:322
 msgid "Messages"
 msgstr "Wiadomości"
 
-#: web/bugs.cgi:325
+#: web/bugs.cgi:324
 msgid "No messages"
 msgstr "Brak wiadomości"
 
-#: web/bugs.cgi:407
+#: web/bugs.cgi:406
 msgid "New Bug"
 msgstr "Nowe zgłoszenie błędu"
 
-#: web/bugs.cgi:430
+#: web/bugs.cgi:429
 msgid "Standard"
 msgstr "Standardowy"
 
-#: web/bugs.cgi:431
+#: web/bugs.cgi:430
 msgid "Critical"
 msgstr "Krytyczny"
 
-#: web/bugs.cgi:433
+#: web/bugs.cgi:432
 msgid "Create Bug"
 msgstr "Stwórz zgłoszenie błędu"
 
-#: web/bugs.cgi:441
+#: web/bugs.cgi:440
 msgid "* field is obligatory. You can also specify affected packages."
 msgstr ""
 "* pole jest obowiązkowe. Można również sprecyzować dotknięte błędem pakiety."
 
-#: web/bugs.cgi:452
+#: web/bugs.cgi:451
 #, sh-format
 msgid "Edit Bug $bug"
 msgstr "Edytuj zgłoszenie $bug"
 
-#: web/bugs.cgi:458
+#: web/bugs.cgi:457
 msgid "Save configuration"
 msgstr "Zapisz konfigurację"
 
-#: web/bugs.cgi:582
+#: web/bugs.cgi:581
 msgid "User already exists:"
 msgstr ""
 
-#: web/bugs.cgi:626
+#: web/bugs.cgi:625
 msgid "Bad login or pass"
 msgstr "Zły login albo hasło"
 
-#: web/bugs.cgi:651
+#: web/bugs.cgi:650
 #, fuzzy
 msgid "User name  :"
 msgstr "Nazwa użytkownika"
 
-#: web/bugs.cgi:652
+#: web/bugs.cgi:651
 msgid "Last login :"
 msgstr ""
 
-#: web/bugs.cgi:670
+#: web/bugs.cgi:669
 msgid "You must be logged in to post a new bug"
 msgstr "Musisz być zalogowany aby dodać nowe zgłoszenie błędu"
 
-#: web/bugs.cgi:716
+#: web/bugs.cgi:715
 msgid "Sign Up"
 msgstr ""
 
-#: web/bugs.cgi:720
+#: web/bugs.cgi:719
 msgid "Online registration is disabled"
 msgstr ""
 
-#: web/bugs.cgi:782
+#: web/bugs.cgi:781
 msgid "Show"
 msgstr "Pokaż"
 
-#: web/bugs.cgi:790
+#: web/bugs.cgi:789
 #, fuzzy
 msgid "No result found for"
 msgstr "Nie znaleziono rezultatów dla: $get_search"
 
-#: web/bugs.cgi:792
+#: web/bugs.cgi:791
 msgid "results found"
 msgstr ""
 
-#: web/bugs.cgi:810
+#: web/bugs.cgi:809
 msgid "Summary"
 msgstr "Podsumowanie"
 
-#: web/bugs.cgi:813
+#: web/bugs.cgi:812
 #, sh-format
 msgid "Bug: $bugs in total -"
 msgid_plural "Bugs: $bugs in total -"
@@ -356,7 +356,7 @@ msgstr[0] "Całkowita ilość błędów: $bugs -"
 msgstr[1] "Całkowita ilość błędów: $bugs -"
 msgstr[2] "Całkowita ilość błędów: $bugs -"
 
-#: web/bugs.cgi:814
+#: web/bugs.cgi:813
 #, sh-format
 msgid "$close fixed -"
 msgid_plural "$close fixed -"
@@ -364,7 +364,7 @@ msgstr[0] "$close naprawiony -"
 msgstr[1] "$close naprawione -"
 msgstr[2] "$close naprawionych -"
 
-#: web/bugs.cgi:815
+#: web/bugs.cgi:814
 #, sh-format
 msgid "$fixme to fix -"
 msgid_plural "$fixme to fix -"
@@ -372,7 +372,7 @@ msgstr[0] "$fixme do naprawy -"
 msgstr[1] "$fixme do naprawy -"
 msgstr[2] "$fixme do naprawy -"
 
-#: web/bugs.cgi:823
+#: web/bugs.cgi:822
 msgid ""
 "Please read the <a href=\"?README\">README</a> for help and more "
 "information. You may also be interested by the SliTaz <a href=\"http://"
