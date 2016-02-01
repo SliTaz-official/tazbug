@@ -66,7 +66,7 @@ EOT
 }
 
 GETfiltered() {
-	GET $1 | sed -e "s/'/\&#39;/g; s|\n|<br/>|g; s/\t/\&#09;/g;s/\%22/\"/g"
+	GET $1 | sed -e "s/'/\&#39;/g; s|\n|<br/>|g; s/\t/\&#09;/g;s/\%22/\\\"/g"
 }
 
 js_redirection_to() {
