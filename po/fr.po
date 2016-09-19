@@ -202,7 +202,6 @@ msgid "Sign Up Online"
 msgstr "S'enregistrer en ligne"
 
 #: web/bugs.cgi:195
-#, fuzzy
 msgid ""
 "No account yet? You can signup using the SliTaz Bugs reporter on your SliTaz "
 "system."
@@ -221,12 +220,12 @@ msgid "Log in"
 msgstr "Connexion"
 
 #: web/bugs.cgi:252
-#, fuzzy, sh-format
+#, sh-format
 msgid "$status Bugs"
 msgstr "$status Bugs"
 
 #: web/bugs.cgi:290
-#, fuzzy, sh-format
+#, sh-format
 msgid "Bug $id: $STATUS"
 msgstr "Bug $id : $STATUS"
 
