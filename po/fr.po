@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: SliTaz Bugs\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-04-12 15:04+0300\n"
-"PO-Revision-Date: 2014-02-04 23:28+0100\n"
-"Last-Translator: Christophe Lincoln <pankso@slitaz.org>\n"
+"PO-Revision-Date: 2016-09-18 23:28+0100\n"
+"Last-Translator: Pascal Bellard <pascal.bellard@slitaz.org>\n"
 "Language-Team: French\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -27,7 +27,7 @@ msgstr "[commande] [arguments]"
 
 #: tazbug:62
 msgid "Commands:"
-msgstr "Commandes:"
+msgstr "Commandes :"
 
 #: tazbug:63
 msgid "Recreate the SliTaz secure key."
@@ -51,7 +51,7 @@ msgstr "Envoyer une nouveau rapport de bug."
 
 #: tazbug:69
 msgid "Examples:"
-msgstr "Exemples:"
+msgstr "Exemples :"
 
 #: tazbug:79
 msgid "Missing real name"
@@ -179,28 +179,27 @@ msgstr "Mot de passe"
 
 #: web/bugs.cgi:133
 msgid "Logout"
-msgstr ""
+msgstr "Déconnexion"
 
 #: web/bugs.cgi:140 web/bugs.cgi:192
 msgid "Login"
-msgstr "Login"
+msgstr "Connexion"
 
 #: web/bugs.cgi:148 web/bugs.cgi:149 web/bugs.cgi:767 web/bugs.cgi:770
 msgid "Search"
 msgstr "Rechercher"
 
 #: web/bugs.cgi:171
-#, fuzzy
 msgid "Create new account"
-msgstr "Créer un nouveau rapport de bug"
+msgstr "Créer un nouveau compte"
 
 #: web/bugs.cgi:182
 msgid "Or:"
-msgstr ""
+msgstr "Ou :"
 
 #: web/bugs.cgi:184
 msgid "Sign Up Online"
-msgstr ""
+msgstr "S'enregistrer en ligne"
 
 #: web/bugs.cgi:195
 #, fuzzy
@@ -208,14 +207,14 @@ msgid ""
 "No account yet? You can signup using the SliTaz Bugs reporter on your SliTaz "
 "system."
 msgstr ""
-"Pas encore de compte? Merci de vous inscire en utilisant l'outil SliTaz Bugs "
+"Pas encore de compte ? Merci de vous inscrire en utilisant l'outil SliTaz Bugs "
 "inclu dans SliTaz"
 
 #: web/bugs.cgi:198
 msgid "Tip: to attach big files or images, you can use SliTaz Paste services:"
 msgstr ""
 "Astuce: pour attacher de gros fichiers ou images à votre rapport de bug "
-"merci d'utilise le service prévu à cette effet SliTaz Paste."
+"merci d'utiliser le service prévu à cet effet SliTaz Paste."
 
 #: web/bugs.cgi:210
 msgid "Log in"
@@ -224,16 +223,16 @@ msgstr "Connexion"
 #: web/bugs.cgi:252
 #, fuzzy, sh-format
 msgid "$status Bugs"
-msgstr "$bug Bug"
+msgstr "$status Bugs"
 
 #: web/bugs.cgi:290
 #, fuzzy, sh-format
 msgid "Bug $id: $STATUS"
-msgstr "Bug $id"
+msgstr "Bug $id : $STATUS"
 
 #: web/bugs.cgi:296
 msgid "Date:"
-msgstr ""
+msgstr "Date :"
 
 #: web/bugs.cgi:297
 #, sh-format
@@ -300,20 +299,19 @@ msgstr "Enregistrer la configuration"
 
 #: web/bugs.cgi:581
 msgid "User already exists:"
-msgstr ""
+msgstr "Cet utilisateur existe déjà :"
 
 #: web/bugs.cgi:625
 msgid "Bad login or pass"
 msgstr "Mauvais identifiant ou mot de passe"
 
 #: web/bugs.cgi:650
-#, fuzzy
 msgid "User name  :"
-msgstr "Nom d'utilisateur"
+msgstr "Nom d'utilisateur   :"
 
 #: web/bugs.cgi:651
 msgid "Last login :"
-msgstr ""
+msgstr "Dernière connexion :"
 
 #: web/bugs.cgi:669
 msgid "You must be logged in to post a new bug"
@@ -321,24 +319,23 @@ msgstr "Vous devez être connecter pour poster un nouveau rapport de bug"
 
 #: web/bugs.cgi:715
 msgid "Sign Up"
-msgstr ""
+msgstr "S'enregister"
 
 #: web/bugs.cgi:719
 msgid "Online registration is disabled"
-msgstr ""
+msgstr "L'enregistrement en ligne est désactivé"
 
 #: web/bugs.cgi:781
 msgid "Show"
 msgstr "Voir"
 
 #: web/bugs.cgi:789
-#, fuzzy
 msgid "No result found for"
-msgstr "Pas de résultat trouver pour:  $get_search"
+msgstr "Pas de résultat trouvé pour"
 
 #: web/bugs.cgi:791
 msgid "results found"
-msgstr ""
+msgstr "résultats trouvés"
 
 #: web/bugs.cgi:809
 msgid "Summary"
@@ -388,9 +385,8 @@ msgid "Create a new bug"
 msgstr "Créer un nouveau rapport de bug"
 
 #: web/bugs.cgi:840
-#, fuzzy
 msgid "Latest Bugs"
-msgstr "Créer un rapport de Bug"
+msgstr "Derniers rapports de bug"
 
 #~ msgid "Log out"
 #~ msgstr "Déconnexion"
