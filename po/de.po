@@ -1,0 +1,384 @@
+# German translations for tazbug package.
+# Copyright (C) 2016 SliTaz
+# This file is distributed under the same license as the tazbug package.
+# Hans-Günter Theisgen, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: SliTaz Bugs\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-04-12 15:04+0300\n"
+"PO-Revision-Date: 2016-12-04 09:46+0100\n"
+"Last-Translator: Hans-Günter Theisgen\n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: tazbug:60
+msgid "Usage:"
+msgstr "Anwendung:"
+
+#: tazbug:60
+msgid "[command] [args]"
+msgstr "[command] [args]"
+
+#: tazbug:62
+msgid "Commands:"
+msgstr "Kommandos:"
+
+#: tazbug:63
+msgid "Recreate the SliTaz secure key."
+msgstr "SliTaz-Sicherheitsschlüssel neu erstellen."
+
+#: tazbug:64
+msgid "Create a new SliTaz account configuration."
+msgstr "Neue SliTaz-Benutzerkonfiguration erstellen."
+
+#: tazbug:65
+msgid "Create a new account on SliTaz Bugs."
+msgstr "Eine neue Benutzerkennung bei 'SliTaz Bugs' einrichten."
+
+#: tazbug:66
+msgid "Send a new message to an open bug."
+msgstr "Eine neue Nachricht für eine offene Fehlermeldung versenden."
+
+#: tazbug:67
+msgid "Send a new bug report."
+msgstr "Einen neuen Fehler melden."
+
+#: tazbug:69
+msgid "Examples:"
+msgstr "Beispiele:"
+
+#: tazbug:79
+msgid "Missing real name"
+msgstr "Der Name der Person fehlt"
+
+#: tazbug:80
+msgid "Missing login name"
+msgstr "Der Benutzername fehlt"
+
+#: tazbug:81
+msgid "Missing email"
+msgstr "Die email-Adresse fehlt"
+
+#: tazbug:82 tazbug:120
+msgid "Missing password"
+msgstr "Das Benutzerkennwort fehlt"
+
+#: tazbug:92
+msgid "Creating SliTaz account configuration..."
+msgstr "Neue SliTaz-Benutzerkonfiguration wird erstellt..."
+
+#: tazbug:107
+msgid "Creating SliTaz secure key..."
+msgstr "SliTaz-Sicherheitsschlüssel wird erstellt..."
+
+#: tazbug:149
+msgid "Missing bug ID"
+msgstr "Fehlernummer fehlt"
+
+#: tazbug:150
+msgid "Missing message"
+msgstr "Nachricht fehlt"
+
+#: tazbug:159
+msgid "Missing bug title"
+msgstr "Titel für Fehlermeldung fehlt"
+
+#: tazbug:160
+msgid "Missing description"
+msgstr "Beschreibung fehlt"
+
+#: tazbug:161
+msgid "Missing bug priority"
+msgstr "Priorität fehlt"
+
+#: tazbug-box:29 tazbug-box:76
+msgid "My account"
+msgstr "Meine Benutzerkennung"
+
+#: tazbug-box:42
+msgid "Bug ID"
+msgstr "Fehlernummer"
+
+#: tazbug-box:43
+msgid "Message"
+msgstr "Meldung"
+
+#: tazbug-box:44 tazbug-box:129
+msgid "New bug"
+msgstr "Neuer Fehler"
+
+#: tazbug-box:45 web/bugs.cgi:351
+msgid "Send message"
+msgstr "Meldung abschicken"
+
+#: tazbug-box:72 web/bugs.cgi:414
+msgid "Bug title"
+msgstr "Fehlertitel"
+
+#: tazbug-box:73 web/bugs.cgi:426
+msgid "Priority"
+msgstr "Priorität"
+
+#: tazbug-box:74 web/bugs.cgi:422
+msgid "Packages"
+msgstr "Pakete"
+
+#: tazbug-box:75 web/bugs.cgi:418
+msgid "Description"
+msgstr "Beschreibung"
+
+#: tazbug-box:77 tazbug-box:130 web/bugs.cgi:347
+msgid "New message"
+msgstr "Neue Nachricht"
+
+#: tazbug-box:78
+msgid "Send bug"
+msgstr "Fehlermeldung abschicken"
+
+#: tazbug-box:109 tazbug-box:155 web/bugs.cgi:166
+msgid "Real name"
+msgstr "Wirklicher Name der Person"
+
+#: tazbug-box:111 web/bugs.cgi:167 web/bugs.cgi:205
+msgid "User name"
+msgstr "Benutzername"
+
+#: tazbug-box:115
+msgid "Secure key"
+msgstr "Sicherheitsschlüssel"
+
+#: tazbug-box:125
+msgid "Account"
+msgstr "Benutzerkennung"
+
+#: tazbug-box:126
+msgid "Value"
+msgstr "Wert"
+
+#: tazbug-box:128
+#, fuzzy
+msgid "Online bugs"
+msgstr "vorhandene Fehlermeldungen"
+
+#: tazbug-box:156
+msgid "Login name"
+msgstr "Benutzername"
+
+#: tazbug-box:157 web/bugs.cgi:168
+msgid "Email"
+msgstr "Email-Adresse"
+
+#: tazbug-box:158 web/bugs.cgi:169 web/bugs.cgi:207
+msgid "Password"
+msgstr "Kennwort"
+
+#: web/bugs.cgi:133
+msgid "Logout"
+msgstr "Abmelden"
+
+#: web/bugs.cgi:140 web/bugs.cgi:192
+msgid "Login"
+msgstr "Anmelden"
+
+#: web/bugs.cgi:148 web/bugs.cgi:149 web/bugs.cgi:767 web/bugs.cgi:770
+msgid "Search"
+msgstr "Suchen"
+
+#: web/bugs.cgi:171
+msgid "Create new account"
+msgstr "Neue Benutzerkennung anlegen"
+
+#: web/bugs.cgi:182
+msgid "Or:"
+msgstr "Oder:"
+
+#: web/bugs.cgi:184
+msgid "Sign Up Online"
+msgstr "Registrieren"
+
+#: web/bugs.cgi:195
+msgid ""
+"No account yet? You can signup using the SliTaz Bugs reporter on your SliTaz "
+"system."
+msgstr ""
+"Sie haben noch keine Benutzerkennung? Mit dem SliTaz-Fehlermeldeprogramm tazbug "
+"auf Ihrem SliTaz-System können Sie sich registrieren."
+
+#: web/bugs.cgi:198
+msgid "Tip: to attach big files or images, you can use SliTaz Paste services:"
+msgstr "Tipp. Große Dateien oder Bilder können mit 'SliTaz Paste' übertragen werden:"
+
+#: web/bugs.cgi:210
+msgid "Log in"
+msgstr "Anmelden"
+
+#: web/bugs.cgi:252
+#, sh-format
+msgid "$status Bugs"
+msgstr "$status Fehlermeldungen"
+
+#: web/bugs.cgi:290
+#, sh-format
+msgid "Bug $id: $STATUS"
+msgstr "Fehlermeldung $id: $STATUS"
+
+#: web/bugs.cgi:296
+msgid "Date:"
+msgstr "Datum:"
+
+#: web/bugs.cgi:297
+#, sh-format
+msgid "Priority $PRIORITY"
+msgstr "Priorität $PRIORITY"
+
+#: web/bugs.cgi:298 web/bugs.cgi:815
+#, sh-format
+msgid "$msgs message"
+msgid_plural "$msgs messages"
+msgstr[0] "$msgs Meldung"
+msgstr[1] "$msgs Meldungen"
+
+#: web/bugs.cgi:310
+msgid "Close bug"
+msgstr "Fehlermeldung schließen"
+
+#: web/bugs.cgi:311
+msgid "Edit bug"
+msgstr "Fehlermeldung bearbeiten"
+
+#: web/bugs.cgi:315
+msgid "Re open bug"
+msgstr "Fehlermeldung erneut öffnen"
+
+#: web/bugs.cgi:322
+msgid "Messages"
+msgstr "Nachrichten"
+
+#: web/bugs.cgi:324
+msgid "No messages"
+msgstr "Keine Nachrichten"
+
+#: web/bugs.cgi:406
+msgid "New Bug"
+msgstr "Neue Fehlermeldung"
+
+#: web/bugs.cgi:429
+msgid "Standard"
+msgstr "Standard"
+
+#: web/bugs.cgi:430
+msgid "Critical"
+msgstr "Kritisch"
+
+#: web/bugs.cgi:432
+msgid "Create Bug"
+msgstr "Fehlermeldung erstellen"
+
+#: web/bugs.cgi:440
+msgid "* field is obligatory. You can also specify affected packages."
+msgstr "* das Feld ist verpflichtend. Es können auch betroffene Pakete angegeben werden."
+
+#: web/bugs.cgi:451
+#, sh-format
+msgid "Edit Bug $bug"
+msgstr "Fehlermeldung $bug bearbeiten"
+
+#: web/bugs.cgi:457
+msgid "Save configuration"
+msgstr "Konfiguration speichern"
+
+#: web/bugs.cgi:581
+msgid "User already exists:"
+msgstr "Benutzername existiert schon:"
+
+#: web/bugs.cgi:625
+msgid "Bad login or pass"
+msgstr "Benutzername oder Kennwort falsch"
+
+#: web/bugs.cgi:650
+msgid "User name  :"
+msgstr "Benutzername    :"
+
+#: web/bugs.cgi:651
+msgid "Last login :"
+msgstr "Letzte Anmeldung:"
+
+#: web/bugs.cgi:669
+msgid "You must be logged in to post a new bug"
+msgstr "Um einen neuen Fehler zu melden, müssen Sie angemeldet sein"
+
+#: web/bugs.cgi:715
+msgid "Sign Up"
+msgstr "Registrieren"
+
+#: web/bugs.cgi:719
+msgid "Online registration is disabled"
+msgstr "Direkte Registrierung ist deaktiviert"
+
+#: web/bugs.cgi:781
+msgid "Show"
+msgstr "Zeigen"
+
+#: web/bugs.cgi:789
+msgid "No result found for"
+msgstr "Kein Ergebnis für"
+
+#: web/bugs.cgi:791
+msgid "results found"
+msgstr "Treffer"
+
+#: web/bugs.cgi:809
+msgid "Summary"
+msgstr "Übersicht"
+
+#: web/bugs.cgi:812
+#, sh-format
+msgid "Bug: $bugs in total -"
+msgid_plural "Bugs: $bugs in total -"
+msgstr[0] "Fehlermeldung: $bugs insgesamt -"
+msgstr[1] "Fehlermeldungen: $bugs insgesamt -"
+
+#: web/bugs.cgi:813
+#, sh-format
+msgid "$close fixed -"
+msgid_plural "$close fixed -"
+msgstr[0] "$close behoben - "
+msgstr[1] "$close behoben - "
+
+#: web/bugs.cgi:814
+#, sh-format
+msgid "$fixme to fix -"
+msgid_plural "$fixme to fix -"
+msgstr[0] "$fixme offen -"
+msgstr[1] "$fixme offen -"
+
+#: web/bugs.cgi:822
+msgid ""
+"Please read the <a href=\"?README\">README</a> for help and more "
+"information. You may also be interested by the SliTaz <a href=\"http://"
+"roadmap.slitaz.org/\">Roadmap</a> and the packages <a href=\"http://cook."
+"slitaz.org/\">Cooker</a>. To perform a search enter your term and press "
+"ENTER."
+msgstr ""
+"Hilfe und weitere Informationen finden Sie in <a href=\"?README\">README</a>. "
+"Auch <a href=\"http://roadmap.slitaz.org/\">Roadmap</a> und der Paket-"
+"<a href=\"http://cook.slitaz.org/\">'Kocher'</a> könnten Sie interessieren. "
+"Zum Suchen geben Sie einen Suchbegriff ein und drücken Sie ENTER."
+
+#: web/bugs.cgi:831
+msgid "View closed bugs"
+msgstr "Geschlossene Fehlermeldungen ansehen"
+
+#: web/bugs.cgi:834
+msgid "Create a new bug"
+msgstr "Einen neuen Fehler melden"
+
+#: web/bugs.cgi:840
+msgid "Latest Bugs"
+msgstr "Neueste Fehlermeldungen"
