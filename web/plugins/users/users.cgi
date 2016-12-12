@@ -24,6 +24,11 @@ case " $(GET) " in
 EOT
 		for u in $(ls $PEOPLE)
 		do
+			# Skip corrupted accounts
+			if ! [ -f "${PEOPLE}/${u}/account.conf" ]; then
+				echo "${u} : Missing account.conf"
+				continue
+			fi
 			. "${PEOPLE}/${u}/account.conf"
 			cat << EOT
 $(get_gravatar $MAIL 24) <a href="?user=$USER">$USER</a> | $NAME | $MAIL
@@ -32,7 +37,8 @@ EOT
 #: <a href="?users&amp;deluser=$USER">$(gettext "delete")</a>
 			unset NAME USER 
 		done
-		echo "</pre>" && exit 0 ;;
+		echo "</pre>" 
+		html_footer && exit 0 ;;
 	
 	*\ logged\ *)
 		# Show online users based on sessions files.
