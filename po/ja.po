@@ -1,0 +1,384 @@
+# Japanese translations for the tazbug package.
+# Copyright (C) 2017 SliTaz
+# This file is distributed under the same license as the tazbug package.
+# BALLOON a.k.a. Fu-sen. (Keiichi SHIGA) <balloonakafusen AT gmail DOT com>, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: SliTaz Bugs\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-01-02 18:49+0900\n"
+"PO-Revision-Date: 2017-01-08 15:05+0900\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 1.8.7.1\n"
+"Last-Translator: BALLOON a.k.a. Fu-sen. (Keiichi SHIGA) <balloonakafusen　AT "
+"gmail DOT com>\n"
+"Language: ja_JP\n"
+
+#: tazbug:60
+msgid "Usage:"
+msgstr "用途:"
+
+#: tazbug:60
+msgid "[command] [args]"
+msgstr "[コマンド] [args]"
+
+#: tazbug:62
+msgid "Commands:"
+msgstr "コマンド:"
+
+#: tazbug:63
+msgid "Recreate the SliTaz secure key."
+msgstr "SliTaz 暗号化キーの再生成。"
+
+#: tazbug:64
+msgid "Create a new SliTaz account configuration."
+msgstr "新しい SliTaz アカウント設定の作成。"
+
+#: tazbug:65
+msgid "Create a new account on SliTaz Bugs."
+msgstr "SliTaz バグ報告を新たなアカウントで作成。"
+
+#: tazbug:66
+msgid "Send a new message to an open bug."
+msgstr "open bug へ新しいメッセージを送信。"
+
+#: tazbug:67
+msgid "Send a new bug report."
+msgstr "新たなバグ報告を送信。"
+
+#: tazbug:69
+msgid "Examples:"
+msgstr "例:"
+
+#: tazbug:79
+msgid "Missing real name"
+msgstr "実名がありません"
+
+#: tazbug:80
+msgid "Missing login name"
+msgstr "ログイン名がありません"
+
+#: tazbug:81
+msgid "Missing email"
+msgstr "メールがありません"
+
+#: tazbug:82 tazbug:120
+msgid "Missing password"
+msgstr "パスワードがありません"
+
+#: tazbug:92
+msgid "Creating SliTaz account configuration..."
+msgstr "SliTaz アカウント設定を生成中..."
+
+#: tazbug:107
+msgid "Creating SliTaz secure key..."
+msgstr "SliTaz 暗号化キーを生成中..."
+
+#: tazbug:149
+msgid "Missing bug ID"
+msgstr "bug ID がありません"
+
+#: tazbug:150
+msgid "Missing message"
+msgstr "メッセージがありません"
+
+#: tazbug:159
+msgid "Missing bug title"
+msgstr "bug タイトルがありません"
+
+#: tazbug:160
+msgid "Missing description"
+msgstr "説明がありません"
+
+#: tazbug:161
+msgid "Missing bug priority"
+msgstr "bug 優先度がありません"
+
+#: tazbug-box:29 tazbug-box:76
+msgid "My account"
+msgstr "アカウント"
+
+#: tazbug-box:42
+msgid "Bug ID"
+msgstr "Bug ID"
+
+#: tazbug-box:43
+msgid "Message"
+msgstr "メッセージ"
+
+#: tazbug-box:44 tazbug-box:129
+msgid "New bug"
+msgstr "新たな bug"
+
+#: tazbug-box:45 web/bugs.cgi:351
+msgid "Send message"
+msgstr "メッセージを送信"
+
+#: tazbug-box:72 web/bugs.cgi:414
+msgid "Bug title"
+msgstr "Bug タイトル"
+
+#: tazbug-box:73 web/bugs.cgi:426
+msgid "Priority"
+msgstr "優先度"
+
+#: tazbug-box:74 web/bugs.cgi:422
+msgid "Packages"
+msgstr "パッケージ"
+
+#: tazbug-box:75 web/bugs.cgi:418
+msgid "Description"
+msgstr "説明"
+
+#: tazbug-box:77 tazbug-box:130 web/bugs.cgi:347
+msgid "New message"
+msgstr "新しいメッセージ"
+
+#: tazbug-box:78
+msgid "Send bug"
+msgstr "bug を送信"
+
+#: tazbug-box:109 tazbug-box:155 web/bugs.cgi:166
+msgid "Real name"
+msgstr "実名"
+
+#: tazbug-box:111 web/bugs.cgi:167 web/bugs.cgi:205
+msgid "User name"
+msgstr "ユーザー名"
+
+#: tazbug-box:115
+msgid "Secure key"
+msgstr "暗号化キー"
+
+#: tazbug-box:125
+msgid "Account"
+msgstr "アカウント"
+
+#: tazbug-box:126
+msgid "Value"
+msgstr "値"
+
+#: tazbug-box:128
+msgid "Online bugs"
+msgstr "オンラインバグ"
+
+#: tazbug-box:156
+msgid "Login name"
+msgstr "ログイン名"
+
+#: tazbug-box:157 web/bugs.cgi:168
+msgid "Email"
+msgstr "メール"
+
+#: tazbug-box:158 web/bugs.cgi:169 web/bugs.cgi:207
+msgid "Password"
+msgstr "パスワード"
+
+#: web/bugs.cgi:133
+msgid "Logout"
+msgstr "ログアウト"
+
+#: web/bugs.cgi:140 web/bugs.cgi:192
+msgid "Login"
+msgstr "ログイン"
+
+#: web/bugs.cgi:148 web/bugs.cgi:149 web/bugs.cgi:767 web/bugs.cgi:770
+msgid "Search"
+msgstr "検索"
+
+#: web/bugs.cgi:171
+msgid "Create new account"
+msgstr "新規アカウントの作成"
+
+#: web/bugs.cgi:182
+msgid "Or:"
+msgstr "または:"
+
+#: web/bugs.cgi:184
+msgid "Sign Up Online"
+msgstr "オンラインサインアップ"
+
+#: web/bugs.cgi:195
+msgid ""
+"No account yet? You can signup using the SliTaz Bugs reporter on your SliTaz "
+"system."
+msgstr ""
+"アカウントはまだありませんか？ SliTaz システムから SliTaz Bugs の記者を使って"
+"サインアップすることができます。"
+
+#: web/bugs.cgi:198
+msgid "Tip: to attach big files or images, you can use SliTaz Paste services:"
+msgstr ""
+"ヒント; 大きなファイルや画像を添付するには、SliTaz Paste サービスを使用しま"
+"す。"
+
+#: web/bugs.cgi:210
+msgid "Log in"
+msgstr "ログイン"
+
+#: web/bugs.cgi:252
+#, sh-format
+msgid "$status Bugs"
+msgstr "$status Bugs"
+
+#: web/bugs.cgi:290
+#, sh-format
+msgid "Bug $id: $STATUS"
+msgstr "Bug $id: $STATUS"
+
+#: web/bugs.cgi:296
+msgid "Date:"
+msgstr "日付:"
+
+#: web/bugs.cgi:297
+#, sh-format
+msgid "Priority $PRIORITY"
+msgstr "優先度 $PRIORITY"
+
+#: web/bugs.cgi:298 web/bugs.cgi:815
+#, sh-format
+msgid "$msgs message"
+msgid_plural "$msgs messages"
+msgstr[0] "$msgs メッセージ"
+
+#: web/bugs.cgi:310
+msgid "Close bug"
+msgstr "bug を閉じる"
+
+#: web/bugs.cgi:311
+msgid "Edit bug"
+msgstr "bug を編集"
+
+#: web/bugs.cgi:315
+msgid "Re open bug"
+msgstr "bug を再オープン"
+
+#: web/bugs.cgi:322
+msgid "Messages"
+msgstr "メッセージ"
+
+#: web/bugs.cgi:324
+msgid "No messages"
+msgstr "メッセージなし"
+
+#: web/bugs.cgi:406
+msgid "New Bug"
+msgstr "新たな Bug"
+
+#: web/bugs.cgi:429
+msgid "Standard"
+msgstr "通常"
+
+#: web/bugs.cgi:430
+msgid "Critical"
+msgstr "緊急"
+
+#: web/bugs.cgi:432
+msgid "Create Bug"
+msgstr "Bug 作成"
+
+#: web/bugs.cgi:440
+msgid "* field is obligatory. You can also specify affected packages."
+msgstr ""
+"* フィールドは必須です。 影響を受けるパッケージを指定することもできます。"
+
+#: web/bugs.cgi:451
+#, sh-format
+msgid "Edit Bug $bug"
+msgstr "Bug $bug の編集"
+
+#: web/bugs.cgi:457
+msgid "Save configuration"
+msgstr "設定の保存"
+
+#: web/bugs.cgi:581
+msgid "User already exists:"
+msgstr "ユーザーは既に存在します:"
+
+#: web/bugs.cgi:625
+msgid "Bad login or pass"
+msgstr "ログインまたはパスワードが誤っています"
+
+#: web/bugs.cgi:650
+msgid "User name  :"
+msgstr "ユーザー名 :"
+
+#: web/bugs.cgi:651
+msgid "Last login :"
+msgstr "最終 login :"
+
+#: web/bugs.cgi:669
+msgid "You must be logged in to post a new bug"
+msgstr "あなたは新しいバグを投稿するためにログインする必要があります"
+
+#: web/bugs.cgi:715
+msgid "Sign Up"
+msgstr "サインアップ"
+
+#: web/bugs.cgi:719
+msgid "Online registration is disabled"
+msgstr "オンライン登録は無効です"
+
+#: web/bugs.cgi:781
+msgid "Show"
+msgstr "表示"
+
+#: web/bugs.cgi:789
+msgid "No result found for"
+msgstr "見つかりません"
+
+#: web/bugs.cgi:791
+msgid "results found"
+msgstr "検索結果"
+
+#: web/bugs.cgi:809
+msgid "Summary"
+msgstr "内容"
+
+#: web/bugs.cgi:812
+#, sh-format
+msgid "Bug: $bugs in total -"
+msgid_plural "Bugs: $bugs in total -"
+msgstr[0] "Bug：$bugs 合計 - "
+
+#: web/bugs.cgi:813
+#, sh-format
+msgid "$close fixed -"
+msgid_plural "$close fixed -"
+msgstr[0] "$close 修正済 -"
+
+#: web/bugs.cgi:814
+#, sh-format
+msgid "$fixme to fix -"
+msgid_plural "$fixme to fix -"
+msgstr[0] "$fixme 修正中 -"
+
+#: web/bugs.cgi:822
+msgid ""
+"Please read the <a href=\"?README\">README</a> for help and more "
+"information. You may also be interested by the SliTaz <a href=\"http://"
+"roadmap.slitaz.org/\">Roadmap</a> and the packages <a href=\"http://cook."
+"slitaz.org/\">Cooker</a>. To perform a search enter your term and press "
+"ENTER."
+msgstr ""
+"詳細は <a href=\"?README\">README</a> を参照して下さい。また SliTaz <a href="
+"\"http://roadmap.slitaz.org/\">Roadmap</a> とパッケージ <a href=\"http://"
+"cook.slitaz.org/\">Cooker</a>　にも興味があるかもしれません。検索を実行するに"
+"は、用語を入力して ENTER キーを押します。"
+
+#: web/bugs.cgi:831
+msgid "View closed bugs"
+msgstr "閉じられた bugs を表示"
+
+#: web/bugs.cgi:834
+msgid "Create a new bug"
+msgstr "新たな bug を生成する"
+
+#: web/bugs.cgi:840
+msgid "Latest Bugs"
+msgstr "最新 bugs"
