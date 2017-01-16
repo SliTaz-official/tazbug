@@ -1,0 +1,382 @@
+# Vietnamese translations for the tazbug package.
+# Copyright (C) 2017 SliTaz
+# This file is distributed under the same license as the tazbug package.
+# Anh Bình <tuananh88c25@gmail.com>, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: SliTaz Bugs\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-01-16 11:57+0700\n"
+"PO-Revision-Date: 2017-01-16 12:35+0700\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 1.8.11\n"
+"Last-Translator: Anh Bình <tuananh88c25@gmail.com>\n"
+"Language: vi\n"
+
+#: tazbug:60
+msgid "Usage:"
+msgstr "Sử dụng:"
+
+#: tazbug:60
+msgid "[command] [args]"
+msgstr "[command] [args]"
+
+#: tazbug:62
+msgid "Commands:"
+msgstr "Lệnh:"
+
+#: tazbug:63
+msgid "Recreate the SliTaz secure key."
+msgstr "Tái tạo các khóa an toàn SliTaz."
+
+#: tazbug:64
+msgid "Create a new SliTaz account configuration."
+msgstr "Tạo một cấu hình tài khoản SliTaz mới."
+
+#: tazbug:65
+msgid "Create a new account on SliTaz Bugs."
+msgstr "Tạo một tài khoản mới trên SliTaz Bugs."
+
+#: tazbug:66
+msgid "Send a new message to an open bug."
+msgstr "Gửi một tin nhắn mới tới một lỗi mở."
+
+#: tazbug:67
+msgid "Send a new bug report."
+msgstr "Gửi báo cáo lỗi mới."
+
+#: tazbug:69
+msgid "Examples:"
+msgstr "Ví dụ:"
+
+#: tazbug:79
+msgid "Missing real name"
+msgstr "Thiếu tên thực"
+
+#: tazbug:80
+msgid "Missing login name"
+msgstr "Thiếu tên đăng nhập"
+
+#: tazbug:81
+msgid "Missing email"
+msgstr "Thiếu email"
+
+#: tazbug:82 tazbug:120
+msgid "Missing password"
+msgstr "Thiếu mật khẩu"
+
+#: tazbug:92
+msgid "Creating SliTaz account configuration..."
+msgstr "Tạo cấu hình tài khoản SliTaz ..."
+
+#: tazbug:107
+msgid "Creating SliTaz secure key..."
+msgstr "Tạo khóa an toàn SliTaz ..."
+
+#: tazbug:149
+msgid "Missing bug ID"
+msgstr "Thiếu mã lỗi"
+
+#: tazbug:150
+msgid "Missing message"
+msgstr "Thiếu lời nhắn"
+
+#: tazbug:159
+msgid "Missing bug title"
+msgstr "Thiếu tiêu đề lỗi"
+
+#: tazbug:160
+msgid "Missing description"
+msgstr "Mô tả thiếu"
+
+#: tazbug:161
+msgid "Missing bug priority"
+msgstr "Thiếu ưu tiên lỗi"
+
+#: tazbug-box:29 tazbug-box:76
+msgid "My account"
+msgstr "Tài khoản của tôi"
+
+#: tazbug-box:42
+msgid "Bug ID"
+msgstr "Mã lỗi"
+
+#: tazbug-box:43
+msgid "Message"
+msgstr "Tin nhắn"
+
+#: tazbug-box:44 tazbug-box:129
+msgid "New bug"
+msgstr "Lỗi mới"
+
+#: tazbug-box:45 web/bugs.cgi:351
+msgid "Send message"
+msgstr "Gửi tin nhắn"
+
+#: tazbug-box:72 web/bugs.cgi:414
+msgid "Bug title"
+msgstr "Tiêu đề lỗi"
+
+#: tazbug-box:73 web/bugs.cgi:426
+msgid "Priority"
+msgstr "Sự ưu tiên"
+
+#: tazbug-box:74 web/bugs.cgi:422
+msgid "Packages"
+msgstr "Gói"
+
+#: tazbug-box:75 web/bugs.cgi:418
+msgid "Description"
+msgstr "Diễn tả"
+
+#: tazbug-box:77 tazbug-box:130 web/bugs.cgi:347
+msgid "New message"
+msgstr "Tin nhắn mới"
+
+#: tazbug-box:78
+msgid "Send bug"
+msgstr "Gửi lỗi"
+
+#: tazbug-box:109 tazbug-box:155 web/bugs.cgi:166
+msgid "Real name"
+msgstr "Tên thực"
+
+#: tazbug-box:111 web/bugs.cgi:167 web/bugs.cgi:205
+msgid "User name"
+msgstr "Tên người dùng"
+
+#: tazbug-box:115
+msgid "Secure key"
+msgstr "Khóa an toàn"
+
+#: tazbug-box:125
+msgid "Account"
+msgstr "Tài khoản"
+
+#: tazbug-box:126
+msgid "Value"
+msgstr "Giá trị"
+
+#: tazbug-box:128
+msgid "Online bugs"
+msgstr "Lỗi trực tuyến"
+
+#: tazbug-box:156
+msgid "Login name"
+msgstr "Tên Đăng nhập"
+
+#: tazbug-box:157 web/bugs.cgi:168
+msgid "Email"
+msgstr "Email"
+
+#: tazbug-box:158 web/bugs.cgi:169 web/bugs.cgi:207
+msgid "Password"
+msgstr "Mật khẩu"
+
+#: web/bugs.cgi:133
+msgid "Logout"
+msgstr "Đăng xuất"
+
+#: web/bugs.cgi:140 web/bugs.cgi:192
+msgid "Login"
+msgstr "Đăng nhập"
+
+#: web/bugs.cgi:148 web/bugs.cgi:149 web/bugs.cgi:767 web/bugs.cgi:770
+msgid "Search"
+msgstr "Tìm kiếm"
+
+#: web/bugs.cgi:171
+msgid "Create new account"
+msgstr "Tạo tài khoản mới"
+
+#: web/bugs.cgi:182
+msgid "Or:"
+msgstr "Hoặc:"
+
+#: web/bugs.cgi:184
+msgid "Sign Up Online"
+msgstr "Đăng ký trực tuyến"
+
+#: web/bugs.cgi:195
+msgid ""
+"No account yet? You can signup using the SliTaz Bugs reporter on your SliTaz "
+"system."
+msgstr ""
+"Chưa có tài khoản? Bạn có thể đăng ký sử dụng Báo cáo SliTaz Bugs trên hệ "
+"thống SliTaz của bạn."
+
+#: web/bugs.cgi:198
+msgid "Tip: to attach big files or images, you can use SliTaz Paste services:"
+msgstr ""
+"Mẹo: để đính kèm tập tin lớn hoặc hình ảnh, bạn có thể sử dụng dịch vụ "
+"SliTaz Paste:"
+
+#: web/bugs.cgi:210
+msgid "Log in"
+msgstr "Đăng nhập"
+
+#: web/bugs.cgi:252
+#, sh-format
+msgid "$status Bugs"
+msgstr "$status Bugs"
+
+#: web/bugs.cgi:290
+#, sh-format
+msgid "Bug $id: $STATUS"
+msgstr "Lỗi $id: $STATUS"
+
+#: web/bugs.cgi:296
+msgid "Date:"
+msgstr "Ngày:"
+
+#: web/bugs.cgi:297
+#, sh-format
+msgid "Priority $PRIORITY"
+msgstr "Ưu tiên $PRIORITY"
+
+#: web/bugs.cgi:298 web/bugs.cgi:815
+#, sh-format
+msgid "$msgs message"
+msgid_plural "$msgs messages"
+msgstr[0] "$msgs lời nhắn"
+
+#: web/bugs.cgi:310
+msgid "Close bug"
+msgstr "Đóng lỗi"
+
+#: web/bugs.cgi:311
+msgid "Edit bug"
+msgstr "Chỉnh sửa lỗi"
+
+#: web/bugs.cgi:315
+msgid "Re open bug"
+msgstr "Mở lại lỗi"
+
+#: web/bugs.cgi:322
+msgid "Messages"
+msgstr "Tin nhắn"
+
+#: web/bugs.cgi:324
+msgid "No messages"
+msgstr "Không tin nhắn"
+
+#: web/bugs.cgi:406
+msgid "New Bug"
+msgstr "Lỗi mới"
+
+#: web/bugs.cgi:429
+msgid "Standard"
+msgstr "Tiêu chuẩn"
+
+#: web/bugs.cgi:430
+msgid "Critical"
+msgstr "Bình luận"
+
+#: web/bugs.cgi:432
+msgid "Create Bug"
+msgstr "Tạo lỗi"
+
+#: web/bugs.cgi:440
+msgid "* field is obligatory. You can also specify affected packages."
+msgstr "* Dòng bắt buộc. Bạn cũng có thể chỉ định các gói bị ảnh hưởng."
+
+#: web/bugs.cgi:451
+#, sh-format
+msgid "Edit Bug $bug"
+msgstr "Chỉnh sửa lỗi $bug"
+
+#: web/bugs.cgi:457
+msgid "Save configuration"
+msgstr "Lưu cấu hình"
+
+#: web/bugs.cgi:581
+msgid "User already exists:"
+msgstr "Tên người dùng đã tồn tại"
+
+#: web/bugs.cgi:625
+msgid "Bad login or pass"
+msgstr "Đăng nhập sai hoặc không chính xác"
+
+#: web/bugs.cgi:650
+msgid "User name  :"
+msgstr "Tên người dùng :"
+
+#: web/bugs.cgi:651
+msgid "Last login :"
+msgstr "Đăng nhập lần cuối :"
+
+#: web/bugs.cgi:669
+msgid "You must be logged in to post a new bug"
+msgstr "Bạn phải đăng nhập để gửi một lỗi mới"
+
+#: web/bugs.cgi:715
+msgid "Sign Up"
+msgstr "Đăng ký"
+
+#: web/bugs.cgi:719
+msgid "Online registration is disabled"
+msgstr "Đăng ký trực tuyến bị vô hiệu hóa"
+
+#: web/bugs.cgi:781
+msgid "Show"
+msgstr "Hiện"
+
+#: web/bugs.cgi:789
+msgid "No result found for"
+msgstr "Không tìm thấy kết quả"
+
+#: web/bugs.cgi:791
+msgid "results found"
+msgstr "kết quả tìm được"
+
+#: web/bugs.cgi:809
+msgid "Summary"
+msgstr "Tóm lược"
+
+#: web/bugs.cgi:812
+#, sh-format
+msgid "Bug: $bugs in total -"
+msgid_plural "Bugs: $bugs in total -"
+msgstr[0] "Lỗi: $bugs trong tổng số -"
+
+#: web/bugs.cgi:813
+#, sh-format
+msgid "$close fixed -"
+msgid_plural "$close fixed -"
+msgstr[0] "$close đã sửa -"
+
+#: web/bugs.cgi:814
+#, sh-format
+msgid "$fixme to fix -"
+msgid_plural "$fixme to fix -"
+msgstr[0] "$fixme để sửa chữa -"
+
+#: web/bugs.cgi:822
+msgid ""
+"Please read the <a href=\"?README\">README</a> for help and more "
+"information. You may also be interested by the SliTaz <a href=\"http://"
+"roadmap.slitaz.org/\">Roadmap</a> and the packages <a href=\"http://cook."
+"slitaz.org/\">Cooker</a>. To perform a search enter your term and press "
+"ENTER."
+msgstr ""
+"Vui lòng đọc <a href=\"?README\">README</a> để giúp đỡ và biết thêm thông "
+"tin. Bạn cũng có thể quan tâm các SliTaz <a href=\"http://roadmap.slitaz.org/"
+"\">Lộ trình</a> và các gói <a href=\"http://cook.slitaz.org/\">Người làm</"
+"a>. Để thực hiện tìm kiếm, nhập từ của bạn và nhấn ENTER."
+
+#: web/bugs.cgi:831
+msgid "View closed bugs"
+msgstr "Xem lỗi Đã đóng"
+
+#: web/bugs.cgi:834
+msgid "Create a new bug"
+msgstr "Tạo một lỗi mới"
+
+#: web/bugs.cgi:840
+msgid "Latest Bugs"
+msgstr "Lỗi mới nhất"
