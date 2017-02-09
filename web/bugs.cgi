@@ -373,9 +373,10 @@ EOT
 	rm -f $bugdir/$id/msg.$count.tmp
 }
 
-# Create a new Bug. ID is set by counting dirs in bug/ including bug/0
+# Create a new Bug. ID is set by counting dirs in bug/ + 1
 new_bug() {
-	count=$(ls $bugdir | wc -l)
+	count=$(ls $bugdir | sort -g | tail -n 1)
+	count=$(($count +1))
 	date=$(date "+%Y-%m-%d %H:%M")
 	# Sanity check, JS may be disabled.
 	[ ! "$(GET bug)" ] && echo "Missing bug title" && exit 1
