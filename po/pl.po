@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SliTaz Bugs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-12 15:04+0300\n"
+"POT-Creation-Date: 2017-02-11 00:23+0100\n"
 "PO-Revision-Date: 2013-07-23 12:36+0100\n"
 "Last-Translator: Paweł Pyrczak <tkr.tkr.pl@gmail.com>\n"
 "Language-Team: Paweł Pyrczak <support@pyrczak.pl>\n"
@@ -21,192 +21,48 @@ msgstr ""
 "X-Poedit-Country: POLAND\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: tazbug:60
-msgid "Usage:"
-msgstr "Użycie:"
-
-#: tazbug:60
-msgid "[command] [args]"
-msgstr "[komenda] [argumenty]"
-
-#: tazbug:62
-msgid "Commands:"
-msgstr "Komendy:"
-
-#: tazbug:63
-msgid "Recreate the SliTaz secure key."
-msgstr "Utwórz ponownie klucz zabezpieczeń SliTaz."
-
-#: tazbug:64
-msgid "Create a new SliTaz account configuration."
-msgstr "Utwórz nową konfigurację konta SliTaz."
-
-#: tazbug:65
-msgid "Create a new account on SliTaz Bugs."
-msgstr "Utwórz nowe konto w systemie zgłoszeń błędów SliTaz Bugs."
-
-#: tazbug:66
-msgid "Send a new message to an open bug."
-msgstr "Wyślij nową wiadomość do otwartego zgłoszenia błędu."
-
-#: tazbug:67
-msgid "Send a new bug report."
-msgstr "Wyślij nowe zgłoszenie błędu."
-
-#: tazbug:69
-msgid "Examples:"
-msgstr "Przykłady:"
-
-#: tazbug:79
-msgid "Missing real name"
-msgstr "Brakuje prawdziwego imienia"
-
-#: tazbug:80
-msgid "Missing login name"
-msgstr "Brakuje loginu"
-
-#: tazbug:81
-msgid "Missing email"
-msgstr "Brakuje adresu email"
-
-#: tazbug:82 tazbug:120
-msgid "Missing password"
-msgstr "Brakuje hasła"
-
-#: tazbug:92
-msgid "Creating SliTaz account configuration..."
-msgstr "Tworzenie konfiguracji konta SliTaz..."
-
-#: tazbug:107
-msgid "Creating SliTaz secure key..."
-msgstr "Tworzenie klucza zabezpieczeń SliTaz..."
-
-#: tazbug:149
-msgid "Missing bug ID"
-msgstr "Brakuje ID zgłoszenia błędu"
-
-#: tazbug:150
-msgid "Missing message"
-msgstr "Brakuje wiadomości"
-
-#: tazbug:159
-msgid "Missing bug title"
-msgstr "Brakuje tytułu zgłoszenia błędu"
-
-#: tazbug:160
-msgid "Missing description"
-msgstr "Brakuje opisu"
-
-#: tazbug:161
-msgid "Missing bug priority"
-msgstr "Brakuje priorytetu zgłoszenia błędu"
-
-#: tazbug-box:29 tazbug-box:76
-msgid "My account"
-msgstr "Moje konto"
-
-#: tazbug-box:42
-msgid "Bug ID"
-msgstr "ID zgłoszenia błędu"
-
-#: tazbug-box:43
-msgid "Message"
-msgstr "Wiadomość"
-
-#: tazbug-box:44 tazbug-box:129
-msgid "New bug"
-msgstr "Nowe zgłoszenie błędu"
-
-#: tazbug-box:45 web/bugs.cgi:351
-msgid "Send message"
-msgstr "Wyśli wiadomość"
-
-#: tazbug-box:72 web/bugs.cgi:414
-msgid "Bug title"
-msgstr "Tytuł zgłoszenia błędu"
-
-#: tazbug-box:73 web/bugs.cgi:426
-msgid "Priority"
-msgstr "Priorytet"
-
-#: tazbug-box:74 web/bugs.cgi:422
-msgid "Packages"
-msgstr "Pakiety"
-
-#: tazbug-box:75 web/bugs.cgi:418
-msgid "Description"
-msgstr "Opis"
-
-#: tazbug-box:77 tazbug-box:130 web/bugs.cgi:347
-msgid "New message"
-msgstr "Nowa wiadomość"
-
-#: tazbug-box:78
-msgid "Send bug"
-msgstr "Wyślij zgłoszenie błędu"
-
-#: tazbug-box:109 tazbug-box:155 web/bugs.cgi:166
-msgid "Real name"
-msgstr "Prawdziwe Imię"
-
-#: tazbug-box:111 web/bugs.cgi:167 web/bugs.cgi:205
-msgid "User name"
-msgstr "Nazwa użytkownika"
-
-#: tazbug-box:115
-msgid "Secure key"
-msgstr "Klucz zabezpieczeń"
-
-#: tazbug-box:125
-msgid "Account"
-msgstr "Konto"
-
-#: tazbug-box:126
-msgid "Value"
-msgstr "Wartość"
-
-#: tazbug-box:128
-msgid "Online bugs"
-msgstr "Zgłoszenia błędów online"
-
-#: tazbug-box:156
-msgid "Login name"
-msgstr "Nazwa loginu"
-
-#: tazbug-box:157 web/bugs.cgi:168
-msgid "Email"
-msgstr "Email"
-
-#: tazbug-box:158 web/bugs.cgi:169 web/bugs.cgi:207
-msgid "Password"
-msgstr "Hasło"
-
-#: web/bugs.cgi:133
+#: web/bugs.cgi:131
 msgid "Logout"
 msgstr ""
 
-#: web/bugs.cgi:140 web/bugs.cgi:192
+#: web/bugs.cgi:138 web/bugs.cgi:190
 msgid "Login"
 msgstr "Login"
 
-#: web/bugs.cgi:148 web/bugs.cgi:149 web/bugs.cgi:767 web/bugs.cgi:770
+#: web/bugs.cgi:146 web/bugs.cgi:147 web/bugs.cgi:813 web/bugs.cgi:816
 msgid "Search"
 msgstr "Szukaj"
 
-#: web/bugs.cgi:171
+#: web/bugs.cgi:164
+msgid "Real name"
+msgstr "Prawdziwe Imię"
+
+#: web/bugs.cgi:165 web/bugs.cgi:203
+msgid "User name"
+msgstr "Nazwa użytkownika"
+
+#: web/bugs.cgi:166
+msgid "Email"
+msgstr "Email"
+
+#: web/bugs.cgi:167 web/bugs.cgi:205
+msgid "Password"
+msgstr "Hasło"
+
+#: web/bugs.cgi:169
 #, fuzzy
 msgid "Create new account"
 msgstr "Stwórz nowe zgłoszenie błędu"
 
-#: web/bugs.cgi:182
+#: web/bugs.cgi:180
 msgid "Or:"
 msgstr ""
 
-#: web/bugs.cgi:184
+#: web/bugs.cgi:182
 msgid "Sign Up Online"
 msgstr ""
 
-#: web/bugs.cgi:195
+#: web/bugs.cgi:193
 #, fuzzy
 msgid ""
 "No account yet? You can signup using the SliTaz Bugs reporter on your SliTaz "
@@ -215,36 +71,41 @@ msgstr ""
 "Nie masz jeszcze konta ? Proszę zarejestruj się używając narzędzia do "
 "zgłaszania błędów SliTaz Bugs w twoim systemie SliTaz."
 
-#: web/bugs.cgi:198
+#: web/bugs.cgi:196
 msgid "Tip: to attach big files or images, you can use SliTaz Paste services:"
 msgstr ""
 "Podpowiedź: aby załączyć duże pliki albo obrazy można użyć serwis SliTaz "
 "Paste:"
 
-#: web/bugs.cgi:210
+#: web/bugs.cgi:208
 msgid "Log in"
 msgstr "Zaloguj"
 
-#: web/bugs.cgi:252
+#: web/bugs.cgi:234
 #, fuzzy, sh-format
 msgid "$status Bugs"
 msgstr "Błąd $bug"
 
-#: web/bugs.cgi:290
+#: web/bugs.cgi:287
 #, fuzzy, sh-format
 msgid "Bug $id: $STATUS"
 msgstr "Zgłoszenie błędu $id"
 
-#: web/bugs.cgi:296
+#: web/bugs.cgi:293
 msgid "Date:"
 msgstr ""
 
-#: web/bugs.cgi:297
+#: web/bugs.cgi:294
+#, fuzzy
+msgid "Creator:"
+msgstr "Twórca            :"
+
+#: web/bugs.cgi:295
 #, sh-format
 msgid "Priority $PRIORITY"
 msgstr "Priorytet $PRIORITY"
 
-#: web/bugs.cgi:298 web/bugs.cgi:815
+#: web/bugs.cgi:296 web/bugs.cgi:861
 #, sh-format
 msgid "$msgs message"
 msgid_plural "$msgs messages"
@@ -252,103 +113,131 @@ msgstr[0] "$msgs wiadomość"
 msgstr[1] "$msgs wiadomości"
 msgstr[2] "$msgs wiadomości"
 
-#: web/bugs.cgi:310
+#: web/bugs.cgi:308
 msgid "Close bug"
 msgstr "Zamknij zgłoszenie błędu"
 
-#: web/bugs.cgi:311
+#: web/bugs.cgi:313
 msgid "Edit bug"
 msgstr "Edytuj zgłoszenie błędu"
 
-#: web/bugs.cgi:315
+#: web/bugs.cgi:318
 msgid "Re open bug"
 msgstr "Otwórz zamknięte zgłoszenie błędu"
 
-#: web/bugs.cgi:322
+#: web/bugs.cgi:325
 msgid "Messages"
 msgstr "Wiadomości"
 
-#: web/bugs.cgi:324
+#: web/bugs.cgi:327
 msgid "No messages"
 msgstr "Brak wiadomości"
 
-#: web/bugs.cgi:406
+#: web/bugs.cgi:350
+msgid "New message"
+msgstr "Nowa wiadomość"
+
+#: web/bugs.cgi:354
+msgid "Send message"
+msgstr "Wyśli wiadomość"
+
+#: web/bugs.cgi:413
 msgid "New Bug"
 msgstr "Nowe zgłoszenie błędu"
 
-#: web/bugs.cgi:429
+#: web/bugs.cgi:421 web/bugs.cgi:474
+msgid "Bug title"
+msgstr "Tytuł zgłoszenia błędu"
+
+#: web/bugs.cgi:425 web/bugs.cgi:478
+msgid "Description"
+msgstr "Opis"
+
+#: web/bugs.cgi:429 web/bugs.cgi:482
+msgid "Packages"
+msgstr "Pakiety"
+
+#: web/bugs.cgi:433 web/bugs.cgi:486
+msgid "Priority"
+msgstr "Priorytet"
+
+#: web/bugs.cgi:436 web/bugs.cgi:490
 msgid "Standard"
 msgstr "Standardowy"
 
-#: web/bugs.cgi:430
+#: web/bugs.cgi:437 web/bugs.cgi:491
 msgid "Critical"
 msgstr "Krytyczny"
 
-#: web/bugs.cgi:432
+#: web/bugs.cgi:439
 msgid "Create Bug"
 msgstr "Stwórz zgłoszenie błędu"
 
-#: web/bugs.cgi:440
+#: web/bugs.cgi:447
 msgid "* field is obligatory. You can also specify affected packages."
 msgstr ""
 "* pole jest obowiązkowe. Można również sprecyzować dotknięte błędem pakiety."
 
-#: web/bugs.cgi:451
+#: web/bugs.cgi:460
+msgid "You can't edit someone else bug!"
+msgstr ""
+
+#: web/bugs.cgi:463
 #, sh-format
 msgid "Edit Bug $bug"
 msgstr "Edytuj zgłoszenie $bug"
 
-#: web/bugs.cgi:457
+#: web/bugs.cgi:493
 msgid "Save configuration"
 msgstr "Zapisz konfigurację"
 
-#: web/bugs.cgi:581
+#: web/bugs.cgi:632
 msgid "User already exists:"
 msgstr ""
 
-#: web/bugs.cgi:625
+#: web/bugs.cgi:676
 msgid "Bad login or pass"
 msgstr "Zły login albo hasło"
 
-#: web/bugs.cgi:650
+#: web/bugs.cgi:701
 #, fuzzy
 msgid "User name  :"
 msgstr "Nazwa użytkownika"
 
-#: web/bugs.cgi:651
+#: web/bugs.cgi:702
 msgid "Last login :"
 msgstr ""
 
-#: web/bugs.cgi:669
+#: web/bugs.cgi:714
 msgid "You must be logged in to post a new bug"
 msgstr "Musisz być zalogowany aby dodać nowe zgłoszenie błędu"
 
-#: web/bugs.cgi:715
+#: web/bugs.cgi:761
 msgid "Sign Up"
 msgstr ""
 
-#: web/bugs.cgi:719
+#: web/bugs.cgi:765
 msgid "Online registration is disabled"
 msgstr ""
 
-#: web/bugs.cgi:781
+#: web/bugs.cgi:827
 msgid "Show"
 msgstr "Pokaż"
 
-#: web/bugs.cgi:789
+#: web/bugs.cgi:835
 #, fuzzy
 msgid "No result found for"
 msgstr "Nie znaleziono rezultatów dla: $get_search"
 
-#: web/bugs.cgi:791
+#: web/bugs.cgi:837
 msgid "results found"
 msgstr ""
 
-#: web/bugs.cgi:809
+#: web/bugs.cgi:855
 msgid "Summary"
 msgstr "Podsumowanie"
 
-#: web/bugs.cgi:812
+#: web/bugs.cgi:858
 #, sh-format
 msgid "Bug: $bugs in total -"
 msgid_plural "Bugs: $bugs in total -"
@@ -356,7 +245,7 @@ msgstr[0] "Całkowita ilość błędów: $bugs -"
 msgstr[1] "Całkowita ilość błędów: $bugs -"
 msgstr[2] "Całkowita ilość błędów: $bugs -"
 
-#: web/bugs.cgi:813
+#: web/bugs.cgi:859
 #, sh-format
 msgid "$close fixed -"
 msgid_plural "$close fixed -"
@@ -364,7 +253,7 @@ msgstr[0] "$close naprawiony -"
 msgstr[1] "$close naprawione -"
 msgstr[2] "$close naprawionych -"
 
-#: web/bugs.cgi:814
+#: web/bugs.cgi:860
 #, sh-format
 msgid "$fixme to fix -"
 msgid_plural "$fixme to fix -"
@@ -372,7 +261,7 @@ msgstr[0] "$fixme do naprawy -"
 msgstr[1] "$fixme do naprawy -"
 msgstr[2] "$fixme do naprawy -"
 
-#: web/bugs.cgi:822
+#: web/bugs.cgi:868
 msgid ""
 "Please read the <a href=\"?README\">README</a> for help and more "
 "information. You may also be interested by the SliTaz <a href=\"http://"
@@ -386,18 +275,113 @@ msgstr ""
 "cook.slitaz.org/\">Cooker</a>. Aby przprowadzić wyszukiwanie wpisz zapytanie "
 "i naciśnij ENTER."
 
-#: web/bugs.cgi:831
+#: web/bugs.cgi:877
 msgid "View closed bugs"
 msgstr "Zobacz zamknięte zgłoszenia błędów"
 
-#: web/bugs.cgi:834
+#: web/bugs.cgi:880
 msgid "Create a new bug"
 msgstr "Stwórz nowe zgłoszenie błędu"
 
-#: web/bugs.cgi:840
+#: web/bugs.cgi:886
 #, fuzzy
 msgid "Latest Bugs"
 msgstr "Stwórz zgłoszenie błędu"
+
+#: web/bugs.cgi:896
+#, fuzzy
+msgid "Latest Messages"
+msgstr "Wiadomości"
+
+#~ msgid "Usage:"
+#~ msgstr "Użycie:"
+
+#~ msgid "[command] [args]"
+#~ msgstr "[komenda] [argumenty]"
+
+#~ msgid "Commands:"
+#~ msgstr "Komendy:"
+
+#~ msgid "Recreate the SliTaz secure key."
+#~ msgstr "Utwórz ponownie klucz zabezpieczeń SliTaz."
+
+#~ msgid "Create a new SliTaz account configuration."
+#~ msgstr "Utwórz nową konfigurację konta SliTaz."
+
+#~ msgid "Create a new account on SliTaz Bugs."
+#~ msgstr "Utwórz nowe konto w systemie zgłoszeń błędów SliTaz Bugs."
+
+#~ msgid "Send a new message to an open bug."
+#~ msgstr "Wyślij nową wiadomość do otwartego zgłoszenia błędu."
+
+#~ msgid "Send a new bug report."
+#~ msgstr "Wyślij nowe zgłoszenie błędu."
+
+#~ msgid "Examples:"
+#~ msgstr "Przykłady:"
+
+#~ msgid "Missing real name"
+#~ msgstr "Brakuje prawdziwego imienia"
+
+#~ msgid "Missing login name"
+#~ msgstr "Brakuje loginu"
+
+#~ msgid "Missing email"
+#~ msgstr "Brakuje adresu email"
+
+#~ msgid "Missing password"
+#~ msgstr "Brakuje hasła"
+
+#~ msgid "Creating SliTaz account configuration..."
+#~ msgstr "Tworzenie konfiguracji konta SliTaz..."
+
+#~ msgid "Creating SliTaz secure key..."
+#~ msgstr "Tworzenie klucza zabezpieczeń SliTaz..."
+
+#~ msgid "Missing bug ID"
+#~ msgstr "Brakuje ID zgłoszenia błędu"
+
+#~ msgid "Missing message"
+#~ msgstr "Brakuje wiadomości"
+
+#~ msgid "Missing bug title"
+#~ msgstr "Brakuje tytułu zgłoszenia błędu"
+
+#~ msgid "Missing description"
+#~ msgstr "Brakuje opisu"
+
+#~ msgid "Missing bug priority"
+#~ msgstr "Brakuje priorytetu zgłoszenia błędu"
+
+#~ msgid "My account"
+#~ msgstr "Moje konto"
+
+#~ msgid "Bug ID"
+#~ msgstr "ID zgłoszenia błędu"
+
+#~ msgid "Message"
+#~ msgstr "Wiadomość"
+
+#~ msgid "New bug"
+#~ msgstr "Nowe zgłoszenie błędu"
+
+#~ msgid "Send bug"
+#~ msgstr "Wyślij zgłoszenie błędu"
+
+#~ msgid "Secure key"
+#~ msgstr "Klucz zabezpieczeń"
+
+#~ msgid "Account"
+#~ msgstr "Konto"
+
+#~ msgid "Value"
+#~ msgstr "Wartość"
+
+#~ msgid "Online bugs"
+#~ msgstr "Zgłoszenia błędów online"
+
+#~ msgid "Login name"
+#~ msgstr "Nazwa loginu"
 
 #~ msgid "Log out"
 #~ msgstr "Wyloguj"
@@ -416,6 +400,3 @@ msgstr "Stwórz zgłoszenie błędu"
 
 #~ msgid "ID - Date  :"
 #~ msgstr "ID - Data         :"
-
-#~ msgid "Creator    :"
-#~ msgstr "Twórca            :"

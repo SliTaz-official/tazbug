@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SliTaz Bugs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-12 15:04+0300\n"
+"POT-Creation-Date: 2017-02-11 00:23+0100\n"
 "PO-Revision-Date: 2014-04-12 15:06+0300\n"
 "Last-Translator: Aleksej Bobylev <al.bobylev@gmail.com>\n"
 "Language-Team: Russian\n"
@@ -17,248 +17,94 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: Russian\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Poedit-Basepath: ../\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: tazbug:60
-msgid "Usage:"
-msgstr "Использование:"
-
-#: tazbug:60
-msgid "[command] [args]"
-msgstr "[команда] [аргументы]"
-
-#: tazbug:62
-msgid "Commands:"
-msgstr "Команды:"
-
-#: tazbug:63
-msgid "Recreate the SliTaz secure key."
-msgstr "Создать ключ безопасности SliTaz."
-
-#: tazbug:64
-msgid "Create a new SliTaz account configuration."
-msgstr "Настроить новый аккаунт SliTaz."
-
-#: tazbug:65
-msgid "Create a new account on SliTaz Bugs."
-msgstr "Создать новый аккаунт на баг-трекере SliTaz."
-
-#: tazbug:66
-msgid "Send a new message to an open bug."
-msgstr "Отослать новое сообщение в открытый баг."
-
-#: tazbug:67
-msgid "Send a new bug report."
-msgstr "Отослать новый баг-репорт."
-
-#: tazbug:69
-msgid "Examples:"
-msgstr "Примеры:"
-
-#: tazbug:79
-msgid "Missing real name"
-msgstr "Отсутствуют имя и фамилия"
-
-#: tazbug:80
-msgid "Missing login name"
-msgstr "Отсутствует логин"
-
-#: tazbug:81
-msgid "Missing email"
-msgstr "Отсутствует адрес электронной почты"
-
-#: tazbug:82
-#: tazbug:120
-msgid "Missing password"
-msgstr "Отсутствует пароль"
-
-#: tazbug:92
-msgid "Creating SliTaz account configuration..."
-msgstr "Настраивается аккаунт SliTaz…"
-
-#: tazbug:107
-msgid "Creating SliTaz secure key..."
-msgstr "Создается ключ безопасности SliTaz…"
-
-#: tazbug:149
-msgid "Missing bug ID"
-msgstr "Отсутствует ID бага"
-
-#: tazbug:150
-msgid "Missing message"
-msgstr "Отсутствует сообщение"
-
-#: tazbug:159
-msgid "Missing bug title"
-msgstr "Отсутствует заголовок бага"
-
-#: tazbug:160
-msgid "Missing description"
-msgstr "Отсутствует описание"
-
-#: tazbug:161
-msgid "Missing bug priority"
-msgstr "Отсутствует приоритет бага"
-
-#: tazbug-box:29
-#: tazbug-box:76
-msgid "My account"
-msgstr "Мой аккаунт"
-
-#: tazbug-box:42
-msgid "Bug ID"
-msgstr "ID бага"
-
-#: tazbug-box:43
-msgid "Message"
-msgstr "Сообщение"
-
-#: tazbug-box:44
-#: tazbug-box:129
-msgid "New bug"
-msgstr "Новый баг"
-
-#: tazbug-box:45
-#: web/bugs.cgi:351
-msgid "Send message"
-msgstr "Отослать сообщение"
-
-#: tazbug-box:72
-#: web/bugs.cgi:414
-msgid "Bug title"
-msgstr "Заголовок бага"
-
-#: tazbug-box:73
-#: web/bugs.cgi:426
-msgid "Priority"
-msgstr "Приоритет"
-
-#: tazbug-box:74
-#: web/bugs.cgi:422
-msgid "Packages"
-msgstr "Пакеты"
-
-#: tazbug-box:75
-#: web/bugs.cgi:418
-msgid "Description"
-msgstr "Описание"
-
-#: tazbug-box:77
-#: tazbug-box:130
-#: web/bugs.cgi:347
-msgid "New message"
-msgstr "Новое сообщение"
-
-#: tazbug-box:78
-msgid "Send bug"
-msgstr "Отослать баг"
-
-#: tazbug-box:109
-#: tazbug-box:155
-#: web/bugs.cgi:166
-msgid "Real name"
-msgstr "Имя и фамилия"
-
-#: tazbug-box:111
-#: web/bugs.cgi:167
-#: web/bugs.cgi:205
-msgid "User name"
-msgstr "Имя пользователя"
-
-#: tazbug-box:115
-msgid "Secure key"
-msgstr "Ключ безопасности"
-
-#: tazbug-box:125
-msgid "Account"
-msgstr "Аккаунт"
-
-#: tazbug-box:126
-msgid "Value"
-msgstr "Значение"
-
-#: tazbug-box:128
-msgid "Online bugs"
-msgstr "Баги онлайн"
-
-#: tazbug-box:156
-msgid "Login name"
-msgstr "Логин"
-
-#: tazbug-box:157
-#: web/bugs.cgi:168
-msgid "Email"
-msgstr "Адрес эл. почты"
-
-#: tazbug-box:158
-#: web/bugs.cgi:169
-#: web/bugs.cgi:207
-msgid "Password"
-msgstr "Пароль"
-
-#: web/bugs.cgi:133
+#: web/bugs.cgi:131
 msgid "Logout"
 msgstr "Выйти"
 
-#: web/bugs.cgi:140
-#: web/bugs.cgi:192
+#: web/bugs.cgi:138 web/bugs.cgi:190
 msgid "Login"
 msgstr "Вход"
 
-#: web/bugs.cgi:148
-#: web/bugs.cgi:149
-#: web/bugs.cgi:767
-#: web/bugs.cgi:770
+#: web/bugs.cgi:146 web/bugs.cgi:147 web/bugs.cgi:813 web/bugs.cgi:816
 msgid "Search"
 msgstr "Поиск"
 
-#: web/bugs.cgi:171
+#: web/bugs.cgi:164
+msgid "Real name"
+msgstr "Имя и фамилия"
+
+#: web/bugs.cgi:165 web/bugs.cgi:203
+msgid "User name"
+msgstr "Имя пользователя"
+
+#: web/bugs.cgi:166
+msgid "Email"
+msgstr "Адрес эл. почты"
+
+#: web/bugs.cgi:167 web/bugs.cgi:205
+msgid "Password"
+msgstr "Пароль"
+
+#: web/bugs.cgi:169
 msgid "Create new account"
 msgstr "Создать учетную запись"
 
-#: web/bugs.cgi:182
+#: web/bugs.cgi:180
 msgid "Or:"
 msgstr "Или:"
 
-#: web/bugs.cgi:184
+#: web/bugs.cgi:182
 msgid "Sign Up Online"
 msgstr "Войти онлайн"
 
-#: web/bugs.cgi:195
-msgid "No account yet? You can signup using the SliTaz Bugs reporter on your SliTaz system."
-msgstr "У вас еще нет аккаунта? Войдите, используя баг-репортер в вашей системе SliTaz."
+#: web/bugs.cgi:193
+msgid ""
+"No account yet? You can signup using the SliTaz Bugs reporter on your SliTaz "
+"system."
+msgstr ""
+"У вас еще нет аккаунта? Войдите, используя баг-репортер в вашей системе "
+"SliTaz."
 
-#: web/bugs.cgi:198
+#: web/bugs.cgi:196
 msgid "Tip: to attach big files or images, you can use SliTaz Paste services:"
-msgstr "Совет: чтобы прикрепить большие файлы и изображения, вы можете воспользоваться службой SliTaz Paste:"
+msgstr ""
+"Совет: чтобы прикрепить большие файлы и изображения, вы можете "
+"воспользоваться службой SliTaz Paste:"
 
-#: web/bugs.cgi:210
+#: web/bugs.cgi:208
 msgid "Log in"
 msgstr "Войти"
 
-#: web/bugs.cgi:252
+#: web/bugs.cgi:234
 #, sh-format
 msgid "$status Bugs"
 msgstr "$status баги"
 
-#: web/bugs.cgi:290
+#: web/bugs.cgi:287
 #, sh-format
 msgid "Bug $id: $STATUS"
 msgstr "Баг $id: $STATUS"
 
-#: web/bugs.cgi:296
+#: web/bugs.cgi:293
 msgid "Date:"
 msgstr "Дата:"
 
-#: web/bugs.cgi:297
+#: web/bugs.cgi:294
+#, fuzzy
+msgid "Creator:"
+msgstr "Создатель         :"
+
+#: web/bugs.cgi:295
 #, sh-format
 msgid "Priority $PRIORITY"
 msgstr "Приоритет $PRIORITY"
 
-#: web/bugs.cgi:298
-#: web/bugs.cgi:815
+#: web/bugs.cgi:296 web/bugs.cgi:861
 #, sh-format
 msgid "$msgs message"
 msgid_plural "$msgs messages"
@@ -266,100 +112,130 @@ msgstr[0] "$msgs сообщение"
 msgstr[1] "$msgs сообщения"
 msgstr[2] "$msgs сообщений"
 
-#: web/bugs.cgi:310
+#: web/bugs.cgi:308
 msgid "Close bug"
 msgstr "Закрыть баг"
 
-#: web/bugs.cgi:311
+#: web/bugs.cgi:313
 msgid "Edit bug"
 msgstr "Править баг"
 
-#: web/bugs.cgi:315
+#: web/bugs.cgi:318
 msgid "Re open bug"
 msgstr "Повторно открыть баг"
 
-#: web/bugs.cgi:322
+#: web/bugs.cgi:325
 msgid "Messages"
 msgstr "Сообщения"
 
-#: web/bugs.cgi:324
+#: web/bugs.cgi:327
 msgid "No messages"
 msgstr "Нет сообщений"
 
-#: web/bugs.cgi:406
+#: web/bugs.cgi:350
+msgid "New message"
+msgstr "Новое сообщение"
+
+#: web/bugs.cgi:354
+msgid "Send message"
+msgstr "Отослать сообщение"
+
+#: web/bugs.cgi:413
 msgid "New Bug"
 msgstr "Новый баг"
 
-#: web/bugs.cgi:429
+#: web/bugs.cgi:421 web/bugs.cgi:474
+msgid "Bug title"
+msgstr "Заголовок бага"
+
+#: web/bugs.cgi:425 web/bugs.cgi:478
+msgid "Description"
+msgstr "Описание"
+
+#: web/bugs.cgi:429 web/bugs.cgi:482
+msgid "Packages"
+msgstr "Пакеты"
+
+#: web/bugs.cgi:433 web/bugs.cgi:486
+msgid "Priority"
+msgstr "Приоритет"
+
+#: web/bugs.cgi:436 web/bugs.cgi:490
 msgid "Standard"
 msgstr "Стандартный"
 
-#: web/bugs.cgi:430
+#: web/bugs.cgi:437 web/bugs.cgi:491
 msgid "Critical"
 msgstr "Критический"
 
-#: web/bugs.cgi:432
+#: web/bugs.cgi:439
 msgid "Create Bug"
 msgstr "Создать баг"
 
-#: web/bugs.cgi:440
+#: web/bugs.cgi:447
 msgid "* field is obligatory. You can also specify affected packages."
-msgstr "* поле обязательно для заполнения. Вы можете также указать соответствующие пакеты."
+msgstr ""
+"* поле обязательно для заполнения. Вы можете также указать соответствующие "
+"пакеты."
 
-#: web/bugs.cgi:451
+#: web/bugs.cgi:460
+msgid "You can't edit someone else bug!"
+msgstr ""
+
+#: web/bugs.cgi:463
 #, sh-format
 msgid "Edit Bug $bug"
 msgstr "Править баг $bug"
 
-#: web/bugs.cgi:457
+#: web/bugs.cgi:493
 msgid "Save configuration"
 msgstr "Сохранить настройки"
 
-#: web/bugs.cgi:581
+#: web/bugs.cgi:632
 msgid "User already exists:"
 msgstr "Такой пользователь уже зарегистрирован:"
 
-#: web/bugs.cgi:625
+#: web/bugs.cgi:676
 msgid "Bad login or pass"
 msgstr "Неверный логин или пароль"
 
-#: web/bugs.cgi:650
+#: web/bugs.cgi:701
 msgid "User name  :"
 msgstr "Имя пользователя:"
 
-#: web/bugs.cgi:651
+#: web/bugs.cgi:702
 msgid "Last login :"
 msgstr "Последний логин:"
 
-#: web/bugs.cgi:669
+#: web/bugs.cgi:714
 msgid "You must be logged in to post a new bug"
 msgstr "Чтобы отправить новый баг, вы должны прежде войти"
 
-#: web/bugs.cgi:715
+#: web/bugs.cgi:761
 msgid "Sign Up"
 msgstr "Войти"
 
-#: web/bugs.cgi:719
+#: web/bugs.cgi:765
 msgid "Online registration is disabled"
 msgstr "Онлайн-регистрация отключена"
 
-#: web/bugs.cgi:781
+#: web/bugs.cgi:827
 msgid "Show"
 msgstr "Показать"
 
-#: web/bugs.cgi:789
+#: web/bugs.cgi:835
 msgid "No result found for"
 msgstr "Ничего не найдено по запросу"
 
-#: web/bugs.cgi:791
+#: web/bugs.cgi:837
 msgid "results found"
 msgstr "результаты найдены"
 
-#: web/bugs.cgi:809
+#: web/bugs.cgi:855
 msgid "Summary"
 msgstr "Сводка"
 
-#: web/bugs.cgi:812
+#: web/bugs.cgi:858
 #, sh-format
 msgid "Bug: $bugs in total -"
 msgid_plural "Bugs: $bugs in total -"
@@ -367,7 +243,7 @@ msgstr[0] "Всего: $bugs баг -"
 msgstr[1] "Всего: $bugs бага -"
 msgstr[2] "Всего: $bugs багов -"
 
-#: web/bugs.cgi:813
+#: web/bugs.cgi:859
 #, sh-format
 msgid "$close fixed -"
 msgid_plural "$close fixed -"
@@ -375,7 +251,7 @@ msgstr[0] "$close закрыт -"
 msgstr[1] "$close закрыты -"
 msgstr[2] "$close закрыты -"
 
-#: web/bugs.cgi:814
+#: web/bugs.cgi:860
 #, sh-format
 msgid "$fixme to fix -"
 msgid_plural "$fixme to fix -"
@@ -383,21 +259,125 @@ msgstr[0] "$fixme открыты -"
 msgstr[1] "$fixme открыты -"
 msgstr[2] "$fixme открыты -"
 
-#: web/bugs.cgi:822
-msgid "Please read the <a href=\"?README\">README</a> for help and more information. You may also be interested by the SliTaz <a href=\"http://roadmap.slitaz.org/\">Roadmap</a> and the packages <a href=\"http://cook.slitaz.org/\">Cooker</a>. To perform a search enter your term and press ENTER."
-msgstr "Для получения справки и дополнительной информации, прочитайте <a href=\"?README\">README</a>. Вас также может заинтересовать <a href=\"http://roadmap.slitaz.org/\">Дорожная карта</a> SliTaz и сборщик пакетов <a href=\"http://cook.slitaz.org/\">Cooker</a>. Для поиска введите запрос и нажмите Enter."
+#: web/bugs.cgi:868
+msgid ""
+"Please read the <a href=\"?README\">README</a> for help and more "
+"information. You may also be interested by the SliTaz <a href=\"http://"
+"roadmap.slitaz.org/\">Roadmap</a> and the packages <a href=\"http://cook."
+"slitaz.org/\">Cooker</a>. To perform a search enter your term and press "
+"ENTER."
+msgstr ""
+"Для получения справки и дополнительной информации, прочитайте <a href=\"?"
+"README\">README</a>. Вас также может заинтересовать <a href=\"http://roadmap."
+"slitaz.org/\">Дорожная карта</a> SliTaz и сборщик пакетов <a href=\"http://"
+"cook.slitaz.org/\">Cooker</a>. Для поиска введите запрос и нажмите Enter."
 
-#: web/bugs.cgi:831
+#: web/bugs.cgi:877
 msgid "View closed bugs"
 msgstr "Показать закрытые баги"
 
-#: web/bugs.cgi:834
+#: web/bugs.cgi:880
 msgid "Create a new bug"
 msgstr "Создать новый баг"
 
-#: web/bugs.cgi:840
+#: web/bugs.cgi:886
 msgid "Latest Bugs"
 msgstr "Последние баги"
+
+#: web/bugs.cgi:896
+#, fuzzy
+msgid "Latest Messages"
+msgstr "Сообщения"
+
+#~ msgid "Usage:"
+#~ msgstr "Использование:"
+
+#~ msgid "[command] [args]"
+#~ msgstr "[команда] [аргументы]"
+
+#~ msgid "Commands:"
+#~ msgstr "Команды:"
+
+#~ msgid "Recreate the SliTaz secure key."
+#~ msgstr "Создать ключ безопасности SliTaz."
+
+#~ msgid "Create a new SliTaz account configuration."
+#~ msgstr "Настроить новый аккаунт SliTaz."
+
+#~ msgid "Create a new account on SliTaz Bugs."
+#~ msgstr "Создать новый аккаунт на баг-трекере SliTaz."
+
+#~ msgid "Send a new message to an open bug."
+#~ msgstr "Отослать новое сообщение в открытый баг."
+
+#~ msgid "Send a new bug report."
+#~ msgstr "Отослать новый баг-репорт."
+
+#~ msgid "Examples:"
+#~ msgstr "Примеры:"
+
+#~ msgid "Missing real name"
+#~ msgstr "Отсутствуют имя и фамилия"
+
+#~ msgid "Missing login name"
+#~ msgstr "Отсутствует логин"
+
+#~ msgid "Missing email"
+#~ msgstr "Отсутствует адрес электронной почты"
+
+#~ msgid "Missing password"
+#~ msgstr "Отсутствует пароль"
+
+#~ msgid "Creating SliTaz account configuration..."
+#~ msgstr "Настраивается аккаунт SliTaz…"
+
+#~ msgid "Creating SliTaz secure key..."
+#~ msgstr "Создается ключ безопасности SliTaz…"
+
+#~ msgid "Missing bug ID"
+#~ msgstr "Отсутствует ID бага"
+
+#~ msgid "Missing message"
+#~ msgstr "Отсутствует сообщение"
+
+#~ msgid "Missing bug title"
+#~ msgstr "Отсутствует заголовок бага"
+
+#~ msgid "Missing description"
+#~ msgstr "Отсутствует описание"
+
+#~ msgid "Missing bug priority"
+#~ msgstr "Отсутствует приоритет бага"
+
+#~ msgid "My account"
+#~ msgstr "Мой аккаунт"
+
+#~ msgid "Bug ID"
+#~ msgstr "ID бага"
+
+#~ msgid "Message"
+#~ msgstr "Сообщение"
+
+#~ msgid "New bug"
+#~ msgstr "Новый баг"
+
+#~ msgid "Send bug"
+#~ msgstr "Отослать баг"
+
+#~ msgid "Secure key"
+#~ msgstr "Ключ безопасности"
+
+#~ msgid "Account"
+#~ msgstr "Аккаунт"
+
+#~ msgid "Value"
+#~ msgstr "Значение"
+
+#~ msgid "Online bugs"
+#~ msgstr "Баги онлайн"
+
+#~ msgid "Login name"
+#~ msgstr "Логин"
 
 #~ msgid "Log out"
 #~ msgstr "Выйти"
@@ -416,6 +396,3 @@ msgstr "Последние баги"
 
 #~ msgid "ID - Date  :"
 #~ msgstr "ID - Дата         :"
-
-#~ msgid "Creator    :"
-#~ msgstr "Создатель         :"

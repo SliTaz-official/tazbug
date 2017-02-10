@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SliTaz Bugs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-12 15:04+0300\n"
+"POT-Creation-Date: 2017-02-11 00:23+0100\n"
 "PO-Revision-Date: 2014-07-20 10:41+0800\n"
 "Last-Translator: rhsky <rhsky@qq.com>\n"
 "Language-Team: \n"
@@ -18,346 +18,235 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Poedit 1.6.5\n"
 
-#: tazbug:60
-msgid "Usage:"
-msgstr "用法:"
-
-#: tazbug:60
-msgid "[command] [args]"
-msgstr "[命令] [参数]"
-
-#: tazbug:62
-msgid "Commands:"
-msgstr "命令:"
-
-#: tazbug:63
-msgid "Recreate the SliTaz secure key."
-msgstr "重建 SliTaz 安全密钥。"
-
-#: tazbug:64
-msgid "Create a new SliTaz account configuration."
-msgstr "创建一个新的SliTaz帐户配置。"
-
-#: tazbug:65
-msgid "Create a new account on SliTaz Bugs."
-msgstr "在SliTaz bugs中创建一个新帐户。"
-
-#: tazbug:66
-msgid "Send a new message to an open bug."
-msgstr "发送新邮件到 bug 中心。"
-
-#: tazbug:67
-msgid "Send a new bug report."
-msgstr "发送一个新的bug报告。"
-
-#: tazbug:69
-msgid "Examples:"
-msgstr "例子："
-
-#: tazbug:79
-msgid "Missing real name"
-msgstr "丢失的真实名称"
-
-#: tazbug:80
-msgid "Missing login name"
-msgstr "丢失登录名"
-
-#: tazbug:81
-msgid "Missing email"
-msgstr "丢失邮件"
-
-#: tazbug:82 tazbug:120
-msgid "Missing password"
-msgstr "丢失的密码"
-
-#: tazbug:92
-msgid "Creating SliTaz account configuration..."
-msgstr "创建SliTaz帐户配置中…"
-
-#: tazbug:107
-msgid "Creating SliTaz secure key..."
-msgstr "创建 SliTaz 安全密钥中…"
-
-#: tazbug:149
-msgid "Missing bug ID"
-msgstr "失踪的bug ID"
-
-#: tazbug:150
-msgid "Missing message"
-msgstr "丢失消息"
-
-#: tazbug:159
-msgid "Missing bug title"
-msgstr "丢失Bug标题"
-
-#: tazbug:160
-msgid "Missing description"
-msgstr "丢失描述"
-
-#: tazbug:161
-msgid "Missing bug priority"
-msgstr "丢失Bug优先级"
-
-#: tazbug-box:29 tazbug-box:76
-msgid "My account"
-msgstr "我的帐户"
-
-#: tazbug-box:42
-msgid "Bug ID"
-msgstr "Bug ID"
-
-#: tazbug-box:43
-msgid "Message"
-msgstr "信息"
-
-#: tazbug-box:44 tazbug-box:129
-msgid "New bug"
-msgstr "新bug"
-
-#: tazbug-box:45 web/bugs.cgi:351
-msgid "Send message"
-msgstr "发送消息"
-
-#: tazbug-box:72 web/bugs.cgi:414
-msgid "Bug title"
-msgstr "bug的标题"
-
-#: tazbug-box:73 web/bugs.cgi:426
-msgid "Priority"
-msgstr "优先权"
-
-#: tazbug-box:74 web/bugs.cgi:422
-msgid "Packages"
-msgstr "包"
-
-#: tazbug-box:75 web/bugs.cgi:418
-msgid "Description"
-msgstr "描述"
-
-#: tazbug-box:77 tazbug-box:130 web/bugs.cgi:347
-msgid "New message"
-msgstr "新的消息"
-
-#: tazbug-box:78
-msgid "Send bug"
-msgstr "发送bug"
-
-#: tazbug-box:109 tazbug-box:155 web/bugs.cgi:166
-msgid "Real name"
-msgstr "真正的名字"
-
-#: tazbug-box:111 web/bugs.cgi:167 web/bugs.cgi:205
-msgid "User name"
-msgstr "用户名称"
-
-#: tazbug-box:115
-msgid "Secure key"
-msgstr "安全密钥"
-
-#: tazbug-box:125
-msgid "Account"
-msgstr "帐户"
-
-#: tazbug-box:126
-msgid "Value"
-msgstr "值"
-
-#: tazbug-box:128
-msgid "Online bugs"
-msgstr "在线 bugs"
-
-#: tazbug-box:156
-msgid "Login name"
-msgstr "登录名"
-
-#: tazbug-box:157 web/bugs.cgi:168
-msgid "Email"
-msgstr "电子邮件"
-
-#: tazbug-box:158 web/bugs.cgi:169 web/bugs.cgi:207
-msgid "Password"
-msgstr "密码"
-
-#: web/bugs.cgi:133
+#: web/bugs.cgi:131
 msgid "Logout"
 msgstr "登出"
 
-#: web/bugs.cgi:140 web/bugs.cgi:192
+#: web/bugs.cgi:138 web/bugs.cgi:190
 msgid "Login"
 msgstr "登录"
 
-#: web/bugs.cgi:148 web/bugs.cgi:149 web/bugs.cgi:767 web/bugs.cgi:770
+#: web/bugs.cgi:146 web/bugs.cgi:147 web/bugs.cgi:813 web/bugs.cgi:816
 msgid "Search"
 msgstr "搜索"
 
-#: web/bugs.cgi:171
+#: web/bugs.cgi:164
+msgid "Real name"
+msgstr "真正的名字"
+
+#: web/bugs.cgi:165 web/bugs.cgi:203
+msgid "User name"
+msgstr "用户名称"
+
+#: web/bugs.cgi:166
+msgid "Email"
+msgstr "电子邮件"
+
+#: web/bugs.cgi:167 web/bugs.cgi:205
+msgid "Password"
+msgstr "密码"
+
+#: web/bugs.cgi:169
 msgid "Create new account"
 msgstr "创建新帐户"
 
-#: web/bugs.cgi:182
+#: web/bugs.cgi:180
 msgid "Or:"
 msgstr "或："
 
-#: web/bugs.cgi:184
+#: web/bugs.cgi:182
 msgid "Sign Up Online"
 msgstr "在线注册"
 
-#: web/bugs.cgi:195
+#: web/bugs.cgi:193
 msgid ""
 "No account yet? You can signup using the SliTaz Bugs reporter on your SliTaz "
 "system."
 msgstr "尚未注册？你可以注册并使用SliTaz bug报告在你的SliTaz系统。"
 
-#: web/bugs.cgi:198
+#: web/bugs.cgi:196
 msgid "Tip: to attach big files or images, you can use SliTaz Paste services:"
 msgstr "提示：将大的文件或图片，您可以使用SliTaz粘贴服务："
 
-#: web/bugs.cgi:210
+#: web/bugs.cgi:208
 msgid "Log in"
 msgstr "登录"
 
-#: web/bugs.cgi:252
+#: web/bugs.cgi:234
 #, sh-format
 msgid "$status Bugs"
 msgstr "$status 的Bug"
 
-#: web/bugs.cgi:290
+#: web/bugs.cgi:287
 #, sh-format
 msgid "Bug $id: $STATUS"
 msgstr "Bug $id: $STATUS"
 
-#: web/bugs.cgi:296
+#: web/bugs.cgi:293
 msgid "Date:"
 msgstr "日期："
 
-#: web/bugs.cgi:297
+#: web/bugs.cgi:294
+msgid "Creator:"
+msgstr ""
+
+#: web/bugs.cgi:295
 #, sh-format
 msgid "Priority $PRIORITY"
 msgstr "优先权 $PRIORITY"
 
-#: web/bugs.cgi:298 web/bugs.cgi:815
+#: web/bugs.cgi:296 web/bugs.cgi:861
 #, sh-format
 msgid "$msgs message"
 msgid_plural "$msgs messages"
 msgstr[0] "消息$msgs"
 
-#: web/bugs.cgi:310
+#: web/bugs.cgi:308
 msgid "Close bug"
 msgstr "关闭bug"
 
-#: web/bugs.cgi:311
+#: web/bugs.cgi:313
 msgid "Edit bug"
 msgstr "编辑bug报告"
 
-#: web/bugs.cgi:315
+#: web/bugs.cgi:318
 msgid "Re open bug"
 msgstr "再次出现的bug（也可能是：阅读存在的bug  原文：Re open bug）"
 
-#: web/bugs.cgi:322
+#: web/bugs.cgi:325
 msgid "Messages"
 msgstr "消息"
 
-#: web/bugs.cgi:324
+#: web/bugs.cgi:327
 msgid "No messages"
 msgstr "没有消息"
 
-#: web/bugs.cgi:406
+#: web/bugs.cgi:350
+msgid "New message"
+msgstr "新的消息"
+
+#: web/bugs.cgi:354
+msgid "Send message"
+msgstr "发送消息"
+
+#: web/bugs.cgi:413
 msgid "New Bug"
 msgstr "新bug报告"
 
-#: web/bugs.cgi:429
+#: web/bugs.cgi:421 web/bugs.cgi:474
+msgid "Bug title"
+msgstr "bug的标题"
+
+#: web/bugs.cgi:425 web/bugs.cgi:478
+msgid "Description"
+msgstr "描述"
+
+#: web/bugs.cgi:429 web/bugs.cgi:482
+msgid "Packages"
+msgstr "包"
+
+#: web/bugs.cgi:433 web/bugs.cgi:486
+msgid "Priority"
+msgstr "优先权"
+
+#: web/bugs.cgi:436 web/bugs.cgi:490
 msgid "Standard"
 msgstr "标准"
 
-#: web/bugs.cgi:430
+#: web/bugs.cgi:437 web/bugs.cgi:491
 msgid "Critical"
 msgstr "关键的"
 
-#: web/bugs.cgi:432
+#: web/bugs.cgi:439
 msgid "Create Bug"
 msgstr "上报bug"
 
-#: web/bugs.cgi:440
+#: web/bugs.cgi:447
 msgid "* field is obligatory. You can also specify affected packages."
 msgstr "*此字段是强制性的。你也可以指定受影响的包。"
 
-#: web/bugs.cgi:451
+#: web/bugs.cgi:460
+msgid "You can't edit someone else bug!"
+msgstr ""
+
+#: web/bugs.cgi:463
 #, sh-format
 msgid "Edit Bug $bug"
 msgstr "编辑 $bug bug"
 
-#: web/bugs.cgi:457
+#: web/bugs.cgi:493
 msgid "Save configuration"
 msgstr "储存配置"
 
-#: web/bugs.cgi:581
+#: web/bugs.cgi:632
 msgid "User already exists:"
 msgstr "用户已经存在："
 
-#: web/bugs.cgi:625
+#: web/bugs.cgi:676
 msgid "Bad login or pass"
 msgstr "登录错误或通过"
 
-#: web/bugs.cgi:650
+#: web/bugs.cgi:701
 msgid "User name  :"
 msgstr "用户名称："
 
-#: web/bugs.cgi:651
+#: web/bugs.cgi:702
 msgid "Last login :"
 msgstr "最后登录："
 
-#: web/bugs.cgi:669
+#: web/bugs.cgi:714
 msgid "You must be logged in to post a new bug"
 msgstr "你必须登录才能发表一个新的bug"
 
-#: web/bugs.cgi:715
+#: web/bugs.cgi:761
 msgid "Sign Up"
 msgstr "注册"
 
-#: web/bugs.cgi:719
+#: web/bugs.cgi:765
 msgid "Online registration is disabled"
 msgstr "网上报名是禁用的"
 
-#: web/bugs.cgi:781
+#: web/bugs.cgi:827
 msgid "Show"
 msgstr "显示"
 
-#: web/bugs.cgi:789
+#: web/bugs.cgi:835
 msgid "No result found for"
 msgstr "没有发现结果"
 
-#: web/bugs.cgi:791
+#: web/bugs.cgi:837
 msgid "results found"
 msgstr "已发现的结果"
 
-#: web/bugs.cgi:809
+#: web/bugs.cgi:855
 msgid "Summary"
 msgstr "摘要"
 
-#: web/bugs.cgi:812
+#: web/bugs.cgi:858
 #, sh-format
 msgid "Bug: $bugs in total -"
 msgid_plural "Bugs: $bugs in total -"
 msgstr[0] "Bug: 合计$bugs -"
 
-#: web/bugs.cgi:813
+#: web/bugs.cgi:859
 #, sh-format
 msgid "$close fixed -"
 msgid_plural "$close fixed -"
 msgstr[0] "$close 已修复 -"
 
-#: web/bugs.cgi:814
+#: web/bugs.cgi:860
 #, sh-format
 msgid "$fixme to fix -"
 msgid_plural "$fixme to fix -"
 msgstr[0] "$fixme 修复 -"
 
-#: web/bugs.cgi:822
+#: web/bugs.cgi:868
+#, fuzzy
 msgid ""
 "Please read the <a href=\"?README\">README</a> for help and more "
 "information. You may also be interested by the SliTaz <a href=\"http://"
-"roadmap.SliTaz.org/\">Roadmap</a> and the packages <a href=\"http://cook."
-"SliTaz.org/\">Cooker</a>. To perform a search enter your term and press "
+"roadmap.slitaz.org/\">Roadmap</a> and the packages <a href=\"http://cook."
+"slitaz.org/\">Cooker</a>. To perform a search enter your term and press "
 "ENTER."
 msgstr ""
 "请阅读<a href=\"?README\">自述</a>以获得帮助和更多的信息。很感兴趣的话，你也"
@@ -365,14 +254,109 @@ msgstr ""
 "<a href=\"http://cook.SliTaz.org/\">软件包制作</a>。搜索请输入关键词并按回"
 "车。"
 
-#: web/bugs.cgi:831
+#: web/bugs.cgi:877
 msgid "View closed bugs"
 msgstr "查看已修复的 bugs"
 
-#: web/bugs.cgi:834
+#: web/bugs.cgi:880
 msgid "Create a new bug"
 msgstr "反馈一个新的bug"
 
-#: web/bugs.cgi:840
+#: web/bugs.cgi:886
 msgid "Latest Bugs"
 msgstr "最新的BUG"
+
+#: web/bugs.cgi:896
+#, fuzzy
+msgid "Latest Messages"
+msgstr "消息"
+
+#~ msgid "Usage:"
+#~ msgstr "用法:"
+
+#~ msgid "[command] [args]"
+#~ msgstr "[命令] [参数]"
+
+#~ msgid "Commands:"
+#~ msgstr "命令:"
+
+#~ msgid "Recreate the SliTaz secure key."
+#~ msgstr "重建 SliTaz 安全密钥。"
+
+#~ msgid "Create a new SliTaz account configuration."
+#~ msgstr "创建一个新的SliTaz帐户配置。"
+
+#~ msgid "Create a new account on SliTaz Bugs."
+#~ msgstr "在SliTaz bugs中创建一个新帐户。"
+
+#~ msgid "Send a new message to an open bug."
+#~ msgstr "发送新邮件到 bug 中心。"
+
+#~ msgid "Send a new bug report."
+#~ msgstr "发送一个新的bug报告。"
+
+#~ msgid "Examples:"
+#~ msgstr "例子："
+
+#~ msgid "Missing real name"
+#~ msgstr "丢失的真实名称"
+
+#~ msgid "Missing login name"
+#~ msgstr "丢失登录名"
+
+#~ msgid "Missing email"
+#~ msgstr "丢失邮件"
+
+#~ msgid "Missing password"
+#~ msgstr "丢失的密码"
+
+#~ msgid "Creating SliTaz account configuration..."
+#~ msgstr "创建SliTaz帐户配置中…"
+
+#~ msgid "Creating SliTaz secure key..."
+#~ msgstr "创建 SliTaz 安全密钥中…"
+
+#~ msgid "Missing bug ID"
+#~ msgstr "失踪的bug ID"
+
+#~ msgid "Missing message"
+#~ msgstr "丢失消息"
+
+#~ msgid "Missing bug title"
+#~ msgstr "丢失Bug标题"
+
+#~ msgid "Missing description"
+#~ msgstr "丢失描述"
+
+#~ msgid "Missing bug priority"
+#~ msgstr "丢失Bug优先级"
+
+#~ msgid "My account"
+#~ msgstr "我的帐户"
+
+#~ msgid "Bug ID"
+#~ msgstr "Bug ID"
+
+#~ msgid "Message"
+#~ msgstr "信息"
+
+#~ msgid "New bug"
+#~ msgstr "新bug"
+
+#~ msgid "Send bug"
+#~ msgstr "发送bug"
+
+#~ msgid "Secure key"
+#~ msgstr "安全密钥"
+
+#~ msgid "Account"
+#~ msgstr "帐户"
+
+#~ msgid "Value"
+#~ msgstr "值"
+
+#~ msgid "Online bugs"
+#~ msgstr "在线 bugs"
+
+#~ msgid "Login name"
+#~ msgstr "登录名"
