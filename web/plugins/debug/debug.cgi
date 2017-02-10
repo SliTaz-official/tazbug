@@ -34,7 +34,8 @@ EOT
 	do
 		if [ $(cat ${bugdir}/${id}/bug.conf | wc -l) != 8 ]; then
 			echo "<pre>"
-			echo -e "ERROR: bug ID $id - <a href='?debug&amp;del=$id'>Delete</a>\n"
+			echo -e "ERROR: bug ID $id - <a href='?edit=$id'>Edit</a>\
+ - <a href='?debug&amp;del=$id'>Delete</a>\n"
 			cat ${bugdir}/${id}/bug.conf
 			echo "</pre>"
 		fi
