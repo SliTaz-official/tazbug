@@ -1,5 +1,4 @@
-# SliTaz Bug Tracker Web interface configuration. This config file will
-# overwrite: /etc/slitaz/tazbug.conf
+# SliTaz Bug Tracker Web interface configuration.
 #
 
 # TazBug URL for redirection and RSS

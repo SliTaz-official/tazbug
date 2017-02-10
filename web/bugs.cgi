@@ -7,9 +7,7 @@
 . /usr/lib/slitaz/httphelper
 
 # Source config file
-[ -f "/etc/slitaz/tazbug.conf" ] && . /etc/slitaz/tazbug.conf
-# Web interface can have different setting than cmdline tools
-[ -f "/etc/slitaz/bugs.conf" ] && . /etc/slitaz/bugs.conf
+. ./config.cgi
 
 # Internal variable
 bugdir="$PWD/bug"

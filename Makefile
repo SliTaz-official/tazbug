@@ -14,7 +14,8 @@ all:
 
 pot:
 	xgettext -o po/tazbug.pot -L Shell --package-name="SliTaz Bugs" \
-		./tazbug ./tazbug-box ./web/bugs.cgi
+		./web/bugs.cgi 
+		#./tazbug
 
 msgmerge:
 	@for l in $(LINGUAS); do \
@@ -32,12 +33,9 @@ msgfmt:
 # Client install only. Server part is not packaged
 
 install:
-	install -m 0777 -d $(DESTDIR)/etc/slitaz
-	install -m 0777 -d $(DESTDIR)$(PREFIX)/bin
+	#install -m 0777 -d $(DESTDIR)$(PREFIX)/bin
 	install -m 0777 -d $(DESTDIR)$(PREFIX)/share/applications
-	install -m 0755 tazbug $(DESTDIR)$(PREFIX)/bin
-	install -m 0755 tazbug-box $(DESTDIR)$(PREFIX)/bin
-	install -m 0644 tazbug.conf $(DESTDIR)/etc/slitaz
+	#install -m 0755 tazbug $(DESTDIR)$(PREFIX)/bin
 	install -m 0644 data/tazbug.desktop \
 		$(DESTDIR)$(PREFIX)/share/applications
 
