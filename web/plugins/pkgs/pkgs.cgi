@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# TazBug Plugin - Skeleton
+# TazBug Plugin - List packages
 #
 
 if [ "$(GET packages)" ] || [ "$(GET pkg)" ]; then

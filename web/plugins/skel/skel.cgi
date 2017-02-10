@@ -8,8 +8,13 @@ if [ "$(GET skel)" ]; then
 	header
 	html_header
 	user_box
-	echo "<h2>Plugin Skel</h2>"
-	echo $(date)
+	cat << EOT
+<h2>Plugin Skel</h2>
+<div id="tools">
+	<a href="$script?dashboard">Dashboard</a>
+</div>
+EOT
+	echo "<p>$(date)</p>"
 	
 	# Say we use files in $DATA/skel, sort them by date and simply cat
 	# the files, this will create a simple blog :-) We may add post via
