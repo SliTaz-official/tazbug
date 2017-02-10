@@ -6,10 +6,6 @@
 # Display user public profile.
 public_people() {
 	echo "</pre>"
-	# Display personal user profile
-	if [ -f "$PEOPLE/$USER/profile.txt" ]; then
-		cat $PEOPLE/$USER/profile.txt | wiki_parser
-	fi
 }
 
 # Display authenticated user profile. TODO: change password
@@ -20,7 +16,6 @@ Email      : $MAIL
 EOT
 	# Each user can have personal profile page
 	if [ -f "$PEOPLE/$USER/profile.txt" ]; then
-		cat $PEOPLE/$USER/profile.txt | wiki_parser
 		cat << EOT
 <div id="tools">
 	<a href="$script?modprofile">$(gettext "Modify profile")</a>
@@ -122,6 +117,11 @@ EOT
 			# check_auth will set VARS to current logged user: re-source
 			. $PEOPLE/"$(GET user)"/account.conf
 			public_people
+		fi
+		# Display personal user profile
+		if [ -f "$PEOPLE/$USER/profile.txt" ]; then
+			echo "<h2>$(gettext "About me")</h2>"
+			cat $PEOPLE/$USER/profile.txt | wiki_parser
 		fi
 		html_footer && exit 0 ;;
 		

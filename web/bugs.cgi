@@ -217,22 +217,6 @@ services:") <a href="http://paste.slitaz.org/">paste.slitaz.org</a></p>
 EOT
 }
 
-# Display user public profile.
-public_people() {
-	cat << EOT
-</pre>
-EOT
-}
-
-# Display authenticated user profile. TODO: change password
-auth_people() {
-	cat << EOT
-Email      : $MAIL
-Secure key : $KEY
-</pre>
-EOT
-}
-
 # Usage: list_bug ID
 list_bug() {
 	id="$1"
@@ -706,7 +690,7 @@ case " $(GET) " in
 			js_redirection_to "$script"
 		fi ;;
 	*\ user\ *)
-		# User profile
+		# User profile. Use the users plugin for more functions
 		last="$(cat $PEOPLE/"$(GET user)"/last)"
 		header
 		html_header
@@ -718,14 +702,8 @@ case " $(GET) " in
 <pre>
 $(gettext "User name  :") $USER
 $(gettext "Last login :") $last
+</pre>
 EOT
-		if check_auth && [ "$(GET user)" == "$user" ]; then
-			auth_people
-		else
-			# check_auth will set VARS to current logged user: re-source
-			. $PEOPLE/"$(GET user)"/account.conf
-			public_people
-		fi
 		html_footer ;;
 	*\ newbug\ *)
 		# Create a bug from web interface.
