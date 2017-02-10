@@ -14,11 +14,23 @@ cd ${path}
 
 for bug in *
 do
-	 . ./${bug}/bug.conf
-	 echo  -n "Converting bug: ${bug} "
-	 echo "${DESC}" > ${bug}/desc.txt
-	 chown www.www ${bug}/desc.txt
-	 status
+	. ./${bug}/bug.conf
+	echo  -n "Converting bug: ${bug} "
+	echo "${DESC}" > ${bug}/desc.txt
+	# Clean bug.conf
+	cat > ${bug}/bug.conf << EOT
+# SliTaz Bug configuration
+
+BUG="$BUG"
+STATUS="$STATUS"
+PRIORITY="$PRIORITY"
+CREATOR="$CREATOR"
+DATE="$DATE"
+PKGS="$PKGS"
+EOT
+	unset DESC BUG STATUS PRIORITY CREATOR DATE PKGS
+	chown www.www ${bug}/*
+	status
 done
 
 exit 0
