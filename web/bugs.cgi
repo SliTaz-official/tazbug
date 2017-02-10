@@ -277,11 +277,11 @@ list_msg() {
 	id=$(basename $dir)
 	. ${msg}
 	[ -f "${PEOPLE}/${USER}/account.conf" ] && \
-	. ${PEOPLE}/${USER}/account.conf
+		. ${PEOPLE}/${USER}/account.conf
 	cat << EOT
 <a href="?user=$USER">$(get_gravatar "$MAIL" 24)</a> \
 ID: <a href="?id=$id">Bug $id</a> <span class="date">- $DATE</span>
-$MSG
+$(echo $MSG | head -n 1)...
 EOT
 	unset CREATOR USER MAIL
 }
