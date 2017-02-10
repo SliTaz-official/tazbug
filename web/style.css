@@ -118,6 +118,8 @@ textarea { width: 100%; }
 
 #newbug textarea, #editbug textarea { width: 490px; height: 180px; }
 
+#edit textarea { width: 630px; height: 140px; }
+#edit input[type="text"] { width: 620px; }
 
 .box, pre, #login, #account-info {
 	background-color: #f8f8f8;
