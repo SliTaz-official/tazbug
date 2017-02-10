@@ -308,8 +308,13 @@ EOT
 		if [ "$STATUS" == "OPEN" ]; then
 			cat << EOT
 <a href="?id=$id&amp;close">$(gettext "Close bug")</a>
+EOT
+		# Only original user and admin can edit a bug
+		if [ "$user" == "$CREATOR" ] || admin_user; then
+			cat << EOT
 <a href="?edit=$id">$(gettext "Edit bug")</a>
 EOT
+		fi
 		else
 			cat << EOT
 <a href="?id=$id&amp;open">$(gettext "Re open bug")</a>
@@ -448,10 +453,14 @@ $(gettext "* field is obligatory. You can also specify affected packages.")
 EOT
 }
 
-
 # Edit/Save a bug
 edit_bug() {
 	. $bugdir/$id/bug.conf
+	if admin_user || [ "$user" == "$CREATOR" ]; then
+		continue
+	else
+		gettext "You can't edit someone else bug!" && exit 0
+	fi
 	cat << EOT
 <h2>$(eval_gettext 'Edit Bug $bug')</h2>
 <div id="edit">

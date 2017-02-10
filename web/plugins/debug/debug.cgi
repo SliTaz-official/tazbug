@@ -8,8 +8,8 @@ if [ "$(GET debug)" ]; then
 	header
 	html_header
 	user_box
-	if ! check_auth; then
-		gettext "You must be logged in to view the dashboard"
+	if check_auth && ! admin_user; then
+		gettext "You must be admin to debug"
 		exit 0
 	fi
 	cat << EOT
