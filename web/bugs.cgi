@@ -241,7 +241,7 @@ list_bug() {
 	. ${PEOPLE}/${CREATOR}/account.conf
 	cat << EOT
 <a href="?user=$USER">$(get_gravatar "$MAIL" 24)</a> \
-ID: $id <a href="?id=$id">$BUG</a> <span class="date">$DATE</span>
+ID: $id <a href="?id=$id">$BUG</a> <span class="date">- $DATE</span>
 EOT
 	unset CREATOR USER MAIL
 }
@@ -262,12 +262,28 @@ list_bugs() {
 					. ${PEOPLE}/${CREATOR}/account.conf
 				cat << EOT
 <a href="?user=$USER">$(get_gravatar "$MAIL" 24)</a> \
-ID: $id <a href="?id=$id">$BUG</a> <span class="date">$DATE</span>
+ID: $id <a href="?id=$id">$BUG</a> <span class="date">- $DATE</span>
 EOT
 			fi
 			unset CREATOR USER MAIL
 		done
 	done
+}
+
+# Usage: list_msg path
+list_msg() {
+	msg="$1"
+	dir=$(dirname $msg)
+	id=$(basename $dir)
+	. ${msg}
+	[ -f "${PEOPLE}/${USER}/account.conf" ] && \
+	. ${PEOPLE}/${USER}/account.conf
+	cat << EOT
+<a href="?user=$USER">$(get_gravatar "$MAIL" 24)</a> \
+ID: <a href="?id=$id">Bug $id</a> <span class="date">- $DATE</span>
+$MSG
+EOT
+	unset CREATOR USER MAIL
 }
 
 # Stripped down Wiki parser for bug desc and messages which are simply
@@ -294,6 +310,7 @@ bug_page() {
 </p>
 <p>
 	$(gettext "Date:") $DATE -
+	$(gettext "Creator:") <a href="?user=$CREATOR">$CREATOR</a> -
 	$(eval_gettext 'Priority $PRIORITY') -
 	$(eval_ngettext '$msgs message' '$msgs messages' $msgs)
 </p>
@@ -312,7 +329,7 @@ EOT
 		# Only original user and admin can edit a bug
 		if [ "$user" == "$CREATOR" ] || admin_user; then
 			cat << EOT
-<a href="?edit=$id">$(gettext "Edit bug")</a>
+<a href="?editbug=$id">$(gettext "Edit bug")</a>
 EOT
 		fi
 		else
@@ -463,7 +480,7 @@ edit_bug() {
 	fi
 	cat << EOT
 <h2>$(eval_gettext 'Edit Bug $bug')</h2>
-<div id="edit">
+<div id="editbug">
 
 <form method="get" action="$script">
 	<input type="hidden" name="savebug" />
@@ -730,9 +747,9 @@ EOT
 			new_bug
 			js_redirection_to "$script?id=$count"
 		fi ;;
-	*\ edit\ *)
+	*\ editbug\ *)
 		# Edit existing bug
-		id="$(GET edit)"
+		id="$(GET editbug)"
 		header
 		html_header
 		user_box
@@ -893,11 +910,19 @@ EOT
 
 <h3>$(gettext "Latest Bugs")</h3>
 EOT
-		# List last 3 bugs
+		# List last 5 bugs
 		echo "<pre>"
-		for lb in $(ls ${bugdir} | sort -r -n | head -n 3)
+		for lb in $(ls ${bugdir} | sort -r -n | head -n 5)
 		do
 			list_bug ${lb}
+		done
+		echo "</pre>"
+		# List last 3 messages
+		echo "<h3>$(gettext "Latest Messages")</h3>"
+		echo "<pre>"
+		for msg in $(ls -t ${bugdir}/*/msg.* | head -n 3)
+		do
+			list_msg ${msg}
 		done
 		echo "</pre>"
 		list_bugs OPEN

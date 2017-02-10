@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# TazBug Plugin - List packages
+# TazBug Plugin - Buggy packages plugins
 #
 
 if [ "$(GET packages)" ] || [ "$(GET pkg)" ]; then

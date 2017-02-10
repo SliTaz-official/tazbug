@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# TinyCM/TazBug Plugin - Users Admin
+# TinyCM/TazBug Plugin - Users profile and admin
 #
 
 case " $(GET) " in
