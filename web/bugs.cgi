@@ -280,8 +280,7 @@ list_msg() {
 		. ${PEOPLE}/${USER}/account.conf
 	cat << EOT
 <a href="?user=$USER">$(get_gravatar "$MAIL" 24)</a> \
-ID: <a href="?id=$id">Bug $id</a> <span class="date">- $DATE</span>
-$(echo $MSG | head -n 1)...
+ID: <a href="?id=$id">Bug $id</a> by $USER <span class="date">- $DATE</span>
 EOT
 	unset CREATOR USER MAIL
 }
@@ -910,17 +909,17 @@ EOT
 
 <h3>$(gettext "Latest Bugs")</h3>
 EOT
-		# List last 5 bugs
+		# List last 4 bugs
 		echo "<pre>"
-		for lb in $(ls ${bugdir} | sort -r -n | head -n 5)
+		for lb in $(ls ${bugdir} | sort -r -n | head -n 4)
 		do
 			list_bug ${lb}
 		done
 		echo "</pre>"
-		# List last 3 messages
+		# List last 4 messages
 		echo "<h3>$(gettext "Latest Messages")</h3>"
 		echo "<pre>"
-		for msg in $(ls -t ${bugdir}/*/msg.* | head -n 3)
+		for msg in $(ls -t ${bugdir}/*/msg.* | head -n 4)
 		do
 			list_msg ${msg}
 		done
