@@ -2,7 +2,7 @@
 #
 # TazBug Web interface
 #
-# Copyright (C) 2012-2014 SliTaz GNU/Linux - BSD License
+# Copyright (C) 2012-2017 SliTaz GNU/Linux - BSD License
 #
 . /usr/lib/slitaz/httphelper
 
@@ -299,7 +299,7 @@ bug_page() {
 </p>
 
 <pre>
-$(echo "$DESC" | wiki_parser)
+$(cat $bugdir/$id/desc.txt | wiki_parser)
 </pre>
 
 <div id="tools">
@@ -385,7 +385,8 @@ new_bug() {
 		USER="$user"
 	fi
 	mkdir -p $bugdir/$count
-	sed "s/$(echo -en '\r') /\n/g" > $bugdir/$count/bug.tmp << EOT
+	# bug.conf
+	sed "s/$(echo -en '\r') /\n/g" > $bugdir/$count/bug.conf << EOT
 # SliTaz Bug configuration
 
 BUG="$(GETfiltered bug)"
@@ -394,11 +395,13 @@ PRIORITY="$(GET priority)"
 CREATOR="$USER"
 DATE="$date"
 PKGS="$(GETfiltered pkgs)"
-
-DESC="$(GETfiltered desc)"
 EOT
-	fold -s -w 80 $bugdir/$count/bug.tmp > $bugdir/$count/bug.conf
-	rm -f $bugdir/$count/bug.tmp
+	# desc.txt
+	sed "s/$(echo -en '\r') /\n/g" > $bugdir/$count/desc.tmp << EOT
+$(GETfiltered desc)
+EOT
+	fold -s -w 80 $bugdir/$count/desc.tmp > $bugdir/$count/desc.txt
+	rm -f $bugdir/$count/*.tmp
 }
 
 # New bug page for the web interface
@@ -446,16 +449,45 @@ EOT
 }
 
 
-# Edit/Save a bug configuration file
+# Edit/Save a bug
 edit_bug() {
+	. $bugdir/$id/bug.conf
 	cat << EOT
 <h2>$(eval_gettext 'Edit Bug $bug')</h2>
 <div id="edit">
 
 <form method="get" action="$script">
-	<textarea name="bugconf">$(cat $bugdir/$bug/bug.conf)</textarea>
-	<input type="hidden" name="bug" value="$bug" />
-	<input type="submit" value="$(gettext 'Save configuration')" />
+	<input type="hidden" name="savebug" />
+	<input type="hidden" name="id" value="$id" />
+	<input type="hidden" name="creator" value="$CREATOR" />
+	<input type="hidden" name="date" value="$DATE" />
+	<table>
+		<tbody>
+			<tr>
+				<td>$(gettext "Bug title")</td>
+				<td><input type="text" name="bug" value="$BUG" /></td>
+			</tr>
+			<tr>
+				<td>$(gettext "Description")</td>
+				<td><textarea name="desc">$(cat $bugdir/$id/desc.txt)</textarea></td>
+			</tr>
+			<tr>
+				<td>$(gettext "Packages")</td>
+				<td><input type="text" name="pkgs" value="$PKGS" /></td>
+			</tr>
+			<tr>
+				<td>$(gettext "Priority")</td>
+				<td>
+					<select name="priority">
+						<option value="$PRIORITY">$PRIORITY</option>
+						<option value="standard">$(gettext "Standard")</option>
+						<option value="critical">$(gettext "Critical")</option>
+					</select>
+					<input type="submit" value="$(gettext 'Save configuration')" />
+				</td>
+			</tr>
+		</tbody>
+	</table>
 </form>
 
 </div>
@@ -463,13 +495,24 @@ EOT
 }
 
 save_bug() {
-	bug="$(GET bug)"
-	content="$(GET bugconf)"
-	sed "s|\"|'|" | sed "s/$(echo -en '\r') /\n/g" > $bugdir/$bug/bug.tmp << EOT
-$content
+	id="$(GET id)"
+	# bug.conf
+	sed "s/$(echo -en '\r') /\n/g" > $bugdir/$id/bug.conf << EOT
+# SliTaz Bug configuration
+
+BUG="$(GETfiltered bug)"
+STATUS="OPEN"
+PRIORITY="$(GET priority)"
+CREATOR="$(GET creator)"
+DATE="$(GET date)"
+PKGS="$(GETfiltered pkgs)"
 EOT
-	fold -s -w 80 $bugdir/$bug/bug.tmp > $bugdir/$bug/bug.conf
-	rm -f $bugdir/$bug/bug.tmp
+	# desc.txt
+	sed "s/$(echo -en '\r') /\n/g" > $bugdir/$id/desc.tmp << EOT
+$(GETfiltered desc)
+EOT
+	fold -s -w 80 $bugdir/$id/desc.tmp > $bugdir/$id/desc.txt
+	rm -f $bugdir/$id/*.tmp
 }
 
 # Close a fixed bug
@@ -660,7 +703,7 @@ EOT
 		fi
 		html_footer ;;
 	*\ newbug\ *)
-		# Add a bug from web interface.
+		# Create a bug from web interface.
 		header
 		html_header
 		user_box
@@ -671,7 +714,7 @@ EOT
 		fi
 		html_footer ;;
 	*\ addbug\ *)
-		# Add a bug from web interface.
+		# Save a new bug from web interface.
 		header
 		html_header
 		if check_auth; then
@@ -679,18 +722,19 @@ EOT
 			js_redirection_to "$script?id=$count"
 		fi ;;
 	*\ edit\ *)
-		bug="$(GET edit)"
+		# Edit existing bug
+		id="$(GET edit)"
 		header
 		html_header
 		user_box
 		edit_bug
 		html_footer ;;
-	*\ bugconf\ *)
+	*\ savebug\ *)
 		header
 		html_header
 		if check_auth; then
 			save_bug
-			js_redirection_to "$script?id=$bug"
+			js_redirection_to "$script?id=$id"
 		fi ;;
 	*\ id\ *)
 		# Empty deleted messages to keep msg count working.
