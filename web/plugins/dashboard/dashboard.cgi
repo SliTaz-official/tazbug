@@ -37,10 +37,21 @@ Users     : $users
 Bugs      : $bugs
 Bugsize   : $bugsize
 </pre>
-
-<h3>Admin users</h3>
 EOT
+		# List all plugins
+		cat << EOT
+<h3>$(gettext "Plugins")</h3>
+<pre>
+EOT
+		for p in $(ls -1 $plugins)
+		do
+			. $plugins/$p/$p.conf
+			echo "<a href='?$p'>$PLUGIN</a> - $SHORT_DESC"
+		done
+		echo '</pre>'
+		
 		# Get the list of administrators
+		echo "<h3>Admin users</h3>"
 		for u in $(ls $PEOPLE)
 		do
 			user=${u}
@@ -48,16 +59,5 @@ EOT
 				echo "<a href='?user=$u'>$u</a>"
 			fi
 		done
-		cat << EOT
-<h3>$(gettext "Plugins")</h3>
-<pre>
-EOT
-		# List all plugins
-		for p in $(ls -1 $plugins)
-		do
-			. $plugins/$p/$p.conf
-			echo "<a href='?$p'>$PLUGIN</a> - $SHORT_DESC"
-		done
-		echo '</pre>'
 		html_footer && exit 0
 fi
