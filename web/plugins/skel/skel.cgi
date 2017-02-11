@@ -17,7 +17,7 @@ EOT
 	echo "<p>$(date)</p>"
 	
 	# Say we use files in $DATA/skel, sort them by date and simply cat
-	# the files, this will create a simple blog :-) We may add post via
+	# the files, this will create a simple blog :-) We may add posts via
 	# uploads or a HTML form.
 	
 	html_footer

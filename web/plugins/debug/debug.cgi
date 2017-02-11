@@ -28,7 +28,7 @@ EOT
 		fi
 	fi
 
-	# Check for bug DB consitensy
+	# Check for bug DB consistency
 	echo "<h3>Checking for bug.conf consistency</h3>"
 	for id in $(ls $bugdir | sort -g)
 	do

@@ -457,7 +457,7 @@ edit_bug() {
 	if admin_user || [ "$user" == "$CREATOR" ]; then
 		continue
 	else
-		gettext "You can't edit someone else bug!" && exit 0
+		gettext "You can't edit someone else's bug!" && exit 0
 	fi
 	cat << EOT
 <h2>$(eval_gettext 'Edit Bug $bug')</h2>
