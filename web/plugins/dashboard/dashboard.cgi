@@ -12,7 +12,6 @@ if [ "$(GET dashboard)" ]; then
 		gettext "You must be logged in to view the dashboard"
 		exit 0
 	fi
-	users=$(ls -1 $PEOPLE | wc -l)
 	bugs=$(ls -1 $bugdir | wc -l)
 	bugsize=$(du -sh $bugdir | awk '{print $1}')
 	# Source all plugins.conf to get DASHBOARD_TOOLS and ADMIN_TOOLS
@@ -36,7 +35,6 @@ if [ "$(GET dashboard)" ]; then
 <pre>
 Bugs count       : $bugs
 Database size    : $bugsize
-User accounts    : $users
 Server uptime    :$(uptime | cut -d "," -f 1-2)
 </pre>
 

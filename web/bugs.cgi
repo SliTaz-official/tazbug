@@ -177,7 +177,6 @@ EOT
 # Link for online signup if enabled.
 online_signup() {
 	if [ "$ONLINE_SIGNUP" == "yes" ]; then
-		echo -n "<p>" && gettext "Or:"; echo -n " "
 		echo -n "<a href='$script?signup&amp;online'>"
 		gettext "Sign Up Online"
 		echo '</a></p>'
@@ -190,8 +189,7 @@ login_page() {
 <h2>$(gettext 'Login')</h2>
 
 <div id="account-info">
-<p>$(gettext "No account yet? You can signup using the SliTaz Bugs reporter \
-on your SliTaz system.")</p>
+<p>$(gettext "No account yet?")</p>
 $(online_signup)
 <p>$(gettext "Tip: to attach big files or images, you can use SliTaz Paste \
 services:") <a href="http://paste.slitaz.org/">paste.slitaz.org</a></p>
@@ -551,7 +549,7 @@ new_user_config() {
 		pass="$(GET pass)"
 		echo "Creating Server Key..."
 	fi
-	key=$(echo -n "$user:$mail:$pass" | md5sum | awk '{print $1}')
+	#key=$(echo -n "$user:$mail:$pass" | md5sum | awk '{print $1}')
 	echo "$user:$pass" >> $AUTH_FILE
 	mkdir -pm0700 $PEOPLE/$user/
 	cat > $PEOPLE/$user/account.conf << EOT
@@ -561,7 +559,6 @@ new_user_config() {
 NAME="$name"
 USER="$user"
 MAIL="$mail"
-KEY="$key"
 
 LOCATION="$(GET location)"
 RELEASES="$(GET releases)"
@@ -754,56 +751,17 @@ EOT
 		html_footer ;;
 	*\ signup\ *)
 		# Signup
-		if [ "$(GET online)" ];then
-			header
-			html_header
-			user_box
-			echo "<h2>$(gettext "Sign Up")</h2>"
-			if [ "$ONLINE_SIGNUP" == "yes" ]; then
-				signup_page
-			else
-				gettext "Online registration is disabled"
-			fi
-			html_footer && exit 0
+		header
+		html_header
+		user_box
+		echo "<h2>$(gettext "Sign Up")</h2>"
+		if [ "$ONLINE_SIGNUP" == "yes" ]; then
+			signup_page
 		else
-			header "Content-type: text/plain;"
-			user="$(GET signup)"
-			echo "Requested user login : $user"
-			if fgrep -q "$user:" $AUTH_FILE; then
-				echo "ERROR: User already exists" && exit 1
-			else
-				echo "Creating account for : $(GET name)"
-				new_user_config
-			fi
-		fi ;;
-	*\ key\ *)
-		# Let user post new bug or message with crypted key (no gettext)
-		#
-		# Testing only and is security acceptable ?
-		#
-		key="$(GET key)"
-		id="$(GET bug)"
-		header "Content-type: text/plain;"
-		echo "Checking secure key..."
-		if fgrep -qH $key $PEOPLE/*/account.conf; then
-			conf=$(fgrep -H $key $PEOPLE/*/account.conf | cut -d ":" -f 1)
-			. $conf
-			echo "Authenticated: $NAME ($USER)"
-			case " $(GET) " in
-				*\ msg\ *)
-					[ ! "$id" ] && echo "Missing bug ID" && exit 0
-					echo "Posting new message to bug: $id"
-					echo "Message: $(GET msg)"
-					new_msg ;;
-				*\ bug\ *)
-					echo "Adding new bug: $(GET bug)"
-					echo "Description: $(GET desc)"
-					new_bug ;;
-			esac
-		else
-			echo "Not a valid SliTaz user key"
-			exit 0
-		fi ;;
+			gettext "Online registration is disabled"
+		fi
+		html_footer ;;
+
 	*\ search\ *)
 		found=0
 		header
