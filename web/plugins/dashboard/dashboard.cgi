@@ -25,7 +25,8 @@ if [ "$(GET dashboard)" ]; then
 	if check_auth && ! admin_user; then
 		ADMIN_TOOLS=""
 	fi
-	cat << EOT
+	if check_auth; then
+		cat << EOT
 <h2>Dashboard</h2>
 
 <div id="tools">
@@ -33,31 +34,52 @@ if [ "$(GET dashboard)" ]; then
 </div>
 
 <pre>
-Users     : $users
-Bugs      : $bugs
-Bugsize   : $bugsize
+Bugs count       : $bugs
+Database size    : $bugsize
+User accounts    : $users
+Server uptime    :$(uptime | cut -d "," -f 1-2)
 </pre>
+
+<h3>Admin users</h3>
 EOT
-		# List all plugins
-		cat << EOT
+		
+		# Get the list of administrators
+		fgrep -l "ADMIN_USER=" $PEOPLE/*/account.conf | while read file;
+		do
+			. ${file}
+			echo "<a href='?user=$USER'>$USER</a>"
+			unset NAME USER
+		done
+		
+		# Only for admins
+		if check_auth && admin_user; then
+			# List all plugins
+			cat << EOT
 <h3>$(gettext "Plugins")</h3>
 <pre>
+	<table>
+		<thead>
+			<td>$(gettext "Name")</td>
+			<td>$(gettext "Description")</td>
+			<td>$(gettext "Action")</td>
+		</thead>
 EOT
-	for p in $(ls -1 $plugins)
-	do
-		. $plugins/$p/$p.conf
-		echo "<a href='?$p'>$PLUGIN</a> - $SHORT_DESC"
-	done
-	echo '</pre>'
-	
-	# Get the list of administrators
-	echo "<h3>Admin users</h3>"
-	for u in $(ls $PEOPLE)
-	do
-		user=${u}
-		if admin_user; then
-			echo "<a href='?user=$u'>$u</a>"
+			for p in $(ls -1 $plugins)
+			do
+				. $plugins/$p/$p.conf
+				cat << EOT
+		<tr>
+			<td><a href='?$p'>$PLUGIN</a></td>
+			<td>$SHORT_DESC</td>
+			<td>TODO</td>
+		</tr>
+EOT
+			done
+			echo "	</table>"
+			echo "</pre>"
 		fi
-	done
+	else
+		gettext "You must be logged in to view the dashboard"
+	fi
 	html_footer && exit 0
 fi

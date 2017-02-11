@@ -12,7 +12,8 @@ pre {
 	overflow: auto;
 	font-size: 98%;
 }
-textarea { width: 100%; }
+textarea, table { width: 100%; }
+thead { font-weight: bold; }
 
 /* Header */
 
