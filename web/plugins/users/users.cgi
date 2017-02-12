@@ -59,7 +59,7 @@ EOT
 		html_footer && exit 0 ;;
 		
 	*\ userslist\ *)
-		# List all users (slow if a llots a of accounts)
+		# List all users (slow if a lot a of accounts)
 		d="Users"
 		header
 		html_header
