@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SliTaz Bugs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-11 00:23+0100\n"
+"POT-Creation-Date: 2017-02-13 17:38+0100\n"
 "PO-Revision-Date: 2017-01-08 15:05+0900\n"
 "Last-Translator: BALLOON a.k.a. Fu-sen. (Keiichi SHIGA) <balloonakafusen　AT "
 "gmail DOT com>\n"
@@ -23,11 +23,11 @@ msgstr ""
 msgid "Logout"
 msgstr "ログアウト"
 
-#: web/bugs.cgi:138 web/bugs.cgi:190
+#: web/bugs.cgi:138 web/bugs.cgi:189
 msgid "Login"
 msgstr "ログイン"
 
-#: web/bugs.cgi:146 web/bugs.cgi:147 web/bugs.cgi:813 web/bugs.cgi:816
+#: web/bugs.cgi:146 web/bugs.cgi:147 web/bugs.cgi:771 web/bugs.cgi:774
 msgid "Search"
 msgstr "検索"
 
@@ -35,7 +35,7 @@ msgstr "検索"
 msgid "Real name"
 msgstr "実名"
 
-#: web/bugs.cgi:165 web/bugs.cgi:203
+#: web/bugs.cgi:165 web/bugs.cgi:201
 msgid "User name"
 msgstr "ユーザー名"
 
@@ -43,7 +43,7 @@ msgstr "ユーザー名"
 msgid "Email"
 msgstr "メール"
 
-#: web/bugs.cgi:167 web/bugs.cgi:205
+#: web/bugs.cgi:167 web/bugs.cgi:203
 msgid "Password"
 msgstr "パスワード"
 
@@ -51,202 +51,195 @@ msgstr "パスワード"
 msgid "Create new account"
 msgstr "新規アカウントの作成"
 
-#: web/bugs.cgi:180
-msgid "Or:"
-msgstr "または:"
-
-#: web/bugs.cgi:182
+#: web/bugs.cgi:181
 msgid "Sign Up Online"
 msgstr "オンラインサインアップ"
 
-#: web/bugs.cgi:193
-msgid ""
-"No account yet? You can signup using the SliTaz Bugs reporter on your SliTaz "
-"system."
-msgstr ""
-"アカウントはまだありませんか？ SliTaz システムから SliTaz Bugs の記者を使って"
-"サインアップすることができます。"
+#: web/bugs.cgi:192
+#, fuzzy
+msgid "No account yet?"
+msgstr "アカウント"
 
-#: web/bugs.cgi:196
+#: web/bugs.cgi:194
 msgid "Tip: to attach big files or images, you can use SliTaz Paste services:"
 msgstr ""
 "ヒント; 大きなファイルや画像を添付するには、SliTaz Paste サービスを使用しま"
 "す。"
 
-#: web/bugs.cgi:208
+#: web/bugs.cgi:206
 msgid "Log in"
 msgstr "ログイン"
 
-#: web/bugs.cgi:234
+#: web/bugs.cgi:232
 #, sh-format
 msgid "$status Bugs"
 msgstr "$status Bugs"
 
-#: web/bugs.cgi:287
+#: web/bugs.cgi:285
 #, sh-format
 msgid "Bug $id: $STATUS"
 msgstr "Bug $id: $STATUS"
 
-#: web/bugs.cgi:293
+#: web/bugs.cgi:291
 msgid "Date:"
 msgstr "日付:"
 
-#: web/bugs.cgi:294
+#: web/bugs.cgi:292
 msgid "Creator:"
 msgstr ""
 
-#: web/bugs.cgi:295
+#: web/bugs.cgi:293
 #, sh-format
 msgid "Priority $PRIORITY"
 msgstr "優先度 $PRIORITY"
 
-#: web/bugs.cgi:296 web/bugs.cgi:861
+#: web/bugs.cgi:294 web/bugs.cgi:819
 #, sh-format
 msgid "$msgs message"
 msgid_plural "$msgs messages"
 msgstr[0] "$msgs メッセージ"
 
-#: web/bugs.cgi:308
+#: web/bugs.cgi:306
 msgid "Close bug"
 msgstr "bug を閉じる"
 
-#: web/bugs.cgi:313
+#: web/bugs.cgi:311
 msgid "Edit bug"
 msgstr "bug を編集"
 
-#: web/bugs.cgi:318
+#: web/bugs.cgi:316
 msgid "Re open bug"
 msgstr "bug を再オープン"
 
-#: web/bugs.cgi:325
+#: web/bugs.cgi:323
 msgid "Messages"
 msgstr "メッセージ"
 
-#: web/bugs.cgi:327
+#: web/bugs.cgi:325
 msgid "No messages"
 msgstr "メッセージなし"
 
-#: web/bugs.cgi:350
+#: web/bugs.cgi:348
 msgid "New message"
 msgstr "新しいメッセージ"
 
-#: web/bugs.cgi:354
+#: web/bugs.cgi:352
 msgid "Send message"
 msgstr "メッセージを送信"
 
-#: web/bugs.cgi:413
+#: web/bugs.cgi:411
 msgid "New Bug"
 msgstr "新たな Bug"
 
-#: web/bugs.cgi:421 web/bugs.cgi:474
+#: web/bugs.cgi:419 web/bugs.cgi:472
 msgid "Bug title"
 msgstr "Bug タイトル"
 
-#: web/bugs.cgi:425 web/bugs.cgi:478
+#: web/bugs.cgi:423 web/bugs.cgi:476
 msgid "Description"
 msgstr "説明"
 
-#: web/bugs.cgi:429 web/bugs.cgi:482
+#: web/bugs.cgi:427 web/bugs.cgi:480
 msgid "Packages"
 msgstr "パッケージ"
 
-#: web/bugs.cgi:433 web/bugs.cgi:486
+#: web/bugs.cgi:431 web/bugs.cgi:484
 msgid "Priority"
 msgstr "優先度"
 
-#: web/bugs.cgi:436 web/bugs.cgi:490
+#: web/bugs.cgi:434 web/bugs.cgi:488
 msgid "Standard"
 msgstr "通常"
 
-#: web/bugs.cgi:437 web/bugs.cgi:491
+#: web/bugs.cgi:435 web/bugs.cgi:489
 msgid "Critical"
 msgstr "緊急"
 
-#: web/bugs.cgi:439
+#: web/bugs.cgi:437
 msgid "Create Bug"
 msgstr "Bug 作成"
 
-#: web/bugs.cgi:447
+#: web/bugs.cgi:445
 msgid "* field is obligatory. You can also specify affected packages."
 msgstr ""
 "* フィールドは必須です。 影響を受けるパッケージを指定することもできます。"
 
-#: web/bugs.cgi:460
-msgid "You can't edit someone else bug!"
+#: web/bugs.cgi:458
+msgid "You can't edit someone else's bug!"
 msgstr ""
 
-#: web/bugs.cgi:463
+#: web/bugs.cgi:461
 #, sh-format
 msgid "Edit Bug $bug"
 msgstr "Bug $bug の編集"
 
-#: web/bugs.cgi:493
+#: web/bugs.cgi:491
 msgid "Save configuration"
 msgstr "設定の保存"
 
-#: web/bugs.cgi:632
+#: web/bugs.cgi:629
 msgid "User already exists:"
 msgstr "ユーザーは既に存在します:"
 
-#: web/bugs.cgi:676
+#: web/bugs.cgi:673
 msgid "Bad login or pass"
 msgstr "ログインまたはパスワードが誤っています"
 
-#: web/bugs.cgi:701
+#: web/bugs.cgi:698
 msgid "User name  :"
 msgstr "ユーザー名 :"
 
-#: web/bugs.cgi:702
+#: web/bugs.cgi:699
 msgid "Last login :"
 msgstr "最終 login :"
 
-#: web/bugs.cgi:714
+#: web/bugs.cgi:711
 msgid "You must be logged in to post a new bug"
 msgstr "あなたは新しいバグを投稿するためにログインする必要があります"
 
-#: web/bugs.cgi:761
+#: web/bugs.cgi:757
 msgid "Sign Up"
 msgstr "サインアップ"
 
-#: web/bugs.cgi:765
+#: web/bugs.cgi:761
 msgid "Online registration is disabled"
 msgstr "オンライン登録は無効です"
 
-#: web/bugs.cgi:827
+#: web/bugs.cgi:785
 msgid "Show"
 msgstr "表示"
 
-#: web/bugs.cgi:835
+#: web/bugs.cgi:793
 msgid "No result found for"
 msgstr "見つかりません"
 
-#: web/bugs.cgi:837
+#: web/bugs.cgi:795
 msgid "results found"
 msgstr "検索結果"
 
-#: web/bugs.cgi:855
+#: web/bugs.cgi:813
 msgid "Summary"
 msgstr "内容"
 
-#: web/bugs.cgi:858
+#: web/bugs.cgi:816
 #, sh-format
 msgid "Bug: $bugs in total -"
 msgid_plural "Bugs: $bugs in total -"
 msgstr[0] "Bug：$bugs 合計 - "
 
-#: web/bugs.cgi:859
+#: web/bugs.cgi:817
 #, sh-format
 msgid "$close fixed -"
 msgid_plural "$close fixed -"
 msgstr[0] "$close 修正済 -"
 
-#: web/bugs.cgi:860
+#: web/bugs.cgi:818
 #, sh-format
 msgid "$fixme to fix -"
 msgid_plural "$fixme to fix -"
 msgstr[0] "$fixme 修正中 -"
 
-#: web/bugs.cgi:868
+#: web/bugs.cgi:826
 msgid ""
 "Please read the <a href=\"?README\">README</a> for help and more "
 "information. You may also be interested by the SliTaz <a href=\"http://"
@@ -259,22 +252,32 @@ msgstr ""
 "cook.slitaz.org/\">Cooker</a>　にも興味があるかもしれません。検索を実行するに"
 "は、用語を入力して ENTER キーを押します。"
 
-#: web/bugs.cgi:877
+#: web/bugs.cgi:835
 msgid "View closed bugs"
 msgstr "閉じられた bugs を表示"
 
-#: web/bugs.cgi:880
+#: web/bugs.cgi:838
 msgid "Create a new bug"
 msgstr "新たな bug を生成する"
 
-#: web/bugs.cgi:886
+#: web/bugs.cgi:844
 msgid "Latest Bugs"
 msgstr "最新 bugs"
 
-#: web/bugs.cgi:896
+#: web/bugs.cgi:854
 #, fuzzy
 msgid "Latest Messages"
 msgstr "メッセージ"
+
+#~ msgid "Or:"
+#~ msgstr "または:"
+
+#~ msgid ""
+#~ "No account yet? You can signup using the SliTaz Bugs reporter on your "
+#~ "SliTaz system."
+#~ msgstr ""
+#~ "アカウントはまだありませんか？ SliTaz システムから SliTaz Bugs の記者を"
+#~ "使ってサインアップすることができます。"
 
 #~ msgid "Usage:"
 #~ msgstr "用途:"
@@ -335,9 +338,6 @@ msgstr "メッセージ"
 
 #~ msgid "Missing bug priority"
 #~ msgstr "bug 優先度がありません"
-
-#~ msgid "My account"
-#~ msgstr "アカウント"
 
 #~ msgid "Bug ID"
 #~ msgstr "Bug ID"

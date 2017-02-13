@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SliTaz Bugs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-11 00:23+0100\n"
+"POT-Creation-Date: 2017-02-13 17:38+0100\n"
 "PO-Revision-Date: 2017-01-16 12:35+0700\n"
 "Last-Translator: Anh Bình <tuananh88c25@gmail.com>\n"
 "Language-Team: \n"
@@ -22,11 +22,11 @@ msgstr ""
 msgid "Logout"
 msgstr "Đăng xuất"
 
-#: web/bugs.cgi:138 web/bugs.cgi:190
+#: web/bugs.cgi:138 web/bugs.cgi:189
 msgid "Login"
 msgstr "Đăng nhập"
 
-#: web/bugs.cgi:146 web/bugs.cgi:147 web/bugs.cgi:813 web/bugs.cgi:816
+#: web/bugs.cgi:146 web/bugs.cgi:147 web/bugs.cgi:771 web/bugs.cgi:774
 msgid "Search"
 msgstr "Tìm kiếm"
 
@@ -34,7 +34,7 @@ msgstr "Tìm kiếm"
 msgid "Real name"
 msgstr "Tên thực"
 
-#: web/bugs.cgi:165 web/bugs.cgi:203
+#: web/bugs.cgi:165 web/bugs.cgi:201
 msgid "User name"
 msgstr "Tên người dùng"
 
@@ -42,7 +42,7 @@ msgstr "Tên người dùng"
 msgid "Email"
 msgstr "Email"
 
-#: web/bugs.cgi:167 web/bugs.cgi:205
+#: web/bugs.cgi:167 web/bugs.cgi:203
 msgid "Password"
 msgstr "Mật khẩu"
 
@@ -50,201 +50,194 @@ msgstr "Mật khẩu"
 msgid "Create new account"
 msgstr "Tạo tài khoản mới"
 
-#: web/bugs.cgi:180
-msgid "Or:"
-msgstr "Hoặc:"
-
-#: web/bugs.cgi:182
+#: web/bugs.cgi:181
 msgid "Sign Up Online"
 msgstr "Đăng ký trực tuyến"
 
-#: web/bugs.cgi:193
-msgid ""
-"No account yet? You can signup using the SliTaz Bugs reporter on your SliTaz "
-"system."
-msgstr ""
-"Chưa có tài khoản? Bạn có thể đăng ký sử dụng Báo cáo SliTaz Bugs trên hệ "
-"thống SliTaz của bạn."
+#: web/bugs.cgi:192
+#, fuzzy
+msgid "No account yet?"
+msgstr "Tài khoản của tôi"
 
-#: web/bugs.cgi:196
+#: web/bugs.cgi:194
 msgid "Tip: to attach big files or images, you can use SliTaz Paste services:"
 msgstr ""
 "Mẹo: để đính kèm tập tin lớn hoặc hình ảnh, bạn có thể sử dụng dịch vụ "
 "SliTaz Paste:"
 
-#: web/bugs.cgi:208
+#: web/bugs.cgi:206
 msgid "Log in"
 msgstr "Đăng nhập"
 
-#: web/bugs.cgi:234
+#: web/bugs.cgi:232
 #, sh-format
 msgid "$status Bugs"
 msgstr "$status Bugs"
 
-#: web/bugs.cgi:287
+#: web/bugs.cgi:285
 #, sh-format
 msgid "Bug $id: $STATUS"
 msgstr "Lỗi $id: $STATUS"
 
-#: web/bugs.cgi:293
+#: web/bugs.cgi:291
 msgid "Date:"
 msgstr "Ngày:"
 
-#: web/bugs.cgi:294
+#: web/bugs.cgi:292
 msgid "Creator:"
 msgstr ""
 
-#: web/bugs.cgi:295
+#: web/bugs.cgi:293
 #, sh-format
 msgid "Priority $PRIORITY"
 msgstr "Ưu tiên $PRIORITY"
 
-#: web/bugs.cgi:296 web/bugs.cgi:861
+#: web/bugs.cgi:294 web/bugs.cgi:819
 #, sh-format
 msgid "$msgs message"
 msgid_plural "$msgs messages"
 msgstr[0] "$msgs lời nhắn"
 
-#: web/bugs.cgi:308
+#: web/bugs.cgi:306
 msgid "Close bug"
 msgstr "Đóng lỗi"
 
-#: web/bugs.cgi:313
+#: web/bugs.cgi:311
 msgid "Edit bug"
 msgstr "Chỉnh sửa lỗi"
 
-#: web/bugs.cgi:318
+#: web/bugs.cgi:316
 msgid "Re open bug"
 msgstr "Mở lại lỗi"
 
-#: web/bugs.cgi:325
+#: web/bugs.cgi:323
 msgid "Messages"
 msgstr "Tin nhắn"
 
-#: web/bugs.cgi:327
+#: web/bugs.cgi:325
 msgid "No messages"
 msgstr "Không tin nhắn"
 
-#: web/bugs.cgi:350
+#: web/bugs.cgi:348
 msgid "New message"
 msgstr "Tin nhắn mới"
 
-#: web/bugs.cgi:354
+#: web/bugs.cgi:352
 msgid "Send message"
 msgstr "Gửi tin nhắn"
 
-#: web/bugs.cgi:413
+#: web/bugs.cgi:411
 msgid "New Bug"
 msgstr "Lỗi mới"
 
-#: web/bugs.cgi:421 web/bugs.cgi:474
+#: web/bugs.cgi:419 web/bugs.cgi:472
 msgid "Bug title"
 msgstr "Tiêu đề lỗi"
 
-#: web/bugs.cgi:425 web/bugs.cgi:478
+#: web/bugs.cgi:423 web/bugs.cgi:476
 msgid "Description"
 msgstr "Diễn tả"
 
-#: web/bugs.cgi:429 web/bugs.cgi:482
+#: web/bugs.cgi:427 web/bugs.cgi:480
 msgid "Packages"
 msgstr "Gói"
 
-#: web/bugs.cgi:433 web/bugs.cgi:486
+#: web/bugs.cgi:431 web/bugs.cgi:484
 msgid "Priority"
 msgstr "Sự ưu tiên"
 
-#: web/bugs.cgi:436 web/bugs.cgi:490
+#: web/bugs.cgi:434 web/bugs.cgi:488
 msgid "Standard"
 msgstr "Tiêu chuẩn"
 
-#: web/bugs.cgi:437 web/bugs.cgi:491
+#: web/bugs.cgi:435 web/bugs.cgi:489
 msgid "Critical"
 msgstr "Bình luận"
 
-#: web/bugs.cgi:439
+#: web/bugs.cgi:437
 msgid "Create Bug"
 msgstr "Tạo lỗi"
 
-#: web/bugs.cgi:447
+#: web/bugs.cgi:445
 msgid "* field is obligatory. You can also specify affected packages."
 msgstr "* Dòng bắt buộc. Bạn cũng có thể chỉ định các gói bị ảnh hưởng."
 
-#: web/bugs.cgi:460
-msgid "You can't edit someone else bug!"
+#: web/bugs.cgi:458
+msgid "You can't edit someone else's bug!"
 msgstr ""
 
-#: web/bugs.cgi:463
+#: web/bugs.cgi:461
 #, sh-format
 msgid "Edit Bug $bug"
 msgstr "Chỉnh sửa lỗi $bug"
 
-#: web/bugs.cgi:493
+#: web/bugs.cgi:491
 msgid "Save configuration"
 msgstr "Lưu cấu hình"
 
-#: web/bugs.cgi:632
+#: web/bugs.cgi:629
 msgid "User already exists:"
 msgstr "Tên người dùng đã tồn tại"
 
-#: web/bugs.cgi:676
+#: web/bugs.cgi:673
 msgid "Bad login or pass"
 msgstr "Đăng nhập sai hoặc không chính xác"
 
-#: web/bugs.cgi:701
+#: web/bugs.cgi:698
 msgid "User name  :"
 msgstr "Tên người dùng :"
 
-#: web/bugs.cgi:702
+#: web/bugs.cgi:699
 msgid "Last login :"
 msgstr "Đăng nhập lần cuối :"
 
-#: web/bugs.cgi:714
+#: web/bugs.cgi:711
 msgid "You must be logged in to post a new bug"
 msgstr "Bạn phải đăng nhập để gửi một lỗi mới"
 
-#: web/bugs.cgi:761
+#: web/bugs.cgi:757
 msgid "Sign Up"
 msgstr "Đăng ký"
 
-#: web/bugs.cgi:765
+#: web/bugs.cgi:761
 msgid "Online registration is disabled"
 msgstr "Đăng ký trực tuyến bị vô hiệu hóa"
 
-#: web/bugs.cgi:827
+#: web/bugs.cgi:785
 msgid "Show"
 msgstr "Hiện"
 
-#: web/bugs.cgi:835
+#: web/bugs.cgi:793
 msgid "No result found for"
 msgstr "Không tìm thấy kết quả"
 
-#: web/bugs.cgi:837
+#: web/bugs.cgi:795
 msgid "results found"
 msgstr "kết quả tìm được"
 
-#: web/bugs.cgi:855
+#: web/bugs.cgi:813
 msgid "Summary"
 msgstr "Tóm lược"
 
-#: web/bugs.cgi:858
+#: web/bugs.cgi:816
 #, sh-format
 msgid "Bug: $bugs in total -"
 msgid_plural "Bugs: $bugs in total -"
 msgstr[0] "Lỗi: $bugs trong tổng số -"
 
-#: web/bugs.cgi:859
+#: web/bugs.cgi:817
 #, sh-format
 msgid "$close fixed -"
 msgid_plural "$close fixed -"
 msgstr[0] "$close đã sửa -"
 
-#: web/bugs.cgi:860
+#: web/bugs.cgi:818
 #, sh-format
 msgid "$fixme to fix -"
 msgid_plural "$fixme to fix -"
 msgstr[0] "$fixme để sửa chữa -"
 
-#: web/bugs.cgi:868
+#: web/bugs.cgi:826
 msgid ""
 "Please read the <a href=\"?README\">README</a> for help and more "
 "information. You may also be interested by the SliTaz <a href=\"http://"
@@ -257,22 +250,32 @@ msgstr ""
 "\">Lộ trình</a> và các gói <a href=\"http://cook.slitaz.org/\">Người làm</"
 "a>. Để thực hiện tìm kiếm, nhập từ của bạn và nhấn ENTER."
 
-#: web/bugs.cgi:877
+#: web/bugs.cgi:835
 msgid "View closed bugs"
 msgstr "Xem lỗi Đã đóng"
 
-#: web/bugs.cgi:880
+#: web/bugs.cgi:838
 msgid "Create a new bug"
 msgstr "Tạo một lỗi mới"
 
-#: web/bugs.cgi:886
+#: web/bugs.cgi:844
 msgid "Latest Bugs"
 msgstr "Lỗi mới nhất"
 
-#: web/bugs.cgi:896
+#: web/bugs.cgi:854
 #, fuzzy
 msgid "Latest Messages"
 msgstr "Tin nhắn"
+
+#~ msgid "Or:"
+#~ msgstr "Hoặc:"
+
+#~ msgid ""
+#~ "No account yet? You can signup using the SliTaz Bugs reporter on your "
+#~ "SliTaz system."
+#~ msgstr ""
+#~ "Chưa có tài khoản? Bạn có thể đăng ký sử dụng Báo cáo SliTaz Bugs trên hệ "
+#~ "thống SliTaz của bạn."
 
 #~ msgid "Usage:"
 #~ msgstr "Sử dụng:"
@@ -333,9 +336,6 @@ msgstr "Tin nhắn"
 
 #~ msgid "Missing bug priority"
 #~ msgstr "Thiếu ưu tiên lỗi"
-
-#~ msgid "My account"
-#~ msgstr "Tài khoản của tôi"
 
 #~ msgid "Bug ID"
 #~ msgstr "Mã lỗi"

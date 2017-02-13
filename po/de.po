@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SliTaz Bugs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-11 00:23+0100\n"
+"POT-Creation-Date: 2017-02-13 17:38+0100\n"
 "PO-Revision-Date: 2016-12-04 09:46+0100\n"
 "Last-Translator: Hans-Günter Theisgen\n"
 "Language-Team: German\n"
@@ -21,11 +21,11 @@ msgstr ""
 msgid "Logout"
 msgstr "Abmelden"
 
-#: web/bugs.cgi:138 web/bugs.cgi:190
+#: web/bugs.cgi:138 web/bugs.cgi:189
 msgid "Login"
 msgstr "Anmelden"
 
-#: web/bugs.cgi:146 web/bugs.cgi:147 web/bugs.cgi:813 web/bugs.cgi:816
+#: web/bugs.cgi:146 web/bugs.cgi:147 web/bugs.cgi:771 web/bugs.cgi:774
 msgid "Search"
 msgstr "Suchen"
 
@@ -33,7 +33,7 @@ msgstr "Suchen"
 msgid "Real name"
 msgstr "Wirklicher Name der Person"
 
-#: web/bugs.cgi:165 web/bugs.cgi:203
+#: web/bugs.cgi:165 web/bugs.cgi:201
 msgid "User name"
 msgstr "Benutzername"
 
@@ -41,7 +41,7 @@ msgstr "Benutzername"
 msgid "Email"
 msgstr "Email-Adresse"
 
-#: web/bugs.cgi:167 web/bugs.cgi:205
+#: web/bugs.cgi:167 web/bugs.cgi:203
 msgid "Password"
 msgstr "Kennwort"
 
@@ -49,206 +49,199 @@ msgstr "Kennwort"
 msgid "Create new account"
 msgstr "Neue Benutzerkennung anlegen"
 
-#: web/bugs.cgi:180
-msgid "Or:"
-msgstr "Oder:"
-
-#: web/bugs.cgi:182
+#: web/bugs.cgi:181
 msgid "Sign Up Online"
 msgstr "Registrieren"
 
-#: web/bugs.cgi:193
-msgid ""
-"No account yet? You can signup using the SliTaz Bugs reporter on your SliTaz "
-"system."
-msgstr ""
-"Sie haben noch keine Benutzerkennung? Mit dem SliTaz-Fehlermeldeprogramm "
-"tazbug auf Ihrem SliTaz-System können Sie sich registrieren."
+#: web/bugs.cgi:192
+#, fuzzy
+msgid "No account yet?"
+msgstr "Meine Benutzerkennung"
 
-#: web/bugs.cgi:196
+#: web/bugs.cgi:194
 msgid "Tip: to attach big files or images, you can use SliTaz Paste services:"
 msgstr ""
 "Tipp. Große Dateien oder Bilder können mit 'SliTaz Paste' übertragen werden:"
 
-#: web/bugs.cgi:208
+#: web/bugs.cgi:206
 msgid "Log in"
 msgstr "Anmelden"
 
-#: web/bugs.cgi:234
+#: web/bugs.cgi:232
 #, sh-format
 msgid "$status Bugs"
 msgstr "$status Fehlermeldungen"
 
-#: web/bugs.cgi:287
+#: web/bugs.cgi:285
 #, sh-format
 msgid "Bug $id: $STATUS"
 msgstr "Fehlermeldung $id: $STATUS"
 
-#: web/bugs.cgi:293
+#: web/bugs.cgi:291
 msgid "Date:"
 msgstr "Datum:"
 
-#: web/bugs.cgi:294
+#: web/bugs.cgi:292
 msgid "Creator:"
 msgstr ""
 
-#: web/bugs.cgi:295
+#: web/bugs.cgi:293
 #, sh-format
 msgid "Priority $PRIORITY"
 msgstr "Priorität $PRIORITY"
 
-#: web/bugs.cgi:296 web/bugs.cgi:861
+#: web/bugs.cgi:294 web/bugs.cgi:819
 #, sh-format
 msgid "$msgs message"
 msgid_plural "$msgs messages"
 msgstr[0] "$msgs Meldung"
 msgstr[1] "$msgs Meldungen"
 
-#: web/bugs.cgi:308
+#: web/bugs.cgi:306
 msgid "Close bug"
 msgstr "Fehlermeldung schließen"
 
-#: web/bugs.cgi:313
+#: web/bugs.cgi:311
 msgid "Edit bug"
 msgstr "Fehlermeldung bearbeiten"
 
-#: web/bugs.cgi:318
+#: web/bugs.cgi:316
 msgid "Re open bug"
 msgstr "Fehlermeldung erneut öffnen"
 
-#: web/bugs.cgi:325
+#: web/bugs.cgi:323
 msgid "Messages"
 msgstr "Nachrichten"
 
-#: web/bugs.cgi:327
+#: web/bugs.cgi:325
 msgid "No messages"
 msgstr "Keine Nachrichten"
 
-#: web/bugs.cgi:350
+#: web/bugs.cgi:348
 msgid "New message"
 msgstr "Neue Nachricht"
 
-#: web/bugs.cgi:354
+#: web/bugs.cgi:352
 msgid "Send message"
 msgstr "Meldung abschicken"
 
-#: web/bugs.cgi:413
+#: web/bugs.cgi:411
 msgid "New Bug"
 msgstr "Neue Fehlermeldung"
 
-#: web/bugs.cgi:421 web/bugs.cgi:474
+#: web/bugs.cgi:419 web/bugs.cgi:472
 msgid "Bug title"
 msgstr "Fehlertitel"
 
-#: web/bugs.cgi:425 web/bugs.cgi:478
+#: web/bugs.cgi:423 web/bugs.cgi:476
 msgid "Description"
 msgstr "Beschreibung"
 
-#: web/bugs.cgi:429 web/bugs.cgi:482
+#: web/bugs.cgi:427 web/bugs.cgi:480
 msgid "Packages"
 msgstr "Pakete"
 
-#: web/bugs.cgi:433 web/bugs.cgi:486
+#: web/bugs.cgi:431 web/bugs.cgi:484
 msgid "Priority"
 msgstr "Priorität"
 
-#: web/bugs.cgi:436 web/bugs.cgi:490
+#: web/bugs.cgi:434 web/bugs.cgi:488
 msgid "Standard"
 msgstr "Standard"
 
-#: web/bugs.cgi:437 web/bugs.cgi:491
+#: web/bugs.cgi:435 web/bugs.cgi:489
 msgid "Critical"
 msgstr "Kritisch"
 
-#: web/bugs.cgi:439
+#: web/bugs.cgi:437
 msgid "Create Bug"
 msgstr "Fehlermeldung erstellen"
 
-#: web/bugs.cgi:447
+#: web/bugs.cgi:445
 msgid "* field is obligatory. You can also specify affected packages."
 msgstr ""
 "* das Feld ist verpflichtend. Es können auch betroffene Pakete angegeben "
 "werden."
 
-#: web/bugs.cgi:460
-msgid "You can't edit someone else bug!"
+#: web/bugs.cgi:458
+msgid "You can't edit someone else's bug!"
 msgstr ""
 
-#: web/bugs.cgi:463
+#: web/bugs.cgi:461
 #, sh-format
 msgid "Edit Bug $bug"
 msgstr "Fehlermeldung $bug bearbeiten"
 
-#: web/bugs.cgi:493
+#: web/bugs.cgi:491
 msgid "Save configuration"
 msgstr "Konfiguration speichern"
 
-#: web/bugs.cgi:632
+#: web/bugs.cgi:629
 msgid "User already exists:"
 msgstr "Benutzername existiert schon:"
 
-#: web/bugs.cgi:676
+#: web/bugs.cgi:673
 msgid "Bad login or pass"
 msgstr "Benutzername oder Kennwort falsch"
 
-#: web/bugs.cgi:701
+#: web/bugs.cgi:698
 msgid "User name  :"
 msgstr "Benutzername    :"
 
-#: web/bugs.cgi:702
+#: web/bugs.cgi:699
 msgid "Last login :"
 msgstr "Letzte Anmeldung:"
 
-#: web/bugs.cgi:714
+#: web/bugs.cgi:711
 msgid "You must be logged in to post a new bug"
 msgstr "Um einen neuen Fehler zu melden, müssen Sie angemeldet sein"
 
-#: web/bugs.cgi:761
+#: web/bugs.cgi:757
 msgid "Sign Up"
 msgstr "Registrieren"
 
-#: web/bugs.cgi:765
+#: web/bugs.cgi:761
 msgid "Online registration is disabled"
 msgstr "Direkte Registrierung ist deaktiviert"
 
-#: web/bugs.cgi:827
+#: web/bugs.cgi:785
 msgid "Show"
 msgstr "Zeigen"
 
-#: web/bugs.cgi:835
+#: web/bugs.cgi:793
 msgid "No result found for"
 msgstr "Kein Ergebnis für"
 
-#: web/bugs.cgi:837
+#: web/bugs.cgi:795
 msgid "results found"
 msgstr "Treffer"
 
-#: web/bugs.cgi:855
+#: web/bugs.cgi:813
 msgid "Summary"
 msgstr "Übersicht"
 
-#: web/bugs.cgi:858
+#: web/bugs.cgi:816
 #, sh-format
 msgid "Bug: $bugs in total -"
 msgid_plural "Bugs: $bugs in total -"
 msgstr[0] "Fehlermeldung: $bugs insgesamt -"
 msgstr[1] "Fehlermeldungen: $bugs insgesamt -"
 
-#: web/bugs.cgi:859
+#: web/bugs.cgi:817
 #, sh-format
 msgid "$close fixed -"
 msgid_plural "$close fixed -"
 msgstr[0] "$close behoben - "
 msgstr[1] "$close behoben - "
 
-#: web/bugs.cgi:860
+#: web/bugs.cgi:818
 #, sh-format
 msgid "$fixme to fix -"
 msgid_plural "$fixme to fix -"
 msgstr[0] "$fixme offen -"
 msgstr[1] "$fixme offen -"
 
-#: web/bugs.cgi:868
+#: web/bugs.cgi:826
 msgid ""
 "Please read the <a href=\"?README\">README</a> for help and more "
 "information. You may also be interested by the SliTaz <a href=\"http://"
@@ -261,22 +254,32 @@ msgstr ""
 "href=\"http://cook.slitaz.org/\">'Kocher'</a> könnten Sie interessieren. Zum "
 "Suchen geben Sie einen Suchbegriff ein und drücken Sie ENTER."
 
-#: web/bugs.cgi:877
+#: web/bugs.cgi:835
 msgid "View closed bugs"
 msgstr "Geschlossene Fehlermeldungen ansehen"
 
-#: web/bugs.cgi:880
+#: web/bugs.cgi:838
 msgid "Create a new bug"
 msgstr "Einen neuen Fehler melden"
 
-#: web/bugs.cgi:886
+#: web/bugs.cgi:844
 msgid "Latest Bugs"
 msgstr "Neueste Fehlermeldungen"
 
-#: web/bugs.cgi:896
+#: web/bugs.cgi:854
 #, fuzzy
 msgid "Latest Messages"
 msgstr "Nachrichten"
+
+#~ msgid "Or:"
+#~ msgstr "Oder:"
+
+#~ msgid ""
+#~ "No account yet? You can signup using the SliTaz Bugs reporter on your "
+#~ "SliTaz system."
+#~ msgstr ""
+#~ "Sie haben noch keine Benutzerkennung? Mit dem SliTaz-Fehlermeldeprogramm "
+#~ "tazbug auf Ihrem SliTaz-System können Sie sich registrieren."
 
 #~ msgid "Usage:"
 #~ msgstr "Anwendung:"
@@ -337,9 +340,6 @@ msgstr "Nachrichten"
 
 #~ msgid "Missing bug priority"
 #~ msgstr "Priorität fehlt"
-
-#~ msgid "My account"
-#~ msgstr "Meine Benutzerkennung"
 
 #~ msgid "Bug ID"
 #~ msgstr "Fehlernummer"
