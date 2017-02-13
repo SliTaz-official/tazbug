@@ -1,0 +1,20 @@
+#!/bin/sh
+#
+# TazBug Command line tool. Help to search and check bugs from cmdline.
+#
+# Copyright (C) 2017 SliTaz GNU/Linux - BSD License
+#
+. /lib/libtaz.sh
+
+url="http://bugs.slitaz.org/"
+
+#
+# Commands
+#
+
+case "$1" in
+	*)
+		gettext "Usage:"; echo " $(basename $0) [command]" ;;
+esac
+
+exit 0
