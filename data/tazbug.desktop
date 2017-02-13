@@ -1,8 +1,8 @@
 [Desktop Entry]
 Encoding=UTF-8
-Name=SliTaz bug report (Web)
-Name[fr]=Rapport de bug SliTaz (Web)
-Name[ru]=Баг-репорт SliTaz (Web)
+Name=SliTaz bug report
+Name[fr]=Rapport de bug SliTaz
+Name[ru]=Баг-репорт SliTaz
 Exec=tazweb --notoolbar http://bugs.slitaz.org/
 Icon=slitaz-icon
 Type=Application
