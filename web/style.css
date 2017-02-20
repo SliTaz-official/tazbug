@@ -220,3 +220,11 @@ textarea, select, #tools a {
 }
 
 #footer a { padding: 0 2px; }
+
+/* Users & Dashboard */
+#users table, #plugins table { border-collapse: collapse; }
+#users tr, #plugins tr {
+	padding:.3em 1em;
+	border-bottom: 1px solid #ddd; 
+}
+#users td, #plugins td { padding: 4px 0; }

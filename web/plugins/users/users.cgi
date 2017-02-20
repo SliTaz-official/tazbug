@@ -13,23 +13,30 @@ auth_people() {
 	cat << EOT
 Email      : $MAIL
 </pre>
-EOT
-	# Each user can have personal profile page
-	if [ -f "$PEOPLE/$USER/profile.txt" ]; then
-		cat << EOT
+
 <div id="tools">
+	$PLUGINS_TOOLS
 	<a href="$script?modprofile">$(gettext "Modify profile")</a>
-	<a href="$script?dashboard">Dashboard</a>
 </div>
 EOT
-	else
-		cat << EOT
-<div id="tools">
-	<a href="$script?modprofile">$(gettext "Create a profile page")</a>
-	<a href="$script?dashboard">Dashboard</a>
-</div>
+}
+
+# List last active users. Usage: last_users NB
+list_last_users() {
+	count=${1}
+	echo "<h3>Last $count active users</h3>"
+	echo "<pre>"
+	find ${PEOPLE} -name "last" | xargs ls -1t | head -n ${count} | while read last;
+	do
+		dir="$(dirname $last)"
+		date="$(cat $last)"
+		u=$(basename $dir)
+		. "${PEOPLE}/${u}/account.conf"
+	cat << EOT
+$(get_gravatar $MAIL 24) $date  : <a href="?user=$u">$u</a> | $NAME
 EOT
-	fi
+	done
+	echo "</pre>"
 }
 
 case " $(GET) " in
@@ -38,28 +45,54 @@ case " $(GET) " in
 		header
 		html_header
 		user_box
-		if check_auth && ! admin_user; then
-			gettext "You must be admin to manage users" && exit 0
+		# Admin only
+		if admin_user; then
+			tools="<a href='$script?userslist'>Users list</a>"
 		fi
-		cat << EOT
-<h2>Users admin</h2>
+		# Logged users
+		if check_auth; then
+			cat << EOT
 <div id="tools">
 	<a href="$script?dashboard">Dashboard</a>
-	<a href='$script?loggedusers'>Logged users</a>
-	<a href='$script?userslist'>Users list</a>
+	<a href='$script?lastusers'>Last users</a>
+	$tools
 </div>
+<h2>${d}</h2>
 <pre>
 User accounts   : $(ls -1 $PEOPLE | wc -l)
 Logged users    : $(ls $sessions | wc -l)
-People DB       : $PEOPLE
-Auth file       : $AUTH_FILE
+</pre>
 EOT
-		
-		echo "</pre>"
+			list_last_users 5
+			
+			# Admin only
+			if admin_user; then
+				cat << EOT
+<h3>Config paths</h3>
+<pre>
+People DB       : $PEOPLE
+Authfile        : $AUTH_FILE
+Admin users     : $ADMIN_USERS
+</pre>
+EOT
+				# Get the list of administrators
+				echo "<h3>Admin users</h3>"
+				echo "<pre>"
+				for u in $(cat $ADMIN_USERS)
+				do
+					. ${PEOPLE}/${u}/account.conf
+					echo "<a href='?user=$u'>$u</a> - $NAME"
+				done
+				echo "</pre>"
+			fi
+			
+		else
+			gettext "You must be logged to check or admin users"
+		fi
 		html_footer && exit 0 ;;
 		
 	*\ userslist\ *)
-		# List all users (slow if a lot a of accounts)
+		# List all users
 		d="Users"
 		header
 		html_header
@@ -70,13 +103,18 @@ EOT
 		fi
 		users=$(ls -1 $PEOPLE | wc -l)
 		cat << EOT
-<h2>Users: $users</h2>
 <div id="tools">
 	<a href="$script?dashboard">Dashboard</a>
-	<a href="$script?users">Users admin</a>
-	<a href='$script?loggedusers'>Logged users</a>
+	<a href="$script?users">Users</a>
+	<a href='$script?lastusers'>Last users</a>
 </div>
-<pre>
+<h2>Users: $users</h2>
+<div id="users">
+<table>
+	<thead>
+		<td>$(gettext "Username")</td>
+		<td>$(gettext "Action")</td>
+	</thead>
 EOT
 		for u in $(ls $PEOPLE)
 		do
@@ -85,20 +123,22 @@ EOT
 				echo "${u} : Missing account.conf"
 				continue
 			fi
-			. "${PEOPLE}/${u}/account.conf"
 			cat << EOT
-$(get_gravatar $MAIL 24) <a href="?user=$USER">$USER</a> | $NAME | $MAIL
+	<tr>
+		<td><a href="$script?user=$u">$u</a></td>
+		<td>TODO</td>
+	</tr>
 EOT
 # deluser link --> use 'tazu' on SliTaz
 #: <a href="?users&amp;deluser=$USER">$(gettext "delete")</a>
 			unset NAME USER 
 		done
-		echo "</pre>" 
+		echo "</table></div>"
 		html_footer && exit 0 ;;
 	
-	*\ loggedusers\ *)
+	*\ lastusers\ *)
 		# Show online users based on sessions files.
-		d="Logged users"
+		d="Last users"
 		header
 		html_header
 		user_box
@@ -106,15 +146,17 @@ EOT
 			gettext "You must be logged in to view online users"
 			exit 0
 		fi
-		logged="$(ls $sessions | wc -l)"
 		cat << EOT
-<h2>Logged users: $logged</h2>
 <div id="tools">
 	<a href="$script?dashboard">Dashboard</a>
-	<a href="$script?users">Users admin</a>
+	<a href="$script?users">Users</a>
 </div>
-<pre>
 EOT
+		list_last_users 15
+		
+		# Active cookies
+		echo "<h3>Session cookies: $(ls $sessions | wc -l)</h3>"
+		echo "<pre>"
 		for u in $(ls $sessions)
 		do
 			. "${PEOPLE}/${u}/account.conf"
@@ -132,7 +174,15 @@ EOT
 		header
 		html_header
 		user_box
-		. $PEOPLE/"$(GET user)"/account.conf
+		account_config="$PEOPLE/$(GET user)/account.conf"
+		profile_config="$PEOPLE/$(GET user)/profile.conf"
+		if [ ! -f "$account_config" ]; then
+			echo "No user profile for: $(GET user)"
+			html_footer && exit 0
+		else
+			. ${account_config}
+		fi
+		[ -f "$profile_config" ] && . ${profile_config}
 cat << EOT
 <h2>$(get_gravatar $MAIL) $NAME</h2>
 
@@ -147,6 +197,18 @@ EOT
 			. $PEOPLE/"$(GET user)"/account.conf
 			public_people
 		fi
+		
+		# Messages plugin integration
+		if [ -x "$plugins/messages/messages.cgi" ]; then
+			if check_auth && [ "$(GET user)" != "$user" ]; then
+				cat << EOT
+<div id="tools">
+<a href="$script?messages&amp;to=$(GET user)">$(gettext "Send message")</a>
+</div>
+EOT
+			fi
+		fi
+		
 		# Display personal user profile
 		if [ -f "$PEOPLE/$USER/profile.txt" ]; then
 			echo "<h2>$(gettext "About me")</h2>"

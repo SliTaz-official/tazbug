@@ -4,7 +4,7 @@
 #
 # Copyright (C) 2012-2017 SliTaz GNU/Linux - BSD License
 #
-. /usr/lib/slitaz/httphelper
+. /usr/lib/slitaz/httphelper.sh
 
 # Source config file
 . ./config.cgi
@@ -112,7 +112,7 @@ check_auth() {
 
 # Check if user is admin
 admin_user() {
-	fgrep -q 'ADMIN_USER="yes"' ${PEOPLE}/${user}/account.conf
+	fgrep -w -q "$user" ${ADMIN_USERS}
 }
 
 # Authenticated or not
@@ -543,30 +543,21 @@ get_gravatar() {
 
 # Create a new user in AUTH_FILE and PEOPLE
 new_user_config() {
-	if [ ! "$online" ]; then
-		name="$(GET name)"
-		mail="$(GET mail)"
-		pass="$(GET pass)"
-		echo "Creating Server Key..."
+	if [ ! -f "$AUTH_FILE" ]; then
+		touch $AUTH_FILE && chmod 0600 $AUTH_FILE
 	fi
-	#key=$(echo -n "$user:$mail:$pass" | md5sum | awk '{print $1}')
 	echo "$user:$pass" >> $AUTH_FILE
-	mkdir -pm0700 $PEOPLE/$user/
+	mkdir -pm0700 $PEOPLE/${user}
 	cat > $PEOPLE/$user/account.conf << EOT
-# SliTaz user configuration
-#
-
+# User configuration
 NAME="$name"
 USER="$user"
 MAIL="$mail"
-
-LOCATION="$(GET location)"
-RELEASES="$(GET releases)"
-PACKAGES="$(GET packages)"
 EOT
 	chmod 0600 $PEOPLE/$user/account.conf
-	if [ ! -f $PEOPLE/$user/account.conf ]; then
-		echo "ERROR: User creation failed!"
+	# First created user is admin
+	if [ $(ls ${PEOPLE} | wc -l) == "1" ]; then
+		echo "$user" > ${ADMIN_USERS}
 	fi
 }
 

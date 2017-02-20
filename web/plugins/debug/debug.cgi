@@ -13,10 +13,10 @@ if [ "$(GET debug)" ]; then
 		exit 0
 	fi
 	cat << EOT
-<h2>Debug interface</h2>
 <div id="tools">
 	<a href="$script?dashboard">Dashboard</a>
 </div>
+<h2>Debug interface</h2>
 EOT
 	# Handle ?debug&del request
 	if [ "$(GET del)" ]; then

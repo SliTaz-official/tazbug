@@ -26,55 +26,42 @@ if [ "$(GET dashboard)" ]; then
 	fi
 	if check_auth; then
 		cat << EOT
-<h2>Dashboard</h2>
-
 <div id="tools">
 	$DASHBOARD_TOOLS $ADMIN_TOOLS
 </div>
-
+<h2>Dashboard</h2>
 <pre>
 Bugs count       : $bugs
 Database size    : $bugsize
 Server uptime    :$(uptime | cut -d "," -f 1-2)
 </pre>
-
-<h3>Admin users</h3>
 EOT
-		
-		# Get the list of administrators
-		fgrep -l "ADMIN_USER=" $PEOPLE/*/account.conf | while read file;
-		do
-			. ${file}
-			echo "<a href='?user=$USER'>$USER</a>"
-			unset NAME USER
-		done
-		
+	
 		# Only for admins
 		if check_auth && admin_user; then
 			# List all plugins
 			cat << EOT
-<h3>$(gettext "Plugins")</h3>
-<pre>
-	<table>
-		<thead>
-			<td>$(gettext "Name")</td>
-			<td>$(gettext "Description")</td>
-			<td>$(gettext "Action")</td>
-		</thead>
+<h3>$(gettext "Plugins:") $(ls $plugins | wc -l)</h3>
+<div id="plugins">
+<table>
+	<thead>
+		<td>$(gettext "Name")</td>
+		<td>$(gettext "Description")</td>
+		<td>$(gettext "Action")</td>
+	</thead>
 EOT
 			for p in $(ls -1 $plugins)
 			do
 				. $plugins/$p/$p.conf
 				cat << EOT
-		<tr>
-			<td><a href='?$p'>$PLUGIN</a></td>
-			<td>$SHORT_DESC</td>
-			<td>TODO</td>
-		</tr>
+	<tr>
+		<td><a href='?$p'>$PLUGIN</a></td>
+		<td>$SHORT_DESC</td>
+		<td>TODO</td>
+	</tr>
 EOT
 			done
-			echo "	</table>"
-			echo "</pre>"
+			echo "</table></div>"
 		fi
 	else
 		gettext "You must be logged in to view the dashboard"
