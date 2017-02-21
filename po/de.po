@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SliTaz Bugs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-13 17:38+0100\n"
+"POT-Creation-Date: 2017-02-21 01:14+0100\n"
 "PO-Revision-Date: 2016-12-04 09:46+0100\n"
 "Last-Translator: Hans-Günter Theisgen\n"
 "Language-Team: German\n"
@@ -25,7 +25,7 @@ msgstr "Abmelden"
 msgid "Login"
 msgstr "Anmelden"
 
-#: web/bugs.cgi:146 web/bugs.cgi:147 web/bugs.cgi:771 web/bugs.cgi:774
+#: web/bugs.cgi:146 web/bugs.cgi:147 web/bugs.cgi:762 web/bugs.cgi:765
 msgid "Search"
 msgstr "Suchen"
 
@@ -90,7 +90,7 @@ msgstr ""
 msgid "Priority $PRIORITY"
 msgstr "Priorität $PRIORITY"
 
-#: web/bugs.cgi:294 web/bugs.cgi:819
+#: web/bugs.cgi:294 web/bugs.cgi:810
 #, sh-format
 msgid "$msgs message"
 msgid_plural "$msgs messages"
@@ -176,72 +176,72 @@ msgstr "Fehlermeldung $bug bearbeiten"
 msgid "Save configuration"
 msgstr "Konfiguration speichern"
 
-#: web/bugs.cgi:629
+#: web/bugs.cgi:620
 msgid "User already exists:"
 msgstr "Benutzername existiert schon:"
 
-#: web/bugs.cgi:673
+#: web/bugs.cgi:664
 msgid "Bad login or pass"
 msgstr "Benutzername oder Kennwort falsch"
 
-#: web/bugs.cgi:698
+#: web/bugs.cgi:689
 msgid "User name  :"
 msgstr "Benutzername    :"
 
-#: web/bugs.cgi:699
+#: web/bugs.cgi:690
 msgid "Last login :"
 msgstr "Letzte Anmeldung:"
 
-#: web/bugs.cgi:711
+#: web/bugs.cgi:702
 msgid "You must be logged in to post a new bug"
 msgstr "Um einen neuen Fehler zu melden, müssen Sie angemeldet sein"
 
-#: web/bugs.cgi:757
+#: web/bugs.cgi:748
 msgid "Sign Up"
 msgstr "Registrieren"
 
-#: web/bugs.cgi:761
+#: web/bugs.cgi:752
 msgid "Online registration is disabled"
 msgstr "Direkte Registrierung ist deaktiviert"
 
-#: web/bugs.cgi:785
+#: web/bugs.cgi:776
 msgid "Show"
 msgstr "Zeigen"
 
-#: web/bugs.cgi:793
+#: web/bugs.cgi:784
 msgid "No result found for"
 msgstr "Kein Ergebnis für"
 
-#: web/bugs.cgi:795
+#: web/bugs.cgi:786
 msgid "results found"
 msgstr "Treffer"
 
-#: web/bugs.cgi:813
+#: web/bugs.cgi:804
 msgid "Summary"
 msgstr "Übersicht"
 
-#: web/bugs.cgi:816
+#: web/bugs.cgi:807
 #, sh-format
 msgid "Bug: $bugs in total -"
 msgid_plural "Bugs: $bugs in total -"
 msgstr[0] "Fehlermeldung: $bugs insgesamt -"
 msgstr[1] "Fehlermeldungen: $bugs insgesamt -"
 
-#: web/bugs.cgi:817
+#: web/bugs.cgi:808
 #, sh-format
 msgid "$close fixed -"
 msgid_plural "$close fixed -"
 msgstr[0] "$close behoben - "
 msgstr[1] "$close behoben - "
 
-#: web/bugs.cgi:818
+#: web/bugs.cgi:809
 #, sh-format
 msgid "$fixme to fix -"
 msgid_plural "$fixme to fix -"
 msgstr[0] "$fixme offen -"
 msgstr[1] "$fixme offen -"
 
-#: web/bugs.cgi:826
+#: web/bugs.cgi:817
 msgid ""
 "Please read the <a href=\"?README\">README</a> for help and more "
 "information. You may also be interested by the SliTaz <a href=\"http://"
@@ -254,22 +254,30 @@ msgstr ""
 "href=\"http://cook.slitaz.org/\">'Kocher'</a> könnten Sie interessieren. Zum "
 "Suchen geben Sie einen Suchbegriff ein und drücken Sie ENTER."
 
+#: web/bugs.cgi:826
+#, fuzzy
+msgid "Closed bugs"
+msgstr "Fehlermeldung schließen"
+
+#: web/bugs.cgi:829
+#, fuzzy
+msgid "Create bug"
+msgstr "Fehlermeldung erstellen"
+
 #: web/bugs.cgi:835
-msgid "View closed bugs"
-msgstr "Geschlossene Fehlermeldungen ansehen"
-
-#: web/bugs.cgi:838
-msgid "Create a new bug"
-msgstr "Einen neuen Fehler melden"
-
-#: web/bugs.cgi:844
 msgid "Latest Bugs"
 msgstr "Neueste Fehlermeldungen"
 
-#: web/bugs.cgi:854
+#: web/bugs.cgi:845
 #, fuzzy
 msgid "Latest Messages"
 msgstr "Nachrichten"
+
+#~ msgid "View closed bugs"
+#~ msgstr "Geschlossene Fehlermeldungen ansehen"
+
+#~ msgid "Create a new bug"
+#~ msgstr "Einen neuen Fehler melden"
 
 #~ msgid "Or:"
 #~ msgstr "Oder:"

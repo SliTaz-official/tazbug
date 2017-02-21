@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SliTaz Bugs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-13 17:38+0100\n"
+"POT-Creation-Date: 2017-02-21 01:14+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,7 +26,7 @@ msgstr ""
 msgid "Login"
 msgstr ""
 
-#: web/bugs.cgi:146 web/bugs.cgi:147 web/bugs.cgi:771 web/bugs.cgi:774
+#: web/bugs.cgi:146 web/bugs.cgi:147 web/bugs.cgi:762 web/bugs.cgi:765
 msgid "Search"
 msgstr ""
 
@@ -89,7 +89,7 @@ msgstr ""
 msgid "Priority $PRIORITY"
 msgstr ""
 
-#: web/bugs.cgi:294 web/bugs.cgi:819
+#: web/bugs.cgi:294 web/bugs.cgi:810
 #, sh-format
 msgid "$msgs message"
 msgid_plural "$msgs messages"
@@ -173,72 +173,72 @@ msgstr ""
 msgid "Save configuration"
 msgstr ""
 
-#: web/bugs.cgi:629
+#: web/bugs.cgi:620
 msgid "User already exists:"
 msgstr ""
 
-#: web/bugs.cgi:673
+#: web/bugs.cgi:664
 msgid "Bad login or pass"
 msgstr ""
 
-#: web/bugs.cgi:698
+#: web/bugs.cgi:689
 msgid "User name  :"
 msgstr ""
 
-#: web/bugs.cgi:699
+#: web/bugs.cgi:690
 msgid "Last login :"
 msgstr ""
 
-#: web/bugs.cgi:711
+#: web/bugs.cgi:702
 msgid "You must be logged in to post a new bug"
 msgstr ""
 
-#: web/bugs.cgi:757
+#: web/bugs.cgi:748
 msgid "Sign Up"
 msgstr ""
 
-#: web/bugs.cgi:761
+#: web/bugs.cgi:752
 msgid "Online registration is disabled"
 msgstr ""
 
-#: web/bugs.cgi:785
+#: web/bugs.cgi:776
 msgid "Show"
 msgstr ""
 
-#: web/bugs.cgi:793
+#: web/bugs.cgi:784
 msgid "No result found for"
 msgstr ""
 
-#: web/bugs.cgi:795
+#: web/bugs.cgi:786
 msgid "results found"
 msgstr ""
 
-#: web/bugs.cgi:813
+#: web/bugs.cgi:804
 msgid "Summary"
 msgstr ""
 
-#: web/bugs.cgi:816
+#: web/bugs.cgi:807
 #, sh-format
 msgid "Bug: $bugs in total -"
 msgid_plural "Bugs: $bugs in total -"
 msgstr[0] ""
 msgstr[1] ""
 
-#: web/bugs.cgi:817
+#: web/bugs.cgi:808
 #, sh-format
 msgid "$close fixed -"
 msgid_plural "$close fixed -"
 msgstr[0] ""
 msgstr[1] ""
 
-#: web/bugs.cgi:818
+#: web/bugs.cgi:809
 #, sh-format
 msgid "$fixme to fix -"
 msgid_plural "$fixme to fix -"
 msgstr[0] ""
 msgstr[1] ""
 
-#: web/bugs.cgi:826
+#: web/bugs.cgi:817
 msgid ""
 "Please read the <a href=\"?README\">README</a> for help and more "
 "information. You may also be interested by the SliTaz <a href=\"http://"
@@ -247,18 +247,18 @@ msgid ""
 "ENTER."
 msgstr ""
 
+#: web/bugs.cgi:826
+msgid "Closed bugs"
+msgstr ""
+
+#: web/bugs.cgi:829
+msgid "Create bug"
+msgstr ""
+
 #: web/bugs.cgi:835
-msgid "View closed bugs"
-msgstr ""
-
-#: web/bugs.cgi:838
-msgid "Create a new bug"
-msgstr ""
-
-#: web/bugs.cgi:844
 msgid "Latest Bugs"
 msgstr ""
 
-#: web/bugs.cgi:854
+#: web/bugs.cgi:845
 msgid "Latest Messages"
 msgstr ""

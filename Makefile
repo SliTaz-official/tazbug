@@ -15,7 +15,7 @@ all: msgfmt
 pot:
 	xgettext -o po/tazbug.pot -L Shell --package-name="SliTaz Bugs" \
 		./web/bugs.cgi 
-	xgettext -o po/cli/tazbug-cli.pot -L Shell --package-name="SliTaz Bugs" \
+	xgettext -o po/cli/tazbug-cli.pot -L Shell --package-name="Tazbug cli" \
 		./tazbug
 
 msgmerge:
