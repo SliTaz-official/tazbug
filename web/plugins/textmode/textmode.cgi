@@ -45,7 +45,7 @@ $(separator)
 $(cat $bugdir/$id/desc.txt)
 EOT
 		else
-			echo "Can't found bug ID: $id" && exit 0
+			echo "Can't find bug ID: $id" && exit 0
 		fi ;;
 	
 	*)

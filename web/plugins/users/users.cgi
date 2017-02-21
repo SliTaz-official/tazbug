@@ -87,7 +87,7 @@ EOT
 			fi
 			
 		else
-			gettext "You must be logged to check or admin users"
+			gettext "You must be logged in to check on admin users"
 		fi
 		html_footer && exit 0 ;;
 		
