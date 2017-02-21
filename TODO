@@ -1,4 +1,5 @@
 
+	* Rethink message system, config in a file and msg in a sperate on
 	* Log bug activity in $bugdir/$id/bug.log
 	* Hg integration by checking in commits if a bug was solved
 	  and then close it: hg commit -m "My msg [CLOSE=4]"

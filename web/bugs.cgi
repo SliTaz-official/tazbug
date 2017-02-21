@@ -112,7 +112,7 @@ check_auth() {
 
 # Check if user is admin
 admin_user() {
-	fgrep -w -q "$user" ${ADMIN_USERS}
+	fgrep -w -q "^$user$" ${ADMIN_USERS}
 }
 
 # Authenticated or not
@@ -340,7 +340,7 @@ $(echo "$MSG" | wiki_parser)
 </pre>
 EOT
 		fi
-		unset NAME DATE MSG
+		unset USER DATE MSG
 	done
 	if check_auth; then
 		cat << EOT
