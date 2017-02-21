@@ -2,20 +2,21 @@
 # Copyright (C) 2010 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Christophe Lincoln <pankso@slitaz.org>, 2010.
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: SliTaz Bugs\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-02-21 01:14+0100\n"
-"PO-Revision-Date: 2016-09-18 23:28+0100\n"
+"PO-Revision-Date: 2017-02-21 03:50+0100\n"
 "Last-Translator: Pascal Bellard <pascal.bellard@slitaz.org>\n"
 "Language-Team: French\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 1.8.6\n"
 
 #: web/bugs.cgi:131
 msgid "Logout"
@@ -54,9 +55,8 @@ msgid "Sign Up Online"
 msgstr "S'enregistrer en ligne"
 
 #: web/bugs.cgi:192
-#, fuzzy
 msgid "No account yet?"
-msgstr "Mon compte"
+msgstr "Pas encore de compte?"
 
 #: web/bugs.cgi:194
 msgid "Tip: to attach big files or images, you can use SliTaz Paste services:"
@@ -83,9 +83,8 @@ msgid "Date:"
 msgstr "Date :"
 
 #: web/bugs.cgi:292
-#, fuzzy
 msgid "Creator:"
-msgstr "Créateur\t:"
+msgstr "Créateur:"
 
 #: web/bugs.cgi:293
 #, sh-format
@@ -157,7 +156,7 @@ msgstr "Critique"
 
 #: web/bugs.cgi:437
 msgid "Create Bug"
-msgstr "Créer un rapport de Bug"
+msgstr "Créer un Bug"
 
 #: web/bugs.cgi:445
 msgid "* field is obligatory. You can also specify affected packages."
@@ -167,7 +166,7 @@ msgstr ""
 
 #: web/bugs.cgi:458
 msgid "You can't edit someone else's bug!"
-msgstr ""
+msgstr "Vous pouvet éditer que les bugs que vous avez créés"
 
 #: web/bugs.cgi:461
 #, sh-format
@@ -258,23 +257,20 @@ msgstr ""
 "une recherche entrer votre recherche et appuyer sur la touche Entree"
 
 #: web/bugs.cgi:826
-#, fuzzy
 msgid "Closed bugs"
-msgstr "Fermer le rapport de bug"
+msgstr "Bugs fermés"
 
 #: web/bugs.cgi:829
-#, fuzzy
 msgid "Create bug"
-msgstr "Créer un rapport de Bug"
+msgstr "Créer un bug"
 
 #: web/bugs.cgi:835
 msgid "Latest Bugs"
 msgstr "Derniers rapports de bug"
 
 #: web/bugs.cgi:845
-#, fuzzy
 msgid "Latest Messages"
-msgstr "Messages"
+msgstr "Derniers messages"
 
 #~ msgid "View closed bugs"
 #~ msgstr "Voir les rapport de bugs fermé"
