@@ -14,6 +14,7 @@ bugdir="$PWD/bug"
 plugins="plugins"
 sessions="/tmp/bugs/sessions"
 script="$SCRIPT_NAME"
+timestamp="$(date -u +%s)"
 
 # Content negotiation for Gettext
 IFS=","
@@ -50,12 +51,14 @@ html_header() {
 
 # HTML 5 footer.
 html_footer() {
+	gentime=$(( $(date -u +%s) - ${timestamp} ))
 	cat << EOT
 </div>
 
 <div id="footer">
 	<a href="$script">SliTaz Bugs</a> -
 	<a href="$script?README">README</a>
+	- Page generated in ${gentime}s
 </div>
 
 </body>
@@ -112,7 +115,7 @@ check_auth() {
 
 # Check if user is admin
 admin_user() {
-	grep -w -q "^$user$" ${ADMIN_USERS}
+	fgrep -w -q "$user" ${ADMIN_USERS}
 }
 
 # Authenticated or not
