@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# From Tazbug 2.1 bugs are stored into $bugdir/open or $bugdir/closed
+# From Tazbug 2.1 bugs are stored in $bugdir/open or $bugdir/closed
 # This script will move all bugs to the correct directory
 #
 . /lib/libtaz.sh
@@ -18,7 +18,7 @@ for bug in *
 do
 	if [ -f "${bug}/bug.conf" ]; then
 		. ./${bug}/bug.conf
-		echo  -n "Mouving bug: ${bug} $STATUS"
+		echo  -n "Moving bug: ${bug} $STATUS"
 		if [ "$STATUS" == "OPEN" ]; then
 			mv ${bug} open/ && status
 		else
