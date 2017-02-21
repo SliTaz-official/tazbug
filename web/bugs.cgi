@@ -112,7 +112,7 @@ check_auth() {
 
 # Check if user is admin
 admin_user() {
-	fgrep -w -q "^$user$" ${ADMIN_USERS}
+	grep -w -q "^$user$" ${ADMIN_USERS}
 }
 
 # Authenticated or not
