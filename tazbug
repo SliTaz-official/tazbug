@@ -1,20 +1,55 @@
 #!/bin/sh
 #
 # TazBug Command line tool. Help to search and check bugs from cmdline.
+# This tool use data from Tazbug 'textmode' plugin.
 #
 # Copyright (C) 2017 SliTaz GNU/Linux - BSD License
 #
 . /lib/libtaz.sh
 
-url="http://bugs.slitaz.org/"
+#url="http://localhost/~pankso/cgi-bin/tazbug/web/bugs.cgi?textmode"
+url="http://bugs.slitaz.org/bugs.cgi?textmode"
+
+help() {
+	cat << EOT
+
+$(boldify $(gettext "Usage:")) tazbug [stats|search|ID] [pattern]
+
+$(boldify $(gettext "Examples:"))
+  tazbug 120
+  tazbug search firefox
+
+EOT
+}
+
+# Usage: get "data=xxx"
+get() {
+	busybox wget -q "${url}&${1}" -O -
+}
 
 #
 # Commands
 #
 
 case "$1" in
-	*)
-		gettext "Usage:"; echo " $(basename $0) [command]" ;;
+	stats)
+		newline
+		get "stats"
+		newline ;;
+	search)
+		newline
+		echo "$(boldify $(gettext 'Searching for:')) $(colorize 33 $2)"
+		separator
+		get "search=$2" 
+		newline ;;
+	*[0-9]*)
+		newline
+		boldify "Bug info"
+		separator
+		get "id=$1" 
+		separator && newline ;;
+	*) 
+		help ;;
 esac
 
-exit 0
+rm -f ${tmp} && exit 0
