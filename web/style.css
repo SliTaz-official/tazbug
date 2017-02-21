@@ -5,8 +5,8 @@ body { font: 13px sans-serif, vernada, arial; margin: 0; }
 h1 { margin: 0; padding: 8px; color: #fff; font-size: 20px; }
 h1 a { color: #fff; text-decoration: none; }
 h2 { color: #444; } h3 { color: #666; font-size: 140%; }
-a { text-decoration: underline; color: #215090; }
-a:hover { text-decoration: none; }
+a { text-decoration: none; color: #215090; }
+a:hover { text-decoration: underline; }
 img { border: 0pt none; vertical-align: middle; }
 pre {
 	overflow: auto;

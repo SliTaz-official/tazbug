@@ -216,39 +216,61 @@ services:") <a href="http://paste.slitaz.org/">paste.slitaz.org</a></p>
 EOT
 }
 
+# Set open/closed bug path: set_bugpath ID
+set_bugpath() {
+	if [ -d "$bugdir/closed/$1" ]; then
+		bugpath="$bugdir/closed/$1"
+	else
+		bugpath="$bugdir/open/$1"
+	fi
+}
+set_bugdir() {
+	if [ -d "$bugdir/closed/$1" ]; then
+		bugdir="$bugdir/closed"
+	else
+		bugdir="$bugdir/open"
+	fi
+}
+
+# Nice ls output for open and closed bugs
+ls_bugs() {
+	ls $bugdir/open
+	ls $bugdir/closed
+}
+
 # Usage: list_bug ID
 list_bug() {
 	id="$1"
-	. ${bugdir}/${id}/bug.conf
+	set_bugpath ${id}
+	. ${bugpath}/bug.conf
 	[ -f "${PEOPLE}/${CREATOR}/account.conf" ] && \
 	. ${PEOPLE}/${CREATOR}/account.conf
 	cat << EOT
 <a href="?user=$USER">$(get_gravatar "$MAIL" 24)</a> \
-ID: $id <a href="?id=$id">$BUG</a> <span class="date">- $DATE</span>
+ID $id: <a href="?id=$id">$BUG</a> <span class="date">- $DATE</span>
 EOT
-	unset CREATOR USER MAIL
+	unset CREATOR USER MAIL bugpath
 }
 
-# Usage: list_bugs STATUS
+# Usage: list_bugs [open|closed]
 list_bugs() {
 	status="$1"
-	echo "<h3>$(eval_gettext '$status Bugs')</h3>"
+	echo "<h3>$(gettext 'Bugs:') $status</h3>"
 	echo "<pre>"
 	for pr in critical standard
 	do
-		for bug in $(fgrep -H "$1" $bugdir/*/bug.conf | cut -d ":" -f 1)
+		for id in $(ls $bugdir/$status)
 		do
-			. $bug
-			id=$(basename $(dirname $bug))
+			. $bugdir/$status/$id/bug.conf
 			if [ "$PRIORITY" == "$pr" ]; then
 				[ -f "${PEOPLE}/${CREATOR}/account.conf" ] && \
 					. ${PEOPLE}/${CREATOR}/account.conf
 				cat << EOT
 <a href="?user=$USER">$(get_gravatar "$MAIL" 24)</a> \
-ID: $id <a href="?id=$id">$BUG</a> <span class="date">- $DATE</span>
+ID $id: <a href="?id=$id">$BUG</a> <span class="date">- $DATE</span>
 EOT
 			fi
-			unset CREATOR USER MAIL
+			unset CREATOR USER MAIL BUG
 		done
 	done
 }
@@ -279,6 +301,7 @@ wiki_parser() {
 
 # Bug page
 bug_page() {
+	. $bugdir/$id/bug.conf
 	if [ -f "$PEOPLE/$CREATOR/account.conf" ]; then
 		. $PEOPLE/$CREATOR/account.conf
 	else
@@ -379,8 +402,8 @@ EOT
 
 # Create a new Bug. ID is set by counting dirs in bug/ + 1
 new_bug() {
-	count=$(ls $bugdir | sort -g | tail -n 1)
-	count=$(($count +1))
+	count=$(ls_bugs | sort -g | tail -n 1)
+	id=$(($count +1))
 	date=$(date "+%Y-%m-%d %H:%M")
 	# Sanity check, JS may be disabled.
 	[ ! "$(GET bug)" ] && echo "Missing bug title" && exit 1
@@ -388,9 +411,9 @@ new_bug() {
 	if check_auth; then
 		USER="$user"
 	fi
-	mkdir -p $bugdir/$count
+	mkdir -p $bugdir/open/$id
 	# bug.conf
-	sed "s/$(echo -en '\r') /\n/g" > $bugdir/$count/bug.conf << EOT
+	sed "s/$(echo -en '\r') /\n/g" > $bugdir/open/$id/bug.conf << EOT
 # SliTaz Bug configuration
 
 BUG="$(GETfiltered bug)"
@@ -401,11 +424,11 @@ DATE="$date"
 PKGS="$(GETfiltered pkgs)"
 EOT
 	# desc.txt
-	sed "s/$(echo -en '\r') /\n/g" > $bugdir/$count/desc.tmp << EOT
+	sed "s/$(echo -en '\r') /\n/g" > $bugdir/open/$id/desc.tmp << EOT
 $(GETfiltered desc)
 EOT
-	fold -s -w 80 $bugdir/$count/desc.tmp > $bugdir/$count/desc.txt
-	rm -f $bugdir/$count/*.tmp
+	fold -s -w 80 $bugdir/open/$id/desc.tmp > $bugdir/open/$id/desc.txt
+	rm -f $bugdir/open/$id/*.tmp
 }
 
 # New bug page for the web interface
@@ -504,6 +527,7 @@ EOT
 
 save_bug() {
 	id="$(GET id)"
+	set_bugdir ${id}
 	# bug.conf
 	sed "s/$(echo -en '\r') /\n/g" > $bugdir/$id/bug.conf << EOT
 # SliTaz Bug configuration
@@ -525,12 +549,14 @@ EOT
 
 # Close a fixed bug
 close_bug() {
-	sed -i s'/OPEN/CLOSED/' $bugdir/$id/bug.conf
+	sed -i s'/OPEN/CLOSED/' $bugdir/open/$id/bug.conf
+	mv $bugdir/open/$id $bugdir/closed/$id
 }
 
 # Re open an old bug
 open_bug() {
-	sed -i s'/CLOSED/OPEN/' $bugdir/$id/bug.conf
+	sed -i s'/CLOSED/OPEN/' $bugdir/closed/$id/bug.conf
+	mv $bugdir/closed/$id $bugdir/open/$id
 }
 
 # Get and display Gravatar image: get_gravatar email size
@@ -658,7 +684,7 @@ case " $(GET) " in
 		header
 		html_header
 		user_box
-		list_bugs CLOSED
+		list_bugs "closed"
 		echo "</pre>"
 		html_footer ;;
 	*\ login\ *)
@@ -706,18 +732,19 @@ EOT
 		fi
 		html_footer ;;
 	*\ addbug\ *)
-		# Save a new bug from web interface.
+		# Save a new bug
 		header
 		html_header
 		if check_auth; then
 			new_bug
-			js_redirection_to "$script?id=$count"
+			js_redirection_to "$script?id=$id"
 		fi ;;
 	*\ editbug\ *)
 		# Edit existing bug
-		id="$(GET editbug)"
 		header
 		html_header
+		id="$(GET editbug)"
+		set_bugdir ${id}
 		user_box
 		edit_bug
 		html_footer ;;
@@ -734,11 +761,11 @@ EOT
 		id="$(GET id)"
 		[ "$(GET close)" ] && close_bug
 		[ "$(GET open)" ] && open_bug
+		set_bugdir ${id}
 		[ "$(GET msg)" ] && new_msg
 		[ "$(GET delmsg)" ] && rm -f $bugdir/$id/msg.$(GET delmsg)
 		msgs=$(fgrep MSG= $bugdir/$id/msg.* | wc -l)
 		user_box
-		. $bugdir/$id/bug.conf
 		bug_page
 		html_footer ;;
 	*\ signup\ *)
@@ -790,10 +817,10 @@ EOT
 		html_footer ;;
 	*)
 		# Default page.
-		bugs=$(ls -1 $bugdir | wc -l)
-		close=$(fgrep "CLOSED" $bugdir/*/bug.conf | wc -l)
-		fixme=$(fgrep "OPEN" $bugdir/*/bug.conf | wc -l)
-		msgs=$(find $bugdir -name msg.* ! -size 0 | wc -l)
+		bugs=$(ls_bugs | wc -l)
+		close=$(ls $bugdir/closed | wc -l)
+		fixme=$(ls $bugdir/open  | wc -l)
+		msgs=$(find $bugdir -name msg.* | wc -l)
 		pct=0
 		[ $bugs -gt 0 ] && pct=$(( ($close * 100) / $bugs ))
 		header
@@ -837,20 +864,22 @@ EOT
 EOT
 		# List last 4 bugs
 		echo "<pre>"
-		for lb in $(ls ${bugdir} | sort -r -n | head -n 4)
+		for lb in $(ls_bugs | sort -n -r | head -n 4)
 		do
 			list_bug ${lb}
 		done
 		echo "</pre>"
+		
 		# List last 4 messages
 		echo "<h3>$(gettext "Latest Messages")</h3>"
 		echo "<pre>"
-		for msg in $(ls -t ${bugdir}/*/msg.* | head -n 4)
+		
+		for msg in $(ls -r $bugdir/*/*/msg.* | head -n 4)
 		do
 			list_msg ${msg}
 		done
 		echo "</pre>"
-		list_bugs OPEN
+		list_bugs open
 		echo "</pre>"
 		html_footer ;;
 esac
