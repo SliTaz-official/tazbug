@@ -7,19 +7,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SliTaz Bugs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-21 01:14+0100\n"
-"PO-Revision-Date: 2014-04-12 15:06+0300\n"
+"POT-Creation-Date: 2017-02-21 11:13+0200\n"
+"PO-Revision-Date: 2017-02-21 11:14+0200\n"
 "Last-Translator: Aleksej Bobylev <al.bobylev@gmail.com>\n"
 "Language-Team: Russian\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Russian\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Poedit-Basepath: ../\n"
+"X-Poedit-Basepath: ..\n"
+"X-Generator: Poedit 1.8.6\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: web/bugs.cgi:131
@@ -56,18 +56,17 @@ msgstr "Создать учетную запись"
 
 #: web/bugs.cgi:181
 msgid "Sign Up Online"
-msgstr "Войти онлайн"
+msgstr "Зарегистрироваться онлайн"
 
 #: web/bugs.cgi:192
-#, fuzzy
 msgid "No account yet?"
-msgstr "Мой аккаунт"
+msgstr "Нет учетной записи?"
 
 #: web/bugs.cgi:194
 msgid "Tip: to attach big files or images, you can use SliTaz Paste services:"
 msgstr ""
-"Совет: чтобы прикрепить большие файлы и изображения, вы можете "
-"воспользоваться службой SliTaz Paste:"
+"Совет: воспользуйтесь службой SliTaz Paste, чтобы прикрепить большие файлы и "
+"изображения:"
 
 #: web/bugs.cgi:206
 msgid "Log in"
@@ -76,21 +75,20 @@ msgstr "Войти"
 #: web/bugs.cgi:232
 #, sh-format
 msgid "$status Bugs"
-msgstr "$status баги"
+msgstr "$status ошибки"
 
 #: web/bugs.cgi:285
 #, sh-format
 msgid "Bug $id: $STATUS"
-msgstr "Баг $id: $STATUS"
+msgstr "Отчет об ошибке $id: $STATUS"
 
 #: web/bugs.cgi:291
 msgid "Date:"
 msgstr "Дата:"
 
 #: web/bugs.cgi:292
-#, fuzzy
 msgid "Creator:"
-msgstr "Создатель         :"
+msgstr "Автор:"
 
 #: web/bugs.cgi:293
 #, sh-format
@@ -107,15 +105,15 @@ msgstr[2] "$msgs сообщений"
 
 #: web/bugs.cgi:306
 msgid "Close bug"
-msgstr "Закрыть баг"
+msgstr "Закрыть отчет"
 
 #: web/bugs.cgi:311
 msgid "Edit bug"
-msgstr "Править баг"
+msgstr "Править отчет"
 
 #: web/bugs.cgi:316
 msgid "Re open bug"
-msgstr "Повторно открыть баг"
+msgstr "Повторно открыть отчет"
 
 #: web/bugs.cgi:323
 msgid "Messages"
@@ -131,15 +129,15 @@ msgstr "Новое сообщение"
 
 #: web/bugs.cgi:352
 msgid "Send message"
-msgstr "Отослать сообщение"
+msgstr "Отправить сообщение"
 
 #: web/bugs.cgi:411
 msgid "New Bug"
-msgstr "Новый баг"
+msgstr "Новый отчет"
 
 #: web/bugs.cgi:419 web/bugs.cgi:472
 msgid "Bug title"
-msgstr "Заголовок бага"
+msgstr "Заголовок"
 
 #: web/bugs.cgi:423 web/bugs.cgi:476
 msgid "Description"
@@ -163,22 +161,21 @@ msgstr "Критический"
 
 #: web/bugs.cgi:437
 msgid "Create Bug"
-msgstr "Создать баг"
+msgstr "Создать отчет"
 
 #: web/bugs.cgi:445
 msgid "* field is obligatory. You can also specify affected packages."
 msgstr ""
-"* поле обязательно для заполнения. Вы можете также указать соответствующие "
-"пакеты."
+"* поле обязательно для заполнения. Вы можете также указать затронутые пакеты."
 
 #: web/bugs.cgi:458
 msgid "You can't edit someone else's bug!"
-msgstr ""
+msgstr "Нельзя править чужие отчеты!"
 
 #: web/bugs.cgi:461
 #, sh-format
 msgid "Edit Bug $bug"
-msgstr "Править баг $bug"
+msgstr "Правка отчета $bug"
 
 #: web/bugs.cgi:491
 msgid "Save configuration"
@@ -190,7 +187,7 @@ msgstr "Такой пользователь уже зарегистрирова�
 
 #: web/bugs.cgi:664
 msgid "Bad login or pass"
-msgstr "Неверный логин или пароль"
+msgstr "Неверное имя пользователя или пароль"
 
 #: web/bugs.cgi:689
 msgid "User name  :"
@@ -198,15 +195,15 @@ msgstr "Имя пользователя:"
 
 #: web/bugs.cgi:690
 msgid "Last login :"
-msgstr "Последний логин:"
+msgstr "Последний вход:"
 
 #: web/bugs.cgi:702
 msgid "You must be logged in to post a new bug"
-msgstr "Чтобы отправить новый баг, вы должны прежде войти"
+msgstr "Прежде чем отправить новый отчет, вы должны войти"
 
 #: web/bugs.cgi:748
 msgid "Sign Up"
-msgstr "Войти"
+msgstr "Зарегистрироваться"
 
 #: web/bugs.cgi:752
 msgid "Online registration is disabled"
@@ -232,9 +229,9 @@ msgstr "Сводка"
 #, sh-format
 msgid "Bug: $bugs in total -"
 msgid_plural "Bugs: $bugs in total -"
-msgstr[0] "Всего: $bugs баг -"
-msgstr[1] "Всего: $bugs бага -"
-msgstr[2] "Всего: $bugs багов -"
+msgstr[0] "Всего: $bugs отчет -"
+msgstr[1] "Всего: $bugs отчета -"
+msgstr[2] "Всего: $bugs отчетов -"
 
 #: web/bugs.cgi:808
 #, sh-format
@@ -248,7 +245,7 @@ msgstr[2] "$close закрыты -"
 #, sh-format
 msgid "$fixme to fix -"
 msgid_plural "$fixme to fix -"
-msgstr[0] "$fixme открыты -"
+msgstr[0] "$fixme открыт -"
 msgstr[1] "$fixme открыты -"
 msgstr[2] "$fixme открыты -"
 
@@ -266,23 +263,20 @@ msgstr ""
 "cook.slitaz.org/\">Cooker</a>. Для поиска введите запрос и нажмите Enter."
 
 #: web/bugs.cgi:826
-#, fuzzy
 msgid "Closed bugs"
-msgstr "Закрыть баг"
+msgstr "Закрытые отчеты"
 
 #: web/bugs.cgi:829
-#, fuzzy
 msgid "Create bug"
-msgstr "Создать баг"
+msgstr "Создать отчет"
 
 #: web/bugs.cgi:835
 msgid "Latest Bugs"
-msgstr "Последние баги"
+msgstr "Последние отчеты"
 
 #: web/bugs.cgi:845
-#, fuzzy
 msgid "Latest Messages"
-msgstr "Сообщения"
+msgstr "Последние сообщения"
 
 #~ msgid "View closed bugs"
 #~ msgstr "Показать закрытые баги"
