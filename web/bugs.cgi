@@ -359,7 +359,7 @@ EOT
 # Write a new message
 new_msg() {
 	date=$(date "+%Y-%m-%d %H:%M")
-	msgs=$(ls -1 $bugdir/$id/msg.* | wc -l)
+	msgs=$(ls -1 $bugdir/$id/msg.* | cut -d "." -f 2 | sort -n | tail -n 1)
 	count=$(($msgs + 1))
 	if check_auth; then
 		USER="$user"
@@ -726,15 +726,13 @@ EOT
 			js_redirection_to "$script?id=$id"
 		fi ;;
 	*\ id\ *)
-		# Empty deleted messages to keep msg count working.
 		header
 		html_header
 		id="$(GET id)"
 		[ "$(GET close)" ] && close_bug
 		[ "$(GET open)" ] && open_bug
 		[ "$(GET msg)" ] && new_msg
-		[ "$(GET delmsg)" ] && rm -f $bugdir/$id/msg.$(GET delmsg) && \
-			touch $bugdir/$id/msg.$(GET delmsg)
+		[ "$(GET delmsg)" ] && rm -f $bugdir/$id/msg.$(GET delmsg)
 		msgs=$(fgrep MSG= $bugdir/$id/msg.* | wc -l)
 		user_box
 		. $bugdir/$id/bug.conf
