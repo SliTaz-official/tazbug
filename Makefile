@@ -8,14 +8,15 @@ WEB?=/var/www
 VAR?=/var/lib/slitaz
 LINGUAS?=de el es fr ja pl pt_BR ru vi zh_CN
 
-all:
+all: msgfmt
 
 # i18n
 
 pot:
 	xgettext -o po/tazbug.pot -L Shell --package-name="SliTaz Bugs" \
 		./web/bugs.cgi 
-		#./tazbug
+	xgettext -o po/cli/tazbug-cli.pot -L Shell --package-name="SliTaz Bugs" \
+		./tazbug
 
 msgmerge:
 	@for l in $(LINGUAS); do \
@@ -33,26 +34,31 @@ msgfmt:
 # Client install only. Server part is not packaged
 
 install:
-	#install -m 0777 -d $(DESTDIR)$(PREFIX)/bin
+	install -m 0777 -d $(DESTDIR)$(PREFIX)/bin
 	install -m 0777 -d $(DESTDIR)$(PREFIX)/share/applications
-	#install -m 0755 tazbug $(DESTDIR)$(PREFIX)/bin
+	install -m 0755 tazbug $(DESTDIR)$(PREFIX)/bin
 	install -m 0644 data/tazbug.desktop \
 		$(DESTDIR)$(PREFIX)/share/applications
 
-# On SliTaz vhost: make install-server WEB=/home/slitaz/www
+# On SliTaz vhost: make install-web WEB=/home/slitaz/www
 
-install-server:
-	install -m 0777 -d $(DESTDIR)/etc/slitaz
+install-web:
 	install -m 0700 -d $(DESTDIR)$(VAR)/people
 	install -m 0700 -d $(DESTDIR)$(VAR)/auth
 	install -m 0777 -d $(DESTDIR)$(WEB)/bugs
-	install -m 0644 tazbug.conf $(DESTDIR)/etc/slitaz
+	# authfile
 	touch $(DESTDIR)$(VAR)/auth/people
+	chmod 0600 $(DESTDIR)$(VAR)/auth/people
+	# admin users
+	touch $(DESTDIR)$(VAR)/auth/admin
 	chmod 0600 $(DESTDIR)$(VAR)/auth/people
 	cp -a web/* $(DESTDIR)$(WEB)/bugs
 	cp README $(DESTDIR)$(WEB)/bugs
 	chown -R www.www $(DESTDIR)$(VAR)/*
 	chown -R www.www $(DESTDIR)$(WEB)/bugs/bug
+	# i18n
+	install -m 0755 -d $(DESTDIR)$(PREFIX)/share/locale
+	cp -a po/mo/* $(DESTDIR)$(PREFIX)/share/locale
 
 # Uninstall client
 

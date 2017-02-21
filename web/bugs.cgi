@@ -823,10 +823,10 @@ enter your term and press ENTER.")
 
 <div id="tools">
 	$BUGS_TOOLS
-	<a href="?closed">$(gettext 'View closed bugs')</a>
+	<a href="?closed">$(gettext 'Closed bugs')</a>
 EOT
 		if check_auth; then
-			echo "<a href='?newbug'>$(gettext 'Create a new bug')</a>"
+			echo "<a href='?newbug'>$(gettext 'Create bug')</a>"
 			echo "$PLUGINS_TOOLS"
 		fi
 		cat << EOT
