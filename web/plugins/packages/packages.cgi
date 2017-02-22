@@ -19,7 +19,7 @@ if [ "$(GET packages)" ] || [ "$(GET pkg)" ]; then
 				dir=$(dirname $bug)
 				id=$(basename $dir)
 				cat << EOT
-<a href="?user=$USER">$(get_gravatar "$MAIL" 24)</a> \
+<img src='images/pkg.png' alt='' /> \
 Bug $id: <a href='$script?id=$id'>$BUG</a> - <span class='date'>$DATE</span>
 EOT
 			fi
@@ -45,7 +45,7 @@ EOT
 			done
 		done
 		for pkg in $pkgs; do
-			echo "<img src='images/pkg.png' /> Package: <a href='?pkg=$pkg'>$pkg</a>"
+			echo "<img src='images/pkg.png' alt='' /> Package: <a href='?pkg=$pkg'>$pkg</a>"
 		done
 		echo "</pre>"
 	fi

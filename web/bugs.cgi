@@ -894,8 +894,7 @@ EOT
 		# List last 4 messages
 		echo "<h3>$(gettext "Latest Messages")</h3>"
 		echo "<pre>"
-		
-		for msg in $(ls -r $bugdir/*/*/msg.* | head -n 4)
+		for msg in $(ls -lt $bugdir/*/*/msg.* | awk '{print $9}' | head -n 4)
 		do
 			list_msg ${msg}
 		done
