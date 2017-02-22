@@ -12,7 +12,7 @@ if [ "$(GET mybugs)" ]; then
 		echo "You must logged to view user bugs" 
 		html_footer && exit 0
 	fi
-	echo "<h2><a href='?user=$USER'>$(get_gravatar "$MAIL" 48)</a> $USER</h2>"
+	echo "<h2><a href='?user=$USER'>$(get_gravatar "$MAIL" 48)</a> $NAME</h2>"
 	. $plugins/mybugs/user.sh
 	html_footer && exit 0
 fi

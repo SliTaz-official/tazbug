@@ -3,8 +3,9 @@
 # This script display bug for a given user. A copy is used on SCN to
 # display user bugs on profile page with a custom config file to set
 # $bugdir.
-#
-[ -f "$plugins/mybugs/user.conf" ] && . $plugins/mybugs/user.conf
+# 
+[ -f "$plugins/mybugs/bugdir.conf" ] && . $plugins/mybugs/bugdir.conf
+[ "$(GET user)" ] && user="$(GET user)"
 
 echo "<h3>My bugs</h3>"
 echo "<pre>"

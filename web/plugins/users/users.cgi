@@ -15,7 +15,7 @@ Email      : $MAIL
 </pre>
 
 <div id="tools">
-	$PLUGINS_TOOLS
+	$PROFILE_TOOLS
 	<a href="$script?modprofile">$(gettext "Modify profile")</a>
 </div>
 EOT

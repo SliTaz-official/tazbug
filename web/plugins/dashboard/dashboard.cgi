@@ -24,15 +24,15 @@ if [ "$(GET dashboard)" ]; then
 	fi
 	if check_auth; then
 		cat << EOT
-<div id="tools">
-	$DASHBOARD_TOOLS $ADMIN_TOOLS
-</div>
 <h2>Dashboard</h2>
 <pre>
 Bugs count       : $(ls_bugs | wc -l)
 Messages count   : $(find $bugdir -name msg.* | wc -l)
 Database size    : $(du -sh $bugdir | awk '{print $1}')
 </pre>
+<div id="tools">
+	$DASHBOARD_TOOLS $ADMIN_TOOLS
+</div>
 EOT
 	
 		# Only for admins
