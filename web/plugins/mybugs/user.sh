@@ -3,19 +3,22 @@
 # This script display bug for a given user. A copy is used on SCN to
 # display user bugs on profile page with a custom config file to set
 # $bugdir.
-# 
+#
 [ -f "$plugins/mybugs/bugdir.conf" ] && . $plugins/mybugs/bugdir.conf
 [ "$(GET user)" ] && user="$(GET user)"
+list="$(fgrep -l $user ${bugdir}/*/*/bug.conf | xargs ls -lt | awk '{print $9}')"
 
-echo "<h3>My bugs</h3>"
-echo "<pre>"
-for bug in $(fgrep -l $user ${bugdir}/*/*/bug.conf | xargs ls -lt | awk '{print $9}')
-do
-	. ${bug}
-	id=$(basename $(dirname $bug))
-	cat << EOT
+if [ "$list" ]; then
+	echo "<h3>My bugs</h3>"
+	echo "<pre>"
+	for bug in ${list}
+	do
+		. ${bug}
+		id=$(basename $(dirname $bug))
+		cat << EOT
 <img src='images/bug.png' alt='' /> \
 Bug $id: <a href="?id=$id">$BUG</a> <span class="date">- $DATE</span>
 EOT
-done
-echo "</pre>"
+	done
+	echo "</pre>"
+fi
