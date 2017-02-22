@@ -27,6 +27,7 @@ if [ "$(GET textmode)" ]; then
 				. ${bugdir}/${bug}/bug.conf
 				echo "Bug: $bug - $BUG"
 			fi
+			bugdir=$(dirname $bugdir)
 		done
 		if [ "$found" == "" ]; then
 			echo "No result found for: $(GET search)"

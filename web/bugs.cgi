@@ -323,7 +323,7 @@ $(cat $bugdir/$id/desc.txt | wiki_parser)
 </pre>
 EOT
 	if [ "$PKGS" ] && [ -x "$plugins/packages/packages.cgi" ]; then
-		echo "<p>"
+		echo "<p style='vertical-align: middle;'>"
 		echo "<strong>$(gettext 'Affected package(s):')</strong>"
 		for pkg in $PKGS; do
 			echo "<a href='?pkg=$pkg'>$pkg</a>"
@@ -572,7 +572,7 @@ get_gravatar() {
 	[ "$size" ] || size=48
 	url="http://www.gravatar.com/avatar"
 	md5=$(md5crypt $email)
-	echo "<img src=\"$url/$md5?d=identicon&amp;s=$size\" alt=\"\" />"
+	echo "<img src='$url/$md5?d=identicon&amp;s=$size' alt='' />"
 }
 
 # Create a new user in AUTH_FILE and PEOPLE
@@ -684,6 +684,7 @@ case " $(GET) " in
 		fi
 		echo '</pre>'
 		html_footer ;;
+		
 	*\ closed\ *)
 		# Show all closed bugs.
 		header
@@ -692,6 +693,7 @@ case " $(GET) " in
 		list_bugs "closed"
 		echo "</pre>"
 		html_footer ;;
+		
 	*\ login\ *)
 		# The login page
 		[ "$(GET error)" ] && \
@@ -701,6 +703,7 @@ case " $(GET) " in
 		user_box
 		login_page
 		html_footer ;;
+		
 	*\ logout\ *)
 		header
 		html_header
@@ -709,6 +712,7 @@ case " $(GET) " in
 			js_unset_cookie 'auth'
 			js_redirection_to "$script"
 		fi ;;
+		
 	*\ user\ *)
 		# User profile. Use the users plugin for more functions
 		last="$(cat $PEOPLE/"$(GET user)"/last)"
@@ -725,6 +729,7 @@ $(gettext "Last login :") $last
 </pre>
 EOT
 		html_footer ;;
+		
 	*\ newbug\ *)
 		# Create a bug from web interface.
 		header
@@ -736,6 +741,7 @@ EOT
 			echo "<p>$(gettext 'You must be logged in to post a new bug')</p>"
 		fi
 		html_footer ;;
+		
 	*\ addbug\ *)
 		# Save a new bug
 		header
@@ -744,6 +750,7 @@ EOT
 			new_bug
 			js_redirection_to "$script?id=$id"
 		fi ;;
+		
 	*\ editbug\ *)
 		# Edit existing bug
 		header
@@ -753,16 +760,17 @@ EOT
 		user_box
 		edit_bug
 		html_footer ;;
+		
 	*\ savebug\ *)
-		header
-		html_header
 		if check_auth; then
 			save_bug
 			js_redirection_to "$script?id=$id"
 		fi ;;
+		
 	*\ id\ *)
 		header
 		html_header
+		user_box
 		id="$(GET id)"
 		[ "$(GET close)" ] && close_bug
 		[ "$(GET open)" ] && open_bug
@@ -770,9 +778,9 @@ EOT
 		[ "$(GET msg)" ] && new_msg
 		[ "$(GET delmsg)" ] && rm -f $bugdir/$id/msg.$(GET delmsg)
 		msgs=$(fgrep MSG= $bugdir/$id/msg.* | wc -l)
-		user_box
 		bug_page
 		html_footer ;;
+		
 	*\ signup\ *)
 		# Signup
 		header

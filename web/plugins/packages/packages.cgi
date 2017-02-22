@@ -18,11 +18,18 @@ if [ "$(GET packages)" ] || [ "$(GET pkg)" ]; then
 			if echo "$PKGS" | fgrep -q "$pkg"; then
 				dir=$(dirname $bug)
 				id=$(basename $dir)
-				echo "Bug $id: <a href='$script?id=$id'>$BUG</a> \
-- <span class='date'>$DATE</span>"
+				cat << EOT
+<a href="?user=$USER">$(get_gravatar "$MAIL" 24)</a> \
+Bug $id: <a href='$script?id=$id'>$BUG</a> - <span class='date'>$DATE</span>
+EOT
 			fi
 		done
-		echo "</pre>"
+		cat << EOT
+</pre>
+<div id="tools">
+	<a href="$script?packages">Buggy packages</a>
+</div>
+EOT
 	else
 		# List all pkgs affected by a bug
 		echo "<h2>Buggy packages</h2>"
@@ -38,7 +45,7 @@ if [ "$(GET packages)" ] || [ "$(GET pkg)" ]; then
 			done
 		done
 		for pkg in $pkgs; do
-			echo "Package: <a href='?pkg=$pkg'>$pkg</a>"
+			echo "<img src='images/pkg.png' /> Package: <a href='?pkg=$pkg'>$pkg</a>"
 		done
 		echo "</pre>"
 	fi
