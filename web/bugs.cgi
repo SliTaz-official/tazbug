@@ -278,6 +278,7 @@ EOT
 # Usage: list_msg path
 list_msg() {
 	msg="$1"
+	msgid=$(echo $msg | cut -d "." -f 2)
 	dir=$(dirname $msg)
 	id=$(basename $dir)
 	. ${msg}
@@ -285,7 +286,8 @@ list_msg() {
 		. ${PEOPLE}/${USER}/account.conf
 	cat << EOT
 <a href="?user=$USER">$(get_gravatar "$MAIL" 24)</a> \
-<a href="?id=$id">Bug $id</a>: by $USER <span class="date">- $DATE</span>
+<a href="?id=$id">Bug $id</a>: <span class="date">$DATE</span> \
+$USER: <a href="?id=$id#msg${msgid}">$(echo $MSG | cut -c 1-40)...</a>
 EOT
 	unset CREATOR USER MAIL
 }
@@ -362,10 +364,10 @@ EOT
 			del=""
 			# User can delete his post as well as admin.
 			if [ "$user" == "$USER" ] || admin_user; then
-				del="<a href=\"?id=$id&amp;delmsg=$msgid\">delete</a>"
+				del="- <a href=\"?id=$id&amp;delmsg=$msgid\">delete</a>"
 			fi
 			cat << EOT
-<p><strong>$USER</strong> $DATE $del</p>
+<h4 id="msg${msgid}">$(gettext "By:") <a href="?user=$USER">$USER</a> on $DATE $del</h4>
 <pre>
 $(echo "$MSG" | wiki_parser)
 </pre>
@@ -881,7 +883,7 @@ EOT
 		cat << EOT
 </div>
 
-<h3>$(gettext "Latest Bugs")</h3>
+<h3>$(gettext "Latest bugs")</h3>
 EOT
 		# List last 4 bugs
 		echo "<pre>"
@@ -892,7 +894,7 @@ EOT
 		echo "</pre>"
 		
 		# List last 4 messages
-		echo "<h3>$(gettext "Latest Messages")</h3>"
+		echo "<h3>$(gettext "Latest messages")</h3>"
 		echo "<pre>"
 		for msg in $(ls -lt $bugdir/*/*/msg.* | awk '{print $9}' | head -n 4)
 		do

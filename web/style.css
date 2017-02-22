@@ -4,7 +4,8 @@ html { min-height: 102%; }
 body { font: 13px sans-serif, vernada, arial; margin: 0; }
 h1 { margin: 0; padding: 8px; color: #fff; font-size: 20px; }
 h1 a { color: #fff; text-decoration: none; }
-h2 { color: #444; } h3 { color: #666; font-size: 140%; }
+h2 { color: #444; } h3 { font-size: 140%; }
+h3, h4 { color: #666; }
 a { text-decoration: none; color: #215090; }
 a:hover { text-decoration: underline; }
 img { border: 0pt none; vertical-align: middle; }

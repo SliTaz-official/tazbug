@@ -6,18 +6,51 @@
 #
 [ -f "$plugins/mybugs/bugdir.conf" ] && . $plugins/mybugs/bugdir.conf
 [ "$(GET user)" ] && user="$(GET user)"
+url="http://bugs.slitaz.org/"
 
-if fgrep -q -l "$user" ${bugdir}/*/*/bug.conf; then
-	echo "<h3>My bugs</h3>"
+if fgrep -q -l "CREATOR=\"$user\"" ${bugdir}/*/*/bug.conf; then
+	show_more="0"
+	echo "<h3>Latest bugs</h3>"
 	echo "<pre>"
-	for bug in $(fgrep -l $user ${bugdir}/*/*/bug.conf | xargs ls -lt | awk '{print $9}')
+	for bug in $(fgrep -l "CREATOR=\"$user\"" ${bugdir}/*/*/bug.conf | \
+		xargs ls -lt | awk '{print $9}' | head -n 4)
 	do
 		. ${bug}
 		id=$(basename $(dirname $bug))
 		cat << EOT
 <img src='images/bug.png' alt='' /> \
-Bug $id: <a href="?id=$id">$BUG</a> <span class="date">- $DATE</span>
+Bug $id: <a href="${url}/?id=$id">$BUG</a> <span class="date">- $DATE</span>
 EOT
 	done
 	echo "</pre>"
+fi
+
+if fgrep -q -l "USER=\"$user\"" ${bugdir}/*/*/msg.*; then
+	show_more="0"
+	echo "<h3>Latest debug messages</h3>"
+	echo "<pre>"
+	for msg in $(fgrep -l "USER=\"$user\"" ${bugdir}/*/*/msg.* | \
+		xargs ls -lt | awk '{print $9}' | head -n 4)
+	do
+		. ${msg}
+		id=$(basename $(dirname $msg))
+		msgid=$(echo $msg | cut -d "." -f 2)
+		cat << EOT
+<img src='images/bug.png' alt='' /> \
+<a href="${url}/?id=$id">Bug $id:</a> <span class="date">$DATE</span> \
+<a href="${url}/?id=$id#msg${msgid}">$(echo $MSG | cut -c 1-40)...</a>
+EOT
+	done
+	echo "</pre>"
+fi
+
+if [ "$show_more" ]; then
+	echo "<p>"
+	if [ "$HTTP_HOST" == "bugs.slitaz.org" ]; then
+		echo "<a href='?mybugs&user=$user'>$(gettext 'View all bugs and messages')</a>"
+	else
+		echo "$(gettext 'View all my bugs and debug messages on:') "
+		echo "<a href='?mybugs&user=$user'>bugs.slitaz.org</a>"
+	fi
+	echo "</p>"
 fi
