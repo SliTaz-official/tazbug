@@ -19,7 +19,7 @@ if fgrep -q -l "CREATOR=\"$user\"" ${bugdir}/*/*/bug.conf; then
 		id=$(basename $(dirname $bug))
 		cat << EOT
 <img src='images/bug.png' alt='' /> \
-Bug $id: <a href="${url}/?id=$id">$BUG</a> <span class="date">- $DATE</span>
+Bug $id: <a href="${url}?id=$id">$BUG</a> <span class="date">- $DATE</span>
 EOT
 	done
 	echo "</pre>"
@@ -29,6 +29,7 @@ if fgrep -q -l "USER=\"$user\"" ${bugdir}/*/*/msg.*; then
 	show_more="0"
 	echo "<h3>Latest debug messages</h3>"
 	echo "<pre>"
+	
 	for msg in $(fgrep -l "USER=\"$user\"" ${bugdir}/*/*/msg.* | \
 		xargs ls -lt | awk '{print $9}' | head -n 4)
 	do
@@ -36,10 +37,11 @@ if fgrep -q -l "USER=\"$user\"" ${bugdir}/*/*/msg.*; then
 		id=$(basename $(dirname $msg))
 		msgid=$(echo $msg | cut -d "." -f 2)
 		cat << EOT
-<img src='images/bug.png' alt='' /> \
-<a href="${url}/?id=$id">Bug $id:</a> <span class="date">$DATE</span> \
-<a href="${url}/?id=$id#msg${msgid}">$(echo $MSG | cut -c 1-40)...</a>
+<img src='images/bug.png' alt='' /> msg $msgid \
+<a href="?id=$id">Bug $id:</a> <span class="date">$DATE</span> \
+<a href="?id=$id#msg${msgid}">$(echo "$MSG" | cut -c 1-40)...</a>
 EOT
+		unset USER DATE MSG
 	done
 	echo "</pre>"
 fi
