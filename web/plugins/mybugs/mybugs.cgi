@@ -22,7 +22,7 @@ if [ "$(GET mybugs)" ]; then
 		echo "<h3>$(gettext 'My bugs')</h3>"
 		echo "<pre>"
 		for bug in $(fgrep -l "CREATOR=\"$user\"" ${bugdir}/*/*/bug.conf | \
-			xargs ls -lt | awk '{print $9}' | head -n 4)
+			xargs ls -lt | awk '{print $9}')
 		do
 			. ${bug}
 			id=$(basename $(dirname $bug))
@@ -38,16 +38,16 @@ EOT
 		echo "<h3>Debug messages</h3>"
 		echo "<pre>"
 		for msg in $(fgrep -l "USER=\"$user\"" ${bugdir}/*/*/msg.* | \
-			xargs ls -lt | awk '{print $9}' | head -n 4)
+			xargs ls -lt | awk '{print $9}')
 		do
 			. ${msg}
 			id=$(basename $(dirname $msg))
 			msgid=$(echo $msg | cut -d "." -f 2)
-			msg="$(echo $MSG | cut -c 1-40)"
+			message="$(fgrep MSG= $msg | cut -d \" -f 2 | cut -c 1-40)"
 			cat << EOT
 <img src='images/bug.png' alt='' /> \
 <a href="?id=$id">Bug $id:</a> <span class="date">$DATE</span> \
-<a href="?id=$id#msg${msgid}">${msg}...</a>
+<a href="?id=$id#msg${msgid}">${message}...</a>
 EOT
 		done
 		echo "</pre>"

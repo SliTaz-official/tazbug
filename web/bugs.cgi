@@ -281,13 +281,14 @@ list_msg() {
 	msgid=$(echo $msg | cut -d "." -f 2)
 	dir=$(dirname $msg)
 	id=$(basename $dir)
+	resume="$(fgrep MSG= $msg | cut -d \" -f 2 | cut -c 1-40)"
 	. ${msg}
 	[ -f "${PEOPLE}/${USER}/account.conf" ] && \
 		. ${PEOPLE}/${USER}/account.conf
 	cat << EOT
 <a href="?user=$USER">$(get_gravatar "$MAIL" 24)</a> \
 <a href="?id=$id">Bug $id</a>: <span class="date">$DATE</span> \
-$USER: <a href="?id=$id#msg${msgid}">$(echo $MSG | cut -c 1-40)...</a>
+$USER: <a href="?id=$id#msg${msgid}">${resume}...</a>
 EOT
 	unset CREATOR USER MAIL
 }

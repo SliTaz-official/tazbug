@@ -36,13 +36,12 @@ if fgrep -q -l "USER=\"$user\"" ${bugdir}/*/*/msg.*; then
 		. ${msg}
 		id=$(basename $(dirname $msg))
 		msgid=$(echo $msg | cut -d "." -f 2)
-		msg="$(echo $MSG | cut -c 1-40)"
+		message="$(fgrep MSG= $msg | cut -d \" -f 2 | cut -c 1-40)"
 		cat << EOT
-<img src='images/bug.png' alt='' /> msg $msgid \
+<img src='images/bug.png' alt='' /> \
 <a href="?id=$id">Bug $id:</a> <span class="date">$DATE</span> \
-<a href="?id=$id#msg${msgid}">${msg}...</a>
+<a href="?id=$id#msg${msgid}">${message}...</a>
 EOT
-		unset USER DATE MSG
 	done
 	echo "</pre>"
 fi
@@ -50,7 +49,7 @@ fi
 if [ "$show_more" ]; then
 	echo "<p>"
 	if [ "$HTTP_HOST" == "bugs.slitaz.org" ]; then
-		echo "<a href='?mybugs&user=$user'>$(gettext 'View all bugs and messages')</a>"
+		echo "<a href='?mybugs&user=$user'>$(gettext 'View all my bugs and messages')</a>"
 	else
 		echo "$(gettext 'View all my bugs and debug messages on:') "
 		echo "<a href='?mybugs&user=$user'>bugs.slitaz.org</a>"
