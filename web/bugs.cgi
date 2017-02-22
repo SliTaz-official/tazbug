@@ -115,10 +115,10 @@ check_auth() {
 
 # Check if user is admin
 admin_user() {
-	fgrep -w -q "$user" ${ADMIN_USERS}
+	grep -w -q "$user" ${ADMIN_USERS}
 }
 
-# Authenticated or not
+# Authenticated or not (login/logout are not translated to keep css width)
 user_box() {
 	
 	IDLOC=""
@@ -131,14 +131,14 @@ user_box() {
 		cat << EOT
 <div id="user">
 <a href="?user=$user">$(get_gravatar $MAIL 20)</a>
-<a href="?logout">$(gettext 'Logout')</a>
+<a href="?logout">Logout</a>
 </div>
 EOT
 	else
 	cat << EOT
 	<div id="user">
 	<a href="?login$IDLOC"><img src="images/avatar.png" alt="[ User ]" /></a>
-	<a href="?login$IDLOC">$(gettext 'Login')</a>
+	<a href="?login$IDLOC">Login</a>
 	</div>
 EOT
 	fi
@@ -247,7 +247,7 @@ list_bug() {
 	. ${PEOPLE}/${CREATOR}/account.conf
 	cat << EOT
 <a href="?user=$USER">$(get_gravatar "$MAIL" 24)</a> \
-ID $id: <a href="?id=$id">$BUG</a> <span class="date">- $DATE</span>
+Bug $id: <a href="?id=$id">$BUG</a> <span class="date">- $DATE</span>
 EOT
 	unset CREATOR USER MAIL bugpath
 }
@@ -267,7 +267,7 @@ list_bugs() {
 					. ${PEOPLE}/${CREATOR}/account.conf
 				cat << EOT
 <a href="?user=$USER">$(get_gravatar "$MAIL" 24)</a> \
-ID $id: <a href="?id=$id">$BUG</a> <span class="date">- $DATE</span>
+Bug $id: <a href="?id=$id">$BUG</a> <span class="date">- $DATE</span>
 EOT
 			fi
 			unset CREATOR USER MAIL BUG
@@ -285,7 +285,7 @@ list_msg() {
 		. ${PEOPLE}/${USER}/account.conf
 	cat << EOT
 <a href="?user=$USER">$(get_gravatar "$MAIL" 24)</a> \
-ID: <a href="?id=$id">Bug $id</a> by $USER <span class="date">- $DATE</span>
+<a href="?id=$id">Bug $id</a>: by $USER <span class="date">- $DATE</span>
 EOT
 	unset CREATOR USER MAIL
 }
@@ -310,9 +310,7 @@ bug_page() {
 	cat << EOT
 <h2>$(eval_gettext 'Bug $id: $STATUS')</h2>
 
-<p>
-	$(get_gravatar $MAIL 32) <strong>$BUG</strong>
-</p>
+<h3>$(get_gravatar $MAIL 32) $BUG</h3>
 <p>
 	$(gettext "Date:") $DATE -
 	$(gettext "Creator:") <a href="?user=$CREATOR">$CREATOR</a> -
@@ -323,9 +321,16 @@ bug_page() {
 <pre>
 $(cat $bugdir/$id/desc.txt | wiki_parser)
 </pre>
-
-<div id="tools">
 EOT
+	if [ "$PKGS" ] && [ -x "$plugins/packages/packages.cgi" ]; then
+		echo "<p>"
+		echo "<strong>$(gettext 'Affected package(s):')</strong>"
+		for pkg in $PKGS; do
+			echo "<a href='?pkg=$pkg'>$pkg</a>"
+		done
+		echo "</p>"
+	fi
+	echo '<div id="tools">'
 	if check_auth; then
 		if [ "$STATUS" == "OPEN" ]; then
 			cat << EOT
@@ -404,7 +409,7 @@ EOT
 new_bug() {
 	count=$(ls_bugs | sort -g | tail -n 1)
 	id=$(($count +1))
-	date=$(date "+%Y-%m-%d %H:%M")
+	date=$(date "+%Y-%m-%d")
 	# Sanity check, JS may be disabled.
 	[ ! "$(GET bug)" ] && echo "Missing bug title" && exit 1
 	[ ! "$(GET desc)" ] && echo "Missing bug description" && exit 1
@@ -793,28 +798,36 @@ EOT
 	<input type="submit" value="$(gettext 'Search')" />
 </form>
 <div>
+<p>
+	$(gettext 'Search by pattern, package or user')
+</p>
 EOT
-		cd $bugdir
-		for bug in *
+		if [ ! "$(GET search)" ]; then
+			html_footer && exit 0
+		else
+			echo "<h3>$(gettext 'Result for:') $(GET search)</h3>"
+		fi
+		for id in $(ls_bugs)
 		do
-			result=$(fgrep -i -h "$(GET search)" $bug/*)
+			set_bugdir "$id"
+			result=$(fgrep -i -h "$(GET search)" $bugdir/$id/*)
 			if [ "$result" ]; then
 				found=$(($found + 1))
-				id=${bug}
-				echo "<p><strong>Bug $id</strong> <a href=\"?id=$id\">"$(gettext 'Show')"</a></p>"
+				echo "<p><strong>Bug $id</strong> - <a href=\"?id=$id\">"$(gettext 'Show')"</a></p>"
 				echo '<pre>'
-				fgrep -i -h "$(GET search)" $bugdir/$id/* | \
+				echo "$result" | \
 					sed s"/$(GET search)/<span class='ok'>$(GET search)<\/span>/"g
 				echo '</pre>'
 			fi
+			bugdir=$(dirname $bugdir)
 		done
 		if [ "$found" == "0" ]; then
 			echo "<p>$(gettext 'No result found for') : $(GET search)</p>"
 		else
 			echo "<p> $found $(gettext 'results found')</p>"
 		fi
-		echo '</div>'
-		html_footer ;;
+		echo '</div>' && html_footer ;;
+	
 	*)
 		# Default page.
 		bugs=$(ls_bugs | wc -l)

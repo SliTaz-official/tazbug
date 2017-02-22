@@ -13,12 +13,14 @@ if [ "$(GET textmode)" ]; then
 	case " $(GET) " in
 		
 	*\ stats\ *)
-		echo "Bugs count     : $(ls $bugdir | wc -l)" 
+		echo "Bugs count     : $(ls_bugs | wc -l)"
+		echo "Messages count : $(find $bugdir -name msg.* | wc -l)"
 		echo "Database size  : $(du -sh $bugdir | awk '{print $1}')" ;;
 	
 	*\ search\ *)
-		for bug in $(ls $bugdir)
+		for bug in $(ls_bugs)
 		do
+			set_bugdir "$bug"
 			result=$(fgrep -i -h "$(GET search)" $bugdir/$bug/*)
 			if [ "$result" ]; then
 				found=$(($found + 1))
@@ -35,6 +37,7 @@ if [ "$(GET textmode)" ]; then
 	*\ id\ *)
 		# Show bug information and description
 		id=$(GET id)
+		set_bugdir "$id"
 		if [ -f "$bugdir/$id/bug.conf" ]; then
 			. ${bugdir}/${id}/bug.conf
 			cat << EOT

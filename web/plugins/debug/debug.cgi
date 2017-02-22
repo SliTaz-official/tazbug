@@ -14,6 +14,7 @@ if [ "$(GET debug)" ]; then
 	cat << EOT
 <div id="tools">
 	<a href="$script?dashboard">Dashboard</a>
+	<a href="$script?debug">Recheck</a>
 </div>
 <h2>Debug interface</h2>
 <p>
@@ -23,6 +24,7 @@ EOT
 	# Handle ?debug&del request
 	if [ "$(GET del)" ]; then
 		id="$(GET del)"
+		set_bugdir "$id"
 		if [ -d "${bugdir}/${id}" ]; then
 			echo -n "<pre>Removing bug ID: $id... "
 			rm -rf ${bugdir}/${id}
@@ -32,8 +34,9 @@ EOT
 
 	# Check for bug DB consistency
 	echo "<h3>Checking for bug.conf consistency</h3>"
-	for id in $(ls $bugdir | sort -g)
+	for id in $(ls_bugs | sort -g)
 	do
+		set_bugdir "$id"
 		if [ $(cat ${bugdir}/${id}/bug.conf | wc -l) != 8 ]; then
 			echo "<pre>"
 			echo -n "ERROR: bug ID $id"
@@ -65,9 +68,10 @@ EOT
 				echo "</pre>"
 			fi
 		fi
+		bugdir=$(dirname $bugdir)
 		unset miss
 	done
-	echo "$(ls -1 $bugdir | wc -l) bugs scanned"
+	echo "$(ls_bugs | wc -l) bugs scanned"
 	
 	# Check for messages consistency
 	echo "<h3>Checking for empty messages</h3>"
@@ -76,7 +80,7 @@ EOT
 	if  [ "$empty" ]; then
 		echo "<pre>"
 		cd ${bugdir}
-		for msg in */msg.*
+		for msg in */*/msg.*
 		do
 			if [ ! -s "$msg" ]; then
 				# Delete msg ?
