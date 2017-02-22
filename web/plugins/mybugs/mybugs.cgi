@@ -43,10 +43,11 @@ EOT
 			. ${msg}
 			id=$(basename $(dirname $msg))
 			msgid=$(echo $msg | cut -d "." -f 2)
+			msg="$(echo $MSG | cut -c 1-40)"
 			cat << EOT
 <img src='images/bug.png' alt='' /> \
 <a href="?id=$id">Bug $id:</a> <span class="date">$DATE</span> \
-<a href="?id=$id#msg${msgid}">$(echo "$MSG" | cut -c 1-40)...</a>
+<a href="?id=$id#msg${msgid}">${msg}...</a>
 EOT
 		done
 		echo "</pre>"
