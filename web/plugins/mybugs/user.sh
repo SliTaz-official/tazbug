@@ -6,12 +6,11 @@
 #
 [ -f "$plugins/mybugs/bugdir.conf" ] && . $plugins/mybugs/bugdir.conf
 [ "$(GET user)" ] && user="$(GET user)"
-list="$(fgrep -l $user ${bugdir}/*/*/bug.conf | xargs ls -lt | awk '{print $9}')"
 
-if [ "$list" ]; then
+if fgrep -q -l "$user" ${bugdir}/*/*/bug.conf; then
 	echo "<h3>My bugs</h3>"
 	echo "<pre>"
-	for bug in ${list}
+	for bug in $(fgrep -l $user ${bugdir}/*/*/bug.conf | xargs ls -lt | awk '{print $9}')
 	do
 		. ${bug}
 		id=$(basename $(dirname $bug))
