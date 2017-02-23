@@ -9,7 +9,7 @@ if [ "$(GET mybugs)" ]; then
 	html_header
 	user_box
 	if ! check_auth; then
-		echo "You must be logged to view user bugs" 
+		echo "You must be logged in to view user bugs" 
 		html_footer && exit 0
 	fi
 	if [ "$(GET user)" ]; then

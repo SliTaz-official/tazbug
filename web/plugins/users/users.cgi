@@ -216,7 +216,7 @@ EOT
 			cat $PEOPLE/$USER/profile.txt | wiki_parser
 		fi
 		
-		# Run user.sh that plugins can provide to add content to a profile
+		# Run user.sh so that plugins can provide to add content to a profile
 		for script in $(ls $plugins/*/user.sh); do
 			. ${script}
 		done

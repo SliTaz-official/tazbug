@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# This script display bug for a given user. A copy is used on SCN to
+# This script displays bugs for a given user. A copy is used on SCN to
 # display user bugs on profile page with a custom config file to set
 # $bugdir.
 #

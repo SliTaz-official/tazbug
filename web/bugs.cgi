@@ -360,8 +360,8 @@ EOT
 	for msg in $(ls -1tr $bugdir/$id/msg.*)
 	do
 		#
-		# MSG="`tazlocale` should do the work..." make msg.N unsoursable
-		# Move to text file fo msg content, ex: msg.1.conf msg.1.txt
+		# MSG="`tazlocale` should do the work..." make msg.N unsourcable
+		# Move to text file for msg content, ex: msg.1.conf msg.1.txt
 		#
 		if ! . ${msg}; then
 			echo "<pre>"
