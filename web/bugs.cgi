@@ -288,7 +288,7 @@ list_msg() {
 	cat << EOT
 <a href="?user=$USER">$(get_gravatar "$MAIL" 24)</a> \
 <a href="?id=$id">Bug $id</a>: <span class="date">$DATE</span> \
-$USER: <a href="?id=$id#msg${msgid}">${resume}...</a>
+<a href="?id=$id#msg${msgid}">${resume}...</a>
 EOT
 	unset CREATOR USER MAIL
 }
@@ -359,7 +359,16 @@ EOT
 	[ "$msgs" == "0" ] && gettext "No messages"
 	for msg in $(ls -1tr $bugdir/$id/msg.*)
 	do
-		. $msg
+		#
+		# MSG="`tazlocale` should do the work..." make msg.N unsoursable
+		# Move to text file fo msg content, ex: msg.1.conf msg.1.txt
+		#
+		if ! . ${msg}; then
+			echo "<pre>"
+			echo "<span class='error'>ERROR: sourcing $(basename $msg)</span>"
+			cat ${msg}
+			echo "</pre>"
+		fi
 		if [ "$MSG" ]; then
 			msgid=$(echo $msg | cut -d "." -f 2)
 			del=""
@@ -373,6 +382,9 @@ EOT
 $(echo "$MSG" | wiki_parser)
 </pre>
 EOT
+#
+# BUG: $(echo "$MSG" | wiki_parser)
+#
 		fi
 		unset USER DATE MSG
 	done
