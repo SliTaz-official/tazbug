@@ -176,6 +176,7 @@ EOT
 		user_box
 		account_config="$PEOPLE/$(GET user)/account.conf"
 		profile_config="$PEOPLE/$(GET user)/profile.conf"
+		
 		# account.conf
 		if [ ! -f "$account_config" ]; then
 			echo "No user profile for: $(GET user)"
@@ -183,18 +184,12 @@ EOT
 		else
 			. ${account_config}
 		fi
-		# Init profile.conf
-		if [ -f "${profile_config}" ]; then
+		
+		# profile.conf
+		if [ -f "$profile_config" ]; then
 			. ${profile_config}
-		else
-			cat > $PEOPLE/$user/profile.conf << EOT
-# User profile
-WEBSITE="$website"
-FACEBOOK="$facebook"
-TWITTER="$twitter"
-EOT
-			chmod 0600 $PEOPLE/$user/profile.conf
 		fi
+		
 		cat << EOT
 <h2>$(get_gravatar $MAIL) $NAME</h2>
 
@@ -216,7 +211,7 @@ EOT
 			cat $PEOPLE/$USER/profile.txt | wiki_parser
 		fi
 		
-		# Run user.sh so that plugins can provide to add content to a profile
+		# Run user.sh that plugins can provide to add content to a profile
 		for script in $(ls $plugins/*/user.sh); do
 			. ${script}
 		done
