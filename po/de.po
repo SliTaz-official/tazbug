@@ -1,14 +1,14 @@
 # German translations for tazbug package.
-# Copyright (C) 2016 SliTaz
+# Copyright (C) 2017 SliTaz
 # This file is distributed under the same license as the tazbug package.
-# Hans-Günter Theisgen, 2016.
+# Hans-Günter Theisgen, 2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: SliTaz Bugs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-21 01:14+0100\n"
-"PO-Revision-Date: 2016-12-04 09:46+0100\n"
+"POT-Creation-Date: 2017-02-21 03:34+0100\n"
+"PO-Revision-Date: 2017-10-09 15:40+0100\n"
 "Last-Translator: Hans-Günter Theisgen\n"
 "Language-Team: German\n"
 "Language: de\n"
@@ -54,9 +54,8 @@ msgid "Sign Up Online"
 msgstr "Registrieren"
 
 #: web/bugs.cgi:192
-#, fuzzy
 msgid "No account yet?"
-msgstr "Meine Benutzerkennung"
+msgstr "Noch keine Benutzerkennung?"
 
 #: web/bugs.cgi:194
 msgid "Tip: to attach big files or images, you can use SliTaz Paste services:"
@@ -83,7 +82,7 @@ msgstr "Datum:"
 
 #: web/bugs.cgi:292
 msgid "Creator:"
-msgstr ""
+msgstr "Erstellt von:"
 
 #: web/bugs.cgi:293
 #, sh-format
@@ -165,7 +164,7 @@ msgstr ""
 
 #: web/bugs.cgi:458
 msgid "You can't edit someone else's bug!"
-msgstr ""
+msgstr "Die Fehlermeldung eines anderen dürfen Sie nicht bearbeiten!"
 
 #: web/bugs.cgi:461
 #, sh-format
@@ -249,18 +248,16 @@ msgid ""
 "slitaz.org/\">Cooker</a>. To perform a search enter your term and press "
 "ENTER."
 msgstr ""
-"Hilfe und weitere Informationen finden Sie in <a href=\"?README\">README</"
-"a>. Auch <a href=\"http://roadmap.slitaz.org/\">Roadmap</a> und der Paket-<a "
-"href=\"http://cook.slitaz.org/\">'Kocher'</a> könnten Sie interessieren. Zum "
-"Suchen geben Sie einen Suchbegriff ein und drücken Sie ENTER."
+"Hilfe und weitere Informationen finden Sie in <a href=\"?README\">README</a>. "
+"Auch <a href=\"http://roadmap.slitaz.org/\">Planung</a> und der "
+"<a href=\"http://cook.slitaz.org/\">Paket-Erzeuger</a> könnten Sie interessieren. "
+"Zum Suchen geben Sie einen Suchbegriff ein und drücken Sie ENTER."
 
 #: web/bugs.cgi:826
-#, fuzzy
 msgid "Closed bugs"
-msgstr "Fehlermeldung schließen"
+msgstr "Geschlossene Fehlermeldungen"
 
 #: web/bugs.cgi:829
-#, fuzzy
 msgid "Create bug"
 msgstr "Fehlermeldung erstellen"
 
@@ -269,110 +266,5 @@ msgid "Latest Bugs"
 msgstr "Neueste Fehlermeldungen"
 
 #: web/bugs.cgi:845
-#, fuzzy
 msgid "Latest Messages"
 msgstr "Nachrichten"
-
-#~ msgid "View closed bugs"
-#~ msgstr "Geschlossene Fehlermeldungen ansehen"
-
-#~ msgid "Create a new bug"
-#~ msgstr "Einen neuen Fehler melden"
-
-#~ msgid "Or:"
-#~ msgstr "Oder:"
-
-#~ msgid ""
-#~ "No account yet? You can signup using the SliTaz Bugs reporter on your "
-#~ "SliTaz system."
-#~ msgstr ""
-#~ "Sie haben noch keine Benutzerkennung? Mit dem SliTaz-Fehlermeldeprogramm "
-#~ "tazbug auf Ihrem SliTaz-System können Sie sich registrieren."
-
-#~ msgid "Usage:"
-#~ msgstr "Anwendung:"
-
-#~ msgid "[command] [args]"
-#~ msgstr "[command] [args]"
-
-#~ msgid "Commands:"
-#~ msgstr "Kommandos:"
-
-#~ msgid "Recreate the SliTaz secure key."
-#~ msgstr "SliTaz-Sicherheitsschlüssel neu erstellen."
-
-#~ msgid "Create a new SliTaz account configuration."
-#~ msgstr "Neue SliTaz-Benutzerkonfiguration erstellen."
-
-#~ msgid "Create a new account on SliTaz Bugs."
-#~ msgstr "Eine neue Benutzerkennung bei 'SliTaz Bugs' einrichten."
-
-#~ msgid "Send a new message to an open bug."
-#~ msgstr "Eine neue Nachricht für eine offene Fehlermeldung versenden."
-
-#~ msgid "Send a new bug report."
-#~ msgstr "Einen neuen Fehler melden."
-
-#~ msgid "Examples:"
-#~ msgstr "Beispiele:"
-
-#~ msgid "Missing real name"
-#~ msgstr "Der Name der Person fehlt"
-
-#~ msgid "Missing login name"
-#~ msgstr "Der Benutzername fehlt"
-
-#~ msgid "Missing email"
-#~ msgstr "Die email-Adresse fehlt"
-
-#~ msgid "Missing password"
-#~ msgstr "Das Benutzerkennwort fehlt"
-
-#~ msgid "Creating SliTaz account configuration..."
-#~ msgstr "Neue SliTaz-Benutzerkonfiguration wird erstellt..."
-
-#~ msgid "Creating SliTaz secure key..."
-#~ msgstr "SliTaz-Sicherheitsschlüssel wird erstellt..."
-
-#~ msgid "Missing bug ID"
-#~ msgstr "Fehlernummer fehlt"
-
-#~ msgid "Missing message"
-#~ msgstr "Nachricht fehlt"
-
-#~ msgid "Missing bug title"
-#~ msgstr "Titel für Fehlermeldung fehlt"
-
-#~ msgid "Missing description"
-#~ msgstr "Beschreibung fehlt"
-
-#~ msgid "Missing bug priority"
-#~ msgstr "Priorität fehlt"
-
-#~ msgid "Bug ID"
-#~ msgstr "Fehlernummer"
-
-#~ msgid "Message"
-#~ msgstr "Meldung"
-
-#~ msgid "New bug"
-#~ msgstr "Neuer Fehler"
-
-#~ msgid "Send bug"
-#~ msgstr "Fehlermeldung abschicken"
-
-#~ msgid "Secure key"
-#~ msgstr "Sicherheitsschlüssel"
-
-#~ msgid "Account"
-#~ msgstr "Benutzerkennung"
-
-#~ msgid "Value"
-#~ msgstr "Wert"
-
-#, fuzzy
-#~ msgid "Online bugs"
-#~ msgstr "vorhandene Fehlermeldungen"
-
-#~ msgid "Login name"
-#~ msgstr "Benutzername"
