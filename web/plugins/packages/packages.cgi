@@ -32,22 +32,39 @@ EOT
 EOT
 	else
 		# List all pkgs affected by a bug
-		echo "<h2>Buggy packages</h2>"
-		echo "<pre>"
+		cat << EOT
+<h2>Buggy packages</h2>
+<div id="plugins">
+<table>
+	<thead>
+		<td>$(gettext "Package name")</td>
+		<td>$(gettext "Bug date")</td>
+		<td>$(gettext "Action")</td>
+	</thead>
+EOT
 		for bug in $(ls $bugdir/open)
 		do
-			. $bugdir/open/${bug}/bug.conf
+			. ${bugdir}/open/${bug}/bug.conf
 			for pkg in ${PKGS}; do
+				count=1
 				if ! echo "$pkgs" | grep -q -w "$pkg"; then
 					pkgs="$pkgs $PKGS"
+				else
+					count_${pkg}=$(($count + 1))
 				fi
 			unset PKGS
 			done
 		done
 		for pkg in $pkgs; do
-			echo "<img src='images/pkg.png' alt='' /> Package: <a href='?pkg=$pkg'>$pkg</a>"
+			cat << EOT
+	<tr>
+		<td><img src='images/pkg.png' alt='' /> <a href='?pkg=$pkg'>$pkg</a></td>
+		<td>$count_pkg</td>
+		<td>TODO</td>
+	</tr>
+EOT
 		done
-		echo "</pre>"
+		echo "</table></div>"
 	fi
 	html_footer
 	exit 0
