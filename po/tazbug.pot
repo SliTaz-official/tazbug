@@ -1,6 +1,6 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the SliTaz Bugs package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: SliTaz Bugs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-21 03:34+0100\n"
+"POT-Creation-Date: 2019-01-10 16:38+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,227 +18,238 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: web/bugs.cgi:131
-msgid "Logout"
-msgstr ""
-
-#: web/bugs.cgi:138 web/bugs.cgi:189
-msgid "Login"
-msgstr ""
-
-#: web/bugs.cgi:146 web/bugs.cgi:147 web/bugs.cgi:762 web/bugs.cgi:765
+#: web/bugs.cgi:149 web/bugs.cgi:150 web/bugs.cgi:818 web/bugs.cgi:821
 msgid "Search"
 msgstr ""
 
-#: web/bugs.cgi:164
+#: web/bugs.cgi:167
 msgid "Real name"
 msgstr ""
 
-#: web/bugs.cgi:165 web/bugs.cgi:201
+#: web/bugs.cgi:168 web/bugs.cgi:204
 msgid "User name"
 msgstr ""
 
-#: web/bugs.cgi:166
+#: web/bugs.cgi:169
 msgid "Email"
 msgstr ""
 
-#: web/bugs.cgi:167 web/bugs.cgi:203
+#: web/bugs.cgi:170 web/bugs.cgi:206
 msgid "Password"
 msgstr ""
 
-#: web/bugs.cgi:169
+#: web/bugs.cgi:172
 msgid "Create new account"
 msgstr ""
 
-#: web/bugs.cgi:181
+#: web/bugs.cgi:184
 msgid "Sign Up Online"
 msgstr ""
 
 #: web/bugs.cgi:192
+msgid "Login"
+msgstr ""
+
+#: web/bugs.cgi:195
 msgid "No account yet?"
 msgstr ""
 
-#: web/bugs.cgi:194
+#: web/bugs.cgi:197
 msgid "Tip: to attach big files or images, you can use SliTaz Paste services:"
 msgstr ""
 
-#: web/bugs.cgi:206
+#: web/bugs.cgi:209
 msgid "Log in"
 msgstr ""
 
-#: web/bugs.cgi:232
-#, sh-format
-msgid "$status Bugs"
+#: web/bugs.cgi:258
+msgid "Bugs:"
 msgstr ""
 
-#: web/bugs.cgi:285
+#: web/bugs.cgi:314
 #, sh-format
 msgid "Bug $id: $STATUS"
 msgstr ""
 
-#: web/bugs.cgi:291
+#: web/bugs.cgi:318
 msgid "Date:"
 msgstr ""
 
-#: web/bugs.cgi:292
+#: web/bugs.cgi:319
 msgid "Creator:"
 msgstr ""
 
-#: web/bugs.cgi:293
+#: web/bugs.cgi:320
 #, sh-format
 msgid "Priority $PRIORITY"
 msgstr ""
 
-#: web/bugs.cgi:294 web/bugs.cgi:810
+#: web/bugs.cgi:321 web/bugs.cgi:874
 #, sh-format
 msgid "$msgs message"
 msgid_plural "$msgs messages"
 msgstr[0] ""
 msgstr[1] ""
 
-#: web/bugs.cgi:306
+#: web/bugs.cgi:330
+msgid "Affected package(s):"
+msgstr ""
+
+#: web/bugs.cgi:340
 msgid "Close bug"
 msgstr ""
 
-#: web/bugs.cgi:311
+#: web/bugs.cgi:345
 msgid "Edit bug"
 msgstr ""
 
-#: web/bugs.cgi:316
+#: web/bugs.cgi:350
 msgid "Re open bug"
 msgstr ""
 
-#: web/bugs.cgi:323
+#: web/bugs.cgi:357
 msgid "Messages"
 msgstr ""
 
-#: web/bugs.cgi:325
+#: web/bugs.cgi:359
 msgid "No messages"
 msgstr ""
 
-#: web/bugs.cgi:348
+#: web/bugs.cgi:380
+msgid "By:"
+msgstr ""
+
+#: web/bugs.cgi:394
 msgid "New message"
 msgstr ""
 
-#: web/bugs.cgi:352
+#: web/bugs.cgi:398
 msgid "Send message"
 msgstr ""
 
-#: web/bugs.cgi:411
+#: web/bugs.cgi:457
 msgid "New Bug"
 msgstr ""
 
-#: web/bugs.cgi:419 web/bugs.cgi:472
+#: web/bugs.cgi:465 web/bugs.cgi:518
 msgid "Bug title"
 msgstr ""
 
-#: web/bugs.cgi:423 web/bugs.cgi:476
+#: web/bugs.cgi:469 web/bugs.cgi:522 web/plugins/dashboard/dashboard.cgi:47
 msgid "Description"
 msgstr ""
 
-#: web/bugs.cgi:427 web/bugs.cgi:480
+#: web/bugs.cgi:473 web/bugs.cgi:526
 msgid "Packages"
 msgstr ""
 
-#: web/bugs.cgi:431 web/bugs.cgi:484
+#: web/bugs.cgi:477 web/bugs.cgi:530
 msgid "Priority"
 msgstr ""
 
-#: web/bugs.cgi:434 web/bugs.cgi:488
+#: web/bugs.cgi:480 web/bugs.cgi:534
 msgid "Standard"
 msgstr ""
 
-#: web/bugs.cgi:435 web/bugs.cgi:489
+#: web/bugs.cgi:481 web/bugs.cgi:535
 msgid "Critical"
 msgstr ""
 
-#: web/bugs.cgi:437
+#: web/bugs.cgi:483
 msgid "Create Bug"
 msgstr ""
 
-#: web/bugs.cgi:445
+#: web/bugs.cgi:491
 msgid "* field is obligatory. You can also specify affected packages."
 msgstr ""
 
-#: web/bugs.cgi:458
+#: web/bugs.cgi:504
 msgid "You can't edit someone else's bug!"
 msgstr ""
 
-#: web/bugs.cgi:461
+#: web/bugs.cgi:507
 #, sh-format
 msgid "Edit Bug $bug"
 msgstr ""
 
-#: web/bugs.cgi:491
+#: web/bugs.cgi:537
 msgid "Save configuration"
 msgstr ""
 
-#: web/bugs.cgi:620
+#: web/bugs.cgi:669
 msgid "User already exists:"
 msgstr ""
 
-#: web/bugs.cgi:664
+#: web/bugs.cgi:715
 msgid "Bad login or pass"
 msgstr ""
 
-#: web/bugs.cgi:689
+#: web/bugs.cgi:742 web/plugins/users/users.cgi:197
 msgid "User name  :"
 msgstr ""
 
-#: web/bugs.cgi:690
+#: web/bugs.cgi:743 web/plugins/users/users.cgi:198
 msgid "Last login :"
 msgstr ""
 
-#: web/bugs.cgi:702
+#: web/bugs.cgi:756
 msgid "You must be logged in to post a new bug"
 msgstr ""
 
-#: web/bugs.cgi:748
+#: web/bugs.cgi:804
 msgid "Sign Up"
 msgstr ""
 
-#: web/bugs.cgi:752
+#: web/bugs.cgi:808
 msgid "Online registration is disabled"
 msgstr ""
 
-#: web/bugs.cgi:776
+#: web/bugs.cgi:825
+msgid "Search by pattern, package or user"
+msgstr ""
+
+#: web/bugs.cgi:831
+msgid "Result for:"
+msgstr ""
+
+#: web/bugs.cgi:839
 msgid "Show"
 msgstr ""
 
-#: web/bugs.cgi:784
+#: web/bugs.cgi:848
 msgid "No result found for"
 msgstr ""
 
-#: web/bugs.cgi:786
+#: web/bugs.cgi:850
 msgid "results found"
 msgstr ""
 
-#: web/bugs.cgi:804
+#: web/bugs.cgi:868
 msgid "Summary"
 msgstr ""
 
-#: web/bugs.cgi:807
+#: web/bugs.cgi:871
 #, sh-format
 msgid "Bug: $bugs in total -"
 msgid_plural "Bugs: $bugs in total -"
 msgstr[0] ""
 msgstr[1] ""
 
-#: web/bugs.cgi:808
+#: web/bugs.cgi:872
 #, sh-format
 msgid "$close fixed -"
 msgid_plural "$close fixed -"
 msgstr[0] ""
 msgstr[1] ""
 
-#: web/bugs.cgi:809
+#: web/bugs.cgi:873
 #, sh-format
 msgid "$fixme to fix -"
 msgid_plural "$fixme to fix -"
 msgstr[0] ""
 msgstr[1] ""
 
-#: web/bugs.cgi:817
+#: web/bugs.cgi:881
 msgid ""
 "Please read the <a href=\"?README\">README</a> for help and more "
 "information. You may also be interested by the SliTaz <a href=\"http://"
@@ -247,18 +258,84 @@ msgid ""
 "ENTER."
 msgstr ""
 
-#: web/bugs.cgi:826
+#: web/bugs.cgi:890
 msgid "Closed bugs"
 msgstr ""
 
-#: web/bugs.cgi:829
+#: web/bugs.cgi:893
 msgid "Create bug"
 msgstr ""
 
-#: web/bugs.cgi:835
-msgid "Latest Bugs"
+#: web/bugs.cgi:899
+msgid "Latest bugs"
 msgstr ""
 
-#: web/bugs.cgi:845
-msgid "Latest Messages"
+#: web/bugs.cgi:910
+msgid "Latest messages"
+msgstr ""
+
+#: web/plugins/dashboard/dashboard.cgi:12
+#: web/plugins/dashboard/dashboard.cgi:65
+msgid "You must be logged in to view the dashboard"
+msgstr ""
+
+#: web/plugins/dashboard/dashboard.cgi:42
+msgid "Plugins:"
+msgstr ""
+
+#: web/plugins/dashboard/dashboard.cgi:46
+msgid "Name"
+msgstr ""
+
+#: web/plugins/dashboard/dashboard.cgi:48 web/plugins/packages/packages.cgi:42
+#: web/plugins/users/users.cgi:116
+msgid "Action"
+msgstr ""
+
+#: web/plugins/mybugs/mybugs.cgi:22
+msgid "My bugs"
+msgstr ""
+
+#: web/plugins/packages/packages.cgi:40
+msgid "Package name"
+msgstr ""
+
+#: web/plugins/packages/packages.cgi:41
+msgid "Bug date"
+msgstr ""
+
+#: web/plugins/users/users.cgi:19
+msgid "Modify profile"
+msgstr ""
+
+#: web/plugins/users/users.cgi:90
+msgid "You must be logged in to check on admin users"
+msgstr ""
+
+#: web/plugins/users/users.cgi:101
+msgid "You must be admin to manage users"
+msgstr ""
+
+#: web/plugins/users/users.cgi:115
+msgid "Username"
+msgstr ""
+
+#: web/plugins/users/users.cgi:146
+msgid "You must be logged in to view online users"
+msgstr ""
+
+#: web/plugins/users/users.cgi:210
+msgid "About me"
+msgstr ""
+
+#: web/plugins/users/users.cgi:232
+msgid "User:"
+msgstr ""
+
+#: web/plugins/users/users.cgi:233
+msgid "Modify your profile settings"
+msgstr ""
+
+#: web/plugins/users/users.cgi:244
+msgid "Save profile"
 msgstr ""
