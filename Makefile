@@ -14,7 +14,11 @@ all: msgfmt
 
 pot:
 	xgettext -o po/tazbug.pot -L Shell --package-name="SliTaz Bugs" \
-		./web/bugs.cgi 
+		./web/bugs.cgi \
+		./web/plugins/dashboard/dashboard.cgi \
+		./web/plugins/mybugs/mybugs.cgi \
+		./web/plugins/packages/packages.cgi \
+		./web/plugins/users/users.cgi 
 	xgettext -o po/cli/tazbug-cli.pot -L Shell --package-name="Tazbug cli" \
 		./tazbug
 
