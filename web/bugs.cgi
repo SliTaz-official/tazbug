@@ -299,7 +299,7 @@ wiki_parser() {
 	sed \
 		-e s"#http://\([^']*\).png#<img src='\0' alt='[ Image ]' />#"g \
 		-e s"#http://\([^']*\).*# <a href='\0'>\1</a>#"g \
-		-e 's#\\\\n##g;s#%22#"#g;s#%21#!#g'
+		-e 's#\\\\n##g;s#\\"#"#g;s#%22#"#g;s#%21#!#g'
 }
 
 # Bug page
@@ -516,11 +516,11 @@ edit_bug() {
 		<tbody>
 			<tr>
 				<td>$(gettext "Bug title")</td>
-				<td><input type="text" name="bug" value="$BUG" /></td>
+				<td><input type="text" name="bug" value="$${BUG//\"/&#34}" /></td>
 			</tr>
 			<tr>
 				<td>$(gettext "Description")</td>
-				<td><textarea name="desc">$(cat $bugdir/$id/desc.txt)</textarea></td>
+				<td><textarea name="desc">$(sed 's|\\"|\&#34|' $bugdir/$id/desc.txt)</textarea></td>
 			</tr>
 			<tr>
 				<td>$(gettext "Packages")</td>
