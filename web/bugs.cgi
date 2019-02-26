@@ -106,7 +106,7 @@ check_auth() {
 	user="$(echo $auth | cut -d ":" -f 1)"
 	md5cookie="$(echo $auth | cut -d ":" -f 2)"
 	[ -f "$sessions/$user" ] && md5session="$(cat $sessions/$user)"
-	if [ "$md5cookie" == "$md5session" ] && [ "$auth" ]; then
+	if [ "$md5cookie" = "$md5session" ] && [ "$auth" ]; then
 		return 0
 	else
 		return 1
@@ -179,7 +179,7 @@ EOT
 
 # Link for online signup if enabled.
 online_signup() {
-	if [ "$ONLINE_SIGNUP" == "yes" ]; then
+	if [ "$ONLINE_SIGNUP" = "yes" ]; then
 		echo -n "<a href='$script?signup&amp;online'>"
 		gettext "Sign Up Online"
 		echo '</a></p>'
@@ -262,7 +262,7 @@ list_bugs() {
 		for id in $(ls $bugdir/$status)
 		do
 			. $bugdir/$status/$id/bug.conf
-			if [ "$PRIORITY" == "$pr" ]; then
+			if [ "$PRIORITY" = "$pr" ]; then
 				[ -f "${PEOPLE}/${CREATOR}/account.conf" ] && \
 					. ${PEOPLE}/${CREATOR}/account.conf
 				cat << EOT
@@ -335,12 +335,12 @@ EOT
 	fi
 	echo '<div id="tools">'
 	if check_auth; then
-		if [ "$STATUS" == "OPEN" ]; then
+		if [ "$STATUS" = "OPEN" ]; then
 			cat << EOT
 <a href="?id=$id&amp;close">$(gettext "Close bug")</a>
 EOT
 		# Only original user and admin can edit a bug
-		if [ "$user" == "$CREATOR" ] || admin_user; then
+		if [ "$user" = "$CREATOR" ] || admin_user; then
 			cat << EOT
 <a href="?editbug=$id">$(gettext "Edit bug")</a>
 EOT
@@ -356,7 +356,7 @@ EOT
 
 <h3>$(gettext "Messages")</h3>
 EOT
-	[ "$msgs" == "0" ] && gettext "No messages"
+	[ "$msgs" = "0" ] && gettext "No messages"
 	for msg in $(ls -1tr $bugdir/$id/msg.*)
 	do
 		#
@@ -373,7 +373,7 @@ EOT
 			msgid=$(echo $msg | cut -d "." -f 2)
 			del=""
 			# User can delete his post as well as admin.
-			if [ "$user" == "$USER" ] || admin_user; then
+			if [ "$user" = "$USER" ] || admin_user; then
 				del="- <a href=\"?id=$id&amp;delmsg=$msgid\">delete</a>"
 			fi
 			cat << EOT
@@ -498,7 +498,7 @@ EOT
 # Edit/Save a bug
 edit_bug() {
 	. $bugdir/$id/bug.conf
-	if admin_user || [ "$user" == "$CREATOR" ]; then
+	if admin_user || [ "$user" = "$CREATOR" ]; then
 		continue
 	else
 		gettext "You can't edit someone else's bug!" && exit 0
@@ -605,7 +605,7 @@ MAIL="$mail"
 EOT
 	chmod 0600 $PEOPLE/$user/account.conf
 	# First created user is admin
-	if [ $(ls ${PEOPLE} | wc -l) == "1" ]; then
+	if [ $(ls ${PEOPLE} | wc -l) = "1" ]; then
 		echo "$user" > ${ADMIN_USERS}
 	fi
 }
@@ -635,7 +635,7 @@ case " $(POST) " in
 		fi;
 
 		valid=$(fgrep "${user}:" $AUTH_FILE | cut -d ":" -f 2)
-		if [ "$pass" == "$valid" ] && [ "$pass" != "" ]; then
+		if [ "$pass" = "$valid" ] && [ "$pass" != "" ]; then
 			if [[ "$(POST id)" ]] ;then
 				IDLOC="?id=$(POST id)"
 			fi
@@ -802,7 +802,7 @@ EOT
 		html_header
 		user_box
 		echo "<h2>$(gettext "Sign Up")</h2>"
-		if [ "$ONLINE_SIGNUP" == "yes" ]; then
+		if [ "$ONLINE_SIGNUP" = "yes" ]; then
 			signup_page
 		else
 			gettext "Online registration is disabled"
@@ -844,7 +844,7 @@ EOT
 			fi
 			bugdir=$(dirname $bugdir)
 		done
-		if [ "$found" == "0" ]; then
+		if [ "$found" = "0" ]; then
 			echo "<p>$(gettext 'No result found for') : $(GET search)</p>"
 		else
 			echo "<p> $found $(gettext 'results found')</p>"

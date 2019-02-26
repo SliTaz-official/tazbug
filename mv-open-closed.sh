@@ -19,7 +19,7 @@ do
 	if [ -f "${bug}/bug.conf" ]; then
 		. ./${bug}/bug.conf
 		echo  -n "Moving bug: ${bug} $STATUS"
-		if [ "$STATUS" == "OPEN" ]; then
+		if [ "$STATUS" = "OPEN" ]; then
 			mv ${bug} open/ && status
 		else
 			mv ${bug} closed/ && status

@@ -197,7 +197,7 @@ EOT
 $(gettext "User name  :") $USER
 $(gettext "Last login :") $last
 EOT
-		if check_auth && [ "$(GET user)" == "$user" ]; then
+		if check_auth && [ "$(GET user)" = "$user" ]; then
 			auth_people
 		else
 			# check_auth will set VARS to current logged user: re-source

@@ -29,7 +29,7 @@ if [ "$(GET textmode)" ]; then
 			fi
 			bugdir=$(dirname $bugdir)
 		done
-		if [ "$found" == "" ]; then
+		if [ "$found" = "" ]; then
 			echo "No result found for: $(GET search)"
 		else
 			separator && echo "$found result(s) found"

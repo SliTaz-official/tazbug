@@ -48,7 +48,7 @@ fi
 
 if [ "$show_more" ]; then
 	echo "<p>"
-	if [ "$HTTP_HOST" == "bugs.slitaz.org" ]; then
+	if [ "$HTTP_HOST" = "bugs.slitaz.org" ]; then
 		echo "<a href='?mybugs&user=$user'>$(gettext 'View all my bugs and messages')</a>"
 	else
 		echo "$(gettext 'View all my bugs and debug messages on:') "
